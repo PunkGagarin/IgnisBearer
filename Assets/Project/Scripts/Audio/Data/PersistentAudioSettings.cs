@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Jam.Scripts.Audio.Data
+namespace Project.Scripts.Audio.Data
 {
     public class PersistentAudioSettings
     {

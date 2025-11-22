@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Jam.Scripts.GameplayData.Definitions;
+using Project.Scripts.GameplayData.Definitions;
 using UnityEngine;
 
-namespace Jam.Scripts.GameplayData.Repositories
+namespace Project.Scripts.GameplayData.Repositories
 {
     public abstract class Repository<T> : ScriptableObject where T : Definition
     {

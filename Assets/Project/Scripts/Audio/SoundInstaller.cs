@@ -1,9 +1,9 @@
-﻿using Jam.Scripts.Audio.Data;
+﻿using Project.Scripts.Audio.Data;
 using UnityEngine;
 using UnityEngine.Audio;
 using Zenject;
 
-namespace Jam.Scripts.Audio
+namespace Project.Scripts.Audio
 {
     public class SoundInstaller : MonoInstaller
     {

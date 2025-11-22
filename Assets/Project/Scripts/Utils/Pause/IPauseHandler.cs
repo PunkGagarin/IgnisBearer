@@ -1,4 +1,4 @@
-﻿namespace Jam.Scripts.Utils.Pause
+﻿namespace Project.Scripts.Utils.Pause
 {
     public interface IPauseHandler
     {

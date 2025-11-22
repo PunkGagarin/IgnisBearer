@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Jam.Scripts.Audio.Data;
+using Project.Scripts.Audio.Data;
 using UnityEngine;
 using Zenject;
 
-namespace Jam.Scripts.Audio
+namespace Project.Scripts.Audio
 {
     public class AudioService : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace Jam.Scripts.SceneManagement
+namespace Project.Scripts.SceneManagement
 {
     public class SceneLoaderInstaller : MonoInstaller
     {

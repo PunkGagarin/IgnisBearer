@@ -1,10 +1,10 @@
-﻿using Jam.Scripts.SceneManagement;
-using Jam.Scripts.Utils.Coroutine;
+﻿using Project.Scripts.SceneManagement;
+using Project.Scripts.Utils.Coroutine;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Jam.Scripts
+namespace Project.Scripts
 {
     public class MainMenu : MonoBehaviour
     {

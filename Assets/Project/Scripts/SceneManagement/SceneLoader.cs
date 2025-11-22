@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Jam.Scripts.SceneManagement
+namespace Project.Scripts.SceneManagement
 {
     public class SceneLoader
     {

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Jam.Scripts.Audio.Data
+namespace Project.Scripts.Audio.Data
 {
     [Serializable]
     public class SoundElement
