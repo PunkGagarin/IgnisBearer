@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,22 +8,24 @@ namespace Project.Scripts.SceneManagement
     public class SceneLoader
     {
         private AsyncOperation _asyncOperation;
-        
-        public IEnumerator LoadScene(SceneEnum scene)
+        private UniTask _loadingTask;
+
+        public async UniTaskVoid LoadScene(SceneEnum scene)
         {
-            SceneManager.LoadScene(SceneEnum.Loading.ToString());
+            if (_loadingTask.Status == UniTaskStatus.Pending)
+                await _loadingTask;
 
-            yield return null;
-            
-            _asyncOperation = SceneManager.LoadSceneAsync(scene.ToString());
-
-            while (!_asyncOperation.isDone)
-            {
-                yield return null;
-            }
+            _loadingTask = LoadSceneAsync(scene);
         }
 
-        public float GetLoadingProcess() => 
+        private async UniTask LoadSceneAsync(SceneEnum scene)
+        {
+            await SceneManager.LoadSceneAsync(SceneEnum.Loading.ToString()).ToUniTask();
+            _asyncOperation = SceneManager.LoadSceneAsync(scene.ToString());
+            await _asyncOperation.ToUniTask();
+        }
+
+        public float GetLoadingProcess() =>
             _asyncOperation?.progress ?? 0f;
     }
 }

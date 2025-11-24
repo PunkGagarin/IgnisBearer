@@ -15,6 +15,8 @@ namespace Project.Scripts
         [Inject] private SceneLoader _sceneLoader;
         [Inject] private CoroutineHelper _coroutineHelper;
         
+        
+        
         private void Awake()
         {
             _startGame.onClick.AddListener(StartGame);
@@ -22,9 +24,9 @@ namespace Project.Scripts
             _credits.onClick.AddListener(OpenCredits);
         }
         
-        private void StartGame()
+        private async void StartGame()
         {
-            _coroutineHelper.RunCoroutine(_sceneLoader.LoadScene(SceneEnum.Gameplay));
+            _sceneLoader.LoadScene(SceneEnum.Gameplay).Forget();
         }
         
         private void OpenSettings()
