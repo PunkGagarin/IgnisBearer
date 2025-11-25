@@ -11,7 +11,7 @@ namespace Project.Scripts.Infrastructure.SceneManagement
         public override void InstallBindings()
         {
             Container.Bind<SceneLoader>().FromNew().AsSingle().NonLazy();
-            Container.Bind<LoadingCurtain>().AsSingle();
+            Container.Bind<LoadingCurtain>().FromInstance(_loadingCurtain).AsSingle();
         }
     }
 }

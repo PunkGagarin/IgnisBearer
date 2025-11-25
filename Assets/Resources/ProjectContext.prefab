@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a926a3a3224f3682d2610f74fb2755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _loadingCurtain: {fileID: 1547699981851766116}
 --- !u!1001 &9132054548906938621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -299,6 +300,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d8f74332525942ae8b3b1f382944f4f, type: 3}
+--- !u!114 &1547699981851766116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7764517831859879321, guid: 8d8f74332525942ae8b3b1f382944f4f, type: 3}
+  m_PrefabInstance: {fileID: 9132054548906938621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b268df3c7a34b57a55f176f600c0f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.Infrastructure.SceneManagement.LoadingCurtain
 --- !u!224 &4931348655103127261 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4239075013737791008, guid: 8d8f74332525942ae8b3b1f382944f4f, type: 3}
