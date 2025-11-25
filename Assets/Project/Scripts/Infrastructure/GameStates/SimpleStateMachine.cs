@@ -18,9 +18,9 @@ namespace Project.Scripts.Infrastructure.GameStates
 
         public void Enter<TState>() where TState : class, T, IState
         {
+            Debug.Log($"Tryint to change state from  {_currentState?.GetType().Name} to {typeof(TState).Name}");
             IState state = ChangeCurrentState<TState>();
             state.Enter();
-            
         }
 
         public void Enter<TState, TPayload>(TPayload payload) where TState : class, T, IPayloadState<TPayload>

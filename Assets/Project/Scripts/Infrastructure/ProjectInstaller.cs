@@ -1,4 +1,5 @@
 ﻿using Project.Scripts.Infrastructure.GameStates;
+using Project.Scripts.Infrastructure.GameStates.States;
 using UnityEngine;
 using Zenject;
 
@@ -17,8 +18,11 @@ namespace Project.Scripts.Infrastructure
             Debug.Log(" BindStateMachine from installer");
             Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
             Container.BindInterfacesAndSelfTo<LoadSceneState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MainMenuState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameplayState>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle().NonLazy();
         }
     }
+
 }

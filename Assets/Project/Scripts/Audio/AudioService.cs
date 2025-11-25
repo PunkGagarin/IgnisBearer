@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Jam.Scripts.Audio.Domain;
 using Project.Scripts.Audio.Data;
 using UnityEngine;
 using Zenject;
@@ -15,6 +16,36 @@ namespace Project.Scripts.Audio
         private List<AudioSource> _soundSources = new List<AudioSource>();
         
         private SoundElement _nextMusicClip;
+
+
+        public void Init()
+        {
+            _musicSource = gameObject.AddComponent<AudioSource>();
+            _musicSource.loop = true;
+            _musicSource.playOnAwake = false;
+            _musicSource.outputAudioMixerGroup = _persistentAudioSettings.MusicMixer;
+
+            for (int i = 0; i < 5; i++)
+                AddNewSoundSource();
+            
+            // DontDestroyOnLoad(this);
+        }
+
+        private void Update()
+        {
+            if (_musicSource.loop ||
+                _musicSource.isPlaying ||
+                _nextMusicClip == null)
+                return;
+            
+            SetMusicClip(_nextMusicClip);
+            _nextMusicClip = null;
+        }
+
+        public void PlaySound(Sounds soundName)
+        {
+            PlaySound(soundName.ToString());
+        }
 
         public void PlaySound(string clipName)
         {
@@ -45,7 +76,7 @@ namespace Project.Scripts.Audio
                 _nextMusicClip = clip;
             }
         }
-        
+
         private AudioSource GetSource()
         {
             foreach (AudioSource soundSource in _soundSources.Where(soundSource => !soundSource.isPlaying))
@@ -53,7 +84,7 @@ namespace Project.Scripts.Audio
 
             return AddNewSoundSource();
         }
-        
+
         private SoundElement FindClip(string clipName, SoundType soundType)
         {
             SoundElement clip;
@@ -69,7 +100,7 @@ namespace Project.Scripts.Audio
             soundSource.volume = clip.Volume;
             soundSource.Play();
         }
-        
+
         private void SetMusicClip(SoundElement clip)
         {
             _musicSource.clip = clip.Clip;
@@ -86,27 +117,6 @@ namespace Project.Scripts.Audio
             _soundSources.Add(source);
             return source;
         }
-        
-        private void Awake()
-        {
-            _musicSource = gameObject.AddComponent<AudioSource>();
-            _musicSource.loop = true;
-            _musicSource.playOnAwake = false;
-            _musicSource.outputAudioMixerGroup = _persistentAudioSettings.MusicMixer;
 
-            for (int i = 0; i < 5; i++)
-                AddNewSoundSource();
-        }
-
-        private void Update()
-        {
-            if (_musicSource.loop ||
-                _musicSource.isPlaying ||
-                _nextMusicClip == null)
-                return;
-            
-            SetMusicClip(_nextMusicClip);
-            _nextMusicClip = null;
-        }
     }
 }

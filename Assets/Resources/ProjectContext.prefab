@@ -47,50 +47,6 @@ MonoBehaviour:
   _musicMixer: {fileID: 24300002, guid: 8a83e683443f9e948b4f3fd10a9adf77, type: 2}
   _soundMixer: {fileID: 24300002, guid: ad66ae52c5606a74b9655b985c705279, type: 2}
   _soundRepository: {fileID: 11400000, guid: dc926880fae59fb409cebcaf900dc800, type: 2}
---- !u!1 &1829024776959784697
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7463891262026734857}
-  - component: {fileID: 4239976281551959787}
-  m_Layer: 0
-  m_Name: CoroutineHelperInstaller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7463891262026734857
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829024776959784697}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2548839604113478229}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4239976281551959787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829024776959784697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8dbb4a655f444aa8235eb8c149e0e0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1964722022923490299
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +78,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2015282886820185581}
-  - {fileID: 7463891262026734857}
   - {fileID: 3146382770240859444}
   - {fileID: 7992559910599713053}
   m_Father: {fileID: 0}
@@ -143,7 +98,6 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 433250666604234635}
   - {fileID: 2709071268093058265}
-  - {fileID: 4239976281551959787}
   - {fileID: 6909934021187158411}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 0

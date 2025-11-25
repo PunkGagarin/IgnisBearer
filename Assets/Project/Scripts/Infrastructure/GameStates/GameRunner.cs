@@ -1,29 +1,26 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
+using Project.Scripts.Infrastructure.GameStates.States;
 using Zenject;
 
 namespace Project.Scripts.Infrastructure.GameStates
 {
-    public class GameRunner : MonoBehaviour
+    public class GameRunner : IInitializable
     {
 
         [Inject] private GameStateMachine _stateMachine;
-        
-        // [Inject] private BootstrapState _bootstrap;
-        // [Inject] private LoadSceneState _loadSceneState;
-        
         [Inject] private List<IGameState> _states;
 
-        private void Start()
+        public void Initialize()
         {
-            // _stateMachine.Register(_bootstrap);
-            // _stateMachine.Register(_loadSceneState);
-            
-            foreach (var state in _states)
-                _stateMachine.Register(state);
-            
-            _stateMachine.Enter<BootstrapState>();
+            RegisterAndStart();
         }
 
+        private void RegisterAndStart()
+        {
+            foreach (var state in _states)
+                _stateMachine.Register(state);
+
+            _stateMachine.Enter<BootstrapState>();
+        }
     }
 }

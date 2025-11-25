@@ -10,12 +10,12 @@ namespace Project.Scripts.SceneManagement
         private AsyncOperation _asyncOperation;
         private UniTask _loadingTask;
 
-        public async UniTaskVoid LoadScene(SceneEnum scene)
+        public async UniTask LoadScene(SceneEnum scene)
         {
             if (_loadingTask.Status == UniTaskStatus.Pending)
                 await _loadingTask;
 
-            _loadingTask = LoadSceneAsync(scene);
+            await LoadSceneAsync(scene);
         }
 
         private async UniTask LoadSceneAsync(SceneEnum scene)
