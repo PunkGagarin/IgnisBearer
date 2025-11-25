@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +19,6 @@ namespace Project.Scripts.SceneManagement
 
         private async UniTask LoadSceneAsync(SceneEnum scene)
         {
-            await SceneManager.LoadSceneAsync(SceneEnum.Loading.ToString()).ToUniTask();
             _asyncOperation = SceneManager.LoadSceneAsync(scene.ToString());
             await _asyncOperation.ToUniTask();
         }

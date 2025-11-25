@@ -20,6 +20,7 @@ namespace Project.Scripts.Audio
 
         public void Init()
         {
+            Debug.LogError("Init()");
             _musicSource = gameObject.AddComponent<AudioSource>();
             _musicSource.loop = true;
             _musicSource.playOnAwake = false;
@@ -33,6 +34,7 @@ namespace Project.Scripts.Audio
 
         private void Update()
         {
+            Debug.LogError("Update()");
             if (_musicSource.loop ||
                 _musicSource.isPlaying ||
                 _nextMusicClip == null)
