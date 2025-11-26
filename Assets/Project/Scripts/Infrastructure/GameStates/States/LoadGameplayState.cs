@@ -13,12 +13,12 @@ namespace Project.Scripts.Infrastructure.GameStates.States
         public async void Enter()
         {
             _loadingCurtain.Show();
-            
             //load resources
             await _sceneLoader.LoadScene(SceneEnum.Gameplay);
             //create buildings & units
-            
             _loadingCurtain.Hide();
+            
+            _stateMachine.Enter<GameplayState>();
         }
 
         public void Exit()

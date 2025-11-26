@@ -25,6 +25,7 @@ namespace Project.Scripts.Infrastructure.GameStates.States
             _audioService.Init();
             await _sceneLoader.LoadScene(SceneEnum.MainMenu);
             _loadingCurtain.Hide();
+            
             _gameStateMachine.Enter<MainMenuState>();
         }
 

@@ -42,8 +42,7 @@ namespace Project.Scripts
         private async void StartGame()
         {
             _audio.PlaySound(Sounds.buttonClick);
-            await _sceneLoader.LoadScene(SceneEnum.Gameplay);
-            _stateMachine.Enter<GameplayState>();
+            _stateMachine.Enter<LoadGameplayState>();
         }
 
         private void OpenSettings()
