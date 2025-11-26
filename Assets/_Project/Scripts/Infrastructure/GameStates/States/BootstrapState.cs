@@ -1,25 +1,25 @@
 ﻿using Project.Scripts.Audio;
-using Project.Scripts.Infrastructure.SceneManagement;
-using Project.Scripts.SceneManagement;
-using UnityEngine;
+using Project.Scripts.Infrastructure.GameStates;
+using Project.Scripts.Infrastructure.GameStates.States;
 using Zenject;
 
-namespace Project.Scripts.Infrastructure.GameStates.States
+namespace _Project.Scripts.Infrastructure.GameStates.States
 {
     public class BootstrapState : IState, IGameState
     {
-        
+
         [Inject] private GameStateMachine _gameStateMachine;
         [Inject] private AudioService _audioService;
 
         public void Enter()
         {
+            
             // show curtain
             // some resource loading
             // asset provider loading etc
             // init all project context systems
-            _audioService.Init();
             
+            _audioService.Init();
             _gameStateMachine.Enter<MainMenuState>();
         }
 
