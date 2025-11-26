@@ -20,7 +20,6 @@ namespace Project.Scripts.Audio
 
         public void Init()
         {
-            Debug.Log("AudioService Init");
             _musicSource = gameObject.AddComponent<AudioSource>();
             _musicSource.loop = true;
             _musicSource.playOnAwake = false;
