@@ -12,22 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: Unity.RemoteConfig.Editor::Unity.RemoteConfig.Editor.RemoteConfigDataStore
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"675d9934-bd98-4e87-ac8e-bcea880ffc7b\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"4a9adeed-0ac5-4b3f-89b7-ac347828650c\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"TestSetOne\",\r\n      \"type\": \"string\",\r\n     
-    \"value\": \"Test setting first\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"cbc23f6d-7692-40db-8fbe-9874cbb9f86e\"\r\n    },\r\n   
-    \"rs\": {\r\n      \"key\": \"TestInt\",\r\n      \"value\": 10,\r\n      \"type\":
-    \"int\"\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"675d9934-bd98-4e87-ac8e-bcea880ffc7b\"\r\n   
+    \"value\": \"Correct value\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n     
+    \"entityId\": \"ddb48eac-b949-4a1b-ac1c-d96adca850e5\"\r\n    },\r\n    \"rs\":
+    {\r\n      \"key\": \"TestInt\",\r\n      \"type\": \"int\",\r\n      \"value\":
+    5\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"437ad62f-6699-4db1-ae06-919fa4faaa49\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"GoblinName\",\r\n      \"value\": {},\r\n     
+    \"type\": \"json\"\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"4a9adeed-0ac5-4b3f-89b7-ac347828650c\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"TestSetOne\",\r\n      \"type\": \"string\",\r\n     
-    \"value\": \"Test setting first\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\":
-    {\r\n      \"entityId\": \"cbc23f6d-7692-40db-8fbe-9874cbb9f86e\"\r\n    },\r\n   
-    \"rs\": {\r\n      \"key\": \"TestInt\",\r\n      \"value\": 10,\r\n      \"type\":
-    \"int\"\r\n    }\r\n  }\r\n]"
+    \"value\": \"Correct value\"\r\n    }\r\n  },\r\n  {\r\n    \"metadata\": {\r\n     
+    \"entityId\": \"ddb48eac-b949-4a1b-ac1c-d96adca850e5\"\r\n    },\r\n    \"rs\":
+    {\r\n      \"key\": \"TestInt\",\r\n      \"type\": \"int\",\r\n      \"value\":
+    5\r\n    }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"8f62d66d-61a5-4ba3-90c3-9bea58e46dcb\",\r\n   
     \"name\": \"production\",\r\n    \"id\": \"a8e194e1-68d9-4f7c-a693-94723f600556\",\r\n   
     \"isDefault\": true,\r\n    \"createdAt\": \"2025-11-26T17:47:10Z\",\r\n    \"updatedAt\":
-    \"2025-11-26T17:47:10Z\"\r\n  },\r\n  {\r\n    \"projectId\": \"8f62d66d-61a5-4ba3-90c3-9bea58e46dcb\",\r\n   
-    \"name\": \"development\",\r\n    \"id\": \"f25e2f0a-ab6c-413c-9f53-d9c7ab6c8e33\",\r\n   
-    \"isDefault\": false,\r\n    \"createdAt\": \"2025-11-26T18:04:19Z\",\r\n   
-    \"updatedAt\": \"2025-11-26T18:04:19Z\"\r\n  }\r\n]"
+    \"2025-11-26T17:47:10Z\"\r\n  }\r\n]"

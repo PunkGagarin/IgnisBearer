@@ -1,5 +1,4 @@
 using _Project.Scripts.Infrastructure.GameStates;
-using _Project.Scripts.Infrastructure.GameStates;
 using Zenject;
 
 namespace _Project.Scripts.Infrastructure

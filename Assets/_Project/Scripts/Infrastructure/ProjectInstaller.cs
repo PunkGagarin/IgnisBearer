@@ -1,7 +1,6 @@
 using _Project.Scripts.Infrastructure.Configs;
 using _Project.Scripts.Infrastructure.GameStates.States;
 using _Project.Scripts.Infrastructure.GameStates;
-using _Project.Scripts.Infrastructure.GameStates.States;
 using UnityEngine;
 using Zenject;
 
