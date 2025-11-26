@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Scripts.Utils
+namespace _Project.Scripts.Utils
 {
     public class ContentUi : MonoBehaviour
     {

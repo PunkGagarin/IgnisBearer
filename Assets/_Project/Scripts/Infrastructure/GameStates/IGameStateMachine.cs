@@ -1,6 +1,4 @@
-using System;
-
-namespace Project.Scripts.Infrastructure.GameStates
+namespace _Project.Scripts.Infrastructure.GameStates
 {
     public interface IGameStateMachine<T>
     {

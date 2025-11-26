@@ -1,10 +1,10 @@
+using _Project.Scripts.Utils;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Project.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.Infrastructure.SceneManagement
+namespace _Project.Scripts.Infrastructure.SceneManagement
 {
     public class LoadingCurtain : ContentUi
     {

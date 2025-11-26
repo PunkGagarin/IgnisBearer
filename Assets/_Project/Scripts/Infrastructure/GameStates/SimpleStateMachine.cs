@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Project.Scripts.Infrastructure.GameStates
+namespace _Project.Scripts.Infrastructure.GameStates
 {
     public class SimpleStateMachine<T> : IGameStateMachine<T>, IPayloadStateMachine<T>
     {

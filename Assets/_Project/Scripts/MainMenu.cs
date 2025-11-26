@@ -1,13 +1,13 @@
-﻿using Jam.Scripts.Audio.Domain;
-using Project.Scripts.Audio;
-using Project.Scripts.Infrastructure.GameStates;
-using Project.Scripts.Infrastructure.GameStates.States;
-using Project.Scripts.SceneManagement;
+﻿using _Project.Scripts.Audio.Domain;
+using _Project.Scripts.Audio.View;
+using _Project.Scripts.Infrastructure.GameStates;
+using _Project.Scripts.Infrastructure.GameStates.States;
+using _Project.Scripts.Infrastructure.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts
+namespace _Project.Scripts
 {
     public class MainMenu : MonoBehaviour
     {
@@ -20,9 +20,11 @@ namespace Project.Scripts
         [SerializeField]
         private Button _credits;
 
+
         [Inject] private SceneLoader _sceneLoader;
         [Inject] private GameStateMachine _stateMachine;
         [Inject] private AudioService _audio;
+        [Inject] private SettingsView _settingsView;
 
 
         private void Awake()
@@ -47,6 +49,7 @@ namespace Project.Scripts
 
         private void OpenSettings()
         {
+            _settingsView.Open();
         }
 
         private void OpenCredits()

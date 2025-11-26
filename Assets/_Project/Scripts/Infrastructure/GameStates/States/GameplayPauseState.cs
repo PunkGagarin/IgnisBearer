@@ -1,4 +1,4 @@
-﻿namespace Project.Scripts.Infrastructure.GameStates.States
+﻿namespace _Project.Scripts.Infrastructure.GameStates.States
 {
     public class GameplayPauseState : IState, IGameState
     {

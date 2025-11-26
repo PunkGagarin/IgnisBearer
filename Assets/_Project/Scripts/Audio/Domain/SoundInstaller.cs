@@ -1,9 +1,9 @@
-﻿using Project.Scripts.Audio.Data;
+using _Project.Scripts.Audio.Data;
 using UnityEngine;
 using UnityEngine.Audio;
 using Zenject;
 
-namespace Project.Scripts.Audio
+namespace _Project.Scripts.Audio.Domain
 {
     public class SoundInstaller : MonoInstaller
     {
@@ -13,19 +13,37 @@ namespace Project.Scripts.Audio
         
         public override void InstallBindings()
         {
-            AudioSettingsInstall();
+            AudioSettingsModelInstall();
+            AudioMixerInstall();
+            AudioSettingsPresenterInstall();
             SoundServiceInstall();
         }
-        
-        private void AudioSettingsInstall()
+
+        private void AudioSettingsModelInstall()
         {
-            Container.Bind<PersistentAudioSettings>()
+            Container.Bind<AudioSettingsModel>()
+                .FromNew()
+                .AsSingle()
+                .NonLazy();
+        }
+
+        private void AudioMixerInstall()
+        {
+            Container.BindInterfacesAndSelfTo<AudioMixerService>()
                 .FromNew()
                 .AsSingle()
                 .WithArguments(_musicMixer, _soundMixer)
                 .NonLazy();
         }
         
+        private void AudioSettingsPresenterInstall()
+        {
+            Container.BindInterfacesAndSelfTo<SettingsPresenter>()
+                .FromNew()
+                .AsSingle()
+                .NonLazy();
+        }
+
         private void SoundServiceInstall()
         {
             Container.Bind<AudioService>()

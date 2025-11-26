@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Project.Scripts.Infrastructure.GameStates.States;
+using _Project.Scripts.Infrastructure.GameStates.States;
 using Zenject;
 
-namespace Project.Scripts.Infrastructure.GameStates
+namespace _Project.Scripts.Infrastructure.GameStates
 {
     public class GameRunner : IInitializable
     {

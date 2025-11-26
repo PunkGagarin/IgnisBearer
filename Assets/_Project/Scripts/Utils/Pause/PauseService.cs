@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Project.Scripts.Utils.Pause
+namespace _Project.Scripts.Utils.Pause
 {
     public class PauseService : IPauseHandler
     {

@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace Project.Scripts.Utils.Pause
+namespace _Project.Scripts.Utils.Pause
 {
     public class PauseServiceInstaller : MonoInstaller
     {

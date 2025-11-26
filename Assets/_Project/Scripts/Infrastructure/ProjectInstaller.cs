@@ -1,9 +1,9 @@
-﻿using Project.Scripts.Infrastructure.GameStates;
-using Project.Scripts.Infrastructure.GameStates.States;
+﻿using _Project.Scripts.Infrastructure.GameStates;
+using _Project.Scripts.Infrastructure.GameStates.States;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Infrastructure
+namespace _Project.Scripts.Infrastructure
 {
     public class ProjectInstaller : MonoInstaller
     {

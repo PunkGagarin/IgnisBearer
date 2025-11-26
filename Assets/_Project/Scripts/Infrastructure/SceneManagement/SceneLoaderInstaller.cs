@@ -1,8 +1,7 @@
-﻿using Project.Scripts.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Infrastructure.SceneManagement
+namespace _Project.Scripts.Infrastructure.SceneManagement
 {
     public class SceneLoaderInstaller : MonoInstaller
     {

@@ -1,4 +1,4 @@
-﻿namespace Project.Scripts.SceneManagement
+﻿namespace _Project.Scripts.Infrastructure.SceneManagement
 {
     public enum SceneEnum
     {

@@ -1,4 +1,4 @@
-﻿namespace Project.Scripts.Audio.Data
+﻿namespace _Project.Scripts.Audio.Data
 {
     public enum SoundType
     {

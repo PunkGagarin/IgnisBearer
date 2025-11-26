@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Sounds>k__BackingField:
   - {fileID: 8300000, guid: bfef62011cf5f41f6aa955ad0e31e6a5, type: 3}
+  - {fileID: 8300000, guid: a2527baf5efcc41d3958433df96a1b2c, type: 3}

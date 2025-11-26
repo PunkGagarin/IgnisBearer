@@ -1,7 +1,7 @@
-using Project.Scripts.Infrastructure.GameStates;
+using _Project.Scripts.Infrastructure.GameStates;
 using Zenject;
 
-namespace Project.Scripts.Infrastructure
+namespace _Project.Scripts.Infrastructure
 {
     public class BootstrapInstaller : MonoInstaller
     {

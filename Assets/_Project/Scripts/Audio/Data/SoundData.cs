@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Project.Scripts.Audio.Data
+namespace _Project.Scripts.Audio.Data
 {
     [Serializable]
     public class SoundData

@@ -1,8 +1,7 @@
-﻿using Project.Scripts.Infrastructure.SceneManagement;
-using Project.Scripts.SceneManagement;
+﻿using _Project.Scripts.Infrastructure.SceneManagement;
 using Zenject;
 
-namespace Project.Scripts.Infrastructure.GameStates.States
+namespace _Project.Scripts.Infrastructure.GameStates.States
 {
     public class MainMenuState : IState, IGameState
     {

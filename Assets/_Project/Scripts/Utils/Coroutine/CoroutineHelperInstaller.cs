@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace Project.Scripts.Utils.Coroutine
+namespace _Project.Scripts.Utils.Coroutine
 {
     public class CoroutineHelperInstaller : MonoInstaller
     {
