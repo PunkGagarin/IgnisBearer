@@ -120,36 +120,44 @@ namespace _Project.Scripts.Utils.Editor
         {
             int count = 0;
 
-            foreach (var tmp in FindObjectsOfType<TextMeshProUGUI>(true))
-            {
-                if (newTMPFont && tmp.font != newTMPFont)
-                {
-                    Undo.RecordObject(tmp, "Replace TMP Font");
-                    tmp.font = newTMPFont;
-                    EditorUtility.SetDirty(tmp);
-                    count++;
-                }
-            }
+            var roots = scene.GetRootGameObjects();
 
-            foreach (var tmp in FindObjectsOfType<TextMeshPro>(true))
+            foreach (var root in roots)
             {
-                if (newTMPFont && tmp.font != newTMPFont)
+                // TMP UI
+                foreach (var tmp in root.GetComponentsInChildren<TextMeshProUGUI>(true))
                 {
-                    Undo.RecordObject(tmp, "Replace TMP Font");
-                    tmp.font = newTMPFont;
-                    EditorUtility.SetDirty(tmp);
-                    count++;
+                    if (newTMPFont && tmp.font != newTMPFont)
+                    {
+                        Undo.RecordObject(tmp, "Replace TMP Font");
+                        tmp.font = newTMPFont;
+                        EditorUtility.SetDirty(tmp);
+                        count++;
+                    }
                 }
-            }
 
-            foreach (var uiText in FindObjectsOfType<Text>(true))
-            {
-                if (newUIFont && uiText.font != newUIFont)
+                // TMP 3D
+                foreach (var tmp in root.GetComponentsInChildren<TextMeshPro>(true))
                 {
-                    Undo.RecordObject(uiText, "Replace UI.Font");
-                    uiText.font = newUIFont;
-                    EditorUtility.SetDirty(uiText);
-                    count++;
+                    if (newTMPFont && tmp.font != newTMPFont)
+                    {
+                        Undo.RecordObject(tmp, "Replace TMP Font");
+                        tmp.font = newTMPFont;
+                        EditorUtility.SetDirty(tmp);
+                        count++;
+                    }
+                }
+
+                // Legacy UI
+                foreach (var uiText in root.GetComponentsInChildren<Text>(true))
+                {
+                    if (newUIFont && uiText.font != newUIFont)
+                    {
+                        Undo.RecordObject(uiText, "Replace UI.Font");
+                        uiText.font = newUIFont;
+                        EditorUtility.SetDirty(uiText);
+                        count++;
+                    }
                 }
             }
 
