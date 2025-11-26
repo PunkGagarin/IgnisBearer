@@ -39,7 +39,7 @@ namespace Project.Scripts
             _credits.onClick.RemoveListener(OpenCredits);
         }
 
-        private async void StartGame()
+        private void StartGame()
         {
             _audio.PlaySound(Sounds.buttonClick);
             _stateMachine.Enter<LoadGameplayState>();

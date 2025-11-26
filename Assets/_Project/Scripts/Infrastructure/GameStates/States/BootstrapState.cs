@@ -12,7 +12,7 @@ namespace Project.Scripts.Infrastructure.GameStates.States
         [Inject] private GameStateMachine _gameStateMachine;
         [Inject] private AudioService _audioService;
 
-        public async void Enter()
+        public void Enter()
         {
             // show curtain
             // some resource loading
