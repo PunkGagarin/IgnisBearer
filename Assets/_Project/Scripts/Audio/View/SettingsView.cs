@@ -49,14 +49,14 @@ namespace _Project.Scripts.Audio.View
 
         private void SaveSettings()
         {
-            _audioService.PlaySound(Sounds.buttonClick.ToString());
+            _audioService.PlaySound(Sounds.buttonClick);
             _settingsPresenter.SaveChanges();
             Hide();
         }
 
         private void UndoChanges()
         {
-            _audioService.PlaySound(Sounds.buttonClick.ToString());
+            _audioService.PlaySound(Sounds.buttonClick);
             _settingsPresenter.UndoChanges();
             Hide();
         }
@@ -81,13 +81,13 @@ namespace _Project.Scripts.Audio.View
 
         private void OnEnToggleValueChanged(bool isOn)
         {
-            _audioService.PlaySound(Sounds.buttonClick.ToString());
+            _audioService.PlaySound(Sounds.buttonClick);
             _settingsPresenter.OnEnToggleValueChanged(isOn);
         }
 
         private void OnRuToggleValueChanged(bool isOn)
         {
-            _audioService.PlaySound(Sounds.buttonClick.ToString());
+            _audioService.PlaySound(Sounds.buttonClick);
             _settingsPresenter.OnRuToggleValueChanged(isOn);
         }
 
