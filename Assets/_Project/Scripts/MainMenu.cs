@@ -11,21 +11,15 @@ namespace _Project.Scripts
 {
     public class MainMenu : MonoBehaviour
     {
-        [SerializeField]
-        private Button _startGame;
-
-        [SerializeField]
-        private Button _settings;
-
-        [SerializeField]
-        private Button _credits;
-
+        [SerializeField] private Button _startGame;
+        [SerializeField] private Button _settings;
+        [SerializeField] private Button _credits;
+        [SerializeField] private CreditsPopup _creditsPopup;
 
         [Inject] private SceneLoader _sceneLoader;
         [Inject] private GameStateMachine _stateMachine;
         [Inject] private AudioService _audio;
         [Inject] private SettingsView _settingsView;
-
 
         private void Awake()
         {
@@ -54,6 +48,7 @@ namespace _Project.Scripts
 
         private void OpenCredits()
         {
+            _creditsPopup.Show();
         }
     }
 }
