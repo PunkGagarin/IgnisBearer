@@ -17,6 +17,11 @@ namespace _Project.Scripts.Infrastructure.GameStates
     {
         void Enter(TPayload payload);
     }
+
+    public interface IUpdateState
+    {
+        void Update();
+    }
     
     public interface IGameState : IExitableState
     {
