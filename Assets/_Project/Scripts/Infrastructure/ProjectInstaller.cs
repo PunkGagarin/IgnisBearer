@@ -22,7 +22,6 @@ namespace _Project.Scripts.Infrastructure
 
         private void BindStateMachine()
         {
-            Debug.Log(" BindStateMachine from installer");
             Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
             Container.BindInterfacesAndSelfTo<LoadGameplayState>().AsSingle();
             Container.BindInterfacesAndSelfTo<MainMenuState>().AsSingle();
