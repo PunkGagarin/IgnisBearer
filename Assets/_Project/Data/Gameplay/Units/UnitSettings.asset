@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553a97dbce454bdb9a617c09e6a0d330, type: 3}
   m_Name: UnitSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Units.UnitSettings
-  <PeonUnitPrefab>k__BackingField: {fileID: 7531569944373003940, guid: 9f8ccb3f6d2064a4d862a778e1728042, type: 3}
+  <UnitPrefab>k__BackingField: {fileID: 7531569944373003940, guid: 9f8ccb3f6d2064a4d862a778e1728042, type: 3}
   <DefaultMoveSpeed>k__BackingField: 5
