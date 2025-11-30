@@ -7,7 +7,7 @@ namespace _Project.Scripts.Infrastructure.GameStates
     public class SimpleStateMachine<T> : IGameStateMachine<T>, IPayloadStateMachine<T>
     {
 
-        private T _currentState;
+        protected T _currentState;
         private Dictionary<Type, T> _states = new();
 
         public void Register(T state)
@@ -25,6 +25,7 @@ namespace _Project.Scripts.Infrastructure.GameStates
 
         public void Enter<TState, TPayload>(TPayload payload) where TState : class, T, IPayloadState<TPayload>
         {
+            Debug.Log($"Tryint to change state from  {_currentState?.GetType().Name} to {typeof(TState).Name}");
             TState state = ChangeCurrentState<TState>();
             state.Enter(payload);
         }

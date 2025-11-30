@@ -1,8 +1,7 @@
+using Cysharp.Threading.Tasks;
+
 namespace _Project.Scripts.Infrastructure.GameStates
 {
-
-
-
     public interface IState : IExitableState
     {
         void Enter();
@@ -22,7 +21,7 @@ namespace _Project.Scripts.Infrastructure.GameStates
     {
         void Update();
     }
-    
+
     public interface IGameState : IExitableState
     {
     }
