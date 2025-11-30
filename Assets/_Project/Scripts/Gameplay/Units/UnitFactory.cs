@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Gameplay.Units.Machine;
+using _Project.Scripts.Gameplay.Units.Manager;
 using UnityEngine;
 using Zenject;
 
@@ -11,18 +12,22 @@ namespace _Project.Scripts.Gameplay.Units
         [Inject] private readonly UnitSettings _unitSettings;
         [Inject] private readonly UnitSpawnPoint _unitSpawnPoint;
 
-        public void CreateAndInstantiateUnit()
+        public Unit CreateAndInstantiateUnit()
         {
-            var unit = _container.InstantiatePrefabForComponent<PeonUnit>(_unitSettings.PeonUnitPrefab,
+            var unit = _container.InstantiatePrefabForComponent<Unit>(_unitSettings.UnitPrefab,
                 _unitSpawnPoint.transform.position, Quaternion.identity, _unitSpawnPoint.transform);
 
-            var unitContext = new UnitContext(_unitSettings.DefaultMoveSpeed);
+            var unitContext = new UnitContext(_unitSettings.DefaultMoveSpeed, _unitSettings.DefaultFireUpSpeed);
             var unitStateMachine = new UnitStateMachine();
 
             unitStateMachine.Register(new UnitIdleState(unitStateMachine));
-            unitStateMachine.Register(new UnitMoveToHouseState(unitStateMachine));
+            unitStateMachine.Register(new UnitMoveToLanternState(unit));
+            unitStateMachine.Register(new FireUpLanternState(unit));
+            unitStateMachine.Register(new HarvestLanternState(unit));
 
             unit.Construct(unitStateMachine, unitContext);
+            
+            return unit;
         }
     }
 

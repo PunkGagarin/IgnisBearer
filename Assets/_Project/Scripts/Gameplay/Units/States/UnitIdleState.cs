@@ -22,14 +22,16 @@ namespace _Project.Scripts.Gameplay.Units
             //start idle animation
         }
 
-        public void Exit()
-        {
-        }
-
         public void Update()
         {
-            //do nothing
-            //move around
+            //choose random time
+            //after random time
+            //choose random location
+            //move to this location
+        }
+
+        public void Exit()
+        {
         }
     }
 }

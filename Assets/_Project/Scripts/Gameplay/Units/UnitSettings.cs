@@ -6,10 +6,13 @@ namespace _Project.Scripts.Gameplay.Units
     public class UnitSettings : ScriptableObject
     {
         [field: SerializeField]
-        public PeonUnit PeonUnitPrefab { get; private set; }
+        public Unit UnitPrefab { get; private set; }
 
         [field: SerializeField]
-        public float DefaultMoveSpeed { get; private set; }
+        public float DefaultMoveSpeed { get; private set; } = 5f;
+
+        [field: SerializeField]
+        public float DefaultFireUpSpeed { get; private set; } = 1f;
 
     }
 }
