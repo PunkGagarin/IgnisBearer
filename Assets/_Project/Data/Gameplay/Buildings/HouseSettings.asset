@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316390498e75467da53c6b4a85095d61, type: 3}
+  m_Name: HouseSettings
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.House.HouseSettings
+  <HouseBuildingPrefab>k__BackingField: {fileID: 7515176069163704205, guid: 24d5cb2f2d0a847d6b671ea977157b99, type: 3}
+  <HouseGrade>k__BackingField: 1
+  <HouseCurrentUnitsCount>k__BackingField: 1
+  <HouseMaxUnitsCount>k__BackingField: 1
+  <HouseGradePrice>k__BackingField: 1
+  <HouseDurability>k__BackingField: 1
