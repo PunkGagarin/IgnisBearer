@@ -7,32 +7,19 @@ namespace _Project.Scripts.Gameplay.BuildingComponents.SpecUnit
 {
     public class SpecUnits : MonoBehaviour, ISpecUnits
     {
-        public event Action<int> UnitsCountChanged;
+        public event Action<List<Unit>> UnitsListChanged;
 
-        public int CurrentUnitsCount { get; set; }
-        public int MaxUnitsCount { get; set; }
-        public List<PeonUnit> CurrentUnits { get; set; }
+        public List<Unit> CurrentUnits { get; set; }
 
-        public void Init(int initValue, int maxValue)
+        public void Init()
         {
-            CurrentUnits = new List<PeonUnit>();
-            CurrentUnitsCount = initValue;
-            MaxUnitsCount = maxValue;
+            CurrentUnits = new List<Unit>();
         }
 
-        public bool AddSpecUnit(PeonUnit specUnit)
+        public void AddSpecUnit(Unit specUnit)
         {
-            if (CanAddUnit())
-            {
-                CurrentUnits.Add(specUnit);
-                CurrentUnitsCount++;
-                UnitsCountChanged?.Invoke(CurrentUnitsCount);
-                return true;
-            }
-
-            return false;
+            CurrentUnits.Add(specUnit);
+            UnitsListChanged?.Invoke(CurrentUnits);
         }
-
-        private bool CanAddUnit() => CurrentUnitsCount ! >= MaxUnitsCount;
     }
 }

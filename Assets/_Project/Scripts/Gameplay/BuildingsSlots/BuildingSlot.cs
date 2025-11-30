@@ -1,19 +1,24 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Project.Scripts.Gameplay.BuildingsSlots
 {
-    public class BuildingSlot : ClickableView<BuildingSlot>
-    // todo click by btn
+    public class BuildingSlot : MonoBehaviour
     {
-        private SpriteRenderer _spriteRenderer;
+        public event Action<BuildingSlot> OnClicked;
 
-        private void Awake() =>
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+        [SerializeField] private Button _button;
+        [SerializeField] private Image _image;
 
-        public void SetEnabled(bool enabled) =>
-            gameObject.SetActive(enabled);
+        private void Awake() => _button.onClick.AddListener(OnClick);
 
-        public void SetSprite(Sprite sprite) =>
-            _spriteRenderer.sprite = sprite;
+        private void OnDestroy() => _button.onClick.RemoveListener(OnClick);
+
+        private void OnClick() => OnClicked?.Invoke(this);
+
+        public void SetEnabled(bool enabled) => _button.gameObject.SetActive(enabled);
+
+        public void SetSprite(Sprite sprite) => _image.sprite = sprite;
     }
 }

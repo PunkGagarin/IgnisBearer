@@ -6,13 +6,12 @@ namespace _Project.Scripts.Gameplay.BuildingComponents.SpecUnit
 {
     public interface ISpecUnits
     {
-        event Action<int> UnitsCountChanged;
+        event Action<List<Unit>> UnitsListChanged;
 
-        int CurrentUnitsCount { get; set; }
-        int MaxUnitsCount { get; set; }
-        List<PeonUnit> CurrentUnits { get; set; }
+        List<Unit> CurrentUnits { get; set; }
 
-        void Init(int initValue, int maxValue);
-        bool AddSpecUnit(PeonUnit specUnit);
+        void AddSpecUnit(Unit specUnit);
+
+        void Init();
     }
 }

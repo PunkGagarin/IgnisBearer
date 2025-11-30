@@ -18,20 +18,23 @@ namespace _Project.Scripts.Gameplay
 
         public ChurchBuilding BuildChurch(BuildingSlot slot)
         {
-            var parentTransform = slot.transform.parent;
+            var parentTransform = slot.transform;
             var building =
                 _container.InstantiatePrefabForComponent<ChurchBuilding>(_churchSettings.ChurchBuildingPrefab,
                     parentTransform.position, Quaternion.identity, parentTransform);
 
-            building.TryGetComponent<Grade>(out var grade);
+            building.TryGetComponent<IGrade>(out var grade);
             grade.Init(0, _churchSettings.MaxGrade, _churchSettings.GradePrice);
 
-            building.TryGetComponent<Durability>(out var durability);
+            building.TryGetComponent<IDurability>(out var durability);
             durability.Init(_churchSettings.MaxDurability, _churchSettings.MaxDurability);
 
-            building.TryGetComponent<SpecUnits>(out var specUnits);
-            specUnits.Init(0, _churchSettings.MaxUnitsCount);
+            building.TryGetComponent<ISpecUnits>(out var specUnits);
+            specUnits.Init();
 
+            building.TryGetComponent<IUnitsCapacity>(out var capacity);
+            capacity.Init(0, _churchSettings.MaxUnitsCount);
+            
             building.Init();
 
             slot.SetEnabled(false);
@@ -41,19 +44,22 @@ namespace _Project.Scripts.Gameplay
 
         public HouseBuilding BuildHouse(BuildingSlot slot)
         {
-            var parentTransform = slot.transform.parent;
+            var parentTransform = slot.transform;
             var building =
                 _container.InstantiatePrefabForComponent<HouseBuilding>(_houseSettings.HouseBuildingPrefab,
                     parentTransform.position, Quaternion.identity, parentTransform);
 
-            building.TryGetComponent<Grade>(out var grade);
+            building.TryGetComponent<IGrade>(out var grade);
             grade.Init(0, _churchSettings.MaxGrade, _churchSettings.GradePrice);
 
-            building.TryGetComponent<Durability>(out var durability);
+            building.TryGetComponent<IDurability>(out var durability);
             durability.Init(_churchSettings.MaxDurability, _churchSettings.MaxDurability);
 
-            building.TryGetComponent<SpecUnits>(out var specUnits);
-            specUnits.Init(0, _churchSettings.MaxUnitsCount);
+            building.TryGetComponent<ISpecUnits>(out var specUnits);
+            specUnits.Init();
+
+            building.TryGetComponent<IUnitsCapacity>(out var capacity);
+            capacity.Init(0, _churchSettings.MaxUnitsCount);
 
             slot.SetEnabled(false);
 

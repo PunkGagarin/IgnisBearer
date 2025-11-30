@@ -1,31 +1,53 @@
 using _Project.Scripts.Gameplay;
 using _Project.Scripts.Gameplay.BuildingsSlots;
+using _Project.Scripts.Gameplay.Church;
 using _Project.Scripts.Gameplay.House;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace _Project.Scripts
 {
     public class TestDebug : MonoBehaviour
     {
-        [SerializeField] private Button _addUnitButton;
         [SerializeField] private BuildingSlot _buildingSlot;
-        
+
         [Inject] private BuildingFactory _buildingFactory;
         [Inject] private UnitFactory _unitFactory;
 
         private void Awake()
         {
-            _addUnitButton.onClick.AddListener(AddUnit);
+            _buildingSlot.OnClicked += AddHouse;
         }
 
-        private void Start()
+        private void AddChurch(BuildingSlot obj)
         {
-            var house = _buildingFactory.BuildHouse(_buildingSlot);
+            var church = _buildingFactory.BuildChurch(obj);
+            church.OnChurchClicked += OnChurchClicked;
+            church.OnChurchDestroyed += Unsubscribe;
+        }
+
+        private void Unsubscribe(ChurchBuilding obj)
+        {
+            obj.OnChurchClicked -= OnChurchClicked;
+            obj.OnChurchDestroyed -= Unsubscribe;
+        }
+
+        private void OnChurchClicked(ChurchBuilding church)
+        {
+            // idk :)
+        }
+
+        private void AddHouse(BuildingSlot obj)
+        {
+            var house = _buildingFactory.BuildHouse(obj);
             house.OnHouseClicked += OnHouseClicked;
             house.OnHouseDestroyed += Unsubscribe;
+        }
+
+        private void AddUnit()
+        {
+            _unitFactory.CreateAndInstantiateUnit();
         }
 
         private void Unsubscribe(HouseBuilding house)
@@ -33,11 +55,12 @@ namespace _Project.Scripts
             house.OnHouseClicked -= OnHouseClicked;
             house.OnHouseDestroyed -= Unsubscribe;
         }
-
+        
         private void OnHouseClicked(HouseBuilding obj) => AddUnit();
 
-        private void AddUnit() => _unitFactory.CreateAndInstantiateUnit();
-
-        private void OnDestroy() => _addUnitButton.onClick.RemoveListener(AddUnit);
+        private void OnDestroy()
+        {
+            _buildingSlot.OnClicked -= AddHouse;
+        }
     }
 }
