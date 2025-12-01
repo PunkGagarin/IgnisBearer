@@ -3,6 +3,7 @@ using _Project.Scripts.Gameplay.BuildingsSlots;
 using _Project.Scripts.Gameplay.Church;
 using _Project.Scripts.Gameplay.House;
 using _Project.Scripts.Gameplay.Units;
+using _Project.Scripts.Gameplay.Units.Manager;
 using UnityEngine;
 using Zenject;
 
@@ -13,7 +14,7 @@ namespace _Project.Scripts
         [SerializeField] private BuildingSlot _buildingSlot;
 
         [Inject] private BuildingFactory _buildingFactory;
-        [Inject] private UnitFactory _unitFactory;
+        [Inject] private UnitManager _unitManager;
 
         private void Awake()
         {
@@ -47,7 +48,7 @@ namespace _Project.Scripts
 
         private void AddUnit()
         {
-            _unitFactory.CreateAndInstantiateUnit();
+            _unitManager.CreateAndRegisterUnit();
         }
 
         private void Unsubscribe(HouseBuilding house)

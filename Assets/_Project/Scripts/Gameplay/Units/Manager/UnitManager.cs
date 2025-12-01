@@ -22,6 +22,11 @@ namespace _Project.Scripts.Gameplay.Units.Manager
 
         private void Start()
         {
+            CreateAndRegisterUnit();
+        }
+
+        public void CreateAndRegisterUnit()
+        {
             var unit = _factory.CreateAndInstantiateUnit();
             RegisterUnit(unit);
         }
@@ -47,5 +52,6 @@ namespace _Project.Scripts.Gameplay.Units.Manager
         {
             _units.Add(unit);
         }
+
     }
 }
