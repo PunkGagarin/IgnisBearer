@@ -1,6 +1,7 @@
 using System;
 using _Project.Scripts.Gameplay.BuildingComponents.Grade;
-using _Project.Scripts.Gameplay.BuildingComponents.SpecUnit;
+using _Project.Scripts.Gameplay.BuildingComponents.Workers;
+using _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +30,7 @@ namespace _Project.Scripts.Gameplay
 
         public bool SetUnit(Unit unit)
         {
-            TryGetComponent<ISpecUnits>(out var units);
+            TryGetComponent<IWorkers>(out var units);
             if (CanAddUnit())
             {
                 units.AddSpecUnit(unit);
@@ -41,7 +42,7 @@ namespace _Project.Scripts.Gameplay
 
         private bool CanAddUnit()
         {
-            TryGetComponent<IUnitsCapacity>(out var unitsCapacity);
+            TryGetComponent<IWorkersCapacity>(out var unitsCapacity);
             return unitsCapacity.CanAddUnit();
         }
     }

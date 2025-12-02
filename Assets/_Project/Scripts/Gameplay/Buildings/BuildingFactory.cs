@@ -1,6 +1,7 @@
 using _Project.Scripts.Gameplay.BuildingComponents.Durability;
 using _Project.Scripts.Gameplay.BuildingComponents.Grade;
-using _Project.Scripts.Gameplay.BuildingComponents.SpecUnit;
+using _Project.Scripts.Gameplay.BuildingComponents.Workers;
+using _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity;
 using _Project.Scripts.Gameplay.BuildingsSlots;
 using _Project.Scripts.Gameplay.Church;
 using _Project.Scripts.Gameplay.House;
@@ -29,10 +30,10 @@ namespace _Project.Scripts.Gameplay
             building.TryGetComponent<IDurability>(out var durability);
             durability.Init(_churchSettings.MaxDurability, _churchSettings.MaxDurability);
 
-            building.TryGetComponent<ISpecUnits>(out var specUnits);
+            building.TryGetComponent<IWorkers>(out var specUnits);
             specUnits.Init();
 
-            building.TryGetComponent<IUnitsCapacity>(out var capacity);
+            building.TryGetComponent<IWorkersCapacity>(out var capacity);
             capacity.Init(0, _churchSettings.MaxUnitsCount);
             
             building.Init();
@@ -55,10 +56,10 @@ namespace _Project.Scripts.Gameplay
             building.TryGetComponent<IDurability>(out var durability);
             durability.Init(_churchSettings.MaxDurability, _churchSettings.MaxDurability);
 
-            building.TryGetComponent<ISpecUnits>(out var specUnits);
+            building.TryGetComponent<IWorkers>(out var specUnits);
             specUnits.Init();
 
-            building.TryGetComponent<IUnitsCapacity>(out var capacity);
+            building.TryGetComponent<IWorkersCapacity>(out var capacity);
             capacity.Init(0, _churchSettings.MaxUnitsCount);
 
             slot.SetEnabled(false);

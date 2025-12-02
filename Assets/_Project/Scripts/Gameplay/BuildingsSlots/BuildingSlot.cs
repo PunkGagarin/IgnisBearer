@@ -9,7 +9,7 @@ namespace _Project.Scripts.Gameplay.BuildingsSlots
         public event Action<BuildingSlot> OnClicked;
 
         [SerializeField] private Button _button;
-        [SerializeField] private Image _image;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 
         private void Awake() => _button.onClick.AddListener(OnClick);
 
@@ -19,6 +19,6 @@ namespace _Project.Scripts.Gameplay.BuildingsSlots
 
         public void SetEnabled(bool enabled) => _button.gameObject.SetActive(enabled);
 
-        public void SetSprite(Sprite sprite) => _image.sprite = sprite;
+        public void SetSprite(Sprite sprite) => _spriteRenderer.sprite = sprite;
     }
 }

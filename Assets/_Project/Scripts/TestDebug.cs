@@ -14,7 +14,6 @@ namespace _Project.Scripts
         [SerializeField] private BuildingSlot _buildingSlot;
 
         [Inject] private BuildingFactory _buildingFactory;
-        [Inject] private UnitManager _unitManager;
 
         private void Awake()
         {
@@ -48,7 +47,6 @@ namespace _Project.Scripts
 
         private void AddUnit()
         {
-            _unitManager.CreateAndRegisterUnit();
         }
 
         private void Unsubscribe(HouseBuilding house)

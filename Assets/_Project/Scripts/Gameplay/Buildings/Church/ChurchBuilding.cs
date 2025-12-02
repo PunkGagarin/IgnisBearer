@@ -1,6 +1,6 @@
 using System;
 using _Project.Scripts.Gameplay.BuildingComponents.Durability;
-using _Project.Scripts.Gameplay.BuildingComponents.SpecUnit;
+using _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Church
@@ -54,7 +54,7 @@ namespace _Project.Scripts.Gameplay.Church
 
         private bool CanGenerate()
         {
-            TryGetComponent<IUnitsCapacity>(out var unitsCapacity);
+            TryGetComponent<IWorkersCapacity>(out var unitsCapacity);
             return unitsCapacity.Current > 0;
         }
     }

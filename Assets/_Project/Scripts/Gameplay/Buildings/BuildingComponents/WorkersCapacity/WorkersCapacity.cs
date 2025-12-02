@@ -1,10 +1,9 @@
 using System;
-using _Project.Scripts.Gameplay.BuildingComponents.SpecUnit;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.SpecUnitsCapacity
+namespace _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity
 {
-    public class UnitsCapacity : MonoBehaviour, IUnitsCapacity
+    public class WorkersCapacity : MonoBehaviour, IWorkersCapacity
     {
         public event Action<int> UnitsCountChanged;
         public event Action<int> MaxUnitsCountChanged;

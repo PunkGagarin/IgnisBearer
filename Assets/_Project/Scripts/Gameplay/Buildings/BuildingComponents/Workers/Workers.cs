@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.SpecUnit
+namespace _Project.Scripts.Gameplay.BuildingComponents.Workers
 {
-    public class SpecUnits : MonoBehaviour, ISpecUnits
+    public class Workers : MonoBehaviour, IWorkers
     {
         public event Action<List<Unit>> UnitsListChanged;
 

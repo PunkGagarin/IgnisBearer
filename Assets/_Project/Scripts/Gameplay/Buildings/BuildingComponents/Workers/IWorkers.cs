@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Units;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.SpecUnit
+namespace _Project.Scripts.Gameplay.BuildingComponents.Workers
 {
-    public interface ISpecUnits
+    public interface IWorkers
     {
         event Action<List<Unit>> UnitsListChanged;
 

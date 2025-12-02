@@ -1,8 +1,8 @@
 using System;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.SpecUnit
+namespace _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity
 {
-    public interface IUnitsCapacity
+    public interface IWorkersCapacity
     {
         event Action<int> UnitsCountChanged;
         event Action<int> MaxUnitsCountChanged;
