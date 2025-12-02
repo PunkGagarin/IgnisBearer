@@ -1,5 +1,4 @@
 using System;
-using _Project.Scripts.Gameplay.BuildingComponents.Durability;
 using _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity;
 using UnityEngine;
 
@@ -12,10 +11,12 @@ namespace _Project.Scripts.Gameplay.Church
 
         public double CurrentResourceCount { get; private set; }
 
+        private IWorkersCapacity _workersCapacity;
+
         private void Awake()
         {
-            TryGetComponent<IDurability>(out var durability);
-            durability.OnDestroyed += OnBuildingBroke;
+            _durability.OnDestroyed += OnBuildingBroke;
+            _workersCapacity = GetComponent<IWorkersCapacity>();
         }
 
         private void OnBuildingBroke()
@@ -26,8 +27,7 @@ namespace _Project.Scripts.Gameplay.Church
 
         private void OnDestroy()
         {
-            TryGetComponent<IDurability>(out var durability);
-            durability.OnDestroyed -= OnBuildingBroke;
+            _durability.OnDestroyed -= OnBuildingBroke;
         }
 
         protected override void HandleButtonClick() => OnChurchClicked?.Invoke(this);
@@ -54,8 +54,7 @@ namespace _Project.Scripts.Gameplay.Church
 
         private bool CanGenerate()
         {
-            TryGetComponent<IWorkersCapacity>(out var unitsCapacity);
-            return unitsCapacity.Current > 0;
+            return _workersCapacity.Current > 0;
         }
     }
 }

@@ -1,8 +1,5 @@
-using System;
+using _Project.Scripts.Gameplay.BuildingComponents.Durability;
 using _Project.Scripts.Gameplay.BuildingComponents.Grade;
-using _Project.Scripts.Gameplay.BuildingComponents.Workers;
-using _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity;
-using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +8,15 @@ namespace _Project.Scripts.Gameplay
     public abstract class Building : MonoBehaviour
     {
         [SerializeField] private Button _button;
+        protected IGrade _grade;
+        protected IDurability _durability;
 
-        private void Start() => _button.onClick.AddListener(HandleButtonClick);
+        private void Start()
+        {
+            _button.onClick.AddListener(HandleButtonClick);
+            _grade = GetComponent<IGrade>();
+            _durability = GetComponent<IDurability>();
+        }
 
         private void OnDestroy() => _button.onClick.RemoveListener(HandleButtonClick);
 
@@ -23,27 +27,8 @@ namespace _Project.Scripts.Gameplay
 
         public bool UpdateGrade()
         {
-            TryGetComponent<IGrade>(out var grade);
-            return grade.UpdateGrade();
+            return _grade.UpdateGrade();
             // todo
-        }
-
-        public bool SetUnit(Unit unit)
-        {
-            TryGetComponent<IWorkers>(out var units);
-            if (CanAddUnit())
-            {
-                units.AddSpecUnit(unit);
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool CanAddUnit()
-        {
-            TryGetComponent<IWorkersCapacity>(out var unitsCapacity);
-            return unitsCapacity.CanAddUnit();
         }
     }
 }

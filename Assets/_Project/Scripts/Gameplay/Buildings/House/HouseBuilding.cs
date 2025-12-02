@@ -1,5 +1,4 @@
 using System;
-using _Project.Scripts.Gameplay.BuildingComponents.Durability;
 
 namespace _Project.Scripts.Gameplay.House
 {
@@ -10,8 +9,7 @@ namespace _Project.Scripts.Gameplay.House
 
         private void Awake()
         {
-            TryGetComponent<IDurability>(out var durability);
-            durability.OnDestroyed += OnBuildingBroke;
+            _durability.OnDestroyed += OnBuildingBroke;
         }
 
         protected override void HandleButtonClick() => OnHouseClicked?.Invoke(this);
@@ -24,8 +22,7 @@ namespace _Project.Scripts.Gameplay.House
 
         private void OnDestroy()
         {
-            TryGetComponent<Durability>(out var durability);
-            durability.OnDestroyed -= OnBuildingBroke;
+            _durability.OnDestroyed -= OnBuildingBroke;
         }
     }
 }
