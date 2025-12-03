@@ -1,0 +1,32 @@
+﻿using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Units;
+using UnityEngine;
+using Zenject;
+
+namespace _Project.Scripts.Gameplay.Buildings.Lanterns
+{
+    public class LanternFactory
+    {
+        [Inject] private LanternSettings _settings;
+        [Inject] private readonly DiContainer _container;
+
+        public TemporalLantern CreateAndInstantiateLantern()
+        {
+            return _settings.Prefab;
+        }
+
+        public List<TemporalLantern> CreateStartLanterns()
+        {
+            var list = new List<TemporalLantern>();
+            
+            foreach (var lanternPoint in _settings.StartLanternPoints)
+            {
+                var unit = _container.InstantiatePrefabForComponent<TemporalLantern>(_settings.Prefab,
+                    lanternPoint.position, Quaternion.identity, null);
+                
+                list.Add(unit);
+            }
+            return list;
+        }
+    }
+}

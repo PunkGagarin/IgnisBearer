@@ -1,6 +1,6 @@
 using System;
 
-namespace _Project.Scripts.Gameplay
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public interface IResourceGenerator
     {

@@ -1,13 +1,14 @@
-using _Project.Scripts.Gameplay.BuildingComponents.Durability;
-using _Project.Scripts.Gameplay.BuildingComponents.Grade;
-using _Project.Scripts.Gameplay.BuildingComponents.SpecUnit;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnit;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnitsCapacity;
+using _Project.Scripts.Gameplay.Buildings.Church;
+using _Project.Scripts.Gameplay.Buildings.House;
 using _Project.Scripts.Gameplay.BuildingsSlots;
-using _Project.Scripts.Gameplay.Church;
-using _Project.Scripts.Gameplay.House;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class BuildingFactory
     {

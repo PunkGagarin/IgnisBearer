@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4389212247743368446}
   - component: {fileID: 7531569944373003940}
+  - component: {fileID: 4810579088607930065}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -45,6 +46,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3624968bbe4ce299a1be53ac05efc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Units.PeonUnit
+--- !u!114 &4810579088607930065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289713542944475062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6ad71fbf6e4111aa58c09714fbe826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Units.UnitMover
 --- !u!1 &3400010847895667901
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24408c64084dd7f4daf56654610d0339, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

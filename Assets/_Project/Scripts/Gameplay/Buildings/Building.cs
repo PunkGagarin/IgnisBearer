@@ -1,11 +1,11 @@
-using System;
-using _Project.Scripts.Gameplay.BuildingComponents.Grade;
-using _Project.Scripts.Gameplay.BuildingComponents.SpecUnit;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnit;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnitsCapacity;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Gameplay
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public abstract class Building : MonoBehaviour
     {

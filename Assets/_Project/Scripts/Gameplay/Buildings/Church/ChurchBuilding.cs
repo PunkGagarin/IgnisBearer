@@ -1,9 +1,9 @@
 using System;
-using _Project.Scripts.Gameplay.BuildingComponents.Durability;
-using _Project.Scripts.Gameplay.BuildingComponents.SpecUnit;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnitsCapacity;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Church
+namespace _Project.Scripts.Gameplay.Buildings.Church
 {
     public class ChurchBuilding : Building, IResourceGenerator
     {

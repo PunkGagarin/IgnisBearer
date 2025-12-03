@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 4184772343343589191}
   - component: {fileID: 7355216270200883116}
   - component: {fileID: 3745087677656179478}
-  - component: {fileID: 9070585628589946707}
   - component: {fileID: 5112669720680561789}
   - component: {fileID: 1695435818137227087}
   - component: {fileID: -2078669601549795180}
@@ -337,18 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9ded4694f54187893c00ffd702638a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.Durability.Durability
---- !u!114 &9070585628589946707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4610826379647631731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac3edcad3e543528051d56cc0185ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.SpecUnit.SpecUnits
 --- !u!222 &5112669720680561789
 CanvasRenderer:
   m_ObjectHideFlags: 0
