@@ -1,8 +1,7 @@
 using System;
-using _Project.Scripts.Gameplay.BuildingComponents.SpecUnit;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.SpecUnitsCapacity
+namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnitsCapacity
 {
     public class UnitsCapacity : MonoBehaviour, IUnitsCapacity
     {

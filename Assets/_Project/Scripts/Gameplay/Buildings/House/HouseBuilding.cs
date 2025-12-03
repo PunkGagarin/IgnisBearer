@@ -1,7 +1,7 @@
 using System;
-using _Project.Scripts.Gameplay.BuildingComponents.Durability;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
 
-namespace _Project.Scripts.Gameplay.House
+namespace _Project.Scripts.Gameplay.Buildings.House
 {
     public class HouseBuilding : Building
     {

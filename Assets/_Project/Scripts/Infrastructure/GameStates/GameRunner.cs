@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Infrastructure.GameStates.States;
 using _Project.Scripts.Infrastructure.GameStates;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Infrastructure.GameStates
@@ -10,6 +12,7 @@ namespace _Project.Scripts.Infrastructure.GameStates
 
         [Inject] private GameStateMachine _stateMachine;
         [Inject] private List<IGameState> _states;
+        
 
         public void Initialize()
         {

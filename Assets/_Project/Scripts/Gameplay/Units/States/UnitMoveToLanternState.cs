@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         public async void Enter(TemporalLantern temporalLantern)
         {
-            var position = temporalLantern.GetPosition();
+            _unit.Context.Status = UnitStatus.Busy;
 
             await _unit.Mover.MoveTo(_unit.Context.MoveTarget);
 

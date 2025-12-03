@@ -8,17 +8,17 @@ namespace _Project.Scripts.Infrastructure.GameStates.States
                 
         [Inject] private SceneLoader _sceneLoader;
         [Inject] private LoadingCurtain _loadingCurtain;
-        
-        public void Exit()
-        {
-            
-        }
 
         public async void Enter()
         {
             _loadingCurtain.Show();
             await _sceneLoader.LoadScene(SceneEnum.MainMenu);
             _loadingCurtain.Hide();
+        }
+
+        public void Exit()
+        {
+            
         }
     }
 }

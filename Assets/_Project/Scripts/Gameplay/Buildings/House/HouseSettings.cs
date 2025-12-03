@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.House
+namespace _Project.Scripts.Gameplay.Buildings.House
 {
     // [CreateAssetMenu(fileName = "HouseSettings", menuName = "Gameplay/Buildings/HouseSettings", order = 0)]
     public class HouseSettings: ScriptableObject

@@ -12,15 +12,17 @@ namespace _Project.Scripts.Gameplay.Temporal
         public Button Button { get; private set; }
 
         public Action<TemporalLantern> OnClicked = delegate { };
+        private TemporalLantern _temporalLantern;
 
         private void Awake()
         {
+            _temporalLantern = GetComponent<TemporalLantern>();
             Button.onClick.AddListener(OnButtonClicked);
         }
-
+        
         private void OnButtonClicked()
         {
-            OnClicked.Invoke(GetComponent<TemporalLantern>());
+            OnClicked.Invoke(_temporalLantern);
         }
 
     }

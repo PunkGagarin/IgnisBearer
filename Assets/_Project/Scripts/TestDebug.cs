@@ -1,7 +1,8 @@
 using _Project.Scripts.Gameplay;
+using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.Church;
+using _Project.Scripts.Gameplay.Buildings.House;
 using _Project.Scripts.Gameplay.BuildingsSlots;
-using _Project.Scripts.Gameplay.Church;
-using _Project.Scripts.Gameplay.House;
 using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Gameplay.Units.Manager;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace _Project.Scripts
         [SerializeField] private BuildingSlot _buildingSlot;
 
         [Inject] private BuildingFactory _buildingFactory;
-        [Inject] private UnitManager _unitManager;
+        [Inject] private WorkerService _unitManager;
 
         private void Awake()
         {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Church
+namespace _Project.Scripts.Gameplay.Buildings.Church
 {
     // [CreateAssetMenu(fileName = "ChurchSettings", menuName = "Gameplay/Buildings/ChurchSettings", order = 0)]
     public class ChurchSettings: ScriptableObject

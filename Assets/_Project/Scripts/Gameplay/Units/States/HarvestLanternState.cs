@@ -23,7 +23,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
+            _unit.Context.Status = UnitStatus.Free;
         }
     }
 }

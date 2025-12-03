@@ -1,6 +1,6 @@
 using System;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.SpecUnit
+namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnitsCapacity
 {
     public interface IUnitsCapacity
     {

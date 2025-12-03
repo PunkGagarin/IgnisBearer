@@ -23,8 +23,8 @@ namespace _Project.Scripts.Infrastructure
         private void BindStateMachine()
         {
             Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
-            Container.BindInterfacesAndSelfTo<LoadGameplayState>().AsSingle();
             Container.BindInterfacesAndSelfTo<MainMenuState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadGameplayState>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameplayState>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle().NonLazy();
