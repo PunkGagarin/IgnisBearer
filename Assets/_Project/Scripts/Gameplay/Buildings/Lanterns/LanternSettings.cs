@@ -10,7 +10,5 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         [field: SerializeField]
         public TemporalLantern Prefab { get; private set; }
 
-        [field: SerializeField]
-        public List<Transform> StartLanternPoints { get; private set; }
     }
 }

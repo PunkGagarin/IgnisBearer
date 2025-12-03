@@ -18,7 +18,7 @@ namespace _Project.Scripts.Gameplay.Units
             Container.Bind<UnitFactory>().AsSingle();
             Container.Bind<UnitSpawnPoint>().FromInstance(UnitSpawnPoint).AsSingle();
             Container.Bind<UnitSettings>().FromInstance(UnitSettings).AsSingle();
-            Container.Bind<WorkerService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<WorkerService>().AsSingle();
         }
     }
 

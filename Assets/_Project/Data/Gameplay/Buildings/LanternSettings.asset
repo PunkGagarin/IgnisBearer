@@ -13,4 +13,3 @@ MonoBehaviour:
   m_Name: LanternSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Lanterns.LanternSettings
   <Prefab>k__BackingField: {fileID: 7545248127224923463, guid: acfaa3f9683ec494b8d007764036ce98, type: 3}
-  <StartLanternPoints>k__BackingField: []

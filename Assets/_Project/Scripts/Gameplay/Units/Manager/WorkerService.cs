@@ -5,14 +5,20 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units.Manager
 {
-    public class WorkerService
+    public class WorkerService : IInitializable
     {
         [Inject] private UnitFactory _factory;
 
         private List<Unit> _units = new();
+        
+        public void Initialize()
+        {
+            CreateStartUnit();
+        }
 
         public void CreateStartUnit()
         {
+            Debug.Log(" CreateStartUnit");
             CreateAndRegisterUnit();
         }
 

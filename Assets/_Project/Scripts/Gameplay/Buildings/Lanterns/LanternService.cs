@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Temporal;
 using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Gameplay.Units.Manager;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-    public class LanternService : IDisposable
+    public class LanternService : IDisposable, IInitializable
     {
         [Inject] private LanternFactory _factory;
         [Inject] private WorkerService _workers;
 
         private List<TemporalLantern> _lanterns = new();
 
+
+        public void Initialize()
+        {
+            InitStartLanterns();
+        }
 
         public void Dispose()
         {
@@ -29,7 +35,11 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public void InitStartLanterns()
         {
-            _lanterns.AddRange(_factory.CreateStartLanterns());
+            foreach (var lantern in _factory.CreateStartLanterns())
+            {
+                RegisterLantern(lantern);
+                _lanterns.Add(lantern);
+            }
         }
 
         public void CreateAndRegisterLantern()
@@ -54,5 +64,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             _workers.MoveFreeUnit(lantern);
         }
+
     }
 }

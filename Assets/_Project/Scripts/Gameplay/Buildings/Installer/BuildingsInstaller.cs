@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings.Church;
 using _Project.Scripts.Gameplay.Buildings.House;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
@@ -16,6 +17,10 @@ namespace _Project.Scripts.Gameplay.Buildings.Installer
 
         [field: SerializeField]
         private LanternSettings _lanternSettings;
+        
+        
+        [field: SerializeField]
+        public List<LanternSpawnPoint> StartLanternPoints { get; private set; }
 
         public override void InstallBindings()
         {
@@ -25,6 +30,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Installer
             Container.BindInterfacesAndSelfTo<LanternSettings>().FromInstance(_lanternSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<LanternFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternService>().AsSingle();
+            Container.Bind<List<LanternSpawnPoint>>().FromInstance(StartLanternPoints).AsSingle();
         }
     }
+
 }
