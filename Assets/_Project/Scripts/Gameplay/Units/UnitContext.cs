@@ -16,13 +16,16 @@ namespace _Project.Scripts.Gameplay.Units
             MoveSpeed = moveSpeed;
             FireUpSpeed = fireUpSpeed;
             Spec = UnitSpec.Worker;
+            Status = UnitStatus.Free;
         }
 
     }
 
     public enum UnitStatus
     {
-
+        None = 0,
+        Free = 1,
+        Busy = 2
     }
 
     public enum UnitSpec
@@ -30,6 +33,7 @@ namespace _Project.Scripts.Gameplay.Units
         None = 0,
         Worker = 1,
         FireRaiser = 2,
-        FireHarvester = 3
+        FireHarvester = 3,
+        Prayer = 4
     }
 }

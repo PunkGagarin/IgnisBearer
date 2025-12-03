@@ -1,15 +1,44 @@
-﻿namespace _Project.Scripts.Infrastructure.GameStates.States
+﻿using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using _Project.Scripts.Gameplay.Units.Manager;
+using Unity.Services.Core;
+using UnityEngine;
+using Zenject;
+
+namespace _Project.Scripts.Infrastructure.GameStates.States
 {
-    internal class GameplayState : IState, IGameState
+    public class GameplayState : IState, IGameState
     {
-        public void Exit()
-        {
-            
-        }
+        //todo: fix later with moving into project context
+        // [Inject]
+        // private LanternService _lanternService;
+        //
+        // [Inject]
+        // private WorkerService _workerService;
 
         public void Enter()
         {
-            
+            // if (HasProgress())
+            //     LoadProgress();
+            // else
+            // {
+            //     _lanternService.InitStartLanterns();
+            //     _workerService.CreateStartUnit();
+            // }
+        }
+
+
+        public void Exit()
+        {
+        }
+
+        private bool HasProgress()
+        {
+            return false;
+        }
+
+        private void LoadProgress()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

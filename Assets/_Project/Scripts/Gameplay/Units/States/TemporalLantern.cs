@@ -10,16 +10,15 @@ namespace _Project.Scripts.Gameplay.Units
         private bool _isReadyToHarvest = true;
 
 
-        private SpriteRenderer _lanternSprite;
-        
-        private void Awake()
-        {
-            _lanternSprite = GetComponentInChildren<SpriteRenderer>();
-        }
+        [field: SerializeField]
+        private SpriteRenderer UnFired { get; set; }
 
+        [field: SerializeField]
+        private SpriteRenderer Fired { get; set; }
+        
         public Vector3 GetPosition()
         {
-            return Vector3.zero;
+            return transform.position;
         }
 
         public bool IsReadyToHarvest()
@@ -35,7 +34,8 @@ namespace _Project.Scripts.Gameplay.Units
         public void FireUp()
         {
             _isFired = true;
-            _lanternSprite.color = Color.red;
+            UnFired.gameObject.SetActive(false);
+            Fired.gameObject.SetActive(true);
         }
     }
 }

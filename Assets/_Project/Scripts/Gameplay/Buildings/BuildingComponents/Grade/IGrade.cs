@@ -1,6 +1,6 @@
 using System;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.Grade
+namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade
 {
     public interface IGrade
     {

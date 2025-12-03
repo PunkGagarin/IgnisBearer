@@ -1,27 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _Project.Scripts.Gameplay.Temporal;
 using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units.Manager
 {
-    public class UnitManager : MonoBehaviour
+    public class WorkerService : IInitializable
     {
         [Inject] private UnitFactory _factory;
 
-        [field: SerializeField]
-        private TempClickDetector _clickDetector;
-
         private List<Unit> _units = new();
-
-        private void Awake()
+        
+        public void Initialize()
         {
-            _clickDetector.OnClicked += MoveFreeUnit;
+            CreateStartUnit();
         }
 
-        private void Start()
+        public void CreateStartUnit()
         {
+            Debug.Log(" CreateStartUnit");
             CreateAndRegisterUnit();
         }
 
@@ -31,7 +28,8 @@ namespace _Project.Scripts.Gameplay.Units.Manager
             RegisterUnit(unit);
         }
 
-        private void MoveFreeUnit(TemporalLantern lantern)
+        //todo: move out to another class
+        public void MoveFreeUnit(TemporalLantern lantern)
         {
             var unit = FindFirstFreeWorker();
             unit.Context.MoveTarget = lantern.GetPosition();

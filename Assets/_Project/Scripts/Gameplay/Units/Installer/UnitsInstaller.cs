@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Gameplay.Units.Manager;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units
@@ -17,6 +18,7 @@ namespace _Project.Scripts.Gameplay.Units
             Container.Bind<UnitFactory>().AsSingle();
             Container.Bind<UnitSpawnPoint>().FromInstance(UnitSpawnPoint).AsSingle();
             Container.Bind<UnitSettings>().FromInstance(UnitSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<WorkerService>().AsSingle();
         }
     }
 
