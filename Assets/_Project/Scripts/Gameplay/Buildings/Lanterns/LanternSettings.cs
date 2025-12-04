@@ -8,7 +8,10 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     public class LanternSettings : ScriptableObject
     {
         [field: SerializeField]
-        public TemporalLantern Prefab { get; private set; }
+        public Lantern Prefab { get; private set; }
+
+        [field: SerializeField]
+        public float FireUpTime { get; private set; } = 3f;
 
     }
 }

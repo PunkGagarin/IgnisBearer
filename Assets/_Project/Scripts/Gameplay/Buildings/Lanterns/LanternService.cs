@@ -11,13 +11,13 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         [Inject] private LanternFactory _factory;
         [Inject] private WorkerService _workers;
 
-        private List<TemporalLantern> _lanterns = new();
+        private List<Lantern> _lanterns = new();
 
 
-        private void UnsubscribeFromLantern(TemporalLantern lantern)
+        private void UnsubscribeFromLantern(Lantern lantern)
         {
             lantern.OnDestroyed -= UnsubscribeFromLantern;
-            var clickDetector = lantern.GetComponent<TempClickDetector>();
+            var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked -= OnLanternClicked;
         }
 
@@ -36,21 +36,21 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             RegisterLantern(lantern);
         }
 
-        public void RegisterLantern(TemporalLantern lantern)
+        public void RegisterLantern(Lantern lantern)
         {
             _lanterns.Add(lantern);
 
             SubscribeToLantern(lantern);
         }
 
-        private void SubscribeToLantern(TemporalLantern lantern)
+        private void SubscribeToLantern(Lantern lantern)
         {
             lantern.OnDestroyed += UnsubscribeFromLantern;
-            var clickDetector = lantern.GetComponent<TempClickDetector>();
+            var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked += OnLanternClicked;
         }
 
-        private void OnLanternClicked(TemporalLantern lantern)
+        private void OnLanternClicked(Lantern lantern)
         {
             _workers.MoveFreeUnit(lantern);
         }

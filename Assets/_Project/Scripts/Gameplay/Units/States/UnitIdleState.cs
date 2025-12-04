@@ -37,6 +37,9 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Update()
         {
+            if (_moveTask != null && _moveTask.Task.Status == UniTaskStatus.Pending)
+                return;
+
             _currentIdleTime += Time.deltaTime;
 
             if (_currentIdleTime > _idleTimeCap)
@@ -45,27 +48,24 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Exit()
         {
-            _currentIdleTime = 0f;
-            _idleTimeCap = 0f;
-            _nextIdleMovePoint = Vector3.zero;
-
             _cts.Cancel();
             _cts.Dispose();
             _cts = null;
+
+            _currentIdleTime = 0f;
+            _idleTimeCap = 0f;
+            _nextIdleMovePoint = Vector3.zero;
         }
 
         private async UniTaskVoid IdleMove()
         {
-            if (_moveTask == null || _moveTask.Task.Status != UniTaskStatus.Pending)
-            {
-                _nextIdleMovePoint = GetRandomMovePoint();
+            _nextIdleMovePoint = GetRandomMovePoint();
 
-                _moveTask = Mover.MoveTo(_nextIdleMovePoint, _cts.Token).ToAsyncLazy();
-                await _moveTask.Task;
+            _moveTask = Mover.MoveTo(_nextIdleMovePoint, MoveType.Idle, _cts.Token).ToAsyncLazy();
+            await _moveTask.Task;
 
-                _currentIdleTime = 0f;
-                _idleTimeCap = GetRandomIdleTime();
-            }
+            _currentIdleTime = 0f;
+            _idleTimeCap = GetRandomIdleTime();
         }
 
         private float GetRandomIdleTime()
@@ -87,7 +87,7 @@ namespace _Project.Scripts.Gameplay.Units
                 await UniTask.Delay(TimeSpan.FromSeconds(idleTime), cancellationToken: token);
 
                 var point = GetRandomMovePoint();
-                await Mover.MoveTo(point, token);
+                await Mover.MoveTo(point, MoveType.Idle, token);
             }
         }
     }
