@@ -1,10 +1,10 @@
 ﻿using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Units.Manager;
-using _Project.Scripts.Infrastructure.GameStates.States;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay
 {
+
     public class GameplayBootstrap : IInitializable
     {
         [Inject]
@@ -14,7 +14,7 @@ namespace _Project.Scripts.Gameplay
         private WorkerService _workerService;
 
         [Inject]
-        private LevelFactory _levelFactory;
+        private LevelService _levelService;
 
 
         public void Initialize()
@@ -27,9 +27,9 @@ namespace _Project.Scripts.Gameplay
 
         private void InitLevel()
         {
-            var level = _levelFactory.CreateLevel();
-            _lanternService.InitStartLanterns(level.InitalLanternPositions);
-            _workerService.CreateStartUnit(level.InitalUnitPosition);
+            _levelService.CreateLevel();
+            _lanternService.InitStartLanterns(_levelService.GetInitialLanternPositions());
+            _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
         }
 
         private bool HasProgress()
@@ -42,4 +42,5 @@ namespace _Project.Scripts.Gameplay
             throw new System.NotImplementedException();
         }
     }
+
 }

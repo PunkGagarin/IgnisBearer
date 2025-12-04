@@ -4,9 +4,10 @@ namespace _Project.Scripts.Gameplay.Units
 {
     public class HarvestLanternState : IUnitState, IPayloadState<TemporalLantern>
     {
-        private readonly Unit _unit;
+        private Unit _unit;
 
-        public HarvestLanternState(Unit unit)
+
+        public void Init(Unit unit)
         {
             _unit = unit;
         }

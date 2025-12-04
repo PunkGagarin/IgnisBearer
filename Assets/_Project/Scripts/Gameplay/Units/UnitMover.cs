@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -19,6 +20,18 @@ namespace _Project.Scripts.Gameplay.Units
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .ToUniTask();
+            return task;
+        }
+
+
+        public UniTask MoveTo(Vector3 destination, CancellationToken cancellationToken)
+        {
+            var task = transform.DOMove(destination, _unit.Context.MoveSpeed)
+                .SetSpeedBased()
+                .SetEase(Ease.Linear)
+                .ToUniTask(cancellationToken: cancellationToken)
+                .SuppressCancellationThrow();
+            
             return task;
         }
     }
