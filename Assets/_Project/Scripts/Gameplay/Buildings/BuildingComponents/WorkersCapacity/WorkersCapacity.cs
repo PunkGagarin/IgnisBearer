@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity
+namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.WorkersCapacity
 {
     public class WorkersCapacity : MonoBehaviour, IWorkersCapacity
     {

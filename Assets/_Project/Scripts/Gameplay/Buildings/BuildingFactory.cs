@@ -1,14 +1,16 @@
-using _Project.Scripts.Gameplay.BuildingComponents.Durability;
-using _Project.Scripts.Gameplay.BuildingComponents.Grade;
-using _Project.Scripts.Gameplay.BuildingComponents.Workers;
-using _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity;
+using System;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Workers;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.WorkersCapacity;
+using _Project.Scripts.Gameplay.Buildings.Church;
+using _Project.Scripts.Gameplay.Buildings.Factory;
+using _Project.Scripts.Gameplay.Buildings.House;
 using _Project.Scripts.Gameplay.BuildingsSlots;
-using _Project.Scripts.Gameplay.Church;
-using _Project.Scripts.Gameplay.House;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class BuildingFactory
     {
@@ -16,8 +18,35 @@ namespace _Project.Scripts.Gameplay
 
         [Inject] private readonly ChurchSettings _churchSettings;
         [Inject] private readonly HouseSettings _houseSettings;
+        [Inject] private FactorySettings _factorySettings;
+        [Inject] private AutoCollectorSettings _autoCollectorSettings;
+        [Inject] private AutoLighterSettings _autoLighterSettings;
 
-        public ChurchBuilding BuildChurch(BuildingSlot slot)
+        public void BuildByType(BuildingType buildingType, BuildingSlot slot)
+        {
+            switch (buildingType)
+            {
+                case BuildingType.Church:
+                    BuildChurch(slot);
+                    break;
+                case BuildingType.House:
+                    BuildHouse(slot);
+                    break;
+                case BuildingType.Factory:
+                    BuildFactory(slot);
+                    break;
+                case BuildingType.AutoCollector:
+                    BuildAutoCollector(slot);
+                    break;
+                case BuildingType.AutoLighter:
+                    BuildAutoLighter();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(buildingType), buildingType, null);
+            }
+        }
+
+        private ChurchBuilding BuildChurch(BuildingSlot slot)
         {
             var parentTransform = slot.transform;
             var building =
@@ -35,7 +64,7 @@ namespace _Project.Scripts.Gameplay
 
             building.TryGetComponent<IWorkersCapacity>(out var capacity);
             capacity.Init(0, _churchSettings.MaxUnitsCount);
-            
+
             building.Init();
 
             slot.SetEnabled(false);
@@ -43,7 +72,8 @@ namespace _Project.Scripts.Gameplay
             return building;
         }
 
-        public HouseBuilding BuildHouse(BuildingSlot slot)
+
+        private HouseBuilding BuildHouse(BuildingSlot slot)
         {
             var parentTransform = slot.transform;
             var building =
@@ -65,6 +95,21 @@ namespace _Project.Scripts.Gameplay
             slot.SetEnabled(false);
 
             return building;
+        }
+
+        private void BuildAutoLighter()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BuildAutoCollector(BuildingSlot slot)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BuildFactory(BuildingSlot slot)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.Workers
+namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.Workers
 {
     public class Workers : MonoBehaviour, IWorkers
     {

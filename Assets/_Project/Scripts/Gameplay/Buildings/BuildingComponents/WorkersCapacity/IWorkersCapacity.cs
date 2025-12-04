@@ -1,6 +1,6 @@
 using System;
 
-namespace _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity
+namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.WorkersCapacity
 {
     public interface IWorkersCapacity
     {

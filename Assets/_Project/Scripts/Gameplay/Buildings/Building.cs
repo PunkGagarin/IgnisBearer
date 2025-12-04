@@ -1,13 +1,16 @@
-using _Project.Scripts.Gameplay.BuildingComponents.Durability;
-using _Project.Scripts.Gameplay.BuildingComponents.Grade;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Gameplay
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public abstract class Building : MonoBehaviour
     {
+        [field: SerializeField] public BuildingType Type { get; private set; }
+
         [SerializeField] private Button _button;
+
         protected IGrade _grade;
         protected IDurability _durability;
 

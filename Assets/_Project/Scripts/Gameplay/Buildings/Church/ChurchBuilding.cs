@@ -1,8 +1,8 @@
 using System;
-using _Project.Scripts.Gameplay.BuildingComponents.WorkersCapacity;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.WorkersCapacity;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Church
+namespace _Project.Scripts.Gameplay.Buildings.Church
 {
     public class ChurchBuilding : Building, IResourceGenerator
     {
@@ -22,7 +22,7 @@ namespace _Project.Scripts.Gameplay.Church
         private void OnBuildingBroke()
         {
             OnChurchDestroyed?.Invoke(this);
-            Destroy(gameObject); // todo ?
+            Destroy(gameObject);
         }
 
         private void OnDestroy()

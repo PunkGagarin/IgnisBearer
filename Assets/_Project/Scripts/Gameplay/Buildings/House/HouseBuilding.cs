@@ -1,6 +1,6 @@
 using System;
 
-namespace _Project.Scripts.Gameplay.House
+namespace _Project.Scripts.Gameplay.Buildings.House
 {
     public class HouseBuilding : Building
     {
