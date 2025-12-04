@@ -1,7 +1,5 @@
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
 using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnit;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.SpecUnitsCapacity;
-using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +7,19 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public abstract class Building : MonoBehaviour
     {
+        [field: SerializeField] public BuildingType Type { get; private set; }
+
         [SerializeField] private Button _button;
 
-        private void Start() => _button.onClick.AddListener(HandleButtonClick);
+        protected IGrade _grade;
+        protected IDurability _durability;
+
+        private void Start()
+        {
+            _button.onClick.AddListener(HandleButtonClick);
+            _grade = GetComponent<IGrade>();
+            _durability = GetComponent<IDurability>();
+        }
 
         private void OnDestroy() => _button.onClick.RemoveListener(HandleButtonClick);
 
@@ -22,27 +30,8 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public bool UpdateGrade()
         {
-            TryGetComponent<IGrade>(out var grade);
-            return grade.UpdateGrade();
+            return _grade.UpdateGrade();
             // todo
-        }
-
-        public bool SetUnit(Unit unit)
-        {
-            TryGetComponent<ISpecUnits>(out var units);
-            if (CanAddUnit())
-            {
-                units.AddSpecUnit(unit);
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool CanAddUnit()
-        {
-            TryGetComponent<IUnitsCapacity>(out var unitsCapacity);
-            return unitsCapacity.CanAddUnit();
         }
     }
 }

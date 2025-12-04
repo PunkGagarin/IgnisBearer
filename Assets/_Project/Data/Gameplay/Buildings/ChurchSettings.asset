@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d38ae8d1e249dfa77988ab86275b95, type: 3}
   m_Name: ChurchSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchSettings
-  <ChurchBuildingPrefab>k__BackingField: {fileID: 4184772343343589191, guid: 5dd6fcd3b4f0a47d68dc3ec5f4b6023f, type: 3}
-  <ChurchGrade>k__BackingField: 1
-  <ChurchCurrentUnitsCount>k__BackingField: 1
-  <ChurchMaxUnitsCount>k__BackingField: 1
-  <ChurchGradePrice>k__BackingField: 1
-  <ChurchDurability>k__BackingField: 1
+  <ChurchBuildingPrefab>k__BackingField: {fileID: 4756976558124453703, guid: 1f692f9e4b18b498ea91173011d2cde0, type: 3}
+  <MaxGrade>k__BackingField: 0
+  <MaxUnitsCount>k__BackingField: 0
+  <GradePrice>k__BackingField: 0
+  <MaxDurability>k__BackingField: 0

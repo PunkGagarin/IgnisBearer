@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using _Project.Scripts.Gameplay.Units;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {

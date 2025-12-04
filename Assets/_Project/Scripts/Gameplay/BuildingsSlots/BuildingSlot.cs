@@ -1,24 +1,47 @@
 using System;
+using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.Service;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.BuildingsSlots
 {
     public class BuildingSlot : MonoBehaviour
     {
-        public event Action<BuildingSlot> OnClicked;
-
         [SerializeField] private Button _button;
-        [SerializeField] private Image _image;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private AddBuildingPopup _addBuildingPopup;
 
-        private void Awake() => _button.onClick.AddListener(OnClick);
+        [Inject] private BuildingsService _buildingsService;
 
-        private void OnDestroy() => _button.onClick.RemoveListener(OnClick);
+        private void Awake()
+        {
+            _button.onClick.AddListener(OnClick);
+            _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
+        }
 
-        private void OnClick() => OnClicked?.Invoke(this);
+        private void OnDestroy()
+        {
+            _button.onClick.RemoveListener(OnClick);
+            _addBuildingPopup.OnAddBuilding -= OnAddBuildingClicked;
+        }
+
+        private void OnAddBuildingClicked(BuildingType buildingType)
+        {
+            _addBuildingPopup.Hide();
+            _buildingsService.AddBuildingTo(buildingType, this);
+        }
+
+        private void OnClick()
+        {
+            _addBuildingPopup.Show();
+            var popupData = _buildingsService.GetAddBuildingPopupData();
+            _addBuildingPopup.Init(popupData);
+        }
 
         public void SetEnabled(bool enabled) => _button.gameObject.SetActive(enabled);
 
-        public void SetSprite(Sprite sprite) => _image.sprite = sprite;
+        public void SetSprite(Sprite sprite) => _spriteRenderer.sprite = sprite;
     }
 }
