@@ -1,5 +1,4 @@
 ﻿using _Project.Scripts.Gameplay.Units.Machine;
-using _Project.Scripts.Gameplay.Units.Manager;
 using UnityEngine;
 using Zenject;
 
@@ -17,11 +16,23 @@ namespace _Project.Scripts.Gameplay.Units
 
             var unitContext = new UnitContext(_unitSettings.DefaultMoveSpeed, _unitSettings.DefaultFireUpSpeed);
             var unitStateMachine = new UnitStateMachine();
-
-            unitStateMachine.Register(new UnitIdleState(unitStateMachine));
-            unitStateMachine.Register(new UnitMoveToLanternState(unit));
-            unitStateMachine.Register(new FireUpLanternState(unit));
-            unitStateMachine.Register(new HarvestLanternState(unit));
+            
+            var idle = _container.Instantiate<UnitIdleState>();
+            idle.Init(unit); 
+            
+            var moveToLantern = _container.Instantiate<UnitMoveToLanternState>();
+            moveToLantern.Init(unit);  
+            
+            var fireUp = _container.Instantiate<FireUpLanternState>();
+            fireUp.Init(unit); 
+            
+            var harvestLantern = _container.Instantiate<HarvestLanternState>();
+            harvestLantern.Init(unit);
+            
+            unitStateMachine.Register(idle);
+            unitStateMachine.Register(moveToLantern);
+            unitStateMachine.Register(fireUp);
+            unitStateMachine.Register(harvestLantern);
 
             unit.Construct(unitStateMachine, unitContext);
             

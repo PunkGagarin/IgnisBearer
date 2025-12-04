@@ -14,7 +14,8 @@ namespace _Project.Scripts.Gameplay.Units
 
         private Unit _unit;
 
-        public FireUpLanternState(Unit unit)
+
+        public void Init(Unit unit)
         {
             _unit = unit;
         }

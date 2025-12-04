@@ -6,7 +6,8 @@ namespace _Project.Scripts.Gameplay.Units
     {
         private Unit _unit;
 
-        public UnitMoveToLanternState(Unit unit)
+
+        public void Init(Unit unit)
         {
             _unit = unit;
         }

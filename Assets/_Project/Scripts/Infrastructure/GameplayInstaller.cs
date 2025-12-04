@@ -14,6 +14,7 @@ namespace _Project.Scripts.Infrastructure
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<LevelFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelService>().AsSingle();
             Container.Bind<LevelData>().FromInstance(LevelData).AsSingle();
 
             Container.BindInterfacesAndSelfTo<GameplayBootstrap>().AsSingle().NonLazy();
