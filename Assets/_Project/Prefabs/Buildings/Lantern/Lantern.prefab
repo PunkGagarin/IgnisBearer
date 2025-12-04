@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5066273093658930412}
   - component: {fileID: 1662330098673722920}
   - component: {fileID: 7545248127224923463}
+  - component: {fileID: -4230285278346014396}
   m_Layer: 0
   m_Name: Lantern
   m_TagString: Untagged
@@ -62,6 +63,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Units.TemporalLantern
   <UnFired>k__BackingField: {fileID: 8198563577344984332}
   <Fired>k__BackingField: {fileID: 7007173428914332542}
+--- !u!114 &-4230285278346014396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551790464987838447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e1de3c00e640e0984fd9821aeb2946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Units.LanternResource
 --- !u!1 &3049200344997107793
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +306,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 65682545292378945b760cf2e844c72c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -383,7 +396,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 5be7d95b23431284193a94f3eb669179, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

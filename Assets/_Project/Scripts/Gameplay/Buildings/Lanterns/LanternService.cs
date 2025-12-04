@@ -1,41 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Temporal;
 using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Gameplay.Units.Manager;
-using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-    public class LanternService : IDisposable, IInitializable
+    public class LanternService
     {
         [Inject] private LanternFactory _factory;
         [Inject] private WorkerService _workers;
 
-        private List<TemporalLantern> _lanterns = new();
+        private List<Lantern> _lanterns = new();
 
 
-        public void Initialize()
+        private void UnsubscribeFromLantern(Lantern lantern)
         {
-            InitStartLanterns();
-        }
-
-        public void Dispose()
-        {
-            foreach (var lantern in _lanterns)
-                UnsubscribeFromLantern(lantern);
-        }
-
-        private void UnsubscribeFromLantern(TemporalLantern lantern)
-        {
-            var clickDetector = lantern.GetComponent<TempClickDetector>();
+            lantern.OnDestroyed -= UnsubscribeFromLantern;
+            var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked -= OnLanternClicked;
         }
 
-        public void InitStartLanterns()
+        public void InitStartLanterns(List<LanternSpawnPoint> lanternPoints)
         {
-            foreach (var lantern in _factory.CreateStartLanterns())
+            foreach (var lantern in _factory.CreateStartLanterns(lanternPoints))
             {
                 RegisterLantern(lantern);
                 _lanterns.Add(lantern);
@@ -48,19 +36,21 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             RegisterLantern(lantern);
         }
 
-        public void RegisterLantern(TemporalLantern lantern)
+        public void RegisterLantern(Lantern lantern)
         {
             _lanterns.Add(lantern);
-            var clickDetector = lantern.GetComponent<TempClickDetector>();
-            SubscribeToLantern(clickDetector);
+
+            SubscribeToLantern(lantern);
         }
 
-        private void SubscribeToLantern(TempClickDetector clickDetector)
+        private void SubscribeToLantern(Lantern lantern)
         {
+            lantern.OnDestroyed += UnsubscribeFromLantern;
+            var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked += OnLanternClicked;
         }
 
-        private void OnLanternClicked(TemporalLantern lantern)
+        private void OnLanternClicked(Lantern lantern)
         {
             _workers.MoveFreeUnit(lantern);
         }

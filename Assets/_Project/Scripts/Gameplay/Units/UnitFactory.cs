@@ -1,5 +1,4 @@
 ﻿using _Project.Scripts.Gameplay.Units.Machine;
-using _Project.Scripts.Gameplay.Units.Manager;
 using UnityEngine;
 using Zenject;
 
@@ -8,22 +7,32 @@ namespace _Project.Scripts.Gameplay.Units
     public class UnitFactory
     {
         [Inject] private readonly DiContainer _container;
-
         [Inject] private readonly UnitSettings _unitSettings;
-        [Inject] private readonly UnitSpawnPoint _unitSpawnPoint;
 
-        public Unit CreateAndInstantiateUnit()
+        public Unit CreateAndInstantiateUnit(UnitSpawnPoint unitPosition)
         {
             var unit = _container.InstantiatePrefabForComponent<Unit>(_unitSettings.UnitPrefab,
-                _unitSpawnPoint.transform.position, Quaternion.identity, _unitSpawnPoint.transform);
+                unitPosition.transform.position, Quaternion.identity, unitPosition.transform);
 
             var unitContext = new UnitContext(_unitSettings.DefaultMoveSpeed, _unitSettings.DefaultFireUpSpeed);
             var unitStateMachine = new UnitStateMachine();
-
-            unitStateMachine.Register(new UnitIdleState(unitStateMachine));
-            unitStateMachine.Register(new UnitMoveToLanternState(unit));
-            unitStateMachine.Register(new FireUpLanternState(unit));
-            unitStateMachine.Register(new HarvestLanternState(unit));
+            
+            var idle = _container.Instantiate<UnitIdleState>();
+            idle.Init(unit); 
+            
+            var moveToLantern = _container.Instantiate<UnitMoveToLanternState>();
+            moveToLantern.Init(unit);  
+            
+            var fireUp = _container.Instantiate<FireUpLanternState>();
+            fireUp.Init(unit); 
+            
+            var harvestLantern = _container.Instantiate<HarvestLanternState>();
+            harvestLantern.Init(unit);
+            
+            unitStateMachine.Register(idle);
+            unitStateMachine.Register(moveToLantern);
+            unitStateMachine.Register(fireUp);
+            unitStateMachine.Register(harvestLantern);
 
             unit.Construct(unitStateMachine, unitContext);
             

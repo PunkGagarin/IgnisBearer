@@ -1,37 +1,94 @@
-﻿using _Project.Scripts.Gameplay.Units.Machine;
+﻿using System;
+using System.Threading;
 using _Project.Scripts.Infrastructure.GameStates;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Gameplay.Units
 {
     public class UnitIdleState : IState, IUnitState
     {
         [Inject] private UnitSettings _unitSettings;
-        
-        private UnitStateMachine _unitStateMachine;
+        [Inject] private LevelService _levelService;
 
-        public UnitIdleState(UnitStateMachine unitStateMachine)
+        private Unit _unit;
+        private UnitMover Mover => _unit.Mover;
+
+        private float _currentIdleTime;
+        private float _idleTimeCap;
+        private Vector3 _nextIdleMovePoint;
+        private AsyncLazy _moveTask;
+        private CancellationTokenSource _cts;
+
+        public void Init(Unit unit)
         {
-            _unitStateMachine = unitStateMachine;
+            _unit = unit;
         }
 
         public void Enter()
         {
+            _cts = new CancellationTokenSource();
+
             Debug.Log("We are in idle state");
-            //start idle animation
+            _idleTimeCap = GetRandomIdleTime();
         }
 
         public void Update()
         {
-            //choose random time
-            //after random time
-            //choose random location
-            //move to this location
+            if (_moveTask != null && _moveTask.Task.Status == UniTaskStatus.Pending)
+                return;
+
+            _currentIdleTime += Time.deltaTime;
+
+            if (_currentIdleTime > _idleTimeCap)
+                IdleMove().Forget();
         }
 
         public void Exit()
         {
+            _cts.Cancel();
+            _cts.Dispose();
+            _cts = null;
+
+            _currentIdleTime = 0f;
+            _idleTimeCap = 0f;
+            _nextIdleMovePoint = Vector3.zero;
+        }
+
+        private async UniTaskVoid IdleMove()
+        {
+            _nextIdleMovePoint = GetRandomMovePoint();
+
+            _moveTask = Mover.MoveTo(_nextIdleMovePoint, MoveType.Idle, _cts.Token).ToAsyncLazy();
+            await _moveTask.Task;
+
+            _currentIdleTime = 0f;
+            _idleTimeCap = GetRandomIdleTime();
+        }
+
+        private float GetRandomIdleTime()
+        {
+            Debug.Log(" GetRandomIdleTime");
+            return Random.Range(_unitSettings.IdleBeforeMoveMinTime, _unitSettings.IdleBeforeMoveMaxTime);
+        }
+
+        private Vector3 GetRandomMovePoint()
+        {
+            return _levelService.GetRandomMapPosition();
+        }
+
+        private async UniTaskVoid Loop(CancellationToken token)
+        {
+            while (!token.IsCancellationRequested)
+            {
+                var idleTime = GetRandomIdleTime();
+                await UniTask.Delay(TimeSpan.FromSeconds(idleTime), cancellationToken: token);
+
+                var point = GetRandomMovePoint();
+                await Mover.MoveTo(point, MoveType.Idle, token);
+            }
         }
     }
 }

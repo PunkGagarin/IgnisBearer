@@ -1,36 +1,39 @@
-﻿using _Project.Scripts.Infrastructure.GameStates;
+﻿using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Infrastructure.GameStates;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class UnitMoveToLanternState : IUnitState, IPayloadState<TemporalLantern>
+    public class UnitMoveToLanternState : IUnitState, IPayloadState<Lantern>
     {
         private Unit _unit;
 
-        public UnitMoveToLanternState(Unit unit)
+
+        public void Init(Unit unit)
         {
             _unit = unit;
         }
 
-        public async void Enter(TemporalLantern temporalLantern)
+        public async void Enter(Lantern lantern)
         {
             _unit.Context.Status = UnitStatus.Busy;
 
             await _unit.Mover.MoveTo(_unit.Context.MoveTarget);
 
-            if (IsNeedToFireupLantern(temporalLantern))
-                _unit.StateMachine.Enter<FireUpLanternState, TemporalLantern>(temporalLantern);
-            else if (IsLanternReadyToHarvest(temporalLantern))
-                _unit.StateMachine.Enter<HarvestLanternState, TemporalLantern>(temporalLantern);
+            if (IsNeedToFireUpLantern(lantern))
+                _unit.StateMachine.Enter<FireUpLanternState, Lantern>(lantern);
+            else if (IsLanternReadyToHarvest(lantern))
+                _unit.StateMachine.Enter<HarvestLanternState, Lantern>(lantern);
         }
 
-        private bool IsLanternReadyToHarvest(TemporalLantern temporalLantern)
+        private bool IsLanternReadyToHarvest(Lantern lantern)
         {
-            return temporalLantern.IsReadyToHarvest();
+            var lanternResource = lantern.GetComponent<LanternResource>();
+            return lanternResource.IsReadyToHarvest();
         }
 
-        private bool IsNeedToFireupLantern(TemporalLantern temporalLantern)
+        private bool IsNeedToFireUpLantern(Lantern lantern)
         {
-            return !temporalLantern.IsFired();
+            return !lantern.IsFired();
         }
 
         public void Exit()

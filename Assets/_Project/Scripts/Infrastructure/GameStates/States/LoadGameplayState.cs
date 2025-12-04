@@ -17,7 +17,7 @@ namespace _Project.Scripts.Infrastructure.GameStates.States
             //create buildings & units
             _loadingCurtain.Hide();
             
-            _stateMachine.Enter<GameplayState>();
+            _stateMachine.Enter<GameloopState>();
         }
 
         public void Exit()

@@ -7,24 +7,23 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
     public class LanternFactory
     {
-        [Inject] private readonly LanternSettings _settings;
-        [Inject] private readonly List<LanternSpawnPoint> _lanternStartPoints;
         [Inject] private readonly DiContainer _container;
+        [Inject] private readonly LanternSettings _settings;
 
-        public TemporalLantern CreateAndInstantiateLantern()
+        public Lantern CreateAndInstantiateLantern()
         {
             return _settings.Prefab;
         }
 
-        public List<TemporalLantern> CreateStartLanterns()
+        public List<Lantern> CreateStartLanterns(List<LanternSpawnPoint> lanternPoints)
         {
-            var list = new List<TemporalLantern>();
-            
-            foreach (var lanternPoint in _lanternStartPoints)
+            var list = new List<Lantern>();
+
+            foreach (var lanternPoint in lanternPoints)
             {
-                var unit = _container.InstantiatePrefabForComponent<TemporalLantern>(_settings.Prefab,
+                var unit = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
                     lanternPoint.transform.position, Quaternion.identity, null);
-                
+
                 list.Add(unit);
             }
             return list;

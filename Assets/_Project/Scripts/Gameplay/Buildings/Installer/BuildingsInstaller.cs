@@ -28,10 +28,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Installer
         [field: SerializeField]
         private LanternSettings _lanternSettings;
         
-        
-        [field: SerializeField]
-        public List<LanternSpawnPoint> StartLanternPoints { get; private set; }
-
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<BuildingFactory>().AsSingle();
@@ -45,7 +41,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Installer
             Container.BindInterfacesAndSelfTo<LanternSettings>().FromInstance(_lanternSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<LanternFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternService>().AsSingle();
-            Container.Bind<List<LanternSpawnPoint>>().FromInstance(StartLanternPoints).AsSingle();
         }
     }
 
