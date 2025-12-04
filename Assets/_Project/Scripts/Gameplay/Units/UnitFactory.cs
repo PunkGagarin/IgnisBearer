@@ -8,14 +8,12 @@ namespace _Project.Scripts.Gameplay.Units
     public class UnitFactory
     {
         [Inject] private readonly DiContainer _container;
-
         [Inject] private readonly UnitSettings _unitSettings;
-        [Inject] private readonly UnitSpawnPoint _unitSpawnPoint;
 
-        public Unit CreateAndInstantiateUnit()
+        public Unit CreateAndInstantiateUnit(UnitSpawnPoint unitPosition)
         {
             var unit = _container.InstantiatePrefabForComponent<Unit>(_unitSettings.UnitPrefab,
-                _unitSpawnPoint.transform.position, Quaternion.identity, _unitSpawnPoint.transform);
+                unitPosition.transform.position, Quaternion.identity, unitPosition.transform);
 
             var unitContext = new UnitContext(_unitSettings.DefaultMoveSpeed, _unitSettings.DefaultFireUpSpeed);
             var unitStateMachine = new UnitStateMachine();
