@@ -11,10 +11,11 @@ namespace _Project.Scripts.Gameplay.BuildingsSlots
     public class AddBuildingButton : ContentUi
     {
         public Action<BuildingType, double> OnClicked;
-        
+
         [SerializeField] private Button _buyButton;
         [SerializeField] private TMP_Text _priceText;
-        
+        [SerializeField] private TMP_Text _label;
+
         private BuildingType _buildingType;
         private double _price;
 
@@ -28,6 +29,7 @@ namespace _Project.Scripts.Gameplay.BuildingsSlots
             _buildingType = data.BuildingType;
             _price = data.Price;
             _priceText.text = data.Price.ToString(CultureInfo.InvariantCulture);
+            _label.text = data.Label;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.Service;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -28,6 +29,7 @@ namespace _Project.Scripts.Gameplay.BuildingsSlots
 
         private void OnAddBuildingClicked(BuildingType buildingType)
         {
+            _addBuildingPopup.Hide();
             _buildingsService.AddBuildingTo(buildingType, this);
         }
 

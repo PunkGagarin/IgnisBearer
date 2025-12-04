@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using _Project.Scripts.Gameplay.BuildingsSlots;
 using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Infrastructure.GameStates.States;
 using UnityEngine;
@@ -9,8 +11,7 @@ namespace _Project.Scripts.Gameplay
 {
     public class LevelService
     {
-
-
+        
         [Inject]
         private LevelFactory _levelFactory;
 
@@ -29,6 +30,11 @@ namespace _Project.Scripts.Gameplay
         public UnitSpawnPoint GetInitalUnitPosition()
         {
             return _level.InitalUnitPosition;
+        }
+
+        public List<BuildingSlotsSpawnPoint> GetInitialBuildingsSpawnPoints()
+        {
+            return _level.InitalBuildingSlotsPositions;
         }
 
         public Vector3 GetRandomMapPosition()

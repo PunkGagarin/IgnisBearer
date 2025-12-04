@@ -17,7 +17,7 @@ namespace _Project.Scripts.Gameplay.Buildings.House
         private void OnBuildingBroke()
         {
             OnHouseDestroyed?.Invoke(this);
-            Destroy(gameObject); // todo ?
+            Destroy(gameObject);
         }
 
         private void OnDestroy()

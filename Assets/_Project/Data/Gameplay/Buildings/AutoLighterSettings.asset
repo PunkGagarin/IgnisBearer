@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0b2654342a492dbafd6b381c1959f5, type: 3}
+  m_Name: AutoLighterSettings
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingTypes.AutoLighter.AutoLighterSettings
+  <AutoLighterBuildingPrefab>k__BackingField: {fileID: 4250012244517143146, guid: b1471e8d7720f4f1581e3c4c660bd9fe, type: 3}
+  <BuildPrice>k__BackingField: 1
+  <BuildingNameKey>k__BackingField: BUILD_AUTO_LIGHTER_NAME

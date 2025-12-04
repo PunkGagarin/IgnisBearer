@@ -12,7 +12,7 @@ namespace _Project.Scripts.Gameplay.BuildingsSlots
         public event Action<BuildingType> OnAddBuilding;
 
         [SerializeField] private Button _closeButton;
-        private List<AddBuildingButton> _addBuildingsButton;
+        [SerializeField] private List<AddBuildingButton> _addBuildingsButton;
 
         private void Awake() => _closeButton.onClick.AddListener(OnCloseButtonClicked);
 

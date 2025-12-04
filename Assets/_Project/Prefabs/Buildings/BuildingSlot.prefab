@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2268995353716054799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460186631908905934}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460186631908905934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2268995353716054799}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6257668033978843431}
+  m_Father: {fileID: 2652851915532646577}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2894956425508690435
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,12 +57,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2894956425508690435}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2652851915532646577}
+  m_Father: {fileID: 1460186631908905934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5827439799081328517
 SpriteRenderer:
@@ -78,7 +110,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0.9680265, b: 0.5896226, a: 1}
   m_FlipX: 0
@@ -151,7 +183,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: -1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 40
   m_TargetDisplay: 0
 --- !u!114 &1240371967748815420
 MonoBehaviour:
@@ -480,8 +512,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6257668033978843431}
   - {fileID: 1808984469507236379}
+  - {fileID: 1460186631908905934}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7686321052750216919
@@ -498,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.BuildingSlot
   _button: {fileID: 548458261993586264}
   _spriteRenderer: {fileID: 5827439799081328517}
+  _addBuildingPopup: {fileID: 9154815378452283154}
 --- !u!1001 &811189415601846761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -544,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 323.06
       objectReference: {fileID: 0}
     - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
       propertyPath: m_LocalPosition.x
@@ -576,11 +609,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 246.7
+      value: 247.4
       objectReference: {fileID: 0}
     - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 42.9
+      value: 21.47
       objectReference: {fileID: 0}
     - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -604,3 +637,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
   m_PrefabInstance: {fileID: 811189415601846761}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9154815378452283154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+  m_PrefabInstance: {fileID: 811189415601846761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffacbd20e392d4388aa52dad85124dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingPopup
