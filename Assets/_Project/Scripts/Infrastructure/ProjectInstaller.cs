@@ -25,7 +25,7 @@ namespace _Project.Scripts.Infrastructure
             Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
             Container.BindInterfacesAndSelfTo<MainMenuState>().AsSingle();
             Container.BindInterfacesAndSelfTo<LoadGameplayState>().AsSingle();
-            Container.BindInterfacesAndSelfTo<GameplayState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameloopState>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle().NonLazy();
         }

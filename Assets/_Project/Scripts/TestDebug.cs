@@ -49,7 +49,7 @@ namespace _Project.Scripts
 
         private void AddUnit()
         {
-            _unitManager.CreateAndRegisterUnit();
+            // _unitManager.CreateAndRegisterUnit();
         }
 
         private void Unsubscribe(HouseBuilding house)

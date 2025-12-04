@@ -12,6 +12,7 @@ namespace _Project.Scripts.Gameplay.Temporal
         public Button Button { get; private set; }
 
         public Action<TemporalLantern> OnClicked = delegate { };
+
         private TemporalLantern _temporalLantern;
 
         private void Awake()
