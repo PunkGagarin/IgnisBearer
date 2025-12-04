@@ -1,16 +1,21 @@
-﻿using _Project.Scripts.Infrastructure.GameStates;
+﻿using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using _Project.Scripts.Infrastructure.GameStates;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class FireUpLanternState : IUnitState, IPayloadState<TemporalLantern>
+    public class FireUpLanternState : IUnitState, IPayloadState<Lantern>
     {
-        private float _fireUpDuration = 1f;
+        [Inject] private LanternSettings _lanternSettings;
+        
+        
         private float _currentTime = 0f;
         
         //todo: bar
         // private LanternBar _bar;
-        private TemporalLantern _lantern;
+        private Lantern _lantern;
 
         private Unit _unit;
 
@@ -21,7 +26,7 @@ namespace _Project.Scripts.Gameplay.Units
         }
 
 
-        public void Enter(TemporalLantern lantern)
+        public void Enter(Lantern lantern)
         {
             _lantern = lantern;
         }
@@ -31,7 +36,7 @@ namespace _Project.Scripts.Gameplay.Units
             _currentTime += Time.deltaTime * _unit.Context.FireUpSpeed;
 
             UpdateBar();
-            if (_currentTime > _fireUpDuration)
+            if (_currentTime > _lanternSettings.FireUpTime)
             {
                 _lantern.FireUp();
                 _unit.StateMachine.Enter<UnitIdleState>();

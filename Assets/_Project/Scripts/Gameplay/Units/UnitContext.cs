@@ -5,6 +5,7 @@ namespace _Project.Scripts.Gameplay.Units
     public class UnitContext
     {
         public float MoveSpeed { get; set; }
+        public float IdleMoveSpeed { get; set; }
         public UnitStatus Status { get; set; }
         public UnitSpec Spec { get; set; }
         public Vector3 MoveTarget { get; set; }
@@ -14,6 +15,7 @@ namespace _Project.Scripts.Gameplay.Units
         public UnitContext(float moveSpeed, float fireUpSpeed)
         {
             MoveSpeed = moveSpeed;
+            IdleMoveSpeed = moveSpeed / 2f;
             FireUpSpeed = fireUpSpeed;
             Spec = UnitSpec.Worker;
             Status = UnitStatus.Free;

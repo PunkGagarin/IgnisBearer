@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Gameplay.Buildings;
 using UnityEngine;
 using Zenject;
 
@@ -24,11 +25,11 @@ namespace _Project.Scripts.Gameplay.Units.Manager
         }
 
         //todo: move out to another class
-        public void MoveFreeUnit(TemporalLantern lantern)
+        public void MoveFreeUnit(Lantern lantern)
         {
             var unit = FindFirstFreeWorker();
             unit.Context.MoveTarget = lantern.GetPosition();
-            unit.StateMachine.Enter<UnitMoveToLanternState, TemporalLantern>(lantern);
+            unit.StateMachine.Enter<UnitMoveToLanternState, Lantern>(lantern);
         }
 
         private Unit FindFirstFreeWorker()
