@@ -14,7 +14,6 @@ namespace _Project.Scripts.Gameplay.Buildings.AutoCollector
         [field: SerializeField] public int GradePrice { get; private set; }
         [field: SerializeField] public int MaxDurability { get; private set; }
         [field: SerializeField] public int MaxGrade { get; private set; }
-
-
+        
     }
 }

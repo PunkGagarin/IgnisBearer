@@ -1,10 +1,8 @@
 ﻿using System;
-using _Project.Scripts.Gameplay.Buildings;
-using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Gameplay.Temporal
+namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
     public class LanternClickDetector : MonoBehaviour
     {

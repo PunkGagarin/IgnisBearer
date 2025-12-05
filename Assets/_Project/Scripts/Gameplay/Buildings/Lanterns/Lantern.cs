@@ -1,8 +1,7 @@
 ﻿using System;
-using _Project.Scripts.Gameplay.Temporal;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Buildings
+namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
     [RequireComponent(typeof(LanternClickDetector))]
     public class Lantern : MonoBehaviour

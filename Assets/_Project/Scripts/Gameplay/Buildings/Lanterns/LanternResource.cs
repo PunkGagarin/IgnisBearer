@@ -1,10 +1,8 @@
 ﻿using System;
-using _Project.Scripts.Gameplay.Buildings;
-using _Project.Scripts.Gameplay.Temporal;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Units
+namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
     [RequireComponent(typeof(Lantern))]
     [RequireComponent(typeof(LanternClickDetector))]

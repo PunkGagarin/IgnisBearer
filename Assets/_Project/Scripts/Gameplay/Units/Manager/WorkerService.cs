@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using UnityEngine;
 using Zenject;
 
