@@ -26,7 +26,7 @@ namespace _Project.Scripts.Infrastructure.SceneManagement
         {
             var tcs = new UniTaskCompletionSource();
 
-            image.DOFade(0, HideDuration)
+            await image.DOFade(0, HideDuration)
                 .OnComplete(() =>
                 {
                     content.SetActive(false);
