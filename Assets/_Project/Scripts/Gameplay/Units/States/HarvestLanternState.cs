@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Gameplay.Buildings;
+﻿using System;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Infrastructure.GameStates;
 using UnityEngine;
@@ -12,7 +12,9 @@ namespace _Project.Scripts.Gameplay.Units
 
         private Unit _unit;
         private float _currentTime = 0f;
-        private LanternResource _lanternResource;
+        private LanternLightStorage _lanternLightStorage;
+
+        private Action _enterNextState;
 
         public void Init(Unit unit)
         {
@@ -21,7 +23,14 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Enter(Lantern lantern)
         {
-            _lanternResource = lantern.GetComponent<LanternResource>();
+            _lanternLightStorage = lantern.GetComponent<LanternLightStorage>();
+            _enterNextState = () => _unit.StateMachine.Enter<UnitIdleState>();
+        }
+
+        public class Harvestpayload<TIState> where TIState : IUnitState
+        {
+            public Lantern lantern;
+            public TIState state;
         }
 
         public void Update()
@@ -31,9 +40,9 @@ namespace _Project.Scripts.Gameplay.Units
             UpdateBar();
             if (_currentTime > _lanternSettings.FireUpTime)
             {
-                var resource = _lanternResource.Harvest();
+                var resource = _lanternLightStorage.Harvest();
                 //todo: complete logic
-                _unit.StateMachine.Enter<UnitIdleState>();
+                _enterNextState?.Invoke();
             }
         }
 
