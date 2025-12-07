@@ -405,6 +405,8 @@ GameObject:
   - component: {fileID: 478164190823876544}
   - component: {fileID: -4566601398106009375}
   - component: {fileID: 4354109922516052538}
+  - component: {fileID: 7800488996546365539}
+  - component: {fileID: -3845416406392615741}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -491,6 +493,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e1de3c00e640e0984fd9821aeb2946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.LightStorage
+--- !u!114 &7800488996546365539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a768d2c00e469693e8eebe513d9aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator
+--- !u!114 &-3845416406392615741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5cd6b5b16454e6bbd216bc4169aad47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateStorage
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0

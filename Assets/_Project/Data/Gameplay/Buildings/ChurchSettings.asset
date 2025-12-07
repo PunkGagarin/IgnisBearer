@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: ChurchSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchSettings
   <ChurchBuildingPrefab>k__BackingField: {fileID: 4756976558124453703, guid: 1f692f9e4b18b498ea91173011d2cde0, type: 3}
-  <MaxGrade>k__BackingField: 0
-  <MaxUnitsCount>k__BackingField: 0
-  <GradePrice>k__BackingField: 0
-  <MaxDurability>k__BackingField: 0
+  <MaxGrade>k__BackingField: 5
+  <MaxUnitsCount>k__BackingField: 12
+  <MaxFateStorageCapacity>k__BackingField: 122
+  <MaxLightStorageCapacity>k__BackingField: 1000
+  <GradePrice>k__BackingField: 1
+  <TimeToProduceFate>k__BackingField: 10
+  <AmountToProduceFateAtTime>k__BackingField: 2
+  <LightSendSpeed>k__BackingField: 3

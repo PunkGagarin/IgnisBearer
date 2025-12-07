@@ -22,6 +22,12 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [field: SerializeField]
         public int GradePrice { get; private set; }
+        
+        [field: SerializeField]
+        public float TimeToProduceFate { get; private set; }
+        
+        [field: SerializeField]
+        public int AmountToProduceFateAtTime { get; private set; }
 
         [field: SerializeField]
         public float LightSendSpeed { get; private set; } = 3f;
