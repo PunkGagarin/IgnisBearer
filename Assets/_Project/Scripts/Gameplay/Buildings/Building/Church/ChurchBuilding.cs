@@ -1,42 +1,31 @@
+using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents;
 using _Project.Scripts.Gameplay.Buildings.BuildingComponents.WorkersCapacity;
-using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings.Church
 {
-    public class ChurchBuilding : Building, IResourceGenerator
+    public class ChurchBuilding : Building
     {
-        public double CurrentResourceCount { get; private set; }
-
         private IWorkersCapacity _workersCapacity;
+        /*private IFateGenerator _fateGenerator;
+        private IFateStorage _fateStorage;
+        private IChurchLightStorage _lightStorage;*/
 
         private void Awake()
         {
             _workersCapacity = GetComponent<IWorkersCapacity>();
+            /*_fateGenerator = GetComponent<IFateGenerator>();
+            _fateStorage = GetComponent<IFateStorage>();
+            _lightStorage = GetComponent<IChurchLightStorage>();*/
         }
 
-        public void Init() => CurrentResourceCount = 0;
-
-        public bool CanCollect() => CurrentResourceCount > 0;
-
-        public void StartGenerating()
+        public void Init()
         {
-            if (CanGenerate())
-                GenerateResource();
         }
 
-        public void StopGenerating()
+        public void PutLight(int count)
         {
-            Debug.Log("Stop Generating");
-        }
-
-        private void GenerateResource()
-        {
-            Debug.Log("Generating Resource");
-        }
-
-        private bool CanGenerate()
-        {
-            return _workersCapacity.Current > 0;
+            // _lightStorage.IncrementAmount(count);
         }
     }
 }

@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842098f6bb004b5da81645a8ff7acb27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.AutoCollector.AutoCollectorBuilding
-  <Type>k__BackingField: 3
+  <Type>k__BackingField: 4
   _button: {fileID: 2861758265547291918}
 --- !u!114 &841500901971286649
 MonoBehaviour:
