@@ -15,17 +15,13 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private SpriteRenderer Fired { get; set; }
 
         public Action<Lantern> OnDestroyed = delegate { };
+        public Action OnFired = delegate { };
 
         private LanternClickDetector _clickDetector;
 
         private void Awake()
         {
             _clickDetector = GetComponent<LanternClickDetector>();
-        }
-
-        public Vector3 GetPosition()
-        {
-            return transform.position;
         }
 
         public bool IsFired()
@@ -38,6 +34,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _isFired = true;
             UnFired.gameObject.SetActive(false);
             Fired.gameObject.SetActive(true);
+            OnFired.Invoke();
+            
+            //todo: убрать на попдиску?
             _clickDetector.TurnOffClick();
         }
 

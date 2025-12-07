@@ -15,12 +15,12 @@ namespace _Project.Scripts.Gameplay.Ui
 
         public void TurnOnBar()
         {
-            Bar.gameObject.SetActive(true);
+            gameObject.SetActive(true);
         }
 
         public void TurnOffBar()
         {
-            Bar.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

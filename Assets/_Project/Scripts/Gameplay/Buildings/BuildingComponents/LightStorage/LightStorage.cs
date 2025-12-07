@@ -40,7 +40,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             return Amount > 0;
         }
 
-        private bool IsFull()
+        public bool IsFull()
         {
             return !NotFull();
         }
