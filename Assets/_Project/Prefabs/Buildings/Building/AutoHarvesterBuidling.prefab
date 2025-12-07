@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: -3266807135101808824}
   - component: {fileID: 841500901971286649}
   m_Layer: 0
-  m_Name: AutoCollectorBuidling
+  m_Name: AutoHarvesterBuidling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

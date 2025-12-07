@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    // [CreateAssetMenu(fileName = "AutoCollectorSettings", menuName = "Gameplay/Buildings/AutoCollectorSettings", order = 0)]
-    public class AutoCollectorSettings: ScriptableObject
+    // [CreateAssetMenu(fileName = "AutoHarvestSettings", menuName = "Gameplay/Buildings/AutoHarvestSettings", order = 0)]
+    public class AutoHarvestSettings: ScriptableObject
     {
         
-        [field: SerializeField] public AutoCollectorBuilding AutoCollectorBuildingPrefab { get; private set; }
+        [field: SerializeField] public AutoHarvestBuilding AutoHarvestBuildingPrefab { get; private set; }
         [field: SerializeField] public double BuildPrice { get; private set; }
         [field: SerializeField] public string BuildingNameKey { get; private set; }
         
