@@ -8,31 +8,31 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
 
         public int Amount { get; private set; }
-        private int _maxAmount;
+        public int MaxAmount { get; private set; }
 
-        public event Action OnAmountIncreased = delegate { };
+        public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased = delegate { };
         public event Action OnStorageCleared = delegate { };
 
         public void Init(int maxStorage)
         {
-            _maxAmount = maxStorage;
+            MaxAmount = maxStorage;
         }
 
         public void IncrementAmount(int amount)
         {
             Amount += amount;
-            OnAmountIncreased.Invoke();
+            OnAmountIncreased.Invoke((amount, Amount, MaxAmount));
         }
 
         public void IncrementAmount()
         {
             Amount++;
-            OnAmountIncreased.Invoke();
+            OnAmountIncreased.Invoke(((1, Amount, MaxAmount)));
         }
 
         public bool NotFull()
         {
-            return Amount < _maxAmount;
+            return Amount < MaxAmount;
         }
 
         public bool HasAny()

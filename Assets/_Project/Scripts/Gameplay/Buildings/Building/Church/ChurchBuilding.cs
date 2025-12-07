@@ -11,7 +11,6 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected override void Awake()
         {
-            
             _workersCapacity = GetComponent<IWorkersCapacity>();
             _lightStorage = GetComponent<ILightStorage>();
 
