@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +10,10 @@ namespace _Project.Scripts.Gameplay.Buildings
         [SerializeField] private Button _button;
 
         protected IGrade _grade;
-        protected IDurability _durability;
 
         protected virtual void Awake()
         {
             _grade = GetComponent<IGrade>();
-            _durability = GetComponent<IDurability>();
         }
 
         private void Start()
