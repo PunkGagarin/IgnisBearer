@@ -16,13 +16,15 @@ namespace _Project.Scripts.Gameplay.Buildings.House
 
         private void OnBuildingBroke()
         {
+            _durability.OnDestroyed -= OnBuildingBroke;
             OnHouseDestroyed?.Invoke(this);
             Destroy(gameObject);
         }
 
         private void OnDestroy()
         {
-            _durability.OnDestroyed -= OnBuildingBroke;
+            if (_durability != null)
+                _durability.OnDestroyed -= OnBuildingBroke;
         }
     }
 }

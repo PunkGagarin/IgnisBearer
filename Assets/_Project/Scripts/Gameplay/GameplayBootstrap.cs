@@ -33,7 +33,8 @@ namespace _Project.Scripts.Gameplay
         {
             _levelService.CreateLevel();
             _lanternService.InitStartLanterns(_levelService.GetInitialLanternPositions());
-            _buildingsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints());
+            _buildingsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(), _levelService.GetChurchBuildingSpawnPoint());
+            _buildingsService.InitBuildings();
             _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
         }
 

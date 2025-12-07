@@ -6,10 +6,12 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability
     public class Durability : MonoBehaviour, IDurability
     {
         public event Action<float> DurabilityChanged;
-        public event Action OnDestroyed;
+        public event Action OnDestroyed = delegate { };
 
         public float Current { get; set; }
         public float Max { get; set; }
+
+        private void OnDestroy() => OnDestroyed?.Invoke();
 
         public void UpdateDurability(float updatedDurability)
         {

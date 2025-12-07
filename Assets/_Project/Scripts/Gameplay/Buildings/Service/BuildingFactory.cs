@@ -66,9 +66,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
             building.TryGetComponent<IGrade>(out var grade);
             grade.Init(0, _churchSettings.MaxGrade, _churchSettings.GradePrice);
 
-            building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(_churchSettings.MaxDurability, _churchSettings.MaxDurability);
-
             building.TryGetComponent<IWorkers>(out var specUnits);
             specUnits.Init();
 
@@ -91,16 +88,16 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
                     parentTransform.position, Quaternion.identity, parentTransform);
 
             building.TryGetComponent<IGrade>(out var grade);
-            grade.Init(0, _churchSettings.MaxGrade, _churchSettings.GradePrice);
+            grade.Init(0, _houseSettings.MaxGrade, _houseSettings.GradePrice);
 
             building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(_churchSettings.MaxDurability, _churchSettings.MaxDurability);
+            durability.Init(_houseSettings.MaxDurability, _houseSettings.MaxDurability);
 
             building.TryGetComponent<IWorkers>(out var specUnits);
             specUnits.Init();
 
             building.TryGetComponent<IWorkersCapacity>(out var capacity);
-            capacity.Init(0, _churchSettings.MaxUnitsCount);
+            capacity.Init(0, _houseSettings.MaxUnitsCount);
 
             slot.SetEnabled(false);
 
@@ -111,7 +108,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
         {
             var parentTransform = slot.transform;
             var building =
-                _container.InstantiatePrefabForComponent<AutoLighterBuilding>(_autoLighterSettings.AutoLighterBuildingPrefab,
+                _container.InstantiatePrefabForComponent<AutoLighterBuilding>(
+                    _autoLighterSettings.AutoLighterBuildingPrefab,
                     parentTransform.position, Quaternion.identity, parentTransform);
 
             building.TryGetComponent<IGrade>(out var grade);
@@ -137,7 +135,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
         {
             var parentTransform = slot.transform;
             var building =
-                _container.InstantiatePrefabForComponent<AutoCollectorBuilding>(_autoCollectorSettings.AutoCollectorBuildingPrefab,
+                _container.InstantiatePrefabForComponent<AutoCollectorBuilding>(
+                    _autoCollectorSettings.AutoCollectorBuildingPrefab,
                     parentTransform.position, Quaternion.identity, parentTransform);
 
             building.TryGetComponent<IGrade>(out var grade);

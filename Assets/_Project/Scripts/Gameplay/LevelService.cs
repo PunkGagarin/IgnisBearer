@@ -37,6 +37,11 @@ namespace _Project.Scripts.Gameplay
             return _level.InitalBuildingSlotsPositions;
         }
 
+        public BuildingSlotsSpawnPoint GetChurchBuildingSpawnPoint()
+        {
+            return _level.ChurchBuildingSlotPosition;
+        }
+
         public Vector3 GetRandomMapPosition()
         {
             var bg = _level.Background;
