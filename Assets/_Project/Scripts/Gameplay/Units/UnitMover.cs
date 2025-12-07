@@ -9,25 +9,30 @@ namespace _Project.Scripts.Gameplay.Units
     {
         private Unit _unit;
 
+
+        private SpriteRenderer _spriteRenderer;
+
         private void Awake()
         {
             _unit = GetComponent<Unit>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
-        public UniTask MoveTo(Vector3 destination)
+        private void FlipIfNeeded(Vector3 destination)
         {
-            var task = transform.DOMove(destination, _unit.Context.MoveSpeed)
-                .SetSpeedBased()
-                .SetEase(Ease.Linear)
-                .ToUniTask();
-            return task;
+            if (destination.x > transform.position.x)
+                _spriteRenderer.flipX = false;
+            else
+                _spriteRenderer.flipX = true;
         }
 
 
-        public UniTask MoveTo(Vector3 destination, MoveType moveType, CancellationToken cancellationToken)
+        public UniTask MoveTo(Vector3 destination, MoveType moveType = MoveType.Run, CancellationToken cancellationToken = default)
         {
             var speed = GetSpeedByType(moveType);
-            var task = transform.DOMove(destination, _unit.Context.MoveSpeed)
+            FlipIfNeeded(destination);
+            
+            var task = transform.DOMove(destination, speed)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .ToUniTask(cancellationToken: cancellationToken)
