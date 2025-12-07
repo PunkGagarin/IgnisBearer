@@ -62,6 +62,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
                 _buildings.Add(building);
         }
 
+        public ChurchBuilding GetChurch() => _church;
+        
         public List<BuildingButtonData> GetAddBuildingPopupData()
         {
             List<BuildingButtonData> list = new List<BuildingButtonData>();
