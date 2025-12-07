@@ -19,6 +19,9 @@ namespace _Project.Scripts.Gameplay
 
         [Inject]
         private BuildingsService _buildingsService;
+        
+        [Inject]
+        private BuildingSlotsService _buildingSlotsService;
 
 
         public void Initialize()
@@ -33,8 +36,8 @@ namespace _Project.Scripts.Gameplay
         {
             _levelService.CreateLevel();
             _lanternService.InitStartLanterns(_levelService.GetInitialLanternPositions());
-            _buildingsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(), _levelService.GetChurchBuildingSpawnPoint());
-            _buildingsService.InitBuildings();
+            _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(), _levelService.GetChurchBuildingSpawnPoint());
+            _buildingsService.InitInitialBuildings(_buildingSlotsService.GetChurchSlot(), _buildingSlotsService.GetFirstSlot());
             _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
         }
 

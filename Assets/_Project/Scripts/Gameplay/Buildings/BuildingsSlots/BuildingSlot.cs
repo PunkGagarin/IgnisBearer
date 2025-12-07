@@ -12,6 +12,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         [SerializeField] private Transform _content;
 
         [Inject] private BuildingsService _buildingsService;
+        [Inject] private BuildingAddingOptionsService _buildingAddingOptionsService;
 
         private void Awake()
         {
@@ -34,7 +35,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         private void OnClick()
         {
             _addBuildingPopup.Show();
-            var popupData = _buildingsService.GetAddBuildingPopupData();
+            var popupData = _buildingAddingOptionsService.GetAddBuildingPopupData();
             _addBuildingPopup.Init(popupData);
         }
 
