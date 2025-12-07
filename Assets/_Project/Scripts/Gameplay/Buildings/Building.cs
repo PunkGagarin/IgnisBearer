@@ -1,3 +1,4 @@
+using System;
 using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
 using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
 using UnityEngine;
@@ -14,11 +15,15 @@ namespace _Project.Scripts.Gameplay.Buildings
         protected IGrade _grade;
         protected IDurability _durability;
 
+        protected virtual void Awake()
+        {
+            _grade = GetComponent<IGrade>();
+            _durability = GetComponent<IDurability>();
+        }
+
         private void Start()
         {
             _button.onClick.AddListener(HandleButtonClick);
-            _grade = GetComponent<IGrade>();
-            _durability = GetComponent<IDurability>();
         }
 
         private void OnDestroy() => _button.onClick.RemoveListener(HandleButtonClick);
