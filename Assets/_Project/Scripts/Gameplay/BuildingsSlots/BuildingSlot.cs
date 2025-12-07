@@ -1,4 +1,3 @@
-using System;
 using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Service;
 using UnityEngine;
@@ -12,6 +11,7 @@ namespace _Project.Scripts.Gameplay.BuildingsSlots
         [SerializeField] private Button _button;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private AddBuildingPopup _addBuildingPopup;
+        [SerializeField] private Transform _content;
 
         [Inject] private BuildingsService _buildingsService;
 
@@ -40,8 +40,6 @@ namespace _Project.Scripts.Gameplay.BuildingsSlots
             _addBuildingPopup.Init(popupData);
         }
 
-        public void SetEnabled(bool enabled) => _button.gameObject.SetActive(enabled);
-
-        public void SetSprite(Sprite sprite) => _spriteRenderer.sprite = sprite;
+        public void SetEnabled(bool enabled) => _content.gameObject.SetActive(enabled);
     }
 }

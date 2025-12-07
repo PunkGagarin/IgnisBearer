@@ -7,10 +7,9 @@ namespace _Project.Scripts.Gameplay.Buildings.House
     {
         [field: SerializeField] public HouseBuilding HouseBuildingPrefab { get; private set; }
         
-        [field: SerializeField] public int HouseGrade { get; private set; }
-        [field: SerializeField] public int HouseCurrentUnitsCount { get; private set; }
-        [field: SerializeField] public int HouseMaxUnitsCount { get; private set; }
-        [field: SerializeField] public int HouseGradePrice { get; private set; }
-        [field: SerializeField] public int HouseDurability { get; private set; }
+        [field: SerializeField] public int MaxUnitsCount { get; private set; }
+        [field: SerializeField] public int GradePrice { get; private set; }
+        [field: SerializeField] public int MaxDurability { get; private set; }
+        [field: SerializeField] public int MaxGrade { get; private set; }
     }
 }
