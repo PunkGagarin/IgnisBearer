@@ -51,6 +51,9 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             building.TryGetComponent<IWorkersCapacity>(out var capacity);
             capacity.Init(0, _churchSettings.MaxUnitsCount);
+            
+            building.TryGetComponent<ILightStorage>(out var lightStorage);
+            lightStorage.Init(_churchSettings.MaxLightStorageCapacity);
 
             /*
             building.TryGetComponent<IFateGenerator>(out var fateGenerator);

@@ -22,6 +22,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             {
                 var unit = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
                     lanternPoint.transform.position, Quaternion.identity, null);
+                var lightStorage = unit.GetComponent<LightStorage>();
+                lightStorage.Init(_settings.InitMaxStorage);
 
                 list.Add(unit);
             }

@@ -9,13 +9,16 @@ namespace _Project.Scripts.Gameplay.Units
     public class UnitSendLightToChurchState : IUnitState, IState
     {
 
-        [Inject] private ChurchBuilding _church;
+        [Inject] private BuildingsService _buildingsService;
         [Inject] private UnitSettings _unitSettings;
+        [Inject] private ChurchSettings _churchSettings;
+        
+        private ChurchBuilding Church => _buildingsService.GetChurch();
 
         private Unit _unit;
 
         private float _currentTime = 0f;
-        private LanternLightStorage _lanternLightStorage;
+        private LightStorage _lightStorage;
 
         // private Action _enterNextState;
 
@@ -30,16 +33,17 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Update()
         {
-            _currentTime += Time.deltaTime * _unit.Context.FireUpSpeed;
+            _currentTime += Time.deltaTime;
 
             UpdateBar();
-            // if (_currentTime > _lanternSettings.FireUpTime)
-            // {
-            //     var resource = _lanternLightStorage.Harvest();
-            //     //todo: complete logic
-            //
-            //     // _enterNextState?.Invoke();
-            // }
+            
+            if (_currentTime > _churchSettings.LightSendSpeed)
+            {
+                var resource = _lightStorage.Harvest();
+                //todo: complete logic
+            
+                // _enterNextState?.Invoke();
+            }
         }
 
         public void Exit()

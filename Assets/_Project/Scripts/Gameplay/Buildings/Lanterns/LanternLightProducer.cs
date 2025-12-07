@@ -6,21 +6,21 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
     public class LanternLightProducer : MonoBehaviour
     {
-        private LanternLightStorage _lanternLightStorage;
+        private ILightStorage _lightStorage;
         private Lantern _lantern;
 
         private bool _isProducing;
 
         private void Awake()
         {
-            _lanternLightStorage = GetComponent<LanternLightStorage>();
+            _lightStorage = GetComponent<ILightStorage>();
             _lantern = GetComponent<Lantern>();
         }
 
 
         private void Update()
         {
-            if (_lantern.IsFired() && _lanternLightStorage.NotFull() && !IsProducing())
+            if (_lantern.IsFired() && _lightStorage.NotFull() && !IsProducing())
                 ProduceLight().Forget();
         }
 
@@ -29,7 +29,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _isProducing = true;
             await UniTask.Delay(TimeSpan.FromSeconds(5f));
 
-            _lanternLightStorage.IncrementCurrentAmount();
+            _lightStorage.IncrementAmount();
             Debug.Log("Lantern produced " + 1);
 
             _isProducing = false;
