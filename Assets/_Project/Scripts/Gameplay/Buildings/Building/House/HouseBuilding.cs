@@ -7,8 +7,9 @@ namespace _Project.Scripts.Gameplay.Buildings.House
         public Action<HouseBuilding> OnHouseClicked { get; set; }
         public Action<HouseBuilding> OnHouseDestroyed { get; set; }
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _durability.OnDestroyed += OnBuildingBroke;
         }
 
