@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4fe56280544ed09f38f03ba7805dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.House.HouseBuilding
-  <Type>k__BackingField: 1
+  <Type>k__BackingField: 2
   _button: {fileID: 2764551221529622053}
 --- !u!114 &5057796695877495664
 MonoBehaviour:

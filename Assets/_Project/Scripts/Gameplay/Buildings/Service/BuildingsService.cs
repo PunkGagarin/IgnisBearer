@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Buildings.AutoCollector;
 using _Project.Scripts.Gameplay.Buildings.AutoLighter;
+using _Project.Scripts.Gameplay.Buildings.Church;
 using _Project.Scripts.Gameplay.Buildings.Factory;
 using _Project.Scripts.Gameplay.BuildingsSlots;
 using _Project.Scripts.Localization;
@@ -20,6 +21,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
 
         private List<BuildingSlot> _buildingSlots = new();
         private BuildingSlot _churchSlot;
+
+        private List<Building> _buildings = new();
+        private ChurchBuilding _church;
 
         public void InitSlots(List<BuildingSlotsSpawnPoint> buildingsSpawnPoints,
             BuildingSlotsSpawnPoint churchBuildingSpawnPoint)
@@ -44,9 +48,19 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
             AddBuildingTo(BuildingType.House, _buildingSlots.First());
         }
 
-        public void AddBuildingTo(BuildingType buildingType, BuildingSlot buildingSlot)
+        public Building AddBuildingTo(BuildingType buildingType, BuildingSlot buildingSlot)
         {
-            _buildingFactory.BuildByType(buildingType, buildingSlot);
+            var building = _buildingFactory.BuildByType(buildingType, buildingSlot);
+            RegisterBuilding(building);
+            return building;
+        }
+
+        private void RegisterBuilding(Building building)
+        {
+            if (building is ChurchBuilding churchBuilding)
+                _church = churchBuilding;
+            else
+                _buildings.Add(building);
         }
 
         public List<BuildingButtonData> GetAddBuildingPopupData()

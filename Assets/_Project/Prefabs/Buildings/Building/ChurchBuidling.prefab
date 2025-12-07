@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ce9276d7c8471ba94a1b3b4a5aa27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchBuilding
-  <Type>k__BackingField: 0
+  <Type>k__BackingField: 1
   _button: {fileID: 2861758265547291918}
 --- !u!114 &5029327711760116034
 MonoBehaviour:
