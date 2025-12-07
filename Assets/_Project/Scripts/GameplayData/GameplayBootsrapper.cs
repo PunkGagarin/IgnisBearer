@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Gameplay.Units.Manager;
-using Zenject;
+﻿using Zenject;
 
 namespace _Project.Scripts.GameplayData
 {

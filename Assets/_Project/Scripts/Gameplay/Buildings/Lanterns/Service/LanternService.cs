@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Gameplay.Units.Manager;
+using _Project.Scripts.Gameplay.Units;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns

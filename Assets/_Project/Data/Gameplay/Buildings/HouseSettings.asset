@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HouseSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.House.HouseSettings
   <HouseBuildingPrefab>k__BackingField: {fileID: -6917743041111328387, guid: 4fcb4e480a1ba441fa33f229429cf27b, type: 3}
-  <HouseGrade>k__BackingField: 1
-  <HouseCurrentUnitsCount>k__BackingField: 1
-  <HouseMaxUnitsCount>k__BackingField: 1
-  <HouseGradePrice>k__BackingField: 1
-  <HouseDurability>k__BackingField: 1
+  <MaxUnitsCount>k__BackingField: 10
+  <GradePrice>k__BackingField: 11
+  <MaxDurability>k__BackingField: 100
+  <MaxGrade>k__BackingField: 5
+  <UnitPrice>k__BackingField: 5
