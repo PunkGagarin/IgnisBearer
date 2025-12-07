@@ -15,7 +15,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             _grade = GetComponent<IGrade>();
         }
-
+        
         private void Start()
         {
             _button.onClick.AddListener(HandleButtonClick);
