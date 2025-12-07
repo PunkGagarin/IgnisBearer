@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AutoHarvesterSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingTypes.AutoCollector.AutoCollectorSettings
   <AutoHarvestBuildingPrefab>k__BackingField: {fileID: -3266807135101808824, guid: 7bc4c4b185d8941a0bc34ffd6afa9d52, type: 3}
-  <BuildPrice>k__BackingField: 0
+  <BuildPrice>k__BackingField: 11
   <BuildingNameKey>k__BackingField: BUILD_AUTO_COLLECTOR_NAME
-  <MaxUnitsCount>k__BackingField: 0
-  <GradePrice>k__BackingField: 0
-  <MaxDurability>k__BackingField: 0
-  <MaxGrade>k__BackingField: 0
+  <MaxUnitsCount>k__BackingField: 11
+  <GradePrice>k__BackingField: 11
+  <MaxDurability>k__BackingField: 11
+  <MaxGrade>k__BackingField: 11
