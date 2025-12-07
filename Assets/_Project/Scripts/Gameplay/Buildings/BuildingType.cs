@@ -2,10 +2,11 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public enum BuildingType
     {
-        Church = 0,
-        House = 1,
-        Factory = 2,
-        AutoCollector = 3,
-        AutoLighter = 4
+        None = 0,
+        Church = 1,
+        House = 2,
+        Factory = 3,
+        AutoCollector = 4,
+        AutoLighter = 5
     }
 }

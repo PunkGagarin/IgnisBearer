@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ed3a943ee34bc79a58225d0ed9b9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.AutoLighter.AutoLighterBuilding
-  <Type>k__BackingField: 4
+  <Type>k__BackingField: 5
   _button: {fileID: 2861758265547291918}
 --- !u!114 &7613485098727134890
 MonoBehaviour:

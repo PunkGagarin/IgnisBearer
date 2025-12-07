@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings.Factory
 {
-    public class FactoryBuilding : Building, IResourceGenerator
+    public class FactoryBuilding : Building
     {
         public double CurrentResourceCount { get; }
+
         public void Init()
         {
             StartGenerating();
@@ -12,7 +14,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Factory
 
         public bool CanCollect()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void StartGenerating()
@@ -23,7 +25,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Factory
 
         public void StopGenerating()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

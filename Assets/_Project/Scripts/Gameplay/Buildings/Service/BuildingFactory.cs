@@ -1,6 +1,7 @@
 using System;
 using _Project.Scripts.Gameplay.Buildings.AutoCollector;
 using _Project.Scripts.Gameplay.Buildings.AutoLighter;
+using _Project.Scripts.Gameplay.Buildings.BuildingComponents;
 using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
 using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
 using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Workers;
@@ -32,28 +33,17 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
             return slot;
         }
 
-        public void BuildByType(BuildingType buildingType, BuildingSlot slot)
+        public Building BuildByType(BuildingType buildingType, BuildingSlot slot)
         {
-            switch (buildingType)
+            return buildingType switch
             {
-                case BuildingType.Church:
-                    BuildChurch(slot);
-                    break;
-                case BuildingType.House:
-                    BuildHouse(slot);
-                    break;
-                case BuildingType.Factory:
-                    BuildFactory(slot);
-                    break;
-                case BuildingType.AutoCollector:
-                    BuildAutoCollector(slot);
-                    break;
-                case BuildingType.AutoLighter:
-                    BuildAutoLighter(slot);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(buildingType), buildingType, null);
-            }
+                BuildingType.Church => BuildChurch(slot),
+                BuildingType.House => BuildHouse(slot),
+                BuildingType.Factory => BuildFactory(slot),
+                BuildingType.AutoCollector => BuildAutoCollector(slot),
+                BuildingType.AutoLighter => BuildAutoLighter(slot),
+                _ => throw new ArgumentOutOfRangeException(nameof(buildingType), buildingType, null)
+            };
         }
 
         private ChurchBuilding BuildChurch(BuildingSlot slot)
@@ -72,7 +62,16 @@ namespace _Project.Scripts.Gameplay.Buildings.Service
             building.TryGetComponent<IWorkersCapacity>(out var capacity);
             capacity.Init(0, _churchSettings.MaxUnitsCount);
 
-            building.Init();
+            /*
+            building.TryGetComponent<IFateGenerator>(out var fateGenerator);
+            fateGenerator.Init();
+            
+            building.TryGetComponent<IFateStorage>(out var fateStorage);
+            fateStorage.Init(_churchSettings.MaxFateStorageCapacity);
+            
+            building.TryGetComponent<IChurchLightStorage>(out var lightStorage);
+            lightStorage.Init(_churchSettings.MaxLightStorageCapacity);
+            */
 
             slot.SetEnabled(false);
 

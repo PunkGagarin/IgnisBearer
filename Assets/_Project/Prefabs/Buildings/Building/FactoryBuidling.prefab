@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b691a1a95744c8a7028052e1d8d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Factory.FactoryBuilding
-  <Type>k__BackingField: 2
+  <Type>k__BackingField: 3
   _button: {fileID: 2861758265547291918}
 --- !u!114 &6284593314332039133
 MonoBehaviour:
