@@ -1,5 +1,5 @@
-﻿using _Project.Scripts.Gameplay.Buildings.Lanterns;
-using _Project.Scripts.Gameplay.Buildings.Service;
+﻿using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Units.Manager;
 using Zenject;
 

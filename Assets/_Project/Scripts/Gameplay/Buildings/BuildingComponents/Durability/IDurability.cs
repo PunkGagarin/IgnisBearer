@@ -1,6 +1,6 @@
 using System;
 
-namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public interface IDurability
     {

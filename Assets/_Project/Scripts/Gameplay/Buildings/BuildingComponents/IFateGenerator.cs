@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public interface IFateGenerator
     {

@@ -1,6 +1,4 @@
-using _Project.Scripts.Gameplay.Buildings;
-
-namespace _Project.Scripts.Gameplay.BuildingsSlots
+namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     public class BuildingButtonData
     {

@@ -1,10 +1,8 @@
-using _Project.Scripts.Gameplay.Buildings;
-using _Project.Scripts.Gameplay.Buildings.Service;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.BuildingsSlots
+namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     public class BuildingSlot : MonoBehaviour
     {

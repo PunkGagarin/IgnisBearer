@@ -1,15 +1,9 @@
-using _Project.Scripts.Gameplay.Buildings.AutoCollector;
-using _Project.Scripts.Gameplay.Buildings.AutoLighter;
-using _Project.Scripts.Gameplay.Buildings.Church;
-using _Project.Scripts.Gameplay.Buildings.Factory;
-using _Project.Scripts.Gameplay.Buildings.House;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
-using _Project.Scripts.Gameplay.Buildings.Service;
-using _Project.Scripts.Gameplay.BuildingsSlots;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Buildings.Installer
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class BuildingsInstaller : MonoInstaller
     {

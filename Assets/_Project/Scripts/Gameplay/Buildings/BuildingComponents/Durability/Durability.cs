@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class Durability : MonoBehaviour, IDurability
     {

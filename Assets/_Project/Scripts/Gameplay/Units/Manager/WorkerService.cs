@@ -29,7 +29,6 @@ namespace _Project.Scripts.Gameplay.Units.Manager
         public void MoveFreeUnit(Lantern lantern)
         {
             var unit = FindFirstFreeWorker();
-            unit.Context.MoveTarget = lantern.GetPosition();
             unit.StateMachine.Enter<UnitMoveToLanternState, Lantern>(lantern);
         }
 

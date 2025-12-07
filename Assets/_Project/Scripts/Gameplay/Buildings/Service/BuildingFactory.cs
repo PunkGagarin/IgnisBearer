@@ -1,19 +1,9 @@
 using System;
-using _Project.Scripts.Gameplay.Buildings.AutoCollector;
-using _Project.Scripts.Gameplay.Buildings.AutoLighter;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Workers;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.WorkersCapacity;
-using _Project.Scripts.Gameplay.Buildings.Church;
-using _Project.Scripts.Gameplay.Buildings.Factory;
-using _Project.Scripts.Gameplay.Buildings.House;
-using _Project.Scripts.Gameplay.BuildingsSlots;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Buildings.Service
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class BuildingFactory
     {

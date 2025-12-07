@@ -15,10 +15,12 @@ namespace _Project.Scripts.Gameplay.Units
         public float DefaultFireUpSpeed { get; private set; } = 1f;
 
         [field: SerializeField]
+        public float DefaultSendLightToChurchSpeed { get; private set; } = 4f;
+
+        [field: SerializeField]
         public float IdleBeforeMoveMinTime { get; private set; } = 1f;
 
         [field: SerializeField]
         public float IdleBeforeMoveMaxTime { get; private set; } = 5f;
-        
     }
 }

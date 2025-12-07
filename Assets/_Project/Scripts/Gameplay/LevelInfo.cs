@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
-using _Project.Scripts.Gameplay.BuildingsSlots;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 

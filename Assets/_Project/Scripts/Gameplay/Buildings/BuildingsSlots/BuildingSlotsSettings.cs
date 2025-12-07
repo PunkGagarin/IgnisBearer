@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.BuildingsSlots
+namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     // [CreateAssetMenu(fileName = "BuildingSlotsSettings", menuName = "Gameplay/Buildings/BuildingSlotsSettings", order = 0)]
 
