@@ -1,10 +1,11 @@
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public interface IChurchLightStorage
+    public interface ILightStorage
     {
-        int Count { get; }
-        int MaxCount { get; }
+        int Amount { get; }
         void Init(int maxStorageCapacity);
         void IncrementAmount(int amount);
+        void IncrementAmount();
+        bool NotFull();
     }
 }

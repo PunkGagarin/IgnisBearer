@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Gameplay.Buildings.Lanterns;
+﻿using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Infrastructure.GameStates;
 using UnityEngine;
 
@@ -24,8 +25,8 @@ namespace _Project.Scripts.Gameplay.Units
 
         private bool IsLanternReadyToHarvest(Lantern lantern)
         {
-            var lanternResource = lantern.GetComponent<LanternLightStorage>();
-            return lanternResource.IsReadyToHarvest();
+            var lanternResource = lantern.GetComponent<LightStorage>();
+            return lanternResource.HasAny();
         }
 
         private bool IsNeedToFireUpLantern(Lantern lantern)

@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 5029327711760116034}
   - component: {fileID: 478164190823876544}
   - component: {fileID: -4566601398106009375}
+  - component: {fileID: 4354109922516052538}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -478,6 +479,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac3edcad3e543528051d56cc0185ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingComponents.Workers.Workers
+--- !u!114 &4354109922516052538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e1de3c00e640e0984fd9821aeb2946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.LightStorage
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0

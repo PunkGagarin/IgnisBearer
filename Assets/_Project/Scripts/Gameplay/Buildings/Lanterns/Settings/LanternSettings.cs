@@ -10,9 +10,12 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         [field: SerializeField]
         public float FireUpTime { get; private set; } = 3f;
-        
+
         [field: SerializeField]
         public float HarvestTime { get; private set; } = 3f;
+
+        [field: SerializeField]
+        public int InitMaxStorage { get; private set; } = 1;
 
     }
 }
