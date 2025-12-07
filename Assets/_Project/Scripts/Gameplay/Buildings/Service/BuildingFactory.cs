@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private readonly BuildingSlotsSettings _buildingSlotsSettings;
         [Inject] private readonly HouseSettings _houseSettings;
         [Inject] private FactorySettings _factorySettings;
-        [Inject] private AutoCollectorSettings _autoCollectorSettings;
+        [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
 
         public BuildingSlot CreateSlotAtPosition(BuildingSlotsSpawnPoint buildingSlotsSpawnPoint)
@@ -30,7 +30,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 BuildingType.Church => BuildChurch(slot),
                 BuildingType.House => BuildHouse(slot),
                 BuildingType.Factory => BuildFactory(slot),
-                BuildingType.AutoCollector => BuildAutoCollector(slot),
+                BuildingType.AutoHarvest => BuildAutoHarvester(slot),
                 BuildingType.AutoLighter => BuildAutoLighter(slot),
                 _ => throw new ArgumentOutOfRangeException(nameof(buildingType), buildingType, null)
             };
@@ -120,25 +120,25 @@ namespace _Project.Scripts.Gameplay.Buildings
             return building;
         }
 
-        private AutoCollectorBuilding BuildAutoCollector(BuildingSlot slot)
+        private AutoHarvestBuilding BuildAutoHarvester(BuildingSlot slot)
         {
             var parentTransform = slot.transform;
             var building =
-                _container.InstantiatePrefabForComponent<AutoCollectorBuilding>(
-                    _autoCollectorSettings.AutoCollectorBuildingPrefab,
+                _container.InstantiatePrefabForComponent<AutoHarvestBuilding>(
+                    _autoHarvestSettings.AutoHarvestBuildingPrefab,
                     parentTransform.position, Quaternion.identity, parentTransform);
 
             building.TryGetComponent<IGrade>(out var grade);
-            grade.Init(0, _autoCollectorSettings.MaxGrade, _autoCollectorSettings.GradePrice);
+            grade.Init(0, _autoHarvestSettings.MaxGrade, _autoHarvestSettings.GradePrice);
 
             building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(_autoCollectorSettings.MaxDurability, _autoCollectorSettings.MaxDurability);
+            durability.Init(_autoHarvestSettings.MaxDurability, _autoHarvestSettings.MaxDurability);
 
             building.TryGetComponent<IWorkers>(out var specUnits);
             specUnits.Init();
 
             building.TryGetComponent<IWorkersCapacity>(out var capacity);
-            capacity.Init(0, _autoCollectorSettings.MaxUnitsCount);
+            capacity.Init(0, _autoHarvestSettings.MaxUnitsCount);
 
             building.Init();
 

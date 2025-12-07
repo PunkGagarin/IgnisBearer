@@ -1,6 +1,7 @@
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
@@ -17,7 +18,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         private FactorySettings _factorySettings;
 
         [field: SerializeField]
-        private AutoCollectorSettings _autoCollectorSettings;
+        private AutoHarvestSettings _autoHarvestSettings;
 
         [field: SerializeField]
         private AutoLighterSettings _autoLighterSettings;
@@ -33,7 +34,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             Container.BindInterfacesAndSelfTo<BuildingSlotsSettings>().FromInstance(_buildingSlotsSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<ChurchSettings>().FromInstance(_churchSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<FactorySettings>().FromInstance(_factorySettings).AsSingle();
-            Container.BindInterfacesAndSelfTo<AutoCollectorSettings>().FromInstance(_autoCollectorSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<AutoHarvestSettings>().FromInstance(_autoHarvestSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<AutoLighterSettings>().FromInstance(_autoLighterSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<HouseSettings>().FromInstance(_houseSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingFactory>().AsSingle();

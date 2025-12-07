@@ -6,7 +6,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         Church = 1,
         House = 2,
         Factory = 3,
-        AutoCollector = 4,
+        AutoHarvest = 4,
         AutoLighter = 5
     }
 }

@@ -1,6 +1,6 @@
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class AutoCollectorBuilding : Building
+    public class AutoHarvestBuilding : Building
     {
         public void Init()
         {

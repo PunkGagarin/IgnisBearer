@@ -10,7 +10,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class BuildingsService
     {
         [Inject] private FactorySettings _factorySettings;
-        [Inject] private AutoCollectorSettings _autoCollectorSettings;
+        [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
         [Inject] private BuildingFactory _buildingFactory;
         [Inject] private LocalizationTool _localizationTool;
@@ -65,7 +65,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             List<BuildingButtonData> list = new List<BuildingButtonData>();
             AddFactoryButton(list);
-            AddAutoCollectorButton(list);
+            AddAutoHarvesterButton(list);
             AddAutoLighterButton(list);
             return list;
         }
@@ -80,13 +80,13 @@ namespace _Project.Scripts.Gameplay.Buildings
             }
         }
 
-        private void AddAutoCollectorButton(List<BuildingButtonData> list)
+        private void AddAutoHarvesterButton(List<BuildingButtonData> list)
         {
-            var autoCollectorInitPrice = GetAutoCollectorInitPrice();
-            if (CanBuildAutoCollector(autoCollectorInitPrice))
+            var autoHarvesterInitPrice = GetAutoHarvesterInitPrice();
+            if (CanBuildAutoHarvester(autoHarvesterInitPrice))
             {
-                list.Add(new BuildingButtonData(BuildingType.AutoCollector, autoCollectorInitPrice,
-                    Localize(_autoCollectorSettings.BuildingNameKey)));
+                list.Add(new BuildingButtonData(BuildingType.AutoHarvest, autoHarvesterInitPrice,
+                    Localize(_autoHarvestSettings.BuildingNameKey)));
             }
         }
 
@@ -102,13 +102,13 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private bool CanBuildFactory(double price) => HaveEnoughMoney(price);
 
-        private bool CanBuildAutoCollector(double price) => HaveEnoughMoney(price);
+        private bool CanBuildAutoHarvester(double price) => HaveEnoughMoney(price);
 
         private bool CanBuildAutoLighter(double price) => HaveEnoughMoney(price);
 
         private double GetFactoryInitPrice() => _factorySettings.BuildPrice;
 
-        private double GetAutoCollectorInitPrice() => _autoCollectorSettings.BuildPrice;
+        private double GetAutoHarvesterInitPrice() => _autoHarvestSettings.BuildPrice;
 
         private double GetAutoLighterInitPrice() => _autoLighterSettings.BuildPrice;
 
