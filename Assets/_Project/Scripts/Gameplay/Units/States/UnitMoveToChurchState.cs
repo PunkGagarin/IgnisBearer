@@ -1,14 +1,12 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
-using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Infrastructure.GameStates;
-using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units
 {
     public class UnitMoveToChurchState : IUnitState, IState
     {
-        [Inject] BuildingsService _buildingsService;
+        [Inject] BuildingSlotsService _buildingSlotsService;
         private Unit _unit;
 
 
@@ -21,7 +19,7 @@ namespace _Project.Scripts.Gameplay.Units
         {
             _unit.Context.Status = UnitStatus.Busy;
 
-            await _unit.Mover.MoveTo(_buildingsService.GetChurchPosition());
+            await _unit.Mover.MoveTo(_buildingSlotsService.GetChurchPosition());
             _unit.StateMachine.Enter<UnitSendLightToChurchState>();
         }
 
@@ -33,5 +31,4 @@ namespace _Project.Scripts.Gameplay.Units
         {
         }
     }
-
 }

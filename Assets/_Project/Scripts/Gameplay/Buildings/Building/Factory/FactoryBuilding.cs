@@ -1,31 +1,27 @@
-using System;
-using UnityEngine;
-
 namespace _Project.Scripts.Gameplay.Buildings
 {
     public class FactoryBuilding : Building
     {
-        public double CurrentResourceCount { get; }
+        private IDurability _durability;
 
-        public void Init()
+        protected override void Awake()
         {
-            StartGenerating();
+            base.Awake();
+            _durability = GetComponent<IDurability>();
+            _durability.OnDestroyed += OnBuildingBroke;
+        }
+        private void OnBuildingBroke()
+        {
+            _durability.OnDestroyed -= OnBuildingBroke;
+            Destroy(gameObject);
         }
 
-        public bool CanCollect()
+        private void OnDestroy()
         {
-            throw new NotImplementedException();
+            if (_durability != null)
+                _durability.OnDestroyed -= OnBuildingBroke;
         }
-
-        public void StartGenerating()
-        {
-            Debug.Log("FactoryBuilding StartGenerating");
-            // todo
-        }
-
-        public void StopGenerating()
-        {
-            throw new NotImplementedException();
-        }
+        
+        public void Init() {}
     }
 }

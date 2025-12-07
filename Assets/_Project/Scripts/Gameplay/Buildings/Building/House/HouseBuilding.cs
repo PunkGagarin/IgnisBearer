@@ -4,21 +4,18 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public class HouseBuilding : Building
     {
-        public Action<HouseBuilding> OnHouseClicked { get; set; }
-        public Action<HouseBuilding> OnHouseDestroyed { get; set; }
+
+        private IDurability _durability;
 
         protected override void Awake()
         {
             base.Awake();
+            _durability = GetComponent<IDurability>();
             _durability.OnDestroyed += OnBuildingBroke;
         }
-
-        protected override void HandleButtonClick() => OnHouseClicked?.Invoke(this);
-
         private void OnBuildingBroke()
         {
             _durability.OnDestroyed -= OnBuildingBroke;
-            OnHouseDestroyed?.Invoke(this);
             Destroy(gameObject);
         }
 

@@ -38,6 +38,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             Container.BindInterfacesAndSelfTo<AutoLighterSettings>().FromInstance(_autoLighterSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<HouseSettings>().FromInstance(_houseSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingAddingOptionsService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingsService>().AsSingle();
             
             Container.BindInterfacesAndSelfTo<LanternSettings>().FromInstance(_lanternSettings).AsSingle();
