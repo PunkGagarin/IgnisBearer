@@ -13,11 +13,23 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public Action<Lantern> OnClicked = delegate { };
 
         private Lantern _lantern;
+        private LightStorage _lightStorage;
 
         private void Awake()
         {
             _lantern = GetComponent<Lantern>();
+            _lightStorage = GetComponent<LightStorage>();
+
             Button.onClick.AddListener(OnButtonClicked);
+            _lightStorage.OnAmountIncreased += TurnOnClick;
+            _lightStorage.OnStorageCleared += TurnOffClick;
+        }
+
+        private void OnDestroy()
+        {
+            Button.onClick.RemoveListener(OnButtonClicked);
+            _lightStorage.OnAmountIncreased -= TurnOnClick;
+            _lightStorage.OnStorageCleared -= TurnOffClick;
         }
 
         private void OnButtonClicked()
@@ -34,6 +46,5 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             Button.gameObject.SetActive(false);
         }
-
     }
 }

@@ -6,7 +6,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     [RequireComponent(typeof(LanternClickDetector))]
     public class Lantern : MonoBehaviour
     {
-
         private bool _isFired;
 
         [field: SerializeField]
