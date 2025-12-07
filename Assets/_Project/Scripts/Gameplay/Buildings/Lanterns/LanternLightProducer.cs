@@ -1,15 +1,22 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
+    [RequireComponent(typeof(Lantern))]
+    [RequireComponent(typeof(ILightStorage))]
     public class LanternLightProducer : MonoBehaviour
     {
+        [Inject] private LanternSettings _settings;
+
         private ILightStorage _lightStorage;
         private Lantern _lantern;
 
         private bool _isProducing;
+
+        public event Action<float> OnLightProgressed = delegate { };
 
         private void Awake()
         {
@@ -24,10 +31,17 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
                 ProduceLight().Forget();
         }
 
-        public async UniTaskVoid ProduceLight()
+        private async UniTaskVoid ProduceLight()
         {
             _isProducing = true;
-            await UniTask.Delay(TimeSpan.FromSeconds(5f));
+            float estimatedTime = 0;
+
+            while (estimatedTime < _settings.LightProduceTime)
+            {
+                await UniTask.Yield(PlayerLoopTiming.Update);
+                estimatedTime += Time.deltaTime;
+                OnLightProgressed(estimatedTime / _settings.LightProduceTime);
+            }
 
             _lightStorage.IncrementAmount();
             Debug.Log("Lantern produced " + 1);
