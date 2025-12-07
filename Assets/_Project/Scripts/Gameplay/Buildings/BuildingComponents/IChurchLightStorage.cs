@@ -1,6 +1,4 @@
-using System;
-
-namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public interface IChurchLightStorage
     {

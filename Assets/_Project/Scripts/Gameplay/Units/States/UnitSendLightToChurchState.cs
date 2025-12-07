@@ -1,4 +1,4 @@
-﻿using _Project.Scripts.Gameplay.Buildings.Church;
+﻿using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Infrastructure.GameStates;
 using UnityEngine;

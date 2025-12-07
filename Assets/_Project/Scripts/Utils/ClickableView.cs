@@ -2,28 +2,31 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class ClickableView<T> : MonoBehaviour where T : ClickableView<T>
+namespace _Project.Scripts.Utils
 {
-    [SerializeField]
-    protected Collider2D _collider2D;
-
-    public event Action<T> OnClicked = delegate { };
-
-    public virtual void OnMouseDown()
+    public abstract class ClickableView<T> : MonoBehaviour where T : ClickableView<T>
     {
-        if (IsPointerOverUI())
-            return;
+        [SerializeField]
+        protected Collider2D _collider2D;
 
-        Interact();
-    }
+        public event Action<T> OnClicked = delegate { };
 
-    private bool IsPointerOverUI()
-    {
-        return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
-    }
+        public virtual void OnMouseDown()
+        {
+            if (IsPointerOverUI())
+                return;
 
-    protected virtual void Interact()
-    {
-        OnClicked.Invoke(this as T);
+            Interact();
+        }
+
+        private bool IsPointerOverUI()
+        {
+            return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+        }
+
+        protected virtual void Interact()
+        {
+            OnClicked.Invoke(this as T);
+        }
     }
 }

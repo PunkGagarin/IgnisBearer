@@ -1,15 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using _Project.Scripts.Gameplay.Buildings.AutoCollector;
-using _Project.Scripts.Gameplay.Buildings.AutoLighter;
-using _Project.Scripts.Gameplay.Buildings.Church;
-using _Project.Scripts.Gameplay.Buildings.Factory;
-using _Project.Scripts.Gameplay.BuildingsSlots;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Localization;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Buildings.Service
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class BuildingsService
     {

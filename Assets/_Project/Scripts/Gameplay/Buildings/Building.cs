@@ -1,6 +1,4 @@
 using System;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Durability;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade;
 using UnityEngine;
 using UnityEngine.UI;
 

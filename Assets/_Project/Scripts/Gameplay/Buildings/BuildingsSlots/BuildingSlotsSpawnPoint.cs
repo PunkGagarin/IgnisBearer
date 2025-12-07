@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.BuildingsSlots
+namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     public class BuildingSlotsSpawnPoint : MonoBehaviour
     {

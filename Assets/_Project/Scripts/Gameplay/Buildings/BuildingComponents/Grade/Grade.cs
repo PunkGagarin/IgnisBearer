@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.Grade
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class Grade : MonoBehaviour, IGrade
     {

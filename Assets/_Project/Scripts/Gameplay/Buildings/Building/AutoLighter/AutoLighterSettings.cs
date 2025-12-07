@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Buildings.AutoLighter
+namespace _Project.Scripts.Gameplay.Buildings
 {
     // [CreateAssetMenu(fileName = "AutoLighterSettings", menuName = "Gameplay/Buildings/AutoLighterSettings", order = 0)]
     public class AutoLighterSettings : ScriptableObject

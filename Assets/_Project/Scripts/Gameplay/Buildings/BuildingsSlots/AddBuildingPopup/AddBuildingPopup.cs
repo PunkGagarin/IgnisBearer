@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Gameplay.BuildingsSlots
+namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     public class AddBuildingPopup : ContentUi
     {

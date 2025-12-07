@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents;
-using _Project.Scripts.Gameplay.Buildings.BuildingComponents.WorkersCapacity;
-
-namespace _Project.Scripts.Gameplay.Buildings.Church
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class ChurchBuilding : Building
     {

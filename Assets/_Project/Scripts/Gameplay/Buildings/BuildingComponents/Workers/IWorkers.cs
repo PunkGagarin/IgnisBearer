@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Units;
 
-namespace _Project.Scripts.Gameplay.Buildings.BuildingComponents.Workers
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public interface IWorkers
     {

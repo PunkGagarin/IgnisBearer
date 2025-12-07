@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Gameplay.Buildings.AutoCollector
+namespace _Project.Scripts.Gameplay.Buildings
 {
     public class AutoCollectorBuilding : Building
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
-using _Project.Scripts.Gameplay.BuildingsSlots;
 using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Infrastructure.GameStates.States;
 using UnityEngine;

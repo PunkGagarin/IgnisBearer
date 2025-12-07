@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay.Buildings.Factory
+namespace _Project.Scripts.Gameplay.Buildings
 {
     // [CreateAssetMenu(fileName = "FactorySettings", menuName = "Gameplay/Buildings/FactorySettings", order = 0)]
     public class FactorySettings : ScriptableObject

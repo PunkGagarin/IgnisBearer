@@ -1,12 +1,11 @@
 using System;
 using System.Globalization;
-using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Gameplay.BuildingsSlots
+namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     public class AddBuildingButton : ContentUi
     {
