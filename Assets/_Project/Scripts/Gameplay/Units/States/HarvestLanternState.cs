@@ -14,6 +14,7 @@ namespace _Project.Scripts.Gameplay.Units
         private Unit _unit;
         private float _currentTime = 0f;
         private LightStorage _lightStorage;
+        private LanternUi _lanternUi;
         private UnitContext Context => _unit.Context;
 
         // private Action _enterNextState;
@@ -26,6 +27,7 @@ namespace _Project.Scripts.Gameplay.Units
         public void Enter(Lantern lantern)
         {
             _lightStorage = lantern.GetComponent<LightStorage>();
+            _lanternUi = lantern.GetComponent<LanternUi>();
             // _enterNextState = () => _unit.StateMachine.Enter<UnitIdleState>();
         }
 
@@ -33,7 +35,7 @@ namespace _Project.Scripts.Gameplay.Units
         {
             _currentTime += Time.deltaTime * _unit.Context.FireUpSpeed;
 
-            UpdateBar();
+            UpdateBar(_currentTime, _lanternSettings.HarvestTime);
             if (_currentTime > _lanternSettings.HarvestTime)
             {
                 Context.LightAmount = _lightStorage.Harvest();
@@ -45,10 +47,13 @@ namespace _Project.Scripts.Gameplay.Units
         {
             _unit.Context.Status = UnitStatus.Free;
             _currentTime = 0f;
+            _lightStorage = null;
+            _lanternUi = null;
         }
 
-        private void UpdateBar()
+        private void UpdateBar(float currentTime, float lanternSettingsHarvestTime)
         {
+            _lanternUi.SetProgress(currentTime / lanternSettingsHarvestTime);
         }
     }
 }
