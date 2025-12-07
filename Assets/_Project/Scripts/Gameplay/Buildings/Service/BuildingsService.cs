@@ -10,6 +10,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private FactorySettings _factorySettings;
         [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
+        [Inject] private HouseSettings _houseSettings;
         [Inject] private BuildingFactory _buildingFactory;
 
         private List<Building> _buildings = new();
@@ -43,5 +44,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         }
         
         public ChurchBuilding GetChurch() => _church;
+
+        public float GetUnitPurchaseData() => _houseSettings.UnitPrice;
     }
 }

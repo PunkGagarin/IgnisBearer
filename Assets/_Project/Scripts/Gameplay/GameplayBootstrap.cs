@@ -1,6 +1,6 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
-using _Project.Scripts.Gameplay.Units.Manager;
+using _Project.Scripts.Gameplay.Units;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay

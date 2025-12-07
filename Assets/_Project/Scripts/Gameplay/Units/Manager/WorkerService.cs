@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Units.Manager
+namespace _Project.Scripts.Gameplay.Units
 {
     public class WorkerService
     {
@@ -16,10 +15,10 @@ namespace _Project.Scripts.Gameplay.Units.Manager
         public void CreateStartUnit(UnitSpawnPoint unitPosition)
         {
             Debug.Log(" CreateStartUnit");
-            CreateAndRegisterUnit(unitPosition);
+            CreateAndRegisterUnit(unitPosition.gameObject.transform);
         }
 
-        public void CreateAndRegisterUnit(UnitSpawnPoint unitPosition)
+        public void CreateAndRegisterUnit(Transform unitPosition)
         {
             var unit = _factory.CreateAndInstantiateUnit(unitPosition);
             RegisterUnit(unit);

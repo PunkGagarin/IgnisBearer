@@ -9,7 +9,7 @@ namespace _Project.Scripts.Gameplay.Units
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly UnitSettings _unitSettings;
 
-        public Unit CreateAndInstantiateUnit(UnitSpawnPoint unitPosition)
+        public Unit CreateAndInstantiateUnit(Transform unitPosition)
         {
             var unit = _container.InstantiatePrefabForComponent<Unit>(_unitSettings.UnitPrefab,
                 unitPosition.transform.position, Quaternion.identity, unitPosition.transform);

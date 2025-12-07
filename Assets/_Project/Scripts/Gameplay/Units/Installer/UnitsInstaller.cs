@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Gameplay.Units.Manager;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units

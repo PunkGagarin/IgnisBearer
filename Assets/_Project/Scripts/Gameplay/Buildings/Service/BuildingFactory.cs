@@ -55,17 +55,12 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<ILightStorage>(out var lightStorage);
             lightStorage.Init(_churchSettings.MaxLightStorageCapacity);
 
-            /*
-            building.TryGetComponent<IFateGenerator>(out var fateGenerator);
-            fateGenerator.Init();
+            building.TryGetComponent<IFateProducer>(out var fateGenerator);
+            fateGenerator.Init(_churchSettings.TimeToProduceFate, _churchSettings.AmountToProduceFateAtTime);
             
             building.TryGetComponent<IFateStorage>(out var fateStorage);
             fateStorage.Init(_churchSettings.MaxFateStorageCapacity);
             
-            building.TryGetComponent<IChurchLightStorage>(out var lightStorage);
-            lightStorage.Init(_churchSettings.MaxLightStorageCapacity);
-            */
-
             slot.SetEnabled(false);
 
             return building;

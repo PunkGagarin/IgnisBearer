@@ -14,10 +14,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         protected virtual void Awake()
         {
             _grade = GetComponent<IGrade>();
-        }
-        
-        private void Start()
-        {
             _button.onClick.AddListener(HandleButtonClick);
         }
 

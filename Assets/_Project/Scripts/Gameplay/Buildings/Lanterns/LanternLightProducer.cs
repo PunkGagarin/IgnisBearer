@@ -23,8 +23,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _lightStorage = GetComponent<ILightStorage>();
             _lantern = GetComponent<Lantern>();
         }
-
-
+        
         private void Update()
         {
             if (_lantern.IsFired() && _lightStorage.NotFull() && !IsProducing())

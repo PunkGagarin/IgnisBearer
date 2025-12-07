@@ -4,10 +4,8 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         private IWorkersCapacity _workersCapacity;
 
-        /*
-        private IFateGenerator _fateGenerator;
+        private IFateProducer _fateProducer;
         private IFateStorage _fateStorage;
-        */
         
         private ILightStorage _lightStorage;
 
@@ -16,9 +14,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             _workersCapacity = GetComponent<IWorkersCapacity>();
             _lightStorage = GetComponent<ILightStorage>();
 
-            /*_fateGenerator = GetComponent<IFateGenerator>();
+            _fateProducer = GetComponent<IFateProducer>();
             _fateStorage = GetComponent<IFateStorage>();
-            _lightStorage = GetComponent<IChurchLightStorage>();*/
         }
 
         public void Init()
@@ -27,7 +24,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public void PutLight(int count)
         {
-            // _lightStorage.IncrementAmount(count);
+            _lightStorage.IncrementAmount(count);
         }
     }
 }

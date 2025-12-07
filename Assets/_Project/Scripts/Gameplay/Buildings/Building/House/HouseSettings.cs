@@ -11,5 +11,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         [field: SerializeField] public int GradePrice { get; private set; }
         [field: SerializeField] public int MaxDurability { get; private set; }
         [field: SerializeField] public int MaxGrade { get; private set; }
+        [field: SerializeField] public float UnitPrice { get; private set; }
     }
 }
