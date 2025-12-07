@@ -8,7 +8,6 @@ namespace _Project.Scripts.Gameplay.Units
         public float IdleMoveSpeed { get; set; }
         public UnitStatus Status { get; set; }
         public UnitSpec Spec { get; set; }
-        public Vector3 MoveTarget { get; set; }
         public float FireUpSpeed { get; set; }
 
 
