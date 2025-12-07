@@ -14,6 +14,7 @@ namespace _Project.Scripts.Gameplay.Units
         private Unit _unit;
         private float _currentTime = 0f;
         private LightStorage _lightStorage;
+        private UnitContext Context => _unit.Context;
 
         // private Action _enterNextState;
 
@@ -35,10 +36,8 @@ namespace _Project.Scripts.Gameplay.Units
             UpdateBar();
             if (_currentTime > _lanternSettings.HarvestTime)
             {
-                var resource = _lightStorage.Harvest();
-                //todo: complete logic
-                
-                // _enterNextState?.Invoke();
+                Context.LightAmount = _lightStorage.Harvest();
+                _unit.StateMachine.Enter<UnitMoveToChurchState>();
             }
         }
 

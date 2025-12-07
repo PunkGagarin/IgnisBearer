@@ -27,12 +27,20 @@ namespace _Project.Scripts.Gameplay.Units
             fireUp.Init(unit); 
             
             var harvestLantern = _container.Instantiate<HarvestLanternState>();
-            harvestLantern.Init(unit);
+            harvestLantern.Init(unit);     
+            
+            var moveToChurch = _container.Instantiate<UnitMoveToChurchState>();
+            moveToChurch.Init(unit); 
+            
+            var sendToChurch = _container.Instantiate<UnitSendLightToChurchState>();
+            sendToChurch.Init(unit);
             
             unitStateMachine.Register(idle);
             unitStateMachine.Register(moveToLantern);
             unitStateMachine.Register(fireUp);
             unitStateMachine.Register(harvestLantern);
+            unitStateMachine.Register(moveToChurch);
+            unitStateMachine.Register(sendToChurch);
 
             unit.Construct(unitStateMachine, unitContext);
             
