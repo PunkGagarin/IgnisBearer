@@ -70,7 +70,6 @@ namespace _Project.Scripts.Gameplay.Units
 
         private float GetRandomIdleTime()
         {
-            Debug.Log(" GetRandomIdleTime");
             return Random.Range(_unitSettings.IdleBeforeMoveMinTime, _unitSettings.IdleBeforeMoveMaxTime);
         }
 

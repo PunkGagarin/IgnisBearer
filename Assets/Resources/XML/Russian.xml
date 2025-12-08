@@ -20,4 +20,7 @@
   <text key="SETTINGS_LANG_EN">English</text>
   <text key="SETTINGS_CANCEL">Отмена</text>
   <text key="SETTINGS_OK">Применить</text>
+  <text key="BUILD_AUTO_COLLECTOR_NAME">Автособиратель</text>
+  <text key="BUILD_AUTO_LIGHTER_NAME">Автоподжигатель</text>
+  <text key="BUILD_FACTORY_NAME">Фабрика</text>
 </Language>

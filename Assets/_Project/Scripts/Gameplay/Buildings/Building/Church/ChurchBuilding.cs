@@ -13,7 +13,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             _workersCapacity = GetComponent<IWorkersCapacity>();
             _lightStorage = GetComponent<ILightStorage>();
-
             _fateProducer = GetComponent<IFateProducer>();
             _fateStorage = GetComponent<IFateStorage>();
         }
