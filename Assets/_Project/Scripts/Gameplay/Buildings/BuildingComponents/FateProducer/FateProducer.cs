@@ -43,7 +43,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             await UniTask.Delay(TimeSpan.FromSeconds(_timeToProduce));
 
             _fateStorage.IncrementAmount(_amountToProduceAtTime);
-            Debug.Log("Fate produced " + _amountToProduceAtTime);
+            // Debug.Log("Fate produced " + _amountToProduceAtTime);
 
             _isProducing = false;
         }

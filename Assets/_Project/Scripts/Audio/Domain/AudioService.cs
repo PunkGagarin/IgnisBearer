@@ -170,6 +170,7 @@ namespace _Project.Scripts.Audio.Domain
 
         private AudioSource AddNewSoundSource()
         {
+            
             var source = gameObject.AddComponent<AudioSource>();
             source.playOnAwake = false;
             source.outputAudioMixerGroup = _audioMixerService.SoundMixer;

@@ -1,5 +1,4 @@
-﻿using System;
-using _Project.Scripts.Gameplay.Ui;
+﻿using _Project.Scripts.Gameplay.Ui;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -26,7 +25,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public void Init()
         {
-            AmountText.text = $" {_lightStorage.Amount}/{_lightStorage.MaxAmount}";
+            SetCurrentAmountText();
             Indicator.SetActive(true);
             Bar.TurnOffBar();
         }
@@ -42,7 +41,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             _producer.OnLightProgressed += SetProgress;
             _lightStorage.OnAmountIncreased += SetAmount;
-            _lightStorage.OnStorageCleared += TurnOffIndicator;
+            _lightStorage.OnStorageCleared += ClearLantern;
             _lantern.OnFired += TurnOffIndicator;
         }
 
@@ -50,8 +49,19 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             _producer.OnLightProgressed -= SetProgress;
             _lightStorage.OnAmountIncreased -= SetAmount;
-            _lightStorage.OnStorageCleared -= TurnOffIndicator;
+            _lightStorage.OnStorageCleared -= ClearLantern;
             _lantern.OnFired -= TurnOffIndicator;
+        }
+
+        private void SetCurrentAmountText()
+        {
+            AmountText.text = $" {_lightStorage.Amount}/{_lightStorage.MaxAmount}";
+        }
+
+        private void ClearLantern()
+        {
+            TurnOffIndicator();
+            SetCurrentAmountText();
         }
 
         private void TurnOnIndicator()
@@ -74,7 +84,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public void SetAmount((int amountIncreased, int newAmount, int maxAmount) args)
         {
-            AmountText.text = $" {args.newAmount}/{args.maxAmount}";
+            SetCurrentAmountText();
 
             if (_lightStorage.IsFull())
             {
