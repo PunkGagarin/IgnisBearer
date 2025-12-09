@@ -12,6 +12,13 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         void AddSpecUnit(Unit specUnit);
 
-        void Init();
+        event Action<int> UnitsCountChanged;
+        event Action<int> MaxUnitsCountChanged;
+        int Current { get; set; }
+        int Max { get; set; }
+        void UpdateMaxCount(int count);
+        void UpdateCount(int count);
+        void Init(int initValue, int maxValue);
+        bool CanAddUnit();
     }
 }

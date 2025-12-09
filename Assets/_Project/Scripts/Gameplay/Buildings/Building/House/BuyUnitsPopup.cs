@@ -12,9 +12,14 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         // [Inject] private GoldService _goldService;
 
-        [SerializeField] private Button _closeButton;
-        [SerializeField] private Button _buyButton;
-        [SerializeField] private TMP_Text _priceText;
+        [SerializeField]
+        private Button _closeButton;
+
+        [SerializeField]
+        private Button _buyButton;
+
+        [SerializeField]
+        private TMP_Text _priceText;
 
         private float _unitPrice;
 
@@ -57,4 +62,5 @@ namespace _Project.Scripts.Gameplay.Buildings
             return true;
         }
     }
+
 }

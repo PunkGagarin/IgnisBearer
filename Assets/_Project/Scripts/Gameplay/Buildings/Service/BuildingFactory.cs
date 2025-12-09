@@ -47,10 +47,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             grade.Init(0, _churchSettings.MaxGrade, _churchSettings.GradePrice);
 
             building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init();
-
-            building.TryGetComponent<IWorkersCapacity>(out var capacity);
-            capacity.Init(0, _churchSettings.MaxUnitsCount);
+            specUnits.Init(0, _churchSettings.MaxUnitsCount);
             
             building.TryGetComponent<ILightStorage>(out var lightStorage);
             lightStorage.Init(_churchSettings.MaxLightStorageCapacity);
@@ -67,6 +64,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         }
 
 
+        //todo: вынести общий код?
         private HouseBuilding BuildHouse(BuildingSlot slot)
         {
             var parentTransform = slot.transform;
@@ -81,10 +79,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             durability.Init(_houseSettings.MaxDurability, _houseSettings.MaxDurability);
 
             building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init();
-
-            building.TryGetComponent<IWorkersCapacity>(out var capacity);
-            capacity.Init(0, _houseSettings.MaxUnitsCount);
+            specUnits.Init(0, _houseSettings.MaxUnitsCount);
 
             slot.SetEnabled(false);
 
@@ -106,10 +101,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             durability.Init(_autoLighterSettings.MaxDurability, _autoLighterSettings.MaxDurability);
 
             building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init();
-
-            building.TryGetComponent<IWorkersCapacity>(out var capacity);
-            capacity.Init(0, _autoLighterSettings.MaxUnitsCount);
+            specUnits.Init(0, _houseSettings.MaxUnitsCount);
 
             building.Init();
 
@@ -133,10 +125,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             durability.Init(_autoHarvestSettings.MaxDurability, _autoHarvestSettings.MaxDurability);
 
             building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init();
-
-            building.TryGetComponent<IWorkersCapacity>(out var capacity);
-            capacity.Init(0, _autoHarvestSettings.MaxUnitsCount);
+            specUnits.Init(0, _houseSettings.MaxUnitsCount);
 
             building.Init();
 
@@ -160,10 +149,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             durability.Init(_factorySettings.MaxDurability, _factorySettings.MaxDurability);
 
             building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init();
-
-            building.TryGetComponent<IWorkersCapacity>(out var capacity);
-            capacity.Init(0, _factorySettings.MaxUnitsCount);
+            specUnits.Init(0, _houseSettings.MaxUnitsCount);
 
             building.Init();
 
