@@ -46,5 +46,16 @@ namespace _Project.Scripts.Gameplay.Units
             _units.Add(unit);
         }
 
+        public bool HasWorkers()
+        {
+            return _units.Count > 0;
+        }
+
+        public Unit UnregisterFirstFreeWorker()
+        {
+            var unit = FindFirstFreeWorker();
+            _units.Remove(unit);
+            return unit;
+        }
     }
 }

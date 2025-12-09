@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -369,7 +369,6 @@ GameObject:
   m_Component:
   - component: {fileID: 209318664705434260}
   - component: {fileID: 5029327711760116034}
-  - component: {fileID: 478164190823876544}
   - component: {fileID: 2294427075994986821}
   - component: {fileID: -272873710446961057}
   - component: {fileID: 6284593314332039133}
@@ -409,18 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9112be10784bbebcf58e7e6bc31aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.Grade.Grade
---- !u!114 &478164190823876544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763666501242424880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ddbf0c1dfd549318fbb42e2fe2919f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.SpecUnitsCapacity.UnitsCapacity
 --- !u!114 &2294427075994986821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,7 +433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Factory.FactoryBuilding
   <Type>k__BackingField: 3
-  _button: {fileID: 2861758265547291918}
 --- !u!114 &6284593314332039133
 MonoBehaviour:
   m_ObjectHideFlags: 0

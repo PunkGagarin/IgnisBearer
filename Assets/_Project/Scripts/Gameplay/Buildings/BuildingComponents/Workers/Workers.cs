@@ -8,17 +8,50 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class Workers : MonoBehaviour, IWorkers
     {
         public event Action<List<Unit>> UnitsListChanged;
+        public event Action<int> UnitsCountChanged;
+        public event Action<int> MaxUnitsCountChanged;
 
-        public List<Unit> CurrentUnits { get; set; }
+        public List<Unit> CurrentUnits { get; set; } = new();
+        public int Current { get; set; }
 
-        public void Init()
+        public int Max { get; set; }
+
+        public void Init(int initValue, int maxValue)
         {
-            CurrentUnits = new List<Unit>();
+            Current = initValue;
+            Max = maxValue;
         }
+
+        public void UpdateMaxCount(int count)
+        {
+            Max = count;
+            MaxUnitsCountChanged?.Invoke(count);
+        }
+
+        public void IncrementCount()
+        {
+            UpdateCount(1);
+        }
+
+        public void UpdateCount(int count)
+        {
+            Current = count;
+            UnitsCountChanged?.Invoke(count);
+        }
+
+        public bool CanAddUnit()
+            => Current < Max;
 
         public void AddSpecUnit(Unit specUnit)
         {
+            if (CanAddUnit())
+            {
+                Debug.LogError("Workers capacity is full");
+                return;
+            }
+
             CurrentUnits.Add(specUnit);
+            IncrementCount();
             UnitsListChanged?.Invoke(CurrentUnits);
         }
     }
