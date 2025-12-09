@@ -9,17 +9,19 @@ namespace _Project.Scripts.Gameplay.Ui
         [field: SerializeField]
         public Button СloseButton { get; private set; }
 
-        private ContentUi _contentUi;
-
         private void Awake()
         {
-            _contentUi = GetComponent<ContentUi>();
-            СloseButton.onClick.AddListener(_contentUi.Hide);
+            СloseButton.onClick.AddListener(Hide);
         }
 
         private void OnDestroy()
         {
-            СloseButton.onClick.RemoveListener(_contentUi.Hide);
+            СloseButton.onClick.RemoveListener(Hide);
+        }
+
+        private void Hide()
+        {
+            gameObject.SetActive(false);
         }
     }
 }
