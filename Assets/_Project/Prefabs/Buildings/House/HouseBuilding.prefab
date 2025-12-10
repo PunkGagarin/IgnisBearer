@@ -444,7 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuyUnitsPopup
   content: {fileID: 7813272901023380505}
-  _closeButton: {fileID: 1405323717158134376}
   _buyButton: {fileID: 797761754962709468}
   _priceText: {fileID: 5267201403353123109}
 --- !u!1 &3798149232600319896
@@ -608,13 +607,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7949484628553082082}
     m_Modifications:
-    - target: {fileID: 342753497765917523, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
+    - target: {fileID: 1063240425612781854, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 342753497765917523, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -2.62
+      value: -2.9487996
       objectReference: {fileID: 0}
     - target: {fileID: 6045534982349755805, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
       propertyPath: m_Name
@@ -700,6 +695,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8631245329541999051, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
+      propertyPath: "<\u0421loseButton>k__BackingField"
+      value: 
+      objectReference: {fileID: 3184927275654946550}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -716,9 +715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &1405323717158134376 stripped
+--- !u!114 &3184927275654946550 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3173043490047968236, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1421868904305999730, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
   m_PrefabInstance: {fileID: 4578010484364059012}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

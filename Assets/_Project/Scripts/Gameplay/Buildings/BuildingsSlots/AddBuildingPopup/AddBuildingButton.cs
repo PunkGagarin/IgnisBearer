@@ -12,8 +12,8 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         public Action<BuildingType, double> OnClicked;
 
         [SerializeField] private Button _buyButton;
-        [SerializeField] private TMP_Text _priceText;
-        [SerializeField] private TMP_Text _label;
+        [SerializeField] private TextMeshProUGUI _priceText;
+        [SerializeField] private TextMeshProUGUI _label;
 
         private BuildingType _buildingType;
         private double _price;

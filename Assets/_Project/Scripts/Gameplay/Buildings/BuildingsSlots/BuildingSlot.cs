@@ -8,15 +8,17 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
     {
         [SerializeField] private Button _button;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private AddBuildingPopup _addBuildingPopup;
         [SerializeField] private Transform _content;
 
         [Inject] private BuildingsService _buildingsService;
         [Inject] private BuildingAddingOptionsService _buildingAddingOptionsService;
 
+        private AddBuildingPopup _addBuildingPopup;
+
         private void Awake()
         {
             _button.onClick.AddListener(OnClick);
+            _addBuildingPopup = GetComponent<AddBuildingPopup>();
             _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
         }
 

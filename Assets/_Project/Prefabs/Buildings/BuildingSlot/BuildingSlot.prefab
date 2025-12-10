@@ -58,9 +58,9 @@ Transform:
   m_GameObject: {fileID: 2894956425508690435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.76, z: 0}
-  m_LocalScale: {x: 2.622561, y: 2.4378211, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0, y: 1, z: 0}
+  m_LocalScale: {x: 0.43, y: 0.39970973, z: 0.16396187}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1460186631908905934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111,12 +111,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2403a52381527441b8f796a9799e3eff, type: 3}
   m_Color: {r: 1, g: 0.9680265, b: 0.5896226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.9375, y: 6.1875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -525,6 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2652851915532646577}
   - component: {fileID: 7686321052750216919}
+  - component: {fileID: 1222236930328830872}
   m_Layer: 0
   m_Name: BuildingSlot
   m_TagString: Untagged
@@ -562,8 +563,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.BuildingSlot
   _button: {fileID: 548458261993586264}
   _spriteRenderer: {fileID: 5827439799081328517}
-  _addBuildingPopup: {fileID: 9154815378452283154}
   _content: {fileID: 5097682329865492106}
+--- !u!114 &1222236930328830872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9147645552498895976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffacbd20e392d4388aa52dad85124dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingPopup
+  content: {fileID: 6134370841479710499}
+  _addBuildingsButton:
+  - {fileID: 3011555363511581283}
+  - {fileID: 8102387534060914148}
+  - {fileID: 6844005662707935669}
+  - {fileID: 1262270092015565413}
 --- !u!1001 &811189415601846761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -572,56 +590,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1808984469507236379}
     m_Modifications:
-    - target: {fileID: 1373370310448871667, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_ChildControlWidth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321247185500505031, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321247185500505031, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321247185500505031, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1774.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321247185500505031, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2321247185500505031, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6800512122568097482, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
       propertyPath: m_Name
       value: AddBuildingPopup
       objectReference: {fileID: 0}
     - target: {fileID: 6800512122568097482, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002373040671276258, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002373040671276258, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002373040671276258, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1774.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002373040671276258, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002373040671276258, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
@@ -704,83 +678,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7517878326550523710, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517878326550523710, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517878326550523710, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1774.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517878326550523710, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7517878326550523710, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: _addBuildingsButton.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: '_addBuildingsButton.Array.data[1]'
-      value: 
-      objectReference: {fileID: 9110548357008098523}
-    - target: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: '_addBuildingsButton.Array.data[2]'
-      value: 
-      objectReference: {fileID: 7037249489853437594}
-    - target: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: '_addBuildingsButton.Array.data[3]'
-      value: 
-      objectReference: {fileID: 7552790080207586630}
-    - target: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: '_addBuildingsButton.Array.data[4]'
-      value: 
-      objectReference: {fileID: 3011555363511581283}
-    - target: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: '_addBuildingsButton.Array.data[5]'
-      value: 
-      objectReference: {fileID: 9110548357008098523}
-    - target: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: '_addBuildingsButton.Array.data[6]'
-      value: 
-      objectReference: {fileID: 7037249489853437594}
-    - target: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: '_addBuildingsButton.Array.data[7]'
-      value: 
-      objectReference: {fileID: 7552790080207586630}
-    - target: {fileID: 8616125886289755519, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616125886289755519, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616125886289755519, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1774.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616125886289755519, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8616125886289755519, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+--- !u!114 &1262270092015565413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1929114644017759116, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+  m_PrefabInstance: {fileID: 811189415601846761}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
 --- !u!114 &3011555363511581283 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2489045682867307402, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
@@ -792,20 +705,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
---- !u!114 &7037249489853437594 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7703610956735213427, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+--- !u!1 &6134370841479710499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6800512122568097482, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
   m_PrefabInstance: {fileID: 811189415601846761}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
---- !u!114 &7552790080207586630 stripped
+--- !u!114 &6844005662707935669 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7174527733112716463, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6177573758295265372, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
   m_PrefabInstance: {fileID: 811189415601846761}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -819,9 +726,9 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
   m_PrefabInstance: {fileID: 811189415601846761}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9110548357008098523 stripped
+--- !u!114 &8102387534060914148 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8443905221876104498, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8876765227350244365, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
   m_PrefabInstance: {fileID: 811189415601846761}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -830,14 +737,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
---- !u!114 &9154815378452283154 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8380526472941487867, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-  m_PrefabInstance: {fileID: 811189415601846761}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffacbd20e392d4388aa52dad85124dbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingPopup

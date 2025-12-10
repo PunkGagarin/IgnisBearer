@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Utils;
 using TMPro;
@@ -6,9 +7,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Buildings
+namespace _Project.Scripts.Gameplay.Ui.Buildings
 {
-    internal class BuyUnitsPopup : ContentUi
+    internal class HousePopup : ContentUi
     {
         public event Action<float> OnBuyClicked = delegate { };
 
@@ -16,15 +17,13 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private WorkerService _workerService;
         [Inject] private BuildingsService _buildingsService;
 
-        [SerializeField] private Button _closeButton;
         [SerializeField] private Button _buyButton;
-        [SerializeField] private TMP_Text _priceText;
+        [SerializeField] private TextMeshProUGUI _priceText;
 
         private IGrade _grade;
 
         private void Awake()
         {
-            _closeButton.onClick.AddListener(Hide);
             _buyButton.onClick.AddListener(OnBuyUnitClicked);
             _grade = GetComponent<IGrade>();
             // _goldService.OnBalanceChanged += OnBalanceChanged;
@@ -40,7 +39,6 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void OnDestroy()
         {
-            _closeButton.onClick.RemoveListener(Hide);
             _buyButton.onClick.RemoveListener(OnBuyUnitClicked);
             // _goldService.OnBalanceChanged -= OnBalanceChanged;
         }
@@ -49,7 +47,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             // _goldService.TakeGold(cost);
             _workerService.CreateAndRegisterUnit(gameObject.transform);
-            Hide();
         }
 
         private void UpdateBuyButton(float unitPrice)
