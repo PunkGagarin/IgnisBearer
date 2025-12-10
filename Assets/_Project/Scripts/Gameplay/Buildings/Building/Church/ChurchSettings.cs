@@ -31,6 +31,12 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [field: SerializeField]
         public float LightSendSpeed { get; private set; } = 3f;
+        
+        [field: SerializeField]
+        public float LightConsumeTime { get; private set; } = 1f;
+        
+        [field: SerializeField]
+        public int LightConsumeAmount { get; private set; } = 1;
 
 
     }

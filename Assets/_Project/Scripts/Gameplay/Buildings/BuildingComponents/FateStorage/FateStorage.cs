@@ -5,7 +5,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public class FateStorage : MonoBehaviour, IFateStorage
     {
-        public event Action OnAmountIncreased = delegate { };
+        public event Action OnAmountChanged = delegate { };
         public event Action OnStorageCleared = delegate { };
         public int Amount { get; private set; }
         public int MaxAmount { get; private set; }
@@ -18,13 +18,19 @@ namespace _Project.Scripts.Gameplay.Buildings
         public void IncrementAmount(int amount)
         {
             Amount += amount;
-            OnAmountIncreased.Invoke();
+            OnAmountChanged.Invoke();
         }
 
+        public void DecrementAmount(int amount)
+        {
+            Amount -= amount;
+            OnAmountChanged.Invoke();
+        }
+        
         public void IncrementAmount()
         {
             Amount++;
-            OnAmountIncreased.Invoke();
+            OnAmountChanged.Invoke();
         }
 
         public bool NotFull()

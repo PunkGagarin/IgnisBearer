@@ -11,7 +11,9 @@ namespace _Project.Scripts.Gameplay.Buildings
         void Init(int maxStorageCapacity);
         void IncrementAmount(int amount);
         void IncrementAmount();
+        void DecrementAmount(int amount);
         bool NotFull();
+        bool HasAny();
         bool IsFull();
     }
 }

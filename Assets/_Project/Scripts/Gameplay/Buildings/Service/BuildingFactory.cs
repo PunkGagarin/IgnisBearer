@@ -57,6 +57,9 @@ namespace _Project.Scripts.Gameplay.Buildings
             
             building.TryGetComponent<IFateStorage>(out var fateStorage);
             fateStorage.Init(_churchSettings.MaxFateStorageCapacity);
+                
+            building.TryGetComponent<ILightConsumer>(out var lightConsumer);
+            lightConsumer.Init(_churchSettings.LightConsumeTime, _churchSettings.LightConsumeAmount);
             
             slot.SetEnabled(false);
 

@@ -21,3 +21,5 @@ MonoBehaviour:
   <TimeToProduceFate>k__BackingField: 10
   <AmountToProduceFateAtTime>k__BackingField: 2
   <LightSendSpeed>k__BackingField: 3
+  <LightConsumeTime>k__BackingField: 1
+  <LightConsumeAmount>k__BackingField: 1

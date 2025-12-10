@@ -409,6 +409,7 @@ GameObject:
   - component: {fileID: -3845416406392615741}
   - component: {fileID: 9186225910371662383}
   - component: {fileID: 7674113458900941180}
+  - component: {fileID: 3623351197947964029}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -534,6 +535,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ChurchPopup
   content: {fileID: 4051670230408438815}
   _workersCountRow: {fileID: 1670120069817327769}
+--- !u!114 &3623351197947964029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf3a8a6f0fb4b1fa7e18f299ad76d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateConsumer.FateConsumer
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0
