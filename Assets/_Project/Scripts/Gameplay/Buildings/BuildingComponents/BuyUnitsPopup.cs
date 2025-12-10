@@ -1,8 +1,10 @@
 using System;
+using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
@@ -11,23 +13,29 @@ namespace _Project.Scripts.Gameplay.Buildings
         public event Action<float> OnBuyClicked = delegate { };
 
         // [Inject] private GoldService _goldService;
+        [Inject] private WorkerService _workerService;
+        [Inject] private BuildingsService _buildingsService;
 
-        [SerializeField]
-        private Button _closeButton;
+        [SerializeField] private Button _closeButton;
+        [SerializeField] private Button _buyButton;
+        [SerializeField] private TMP_Text _priceText;
 
-        [SerializeField]
-        private Button _buyButton;
-
-        [SerializeField]
-        private TMP_Text _priceText;
-
-        private float _unitPrice;
+        private IGrade _grade;
 
         private void Awake()
         {
             _closeButton.onClick.AddListener(Hide);
             _buyButton.onClick.AddListener(OnBuyUnitClicked);
+            _grade = GetComponent<IGrade>();
             // _goldService.OnBalanceChanged += OnBalanceChanged;
+        }
+
+        private void Start()
+        {
+            var curGrade = _grade.Current;
+            var unitPrice = _buildingsService.GetHouseUnitPrice(curGrade);
+            _priceText.text = $"{unitPrice}";
+            UpdateBuyButton(unitPrice);
         }
 
         private void OnDestroy()
@@ -37,14 +45,12 @@ namespace _Project.Scripts.Gameplay.Buildings
             // _goldService.OnBalanceChanged -= OnBalanceChanged;
         }
 
-        public void Init(float unitPrice)
+        private void OnBuyUnitClicked()
         {
-            _unitPrice = unitPrice;
-            _priceText.text = $"{unitPrice}";
-            UpdateBuyButton(unitPrice);
+            // _goldService.TakeGold(cost);
+            _workerService.CreateAndRegisterUnit(gameObject.transform);
+            Hide();
         }
-
-        private void OnBuyUnitClicked() => OnBuyClicked?.Invoke(_unitPrice);
 
         private void UpdateBuyButton(float unitPrice)
         {
@@ -62,5 +68,4 @@ namespace _Project.Scripts.Gameplay.Buildings
             return true;
         }
     }
-
 }

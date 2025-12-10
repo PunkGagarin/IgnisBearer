@@ -45,10 +45,10 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         private void TryAddUnit()
         {
-            if (_workerService.HasWorkers() && _workers.CanAddUnit())
+            if (_workerService.HasWorkers() && _workers.CanAddWorker())
             {
                 var unit = _workerService.UnregisterFirstFreeWorker();
-                _workers.AddSpecUnit(unit);
+                _workers.AddWorker(unit);
 
                 //прервать текущую операцию
 

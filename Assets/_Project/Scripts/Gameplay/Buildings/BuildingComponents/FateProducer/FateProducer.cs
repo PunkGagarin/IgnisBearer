@@ -8,6 +8,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class FateProducer : MonoBehaviour, IFateProducer
     {
         private IFateStorage _fateStorage;
+        private IWorkers _workers;
 
         private bool _isProducing;
         private float _timeToProduce;
@@ -16,6 +17,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void Awake()
         {
             _fateStorage = GetComponent<IFateStorage>();
+            _workers = GetComponent<IWorkers>();
         }
 
         private void Update()
@@ -26,7 +28,12 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private bool CanProduce()
         {
-            return _fateStorage.NotFull() && !IsProducing();
+            return HasUnits() && _fateStorage.NotFull() && !IsProducing();
+        }
+
+        private bool HasUnits()
+        {
+            return _workers.HasAnyWorker();
         }
 
         public void Init(float timeToProduce, int amountToProduceAtTime)

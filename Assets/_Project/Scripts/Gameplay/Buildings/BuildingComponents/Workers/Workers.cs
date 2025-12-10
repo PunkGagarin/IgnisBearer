@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 
@@ -7,52 +8,65 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public class Workers : MonoBehaviour, IWorkers
     {
-        public event Action<List<Unit>> UnitsListChanged;
-        public event Action<int> UnitsCountChanged;
-        public event Action<int> MaxUnitsCountChanged;
+        public event Action<List<Unit>> ListChanged;
+        public event Action<int> CountChanged;
+        public event Action<int> MaxCountChanged;
 
-        public List<Unit> CurrentUnits { get; set; } = new();
-        public int Current { get; set; }
+        public List<Unit> CurWorkers { get; set; } = new();
+        public int CurrentCount { get; set; }
 
-        public int Max { get; set; }
+        public int MaxCount { get; set; }
 
         public void Init(int initValue, int maxValue)
         {
-            Current = initValue;
-            Max = maxValue;
+            CurrentCount = initValue;
+            MaxCount = maxValue;
         }
 
         public void UpdateMaxCount(int count)
         {
-            Max = count;
-            MaxUnitsCountChanged?.Invoke(count);
+            MaxCount = count;
+            MaxCountChanged?.Invoke(count);
         }
 
-        public void IncrementCount()
-        {
-            UpdateCount(1);
-        }
+        private void IncrementCount() => UpdateCount(CurrentCount + 1);
+
+        private void DecrementCount() => UpdateCount(CurrentCount - 1);
 
         public void UpdateCount(int count)
         {
-            Current = count;
-            UnitsCountChanged?.Invoke(count);
+            CurrentCount = count;
+            CountChanged?.Invoke(count);
         }
 
-        public bool CanAddUnit()
-            => Current < Max;
+        public bool CanAddWorker()
+            => CurrentCount < MaxCount;
 
-        public void AddSpecUnit(Unit specUnit)
+        public void AddWorker(Unit specUnit)
         {
-            if (CanAddUnit())
+            if (!CanAddWorker())
             {
                 Debug.LogError("Workers capacity is full");
                 return;
             }
 
-            CurrentUnits.Add(specUnit);
+            CurWorkers.Add(specUnit);
             IncrementCount();
-            UnitsListChanged?.Invoke(CurrentUnits);
+            ListChanged?.Invoke(CurWorkers);
+        }
+
+        public bool HasAnyWorker() => CurrentCount != 0;
+
+        public void RemoveWorker(out Unit worker)
+        {
+            worker = null;
+            if (HasAnyWorker())
+            {
+                worker = CurWorkers.First();
+                CurWorkers.Remove(worker);
+                DecrementCount();
+                ListChanged?.Invoke(CurWorkers);
+            }
         }
     }
 }

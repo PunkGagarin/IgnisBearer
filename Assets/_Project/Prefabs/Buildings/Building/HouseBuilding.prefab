@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 8266406423554343426}
   - component: {fileID: 8289808491253419957}
   - component: {fileID: 3946012506373622172}
+  - component: {fileID: 8982559075776898832}
   m_Layer: 0
   m_Name: HouseBuilding
   m_TagString: Untagged
@@ -380,7 +381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.House.HouseBuilding
   <Type>k__BackingField: 2
-  _buyUnitsPopup: {fileID: 472281034996437430}
 --- !u!114 &5057796695877495664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +431,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.OpenBuildingPopup
   _button: {fileID: 2764551221529622053}
   _popup: {fileID: 7813272901023380505}
+--- !u!114 &8982559075776898832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2324776941789980630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c37288b44a4b83a56047cea25f65f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuyUnitsPopup
+  content: {fileID: 7813272901023380505}
+  _closeButton: {fileID: 1405323717158134376}
+  _buyButton: {fileID: 797761754962709468}
+  _priceText: {fileID: 5267201403353123109}
 --- !u!1 &3798149232600319896
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,10 +620,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyUnitPopup
       objectReference: {fileID: 0}
-    - target: {fileID: 6045534982349755805, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7669520015299289102, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -693,17 +705,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
---- !u!114 &472281034996437430 stripped
+--- !u!114 &797761754962709468 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4108898450355351602, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3790452336941951576, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
   m_PrefabInstance: {fileID: 4578010484364059012}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7813272901023380505}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c37288b44a4b83a56047cea25f65f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuyUnitsPopup
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &1405323717158134376 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3173043490047968236, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
+  m_PrefabInstance: {fileID: 4578010484364059012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &5267201403353123109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8543477491002894497, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
+  m_PrefabInstance: {fileID: 4578010484364059012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &6190135660291096970 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7669520015299289102, guid: 40800ff1e1fcf453a82490a5996eba42, type: 3}
