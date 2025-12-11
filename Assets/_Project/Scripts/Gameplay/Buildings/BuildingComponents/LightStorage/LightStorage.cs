@@ -11,6 +11,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         public int MaxAmount { get; private set; }
 
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased = delegate { };
+        public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountDecreased = delegate { };
         public event Action OnStorageCleared = delegate { };
 
         public void Init(int maxStorage)
@@ -22,6 +23,12 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             Amount += amount;
             OnAmountIncreased.Invoke((amount, Amount, MaxAmount));
+        }
+
+        public void DecrementAmount(int amount)
+        {
+            Amount -= amount;
+            OnAmountDecreased.Invoke((amount, Amount, MaxAmount));
         }
 
         public void IncrementAmount()

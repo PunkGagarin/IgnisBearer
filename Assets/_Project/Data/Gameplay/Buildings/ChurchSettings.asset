@@ -12,12 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d38ae8d1e249dfa77988ab86275b95, type: 3}
   m_Name: ChurchSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchSettings
-  <ChurchBuildingPrefab>k__BackingField: {fileID: 4756976558124453703, guid: 1f692f9e4b18b498ea91173011d2cde0, type: 3}
-  <MaxGrade>k__BackingField: 5
-  <MaxUnitsCount>k__BackingField: 12
-  <MaxFateStorageCapacity>k__BackingField: 122
-  <MaxLightStorageCapacity>k__BackingField: 1000
-  <GradePrice>k__BackingField: 1
-  <TimeToProduceFate>k__BackingField: 10
-  <AmountToProduceFateAtTime>k__BackingField: 2
-  <LightSendSpeed>k__BackingField: 3
+  <Prefab>k__BackingField: {fileID: 4756976558124453703, guid: 1f692f9e4b18b498ea91173011d2cde0, type: 3}
+  <BuildingNameKey>k__BackingField: 
+  <GradeData>k__BackingField:
+  - MaxUnitsCount: 2
+    MaxFateStorageCapacity: 4
+    MaxLightStorageCapacity: 100
+    GradePrice: 0
+    TimeToProduceFate: 10
+    AmountToProduceFateAtTime: 2
+    LightSendSpeed: 3
+    LightConsumeTime: 1
+    LightConsumeAmount: 1
+  - MaxUnitsCount: 4
+    MaxFateStorageCapacity: 6
+    MaxLightStorageCapacity: 150
+    GradePrice: 2
+    TimeToProduceFate: 5
+    AmountToProduceFateAtTime: 4
+    LightSendSpeed: 2
+    LightConsumeTime: 1
+    LightConsumeAmount: 1
+  - MaxUnitsCount: 6
+    MaxFateStorageCapacity: 8
+    MaxLightStorageCapacity: 200
+    GradePrice: 4
+    TimeToProduceFate: 1
+    AmountToProduceFateAtTime: 6
+    LightSendSpeed: 1
+    LightConsumeTime: 1
+    LightConsumeAmount: 1

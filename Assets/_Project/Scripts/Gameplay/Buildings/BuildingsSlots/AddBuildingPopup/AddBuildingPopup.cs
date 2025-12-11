@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using _Project.Scripts.Utils;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
@@ -10,18 +9,13 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
     {
         public event Action<BuildingType> OnAddBuilding;
 
-        [SerializeField] private Button _closeButton;
         [SerializeField] private List<AddBuildingButton> _addBuildingsButton;
 
-        private void Awake() => _closeButton.onClick.AddListener(OnCloseButtonClicked);
 
         private void OnDestroy()
         {
-            _closeButton.onClick.RemoveAllListeners();
             _addBuildingsButton.ForEach(btn => btn.OnClicked += OnAddBuildingClicked);
         }
-
-        private void OnCloseButtonClicked() => Hide();
 
         public void Init(List<BuildingButtonData> buildingButtonsData)
         {

@@ -1,13 +1,11 @@
-﻿using _Project.Scripts.Utils;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Project.Scripts.Gameplay.Ui
 {
     public class CloseContentUiByButton : MonoBehaviour
     {
-        [field: SerializeField]
-        public Button СloseButton { get; private set; }
+        [field: SerializeField] public Button СloseButton { get; private set; }
 
         private void Awake()
         {

@@ -11,6 +11,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
         [Inject] private HouseSettings _houseSettings;
+        [Inject] private ChurchSettings _churchSettings;
         [Inject] private BuildingFactory _buildingFactory;
 
         private List<Building> _buildings = new();
@@ -45,6 +46,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         
         public ChurchBuilding GetChurch() => _church;
 
-        public float GetUnitPurchaseData() => _houseSettings.UnitPrice;
+        public float GetHouseUnitPrice(int grade) => _houseSettings.GradeData[grade].UnitCost;
     }
 }

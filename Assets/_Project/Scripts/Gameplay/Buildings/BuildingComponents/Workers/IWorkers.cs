@@ -6,19 +6,20 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public interface IWorkers
     {
-        event Action<List<Unit>> UnitsListChanged;
+        event Action<List<Unit>> ListChanged;
+        event Action<int> CountChanged;
+        event Action<int> MaxCountChanged;
 
-        List<Unit> CurrentUnits { get; set; }
+        List<Unit> CurWorkers { get; set; }
+        int MaxCount { get; set; }
+        int CurrentCount { get; set; }
 
-        void AddSpecUnit(Unit specUnit);
-
-        event Action<int> UnitsCountChanged;
-        event Action<int> MaxUnitsCountChanged;
-        int Current { get; set; }
-        int Max { get; set; }
+        void Init(int initValue, int maxValue);
+        void AddWorker(Unit specUnit);
+        void RemoveWorker(out Unit worker);
         void UpdateMaxCount(int count);
         void UpdateCount(int count);
-        void Init(int initValue, int maxValue);
-        bool CanAddUnit();
+        bool CanAddWorker();
+        bool HasAnyWorker();
     }
 }

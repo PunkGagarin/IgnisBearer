@@ -21,9 +21,5 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (_durability != null)
                 _durability.OnDestroyed -= OnBuildingBroke;
         }
-        public void Init()
-        {
-            // todo
-        }
     }
 }
