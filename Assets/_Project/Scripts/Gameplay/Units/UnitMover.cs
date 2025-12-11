@@ -9,7 +9,6 @@ namespace _Project.Scripts.Gameplay.Units
     {
         private Unit _unit;
 
-
         private SpriteRenderer _spriteRenderer;
 
         private void Awake()

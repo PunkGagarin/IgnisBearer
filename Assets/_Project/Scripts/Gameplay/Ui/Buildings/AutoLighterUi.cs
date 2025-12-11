@@ -30,17 +30,12 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         private void Start()
         {
-            AddUnitButton.onClick.AddListener(OnUnitsAddClickedHandle);
+            AddUnitButton.onClick.AddListener(TryAddUnit);
         }
 
         private void OnDestroy()
         {
-            AddUnitButton.onClick.RemoveListener(OnUnitsAddClickedHandle);
-        }
-
-        private void OnUnitsAddClickedHandle()
-        {
-            OnUnitsAddClicked.Invoke();
+            AddUnitButton.onClick.RemoveListener(TryAddUnit);
         }
 
         private void TryAddUnit()
