@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using _Project.Scripts.Infrastructure.GameStates;
+using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
@@ -10,7 +13,6 @@ namespace _Project.Scripts.Gameplay.Units
         public UnitSpec Spec { get; set; }
         public float FireUpSpeed { get; set; }
         public int LightAmount { get; set; }
-
 
         public UnitContext(float moveSpeed, float fireUpSpeed)
         {

@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Gameplay.Units.Machine;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
@@ -16,10 +15,6 @@ namespace _Project.Scripts.Gameplay.Units
             Context = context;
             Mover = GetComponent<UnitMover>();
             StateMachine.Enter<UnitIdleState>();
-        }
-
-        private void Awake()
-        {
         }
 
         private void Update()
