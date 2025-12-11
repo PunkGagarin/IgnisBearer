@@ -5,9 +5,8 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public class Grade : MonoBehaviour, IGrade
     {
-        public event Action<int> GradeChanged;
+        public event Action<int> OnGradeChanged;
         public int Current { get; set; }
-        public int Max { get; set; }
         
         public float NextGradePrice { get; set; }
 
@@ -16,21 +15,20 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (CanUpdate())
             {
                 Current++;
-                GradeChanged?.Invoke(Current);
+                OnGradeChanged?.Invoke(Current);
                 return true;
             }
 
             return false;
         }
 
-        public void Init(int initValue, int maxValue, float gradePrice)
+        public void Init(int initValue, float gradePrice)
         {
             Current = initValue;
-            Max = maxValue;
             NextGradePrice = gradePrice;
         }
 
-        private bool CanUpdate() => Current < Max && HaveEnoughMoney();
+        private bool CanUpdate() => HaveEnoughMoney();
         
         //todo should check HaveEnoughMoney here?
         private bool HaveEnoughMoney() => true;

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using UnityEngine;
 using Zenject;
@@ -38,51 +39,38 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private ChurchBuilding BuildChurch(BuildingSlot slot)
         {
-            var parentTransform = slot.transform;
-            var building =
-                _container.InstantiatePrefabForComponent<ChurchBuilding>(_churchSettings.ChurchBuildingPrefab,
-                    parentTransform.position, Quaternion.identity, parentTransform);
-
-            building.TryGetComponent<IGrade>(out var grade);
-            grade.Init(0, _churchSettings.MaxGrade, _churchSettings.GradePrice);
-
-            building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init(0, _churchSettings.MaxUnitsCount);
+            var building = InstantiateBuildingOnSlot<ChurchBuilding>(slot, _churchSettings.Prefab);
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _churchSettings.GradeData);
             
+            InitGrade(building, initGrade, nextGradeData.GradePrice);
+            InitWorkers(building, initGradeData.MaxUnitsCount);
+
             building.TryGetComponent<ILightStorage>(out var lightStorage);
-            lightStorage.Init(_churchSettings.MaxLightStorageCapacity);
+            lightStorage.Init(initGradeData.MaxLightStorageCapacity);
 
             building.TryGetComponent<IFateProducer>(out var fateGenerator);
-            fateGenerator.Init(_churchSettings.TimeToProduceFate, _churchSettings.AmountToProduceFateAtTime);
-            
+            fateGenerator.Init(initGradeData.TimeToProduceFate, initGradeData.AmountToProduceFateAtTime);
+
             building.TryGetComponent<IFateStorage>(out var fateStorage);
-            fateStorage.Init(_churchSettings.MaxFateStorageCapacity);
-                
+            fateStorage.Init(initGradeData.MaxFateStorageCapacity);
+
             building.TryGetComponent<ILightConsumer>(out var lightConsumer);
-            lightConsumer.Init(_churchSettings.LightConsumeTime, _churchSettings.LightConsumeAmount);
-            
+            lightConsumer.Init(initGradeData.LightConsumeTime, initGradeData.LightConsumeAmount);
+
             slot.SetEnabled(false);
 
             return building;
         }
 
 
-        //todo: вынести общий код?
         private HouseBuilding BuildHouse(BuildingSlot slot)
         {
-            var parentTransform = slot.transform;
-            var building =
-                _container.InstantiatePrefabForComponent<HouseBuilding>(_houseSettings.HouseBuildingPrefab,
-                    parentTransform.position, Quaternion.identity, parentTransform);
+            var building = InstantiateBuildingOnSlot<HouseBuilding>(slot, _houseSettings.Prefab);
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _houseSettings.GradeData);
 
-            building.TryGetComponent<IGrade>(out var grade);
-            grade.Init(0, _houseSettings.MaxGrade, _houseSettings.GradePrice);
-
-            building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(_houseSettings.MaxDurability, _houseSettings.MaxDurability);
-
-            building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init(0, _houseSettings.MaxUnitsCount);
+            InitGrade(building, initGrade, nextGradeData.GradePrice);
+            InitDurability(building, initGradeData.MaxDurability);
+            InitWorkers(building, initGradeData.MaxUnitsCount);
 
             slot.SetEnabled(false);
 
@@ -91,23 +79,13 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private AutoLighterBuilding BuildAutoLighter(BuildingSlot slot)
         {
-            var parentTransform = slot.transform;
-            var building =
-                _container.InstantiatePrefabForComponent<AutoLighterBuilding>(
-                    _autoLighterSettings.AutoLighterBuildingPrefab,
-                    parentTransform.position, Quaternion.identity, parentTransform);
+            var building = InstantiateBuildingOnSlot<AutoLighterBuilding>(slot, _autoLighterSettings.Prefab);
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _autoLighterSettings.GradeData);
 
-            building.TryGetComponent<IGrade>(out var grade);
-            grade.Init(0, _autoLighterSettings.MaxGrade, _autoLighterSettings.GradePrice);
-
-            building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(_autoLighterSettings.MaxDurability, _autoLighterSettings.MaxDurability);
-
-            building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init(0, _houseSettings.MaxUnitsCount);
-
-            building.Init();
-
+            InitGrade(building, initGrade, nextGradeData.GradePrice);
+            InitDurability(building, initGradeData.MaxDurability);
+            InitWorkers(building, initGradeData.MaxUnitsCount);
+            
             slot.SetEnabled(false);
 
             return building;
@@ -115,23 +93,13 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private AutoHarvestBuilding BuildAutoHarvester(BuildingSlot slot)
         {
-            var parentTransform = slot.transform;
-            var building =
-                _container.InstantiatePrefabForComponent<AutoHarvestBuilding>(
-                    _autoHarvestSettings.AutoHarvestBuildingPrefab,
-                    parentTransform.position, Quaternion.identity, parentTransform);
+            var building = InstantiateBuildingOnSlot<AutoHarvestBuilding>(slot, _autoHarvestSettings.Prefab);
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _autoHarvestSettings.GradeData);
 
-            building.TryGetComponent<IGrade>(out var grade);
-            grade.Init(0, _autoHarvestSettings.MaxGrade, _autoHarvestSettings.GradePrice);
-
-            building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(_autoHarvestSettings.MaxDurability, _autoHarvestSettings.MaxDurability);
-
-            building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init(0, _houseSettings.MaxUnitsCount);
-
-            building.Init();
-
+            InitGrade(building, initGrade, nextGradeData.GradePrice);
+            InitDurability(building, initGradeData.MaxDurability);
+            InitWorkers(building, initGradeData.MaxUnitsCount);
+            
             slot.SetEnabled(false);
 
             return building;
@@ -140,25 +108,51 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private FactoryBuilding BuildFactory(BuildingSlot slot)
         {
-            var parentTransform = slot.transform;
-            var building =
-                _container.InstantiatePrefabForComponent<FactoryBuilding>(_factorySettings.FactoryBuildingPrefab,
-                    parentTransform.position, Quaternion.identity, parentTransform);
-
-            building.TryGetComponent<IGrade>(out var grade);
-            grade.Init(0, _factorySettings.MaxGrade, _factorySettings.GradePrice);
-
-            building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(_factorySettings.MaxDurability, _factorySettings.MaxDurability);
-
-            building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init(0, _houseSettings.MaxUnitsCount);
-
-            building.Init();
-
+            var building = InstantiateBuildingOnSlot<FactoryBuilding>(slot, _factorySettings.Prefab);
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _factorySettings.GradeData);
+            
+            InitGrade(building, initGrade, nextGradeData.GradePrice);
+            InitDurability(building, initGradeData.MaxDurability);
+            InitWorkers(building, initGradeData.MaxUnitsCount);
+            
             slot.SetEnabled(false);
 
             return building;
+        }
+
+        private T InstantiateBuildingOnSlot<T>(BuildingSlot slot, Building prefab) where T : Building
+        {
+            var parentTransform = slot.transform;
+            var building =
+                _container.InstantiatePrefabForComponent<T>(prefab,
+                    parentTransform.position, Quaternion.identity, parentTransform);
+            return building;
+        }
+
+        private int GetGradeData<T>(out T initGradeData, out T nextGradeData, List<T> listOfGrades) where T : IBaseGradeData
+        {
+            var initGrade = 0;
+            initGradeData = listOfGrades[initGrade];
+            nextGradeData = listOfGrades[1];
+            return initGrade;
+        }
+
+        private static void InitWorkers(Building building, int maxUnitsCount)
+        {
+            building.TryGetComponent<IWorkers>(out var specUnits);
+            specUnits.Init(0, maxUnitsCount);
+        }
+
+        private static void InitDurability(Building building, int maxDurability)
+        {
+            building.TryGetComponent<IDurability>(out var durability);
+            durability.Init(maxDurability, maxDurability);
+        }
+
+        private static void InitGrade(Building building, int initGrade, int gradePrice)
+        {
+            building.TryGetComponent<IGrade>(out var grade);
+            grade.Init(initGrade, gradePrice);
         }
     }
 }

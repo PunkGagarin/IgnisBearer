@@ -46,6 +46,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         
         public ChurchBuilding GetChurch() => _church;
 
-        public float GetHouseUnitPrice(int grade) => _houseSettings.UnitPrice;
+        public float GetHouseUnitPrice(int grade) => _houseSettings.GradeData[grade].UnitCost;
     }
 }
