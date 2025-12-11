@@ -16,6 +16,11 @@ namespace _Project.Scripts.Infrastructure.GameStates
     {
         void Enter(TPayload payload);
     }
+    
+    public interface IPayloadState<TPayload, TPayload2> : IExitableState
+    {
+        void Enter(TPayload payload, TPayload2 payload2);
+    }
 
     public interface IUpdateState
     {
