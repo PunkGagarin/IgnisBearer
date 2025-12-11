@@ -45,7 +45,6 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Exit()
         {
-            _unit.Context.Status = UnitStatus.Free;
             _currentTime = 0f;
         }
 

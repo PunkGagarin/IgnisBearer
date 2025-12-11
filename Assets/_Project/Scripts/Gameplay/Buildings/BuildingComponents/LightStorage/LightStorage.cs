@@ -13,6 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased = delegate { };
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountDecreased = delegate { };
         public event Action OnStorageCleared = delegate { };
+        public event Action OnStartHarvest = delegate { };
 
         public void Init(int maxStorage)
         {
@@ -50,6 +51,11 @@ namespace _Project.Scripts.Gameplay.Buildings
         public bool IsFull()
         {
             return !NotFull();
+        }
+        
+        public void StartHarvest()
+        {
+            OnStartHarvest.Invoke();
         }
 
         public int Harvest()
