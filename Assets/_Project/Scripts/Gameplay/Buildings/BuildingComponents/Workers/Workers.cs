@@ -8,10 +8,11 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public class Workers : MonoBehaviour, IWorkers
     {
-        public event Action<List<Unit>> ListChanged;
+        public event Action<Unit> OnUnitAdded = delegate { };
+        public event Action<Unit> OnUnitRemoved = delegate { };
         public event Action<int> CountChanged;
         public event Action<int> MaxCountChanged;
-
+        
         public List<Unit> CurWorkers { get; set; } = new();
         public int CurrentCount { get; set; }
 
@@ -52,10 +53,31 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             CurWorkers.Add(specUnit);
             IncrementCount();
-            ListChanged?.Invoke(CurWorkers);
+            OnUnitAdded?.Invoke(specUnit);
         }
 
         public bool HasAnyWorker() => CurrentCount != 0;
+
+        public bool HasAnyFreeWorker(out Unit unit)
+        {
+            unit = null;
+
+            if (CurrentCount == 0)
+                return false;
+
+            for (int index = 0; index < CurWorkers.Count; index++)
+            {
+                unit = CurWorkers[index];
+                if (unit.Context.Status == UnitStatus.Free)
+                {
+                    unit = CurWorkers[index];
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
 
         public void RemoveWorker(out Unit worker)
         {
@@ -65,7 +87,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 worker = CurWorkers.First();
                 CurWorkers.Remove(worker);
                 DecrementCount();
-                ListChanged?.Invoke(CurWorkers);
+                OnUnitRemoved?.Invoke(worker);
             }
         }
     }

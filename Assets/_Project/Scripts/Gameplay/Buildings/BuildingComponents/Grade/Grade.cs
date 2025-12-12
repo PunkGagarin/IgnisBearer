@@ -32,5 +32,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         
         //todo should check HaveEnoughMoney here?
         private bool HaveEnoughMoney() => true;
+        
     }
 }

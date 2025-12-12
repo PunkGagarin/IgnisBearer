@@ -33,7 +33,7 @@ namespace _Project.Scripts.Gameplay.Units
             _cts = new CancellationTokenSource();
 
             Debug.Log("We are in idle state");
-            _unit.Context.Status = UnitStatus.Free;
+            _unit.Context.SetUnitStatus(UnitStatus.Free);
             _idleTimeCap = GetRandomIdleTime();
         }
 

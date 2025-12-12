@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1103470923866781457}
   - component: {fileID: 9221840746839212262}
   - component: {fileID: 3226937373897534999}
+  - component: {fileID: 5797819444676741070}
   m_Layer: 5
   m_Name: AutoLighterPopup
   m_TagString: Untagged
@@ -91,6 +92,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.CloseContentUiByButton
   "<\u0421loseButton>k__BackingField": {fileID: 5241173463637827990}
+--- !u!114 &5797819444676741070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986397363607271399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e74e2cb4ff94490a0d811c29cabac0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.AutoLighterPopup
+  <WorkersCountRow>k__BackingField: {fileID: 1748978342833304417}
 --- !u!1001 &7665239206892934193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,6 +407,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218f528947ec642f5b29f840a26fedc9, type: 3}
+--- !u!114 &1748978342833304417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7167461622713839291, guid: 218f528947ec642f5b29f840a26fedc9, type: 3}
+  m_PrefabInstance: {fileID: 8877279688275549658}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6d13463d3144a31980258d9013a7ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!224 &5261463249422371562 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3618103700350015280, guid: 218f528947ec642f5b29f840a26fedc9, type: 3}

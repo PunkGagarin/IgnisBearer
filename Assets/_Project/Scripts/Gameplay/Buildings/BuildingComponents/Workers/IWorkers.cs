@@ -6,7 +6,8 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public interface IWorkers
     {
-        event Action<List<Unit>> ListChanged;
+        public event Action<Unit> OnUnitAdded;
+        public event Action<Unit> OnUnitRemoved;
         event Action<int> CountChanged;
         event Action<int> MaxCountChanged;
 

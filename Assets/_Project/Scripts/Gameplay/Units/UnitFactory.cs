@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units
@@ -8,42 +10,38 @@ namespace _Project.Scripts.Gameplay.Units
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly UnitSettings _unitSettings;
 
+        private List<Type> _initStates = new()
+        {
+            typeof(UnitIdleState),
+            typeof(UnitMoveToState),
+            typeof(UnitMoveToLanternState),
+            typeof(FireUpLanternState),
+            typeof(HarvestLanternState),
+            typeof(UnitMoveToChurchState),
+            typeof(UnitSendLightToChurchState)
+        };
+
         public Unit CreateAndInstantiateUnit(Transform unitPosition)
         {
             var unit = _container.InstantiatePrefabForComponent<Unit>(_unitSettings.UnitPrefab,
                 unitPosition.transform.position, Quaternion.identity, unitPosition.transform);
 
-            var unitContext = new UnitContext(_unitSettings.DefaultMoveSpeed, _unitSettings.DefaultFireUpSpeed);
+            var unitContext = new UnitContext(_unitSettings.DefaultMoveSpeed, _unitSettings.DefaultFireUpSpeed, unit);
             var unitStateMachine = new UnitStateMachine();
-            
-            var idle = _container.Instantiate<UnitIdleState>();
-            idle.Init(unit); 
-            
-            var moveToLantern = _container.Instantiate<UnitMoveToLanternState>();
-            moveToLantern.Init(unit);  
-            
-            var fireUp = _container.Instantiate<FireUpLanternState>();
-            fireUp.Init(unit); 
-            
-            var harvestLantern = _container.Instantiate<HarvestLanternState>();
-            harvestLantern.Init(unit);     
-            
-            var moveToChurch = _container.Instantiate<UnitMoveToChurchState>();
-            moveToChurch.Init(unit); 
-            
-            var sendToChurch = _container.Instantiate<UnitSendLightToChurchState>();
-            sendToChurch.Init(unit);
-            
-            unitStateMachine.Register(idle);
-            unitStateMachine.Register(moveToLantern);
-            unitStateMachine.Register(fireUp);
-            unitStateMachine.Register(harvestLantern);
-            unitStateMachine.Register(moveToChurch);
-            unitStateMachine.Register(sendToChurch);
+
+            foreach (var stateType in _initStates)
+                CreateState(stateType, unit, unitStateMachine);
 
             unit.Construct(unitStateMachine, unitContext);
-            
+
             return unit;
+        }
+
+        private void CreateState(Type type, Unit unit, UnitStateMachine unitStateMachine)
+        {
+            var idle = _container.Instantiate(type) as IUnitState;
+            idle?.Init(unit);
+            unitStateMachine.Register(idle);
         }
     }
 
