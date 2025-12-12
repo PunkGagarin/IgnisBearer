@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.AutoLighterPopup
   content: {fileID: 7998835352588145822}
-  <AutoLighterPopup>k__BackingField: {fileID: 587415214824645815}
+  <WorkersCountRow>k__BackingField: {fileID: 4618031982208159768}
 --- !u!114 &1408906329184389520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,17 +816,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc6a5b55858a4d9499db5984003ca0c, type: 3}
---- !u!114 &587415214824645815 stripped
+--- !u!114 &4618031982208159768 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5797819444676741070, guid: 3bc6a5b55858a4d9499db5984003ca0c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1748978342833304417, guid: 3bc6a5b55858a4d9499db5984003ca0c, type: 3}
   m_PrefabInstance: {fileID: 6364453889492067193}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7998835352588145822}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e74e2cb4ff94490a0d811c29cabac0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d6d13463d3144a31980258d9013a7ce, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.AutoLighterPopup
+  m_EditorClassIdentifier: '::'
 --- !u!224 &6235241961005277453 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1070469748377207412, guid: 3bc6a5b55858a4d9499db5984003ca0c, type: 3}

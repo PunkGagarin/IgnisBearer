@@ -1,19 +1,18 @@
-﻿using System;
-using _Project.Scripts.Gameplay.Buildings;
+﻿using _Project.Scripts.Gameplay.Ui.Buildings;
 using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Utils;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Ui.Buildings
+namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class AutoLighterUnitIncreaser : ContentUi
+    public class BuildingUnitIncreaser : MonoBehaviour
     {
 
         [Inject] private WorkerService _workerService;
 
         [field: SerializeField]
-        public AutoLighterPopup AutoLighterPopup { get; private set; }
+        public AddRemoveWithCountRow WorkersCountRow { get; private set; }
 
 
         private Workers _workers;
@@ -21,8 +20,8 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         private void Awake()
         {
-            AutoLighterPopup.WorkersCountRow.OnAddClicked += OnAddClicked;
-            AutoLighterPopup.WorkersCountRow.OnRemoveClicked += OnRemoveClicked;
+            WorkersCountRow.OnAddClicked += OnAddClicked;
+            WorkersCountRow.OnRemoveClicked += OnRemoveClicked;
             _workers = GetComponent<Workers>();
             _grade = GetComponent<IGrade>();
             _workerService.OnWorkerListUpdated += UpdateUi;
@@ -32,15 +31,15 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         private void OnDestroy()
         {
-            AutoLighterPopup.WorkersCountRow.OnAddClicked -= OnAddClicked;
-            AutoLighterPopup.WorkersCountRow.OnRemoveClicked -= OnRemoveClicked;
+            WorkersCountRow.OnAddClicked -= OnAddClicked;
+            WorkersCountRow.OnRemoveClicked -= OnRemoveClicked;
             _workerService.OnWorkerListUpdated -= UpdateUi;
         }
 
         private void UpdateUi()
         {
             var countText = $"{_workers.CurrentCount}/{_workers.MaxCount}";
-            AutoLighterPopup.WorkersCountRow.UpdateUi(countText, CanAddUnit(), CanRemoveUnit());
+            WorkersCountRow.UpdateUi(countText, CanAddUnit(), CanRemoveUnit());
         }
 
         private void OnRemoveClicked()
@@ -69,5 +68,4 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
             return _workerService.HasWorkers() && _workers.CanAddWorker();
         }
     }
-
 }

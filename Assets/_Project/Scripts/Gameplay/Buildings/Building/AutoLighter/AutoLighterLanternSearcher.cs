@@ -32,7 +32,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void FindUnfiredLanterns()
         {
             var unfiredLanterns = _lanternService.GetUnfiredLanterns();
-            Debug.LogError($" Found {unfiredLanterns.Count} unfired lanterns");
             foreach (var lantern in unfiredLanterns)
                 AddLanternToQueue(lantern);
         }
@@ -40,7 +39,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void AddLanternToQueue(Lantern lantern)
         {
             _neededToFireUpLanterns.Enqueue(lantern);
-            Debug.LogError("Lantern added to queue");
         }
 
         private void OnDestroy()
