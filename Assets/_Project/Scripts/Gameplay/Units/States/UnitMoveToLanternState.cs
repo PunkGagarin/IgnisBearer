@@ -16,7 +16,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         public async void Enter(Lantern lantern)
         {
-            _unit.Context.Status = UnitStatus.Busy;
+            _unit.Context.SetUnitStatus(UnitStatus.Busy);
 
             await _unit.Mover.MoveTo(lantern.transform.position);
 

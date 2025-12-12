@@ -6,6 +6,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased;
         event Action OnStorageCleared;
+        event Action OnStartHarvest;
         int Amount { get; }
         int MaxAmount { get; }
         void Init(int maxStorageCapacity);

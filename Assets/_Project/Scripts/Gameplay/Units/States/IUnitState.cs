@@ -2,7 +2,12 @@
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public interface IUnitState : IExitableState, IUpdateState
+    public interface IUnitState : IExitableState, IUpdateState, IUnitInitState
     {
+    }
+
+    public interface IUnitInitState
+    {
+        public void Init(Unit unit);
     }
 }

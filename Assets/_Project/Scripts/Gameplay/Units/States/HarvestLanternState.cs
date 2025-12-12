@@ -28,7 +28,7 @@ namespace _Project.Scripts.Gameplay.Units
         {
             _lightStorage = lantern.GetComponent<LightStorage>();
             _lanternUi = lantern.GetComponent<LanternUi>();
-            // _enterNextState = () => _unit.StateMachine.Enter<UnitIdleState>();
+            _lightStorage.StartHarvest();
         }
 
         public void Update()
@@ -36,6 +36,7 @@ namespace _Project.Scripts.Gameplay.Units
             _currentTime += Time.deltaTime * _unit.Context.FireUpSpeed;
 
             UpdateBar(_currentTime, _lanternSettings.HarvestTime);
+            
             if (_currentTime > _lanternSettings.HarvestTime)
             {
                 Context.LightAmount = _lightStorage.Harvest();
@@ -45,7 +46,6 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Exit()
         {
-            _unit.Context.Status = UnitStatus.Free;
             _currentTime = 0f;
             _lightStorage = null;
             _lanternUi = null;

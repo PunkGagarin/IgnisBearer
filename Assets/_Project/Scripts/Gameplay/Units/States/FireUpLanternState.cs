@@ -52,7 +52,6 @@ namespace _Project.Scripts.Gameplay.Units
         {
             _currentTime = 0f;
             _lantern = null;
-            _unit.Context.Status = UnitStatus.Free;
         }
     }
 }

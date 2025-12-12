@@ -42,6 +42,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _producer.OnLightProgressed += SetProgress;
             _lightStorage.OnAmountIncreased += SetAmount;
             _lightStorage.OnStorageCleared += ClearLantern;
+            _lightStorage.OnStartHarvest += TurnOffIndicator;
             _lantern.OnFired += TurnOffIndicator;
         }
 
@@ -50,6 +51,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _producer.OnLightProgressed -= SetProgress;
             _lightStorage.OnAmountIncreased -= SetAmount;
             _lightStorage.OnStorageCleared -= ClearLantern;
+            _lightStorage.OnStartHarvest -= TurnOffIndicator;
             _lantern.OnFired -= TurnOffIndicator;
         }
 

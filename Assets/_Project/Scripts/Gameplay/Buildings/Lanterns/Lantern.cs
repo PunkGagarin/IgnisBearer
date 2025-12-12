@@ -15,6 +15,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private SpriteRenderer Fired { get; set; }
 
         public Action<Lantern> OnDestroyed = delegate { };
+        public Action<Lantern> OnNeededToFire = delegate { };
         public Action OnFired = delegate { };
 
         private LanternClickDetector _clickDetector;
@@ -22,6 +23,10 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private void Awake()
         {
             _clickDetector = GetComponent<LanternClickDetector>();
+        }
+
+        public void Start()
+        {
         }
 
         public bool IsFired()
@@ -46,6 +51,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             UnFired.gameObject.SetActive(true);
             Fired.gameObject.SetActive(false);
             _clickDetector.TurnOnClick();
+            OnNeededToFire.Invoke(this);
         }
 
         private void OnDestroy()

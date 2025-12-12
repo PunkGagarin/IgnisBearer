@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class UnitMoveToState : IUnitState
+    public class UnitMoveToState : IUnitState, IPayloadState<Vector3>
     {
         private Unit _unit;
 
@@ -13,19 +13,26 @@ namespace _Project.Scripts.Gameplay.Units
             _unit = unit;
         }
 
+        public void Update()
+        {
+        }
+
+        public async void Enter(Vector3 movePos)
+        {
+            _unit.Context.SetUnitStatus(UnitStatus.Busy);
+            await _unit.Mover.MoveTo(movePos);
+            _unit.StateMachine.Enter<UnitIdleState>();
+        }
+
         public async void Enter<TNextState>(Vector3 movePos) where TNextState : class, IState, IUnitState
         {
-            _unit.Context.Status = UnitStatus.Busy;
+            _unit.Context.SetUnitStatus(UnitStatus.Busy);
             await _unit.Mover.MoveTo(movePos);
             _unit.StateMachine.Enter<TNextState>();
 
 
             Type nextState = typeof(WorkerService);
             _unit.StateMachine.Enter(nextState);
-        }
-
-        public void Update()
-        {
         }
 
         public void Exit()
