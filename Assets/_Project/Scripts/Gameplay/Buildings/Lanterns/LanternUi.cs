@@ -5,7 +5,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-    [RequireComponent(typeof(LanternLightProducer))]
+    [RequireComponent(typeof(ResourceProducer))]
     public class LanternUi : MonoBehaviour
     {
         [Inject] private LanternSettings _settings;
@@ -19,8 +19,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         [field: SerializeField]
         public GameObject Indicator { get; private set; }
 
-        private LanternLightProducer _producer;
-        private ILightStorage _lightStorage;
+        private ResourceProducer _producer;
+        private IResourceStorage _iResourceStorage;
         private Lantern _lantern;
 
         public void Init()
@@ -32,32 +32,32 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         private void Awake()
         {
-            _producer = GetComponent<LanternLightProducer>();
-            _lightStorage = GetComponent<ILightStorage>();
+            _producer = GetComponent<ResourceProducer>();
+            _iResourceStorage = GetComponent<IResourceStorage>();
             _lantern = GetComponent<Lantern>();
         }
 
         private void Start()
         {
             _producer.OnLightProgressed += SetProgress;
-            _lightStorage.OnAmountIncreased += SetAmount;
-            _lightStorage.OnStorageCleared += ClearLantern;
-            _lightStorage.OnStartHarvest += TurnOffIndicator;
+            _iResourceStorage.OnAmountIncreased += SetAmount;
+            _iResourceStorage.OnStorageCleared += ClearLantern;
+            _iResourceStorage.OnStartHarvest += TurnOffIndicator;
             _lantern.OnFired += TurnOffIndicator;
         }
 
         private void OnDestroy()
         {
             _producer.OnLightProgressed -= SetProgress;
-            _lightStorage.OnAmountIncreased -= SetAmount;
-            _lightStorage.OnStorageCleared -= ClearLantern;
-            _lightStorage.OnStartHarvest -= TurnOffIndicator;
+            _iResourceStorage.OnAmountIncreased -= SetAmount;
+            _iResourceStorage.OnStorageCleared -= ClearLantern;
+            _iResourceStorage.OnStartHarvest -= TurnOffIndicator;
             _lantern.OnFired -= TurnOffIndicator;
         }
 
         private void SetCurrentAmountText()
         {
-            AmountText.text = $" {_lightStorage.Amount}/{_lightStorage.MaxAmount}";
+            AmountText.text = $" {_iResourceStorage.Amount}/{_iResourceStorage.MaxAmount}";
         }
 
         private void ClearLantern()
@@ -88,7 +88,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             SetCurrentAmountText();
 
-            if (_lightStorage.IsFull())
+            if (_iResourceStorage.IsFull())
             {
                 Bar.TurnOffBar();
                 TurnOnIndicator();

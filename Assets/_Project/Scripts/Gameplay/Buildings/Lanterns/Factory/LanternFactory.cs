@@ -22,12 +22,15 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             {
                 var unit = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
                     lanternPoint.transform.position, Quaternion.identity, null);
-                var lightStorage = unit.GetComponent<LightStorage>();
                 
+                var lightStorage = unit.GetComponent<ResourceStorage>();
                 lightStorage.Init(_settings.InitMaxStorage);
 
                 var lanternUi = unit.GetComponent<LanternUi>();
                 lanternUi.Init();
+                
+                var lightProducer = unit.GetComponent<ResourceProducer>();
+                lightProducer.Init(_settings.LightProduceTime);
 
                 list.Add(unit);
             }

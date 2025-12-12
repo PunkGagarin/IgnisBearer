@@ -36,7 +36,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked += OnLanternClicked;
 
-            var lightStorage = lantern.GetComponent<LightStorage>();
+            var lightStorage = lantern.GetComponent<ResourceStorage>();
             lightStorage.OnAmountFull += OnLanternFullHandle;
         }
 
@@ -48,7 +48,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked -= OnLanternClicked;
 
-            var lightStorage = lantern.GetComponent<LightStorage>();
+            var lightStorage = lantern.GetComponent<ResourceStorage>();
             lightStorage.OnAmountFull -= OnLanternFullHandle;
         }
 
@@ -75,7 +75,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public List<Lantern> GetUnharvestedLanterns()
         {
-            return _lanterns.Where(lantern => lantern.GetComponent<ILightStorage>().IsFull()).ToList();
+            return _lanterns.Where(lantern => lantern.GetComponent<IResourceStorage>().IsFull()).ToList();
         }
     }
 }

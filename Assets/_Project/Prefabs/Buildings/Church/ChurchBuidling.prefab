@@ -406,10 +406,11 @@ GameObject:
   - component: {fileID: -4566601398106009375}
   - component: {fileID: 4354109922516052538}
   - component: {fileID: 7800488996546365539}
-  - component: {fileID: -3845416406392615741}
   - component: {fileID: 9186225910371662383}
   - component: {fileID: 7674113458900941180}
   - component: {fileID: 3623351197947964029}
+  - component: {fileID: 2217743468160035509}
+  - component: {fileID: 57528820159141811}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -495,18 +496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a768d2c00e469693e8eebe513d9aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator
---- !u!114 &-3845416406392615741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763666501242424880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5cd6b5b16454e6bbd216bc4169aad47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateStorage
 --- !u!114 &9186225910371662383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +536,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf3a8a6f0fb4b1fa7e18f299ad76d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateConsumer.FateConsumer
+--- !u!114 &2217743468160035509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a58c5dff12f47c2ba7c8db660e0b4fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Lanterns.ResourceProducer
+--- !u!114 &57528820159141811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df298d6972f54942822cddc2b41817b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Lanterns.FateProducerSwitcher
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0

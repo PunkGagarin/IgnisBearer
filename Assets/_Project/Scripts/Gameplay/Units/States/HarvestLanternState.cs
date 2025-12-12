@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         private Unit _unit;
         private float _currentTime = 0f;
-        private LightStorage _lightStorage;
+        private ResourceStorage _resourceStorage;
         private LanternUi _lanternUi;
         private UnitContext Context => _unit.Context;
 
@@ -26,9 +26,9 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Enter(Lantern lantern)
         {
-            _lightStorage = lantern.GetComponent<LightStorage>();
+            _resourceStorage = lantern.GetComponent<ResourceStorage>();
             _lanternUi = lantern.GetComponent<LanternUi>();
-            _lightStorage.StartHarvest();
+            _resourceStorage.StartHarvest();
         }
 
         public void Update()
@@ -39,7 +39,7 @@ namespace _Project.Scripts.Gameplay.Units
             
             if (_currentTime > _lanternSettings.HarvestTime)
             {
-                Context.LightAmount = _lightStorage.Harvest();
+                Context.LightAmount = _resourceStorage.Harvest();
                 _unit.StateMachine.Enter<UnitMoveToChurchState>();
             }
         }
@@ -47,7 +47,7 @@ namespace _Project.Scripts.Gameplay.Units
         public void Exit()
         {
             _currentTime = 0f;
-            _lightStorage = null;
+            _resourceStorage = null;
             _lanternUi = null;
         }
 

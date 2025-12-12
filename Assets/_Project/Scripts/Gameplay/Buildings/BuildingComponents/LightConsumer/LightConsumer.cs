@@ -6,7 +6,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public class LightConsumer : MonoBehaviour, ILightConsumer
     {
-        private ILightStorage _lightStorage;
+        private IResourceStorage _iResourceStorage;
         
         private float _timeToConsume;
         private int _amountToConsume;
@@ -14,7 +14,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         
         private void Awake()
         {
-            _lightStorage = GetComponent<ILightStorage>();
+            _iResourceStorage = GetComponent<IResourceStorage>();
         }
 
         private void Update()
@@ -31,7 +31,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private bool CanConsume()
         {
-            return _lightStorage.HasAny() && !_isConsuming;
+            return _iResourceStorage.HasAny() && !_isConsuming;
         }
 
         private async UniTaskVoid ConsumeLight()
@@ -39,7 +39,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             _isConsuming = true;
             await UniTask.Delay(TimeSpan.FromSeconds(_timeToConsume));
 
-            _lightStorage.DecrementAmount(_amountToConsume);
+            _iResourceStorage.DecrementAmount(_amountToConsume);
 
             _isConsuming = false;
         }

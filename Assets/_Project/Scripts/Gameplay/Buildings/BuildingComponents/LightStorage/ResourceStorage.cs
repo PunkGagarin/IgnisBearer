@@ -5,7 +5,7 @@ using UnityEngine;
 namespace _Project.Scripts.Gameplay.Buildings
 {
 
-    public class LightStorage : MonoBehaviour, ILightStorage
+    public class ResourceStorage : MonoBehaviour, IResourceStorage
     {
 
         public int Amount { get; private set; }

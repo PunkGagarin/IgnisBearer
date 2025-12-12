@@ -28,7 +28,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         private bool IsLanternReadyToHarvest(Lantern lantern)
         {
-            var lanternResource = lantern.GetComponent<LightStorage>();
+            var lanternResource = lantern.GetComponent<ResourceStorage>();
             return lanternResource.HasAny();
         }
 

@@ -11,7 +11,7 @@ namespace _Project.Scripts.Gameplay.Units
         [Inject] private UnitSettings _unitSettings;
         [Inject] private ChurchSettings _churchSettings;
 
-        private LightStorage ChurchLightStorage => _buildingsService.GetChurch().GetComponent<LightStorage>();
+        private ResourceStorage ChurchResourceStorage => _buildingsService.GetChurch().GetComponent<ResourceStorage>();
         private IGrade ChurchGrade => _buildingsService.GetChurch().GetComponent<IGrade>();
 
         private Unit _unit;
@@ -37,7 +37,7 @@ namespace _Project.Scripts.Gameplay.Units
 
             if (_currentTime > _churchSettings.GradeData[ChurchGrade.Current].LightSendSpeed)
             {
-                ChurchLightStorage.IncrementAmount(_unit.Context.LightAmount);
+                ChurchResourceStorage.IncrementAmount(_unit.Context.LightAmount);
                 _unit.Context.LightAmount = 0;
                 _unit.StateMachine.Enter<UnitIdleState>();
             }

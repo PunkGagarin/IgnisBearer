@@ -45,13 +45,13 @@ namespace _Project.Scripts.Gameplay.Buildings
             InitGrade(building, initGrade, nextGradeData.GradePrice);
             InitWorkers(building, initGradeData.MaxUnitsCount);
 
-            building.TryGetComponent<ILightStorage>(out var lightStorage);
+            building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(initGradeData.MaxLightStorageCapacity);
 
             building.TryGetComponent<IFateProducer>(out var fateGenerator);
             fateGenerator.Init(initGradeData.TimeToProduceFate, initGradeData.AmountToProduceFateAtTime);
 
-            building.TryGetComponent<IFateStorage>(out var fateStorage);
+            building.TryGetComponent<IResourceStorage>(out var fateStorage);
             fateStorage.Init(initGradeData.MaxFateStorageCapacity);
 
             building.TryGetComponent<ILightConsumer>(out var lightConsumer);
