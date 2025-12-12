@@ -37,7 +37,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             clickDetector.OnClicked += OnLanternClicked;
 
             var lightStorage = lantern.GetComponent<LightStorage>();
-            lightStorage.OnAmountFull += OnLanternFull;
+            lightStorage.OnAmountFull += OnLanternFullHandle;
         }
 
         private void UnsubscribeFromLantern(Lantern lantern)
@@ -49,7 +49,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             clickDetector.OnClicked -= OnLanternClicked;
 
             var lightStorage = lantern.GetComponent<LightStorage>();
-            lightStorage.OnAmountFull -= OnLanternFull;
+            lightStorage.OnAmountFull -= OnLanternFullHandle;
         }
 
         private void OnLanternFullHandle(Lantern obj)
@@ -71,6 +71,11 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public List<Lantern> GetUnfiredLanterns()
         {
             return _lanterns.Where(lantern => !lantern.IsFired()).ToList();
+        }
+
+        public List<Lantern> GetUnharvestedLanterns()
+        {
+            return _lanterns.Where(lantern => lantern.GetComponent<ILightStorage>().IsFull()).ToList();
         }
     }
 }

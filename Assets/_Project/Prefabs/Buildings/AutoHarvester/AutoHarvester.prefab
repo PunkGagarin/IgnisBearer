@@ -406,8 +406,8 @@ GameObject:
   - component: {fileID: 7613485098727134890}
   - component: {fileID: 7134274598069846108}
   - component: {fileID: 5985126254330671187}
-  - component: {fileID: 1408906329184389520}
   - component: {fileID: 8545274884099581480}
+  - component: {fileID: -5471911659956212283}
   m_Layer: 0
   m_Name: AutoHarvester
   m_TagString: Untagged
@@ -495,18 +495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.AutoLighterPopup
   <WorkersCountRow>k__BackingField: {fileID: 6129797773944461614}
---- !u!114 &1408906329184389520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763666501242424880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba6c19d28374d008727e69742bc7e8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.AutoLighterLanternSearcher
 --- !u!114 &8545274884099581480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +508,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.AutoHarvestBuilding
   <Type>k__BackingField: 4
+--- !u!114 &-5471911659956212283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a5b831da9e47ca9880f60ea2e1afdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.AutoHarvesterLanternSearcher
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0
