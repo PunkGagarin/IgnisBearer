@@ -1,7 +1,4 @@
 ﻿using System;
-using _Project.Scripts.Gameplay.Buildings.Lanterns;
-using _Project.Scripts.Infrastructure.GameStates;
-using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
@@ -9,6 +6,7 @@ namespace _Project.Scripts.Gameplay.Units
     {
 
         public event Action<Unit> OnUnitFree = delegate { };
+        
         public Unit Unit { get; private set; }
         public float MoveSpeed { get; set; }
         public float IdleMoveSpeed { get; set; }
@@ -31,6 +29,8 @@ namespace _Project.Scripts.Gameplay.Units
         {
             if (status == UnitStatus.Free)
                 OnUnitFree.Invoke(Unit);
+
+            Status = status;
         }
     }
 }

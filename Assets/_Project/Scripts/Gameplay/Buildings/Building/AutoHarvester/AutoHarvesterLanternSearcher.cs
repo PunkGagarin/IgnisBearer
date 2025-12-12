@@ -3,21 +3,21 @@ using _Project.Scripts.Gameplay.Buildings.Lanterns;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class AutoLighterLanternSearcher : BaseLanternSearcher
+    public class AutoHarvesterLanternSearcher : BaseLanternSearcher
     {
         protected override void SubscribeOnLantern()
         {
-            _lanternService.OnLanternNeededToFire += SendFirstUnit;
+            _lanternService.OnLanternFull += SendFirstUnit;
         }
 
         protected override List<Lantern> GetLanternsForQueue()
         {
-            return _lanternService.GetUnfiredLanterns();
+            return _lanternService.GetUnharvestedLanterns();
         }
 
         protected override void UnsubscribeFromLantern()
         {
-            _lanternService.OnLanternNeededToFire -= SendFirstUnit;
+            _lanternService.OnLanternFull -= SendFirstUnit;
         }
     }
 }
