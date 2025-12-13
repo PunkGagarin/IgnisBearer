@@ -7,7 +7,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         public event Action<int> OnGradeChanged;
         public int Current { get; set; }
-        
+
         public float NextGradePrice { get; set; }
 
         public bool UpdateGrade()
@@ -29,9 +29,9 @@ namespace _Project.Scripts.Gameplay.Buildings
         }
 
         private bool CanUpdate() => HaveEnoughMoney();
-        
+
         //todo should check HaveEnoughMoney here?
         private bool HaveEnoughMoney() => true;
-        
     }
+
 }

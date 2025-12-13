@@ -16,18 +16,20 @@ namespace _Project.Scripts.Gameplay.Buildings
 
 
         private Workers _workers;
-        private IGrade _grade;
 
         private void Awake()
         {
-            WorkersCountRow.OnAddClicked += OnAddClicked;
-            WorkersCountRow.OnRemoveClicked += OnRemoveClicked;
             _workers = GetComponent<Workers>();
-            _grade = GetComponent<IGrade>();
-            _workerService.OnWorkerListUpdated += UpdateUi;
         }
 
-        private void Start() => UpdateUi();
+        private void Start()
+        {
+            WorkersCountRow.OnAddClicked += OnAddClicked;
+            WorkersCountRow.OnRemoveClicked += OnRemoveClicked;
+            _workerService.OnWorkerListUpdated += UpdateUi;
+
+            UpdateUi();
+        }
 
         private void OnDestroy()
         {

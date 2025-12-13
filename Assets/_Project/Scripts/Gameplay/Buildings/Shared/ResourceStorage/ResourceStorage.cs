@@ -60,12 +60,12 @@ namespace _Project.Scripts.Gameplay.Buildings
             return !NotFull();
         }
 
-        public void StartHarvest()
+        public void StartCollecting()
         {
             OnStartHarvest.Invoke();
         }
 
-        public int Harvest()
+        public int Collect()
         {
             int amount = Amount;
             Debug.Log("Lantern harvested " + Amount);

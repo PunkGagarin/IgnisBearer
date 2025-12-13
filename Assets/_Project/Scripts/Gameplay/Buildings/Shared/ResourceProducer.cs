@@ -32,10 +32,10 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void Update()
         {
             if (CanProduce)
-                ProduceLight().Forget();
+                Produce().Forget();
         }
 
-        private async UniTaskVoid ProduceLight()
+        private async UniTaskVoid Produce()
         {
             _isProducing = true;
             OnStartProducing.Invoke();
@@ -49,7 +49,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             }
 
             _iResourceStorage.IncrementAmount();
-            Debug.Log("Lantern produced " + 1);
 
             _isProducing = false;
             OnEndProducing.Invoke();

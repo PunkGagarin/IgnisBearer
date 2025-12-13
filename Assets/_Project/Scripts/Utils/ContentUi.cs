@@ -4,13 +4,19 @@ namespace _Project.Scripts.Utils
 {
     public class ContentUi : MonoBehaviour
     {
-        [SerializeField] protected GameObject content;
+        [SerializeField]
+        protected GameObject content;
+
+        public bool IsShown()
+        {
+            return content.activeSelf;
+        }
 
         public virtual void Show()
         {
             content.SetActive(true);
         }
-        
+
         public virtual void Hide()
         {
             content.SetActive(false);

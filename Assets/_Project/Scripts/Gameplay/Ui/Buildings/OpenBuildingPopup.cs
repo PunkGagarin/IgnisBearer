@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Gameplay.Buildings
+namespace _Project.Scripts.Gameplay.Ui.Buildings
 {
     public class OpenBuildingPopup : MonoBehaviour
     {

@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [field: SerializeField]
         private HouseSettings _houseSettings;
-        
+
         [field: SerializeField]
         private FactorySettings _factorySettings;
 
@@ -22,13 +22,13 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [field: SerializeField]
         private AutoLighterSettings _autoLighterSettings;
-        
+
         [field: SerializeField]
         private BuildingSlotsSettings _buildingSlotsSettings;
 
         [field: SerializeField]
         private LanternSettings _lanternSettings;
-        
+
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<BuildingSlotsSettings>().FromInstance(_buildingSlotsSettings).AsSingle();
@@ -41,7 +41,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingAddingOptionsService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingsService>().AsSingle();
-            
+            Container.BindInterfacesAndSelfTo<FateService>().AsSingle();
+
             Container.BindInterfacesAndSelfTo<LanternSettings>().FromInstance(_lanternSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<LanternFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternService>().AsSingle();

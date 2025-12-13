@@ -5,6 +5,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     public interface IResourceStorage
     {
         event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased;
+        event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountDecreased;
         event Action OnStorageCleared;
         event Action OnStartHarvest;
         int Amount { get; }

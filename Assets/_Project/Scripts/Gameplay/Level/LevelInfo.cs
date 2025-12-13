@@ -4,7 +4,7 @@ using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 
-namespace _Project.Scripts.Gameplay
+namespace _Project.Scripts.Gameplay.Level
 {
     public class LevelInfo : MonoBehaviour
     {

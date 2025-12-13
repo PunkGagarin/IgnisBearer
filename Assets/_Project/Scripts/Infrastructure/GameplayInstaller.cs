@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Gameplay;
+using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Infrastructure.GameStates.States;
 using UnityEngine;
 using Zenject;
