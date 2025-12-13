@@ -403,13 +403,10 @@ GameObject:
   - component: {fileID: 209318664705434260}
   - component: {fileID: 4756976558124453703}
   - component: {fileID: 5029327711760116034}
-  - component: {fileID: -4566601398106009375}
   - component: {fileID: 4354109922516052538}
-  - component: {fileID: 7800488996546365539}
-  - component: {fileID: -3845416406392615741}
   - component: {fileID: 9186225910371662383}
-  - component: {fileID: 7674113458900941180}
   - component: {fileID: 3623351197947964029}
+  - component: {fileID: -6887034707961980028}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -430,6 +427,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 2889761149856935840}
   - {fileID: 9093567719910953777}
   - {fileID: 630100173817219542}
   m_Father: {fileID: 0}
@@ -447,6 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchBuilding
   <Type>k__BackingField: 1
+  <FateGenerator>k__BackingField: {fileID: 6361874197431997071}
 --- !u!114 &5029327711760116034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,18 +458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9112be10784bbebcf58e7e6bc31aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.Grade.Grade
---- !u!114 &-4566601398106009375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763666501242424880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac3edcad3e543528051d56cc0185ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingComponents.Workers.Workers
 --- !u!114 &4354109922516052538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,30 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e1de3c00e640e0984fd9821aeb2946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.LightStorage
---- !u!114 &7800488996546365539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763666501242424880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a768d2c00e469693e8eebe513d9aa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator
---- !u!114 &-3845416406392615741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763666501242424880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5cd6b5b16454e6bbd216bc4169aad47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateStorage
 --- !u!114 &9186225910371662383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,20 +484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.OpenBuildingPopup
   _button: {fileID: 2861758265547291918}
   _popup: {fileID: 4051670230408438815}
---- !u!114 &7674113458900941180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763666501242424880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45730c26429d4bcd9a243b55d17aa4c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ChurchPopup
-  content: {fileID: 4051670230408438815}
-  _workersCountRow: {fileID: 1670120069817327769}
 --- !u!114 &3623351197947964029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +496,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf3a8a6f0fb4b1fa7e18f299ad76d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateConsumer.FateConsumer
+--- !u!114 &-6887034707961980028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3ca8b8b6b74ca5a4697d2e13aabb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BarrierUiController
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,4 +811,75 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3986397363607271399, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
   m_PrefabInstance: {fileID: 1110396602198545400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1214356402245591414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 209318664705434260}
+    m_Modifications:
+    - target: {fileID: 1622896804859822871, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: <WorkersCountRow>k__BackingField
+      value: 
+      objectReference: {fileID: 1670120069817327769}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229708683809240057, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+      propertyPath: m_Name
+      value: FateGenerator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+--- !u!4 &2889761149856935840 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+  m_PrefabInstance: {fileID: 1214356402245591414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6361874197431997071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5229708683809240057, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+  m_PrefabInstance: {fileID: 1214356402245591414}
   m_PrefabAsset: {fileID: 0}

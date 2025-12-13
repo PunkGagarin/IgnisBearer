@@ -41,17 +41,13 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             var building = InstantiateBuildingOnSlot<ChurchBuilding>(slot, _churchSettings.Prefab);
             var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _churchSettings.GradeData);
-            
-            InitGrade(building, initGrade, nextGradeData.GradePrice);
-            InitWorkers(building, initGradeData.MaxUnitsCount);
 
-            building.TryGetComponent<ILightStorage>(out var lightStorage);
+            InitGrade(building, initGrade, nextGradeData.GradePrice);
+
+            building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(initGradeData.MaxLightStorageCapacity);
 
-            building.TryGetComponent<IFateProducer>(out var fateGenerator);
-            fateGenerator.Init(initGradeData.TimeToProduceFate, initGradeData.AmountToProduceFateAtTime);
-
-            building.TryGetComponent<IFateStorage>(out var fateStorage);
+            building.TryGetComponent<IResourceStorage>(out var fateStorage);
             fateStorage.Init(initGradeData.MaxFateStorageCapacity);
 
             building.TryGetComponent<ILightConsumer>(out var lightConsumer);
@@ -59,7 +55,21 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             slot.SetEnabled(false);
 
+            FateGeneratorInit(building, initGradeData);
+
             return building;
+        }
+
+        private static void FateGeneratorInit(ChurchBuilding building, ChurchGradeData initGradeData)
+        {
+            var fateGenerator = building.FateGenerator;
+            InitWorkers(fateGenerator, initGradeData.MaxUnitsCount);
+
+            var fateResourceStorage = fateGenerator.GetComponent<IResourceStorage>();
+            fateResourceStorage.Init(initGradeData.MaxFateStorageCapacity);
+
+            var fateProducer = fateGenerator.GetComponent<ResourceProducer>();
+            fateProducer.Init(initGradeData.TimeToProduceFate);
         }
 
 
@@ -70,7 +80,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             InitGrade(building, initGrade, nextGradeData.GradePrice);
             InitDurability(building, initGradeData.MaxDurability);
-            InitWorkers(building, initGradeData.MaxUnitsCount);
+            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
 
             slot.SetEnabled(false);
 
@@ -84,8 +94,8 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             InitGrade(building, initGrade, nextGradeData.GradePrice);
             InitDurability(building, initGradeData.MaxDurability);
-            InitWorkers(building, initGradeData.MaxUnitsCount);
-            
+            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
+
             slot.SetEnabled(false);
 
             return building;
@@ -98,8 +108,8 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             InitGrade(building, initGrade, nextGradeData.GradePrice);
             InitDurability(building, initGradeData.MaxDurability);
-            InitWorkers(building, initGradeData.MaxUnitsCount);
-            
+            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
+
             slot.SetEnabled(false);
 
             return building;
@@ -110,11 +120,11 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             var building = InstantiateBuildingOnSlot<FactoryBuilding>(slot, _factorySettings.Prefab);
             var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _factorySettings.GradeData);
-            
+
             InitGrade(building, initGrade, nextGradeData.GradePrice);
             InitDurability(building, initGradeData.MaxDurability);
-            InitWorkers(building, initGradeData.MaxUnitsCount);
-            
+            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
+
             slot.SetEnabled(false);
 
             return building;
@@ -129,7 +139,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             return building;
         }
 
-        private int GetGradeData<T>(out T initGradeData, out T nextGradeData, List<T> listOfGrades) where T : IBaseGradeData
+        private int GetGradeData<T>(out T initGradeData, out T nextGradeData, List<T> listOfGrades)
+            where T : IBaseGradeData
         {
             var initGrade = 0;
             initGradeData = listOfGrades[initGrade];
@@ -137,7 +148,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             return initGrade;
         }
 
-        private static void InitWorkers(Building building, int maxUnitsCount)
+        private static void InitWorkers(GameObject building, int maxUnitsCount)
         {
             building.TryGetComponent<IWorkers>(out var specUnits);
             specUnits.Init(0, maxUnitsCount);

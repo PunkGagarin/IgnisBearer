@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Infrastructure.GameStates;
 using Cysharp.Threading.Tasks;
 using UnityEngine;

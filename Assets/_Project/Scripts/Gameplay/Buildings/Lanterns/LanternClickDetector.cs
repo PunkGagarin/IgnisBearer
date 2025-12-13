@@ -13,23 +13,23 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public Action<Lantern> OnClicked = delegate { };
 
         private Lantern _lantern;
-        private LightStorage _lightStorage;
+        private ResourceStorage _resourceStorage;
 
         private void Awake()
         {
             _lantern = GetComponent<Lantern>();
-            _lightStorage = GetComponent<LightStorage>();
+            _resourceStorage = GetComponent<ResourceStorage>();
 
             Button.onClick.AddListener(OnButtonClicked);
-            _lightStorage.OnAmountIncreased += OnAmountIncreaseHandle;
-            _lightStorage.OnStorageCleared += TurnOffClick;
+            _resourceStorage.OnAmountIncreased += OnAmountIncreaseHandle;
+            _resourceStorage.OnStorageCleared += TurnOffClick;
         }
 
         private void OnDestroy()
         {
             Button.onClick.RemoveListener(OnButtonClicked);
-            _lightStorage.OnAmountIncreased -= OnAmountIncreaseHandle;
-            _lightStorage.OnStorageCleared -= TurnOffClick;
+            _resourceStorage.OnAmountIncreased -= OnAmountIncreaseHandle;
+            _resourceStorage.OnStorageCleared -= TurnOffClick;
         }
 
         private void OnButtonClicked()

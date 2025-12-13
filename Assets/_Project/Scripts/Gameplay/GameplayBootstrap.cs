@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Gameplay.Units;
 using Zenject;
 
@@ -19,9 +20,12 @@ namespace _Project.Scripts.Gameplay
 
         [Inject]
         private BuildingsService _buildingsService;
-        
+
         [Inject]
         private BuildingSlotsService _buildingSlotsService;
+
+        [Inject]
+        private FateService _fateService;
 
 
         public void Initialize()
@@ -36,9 +40,14 @@ namespace _Project.Scripts.Gameplay
         {
             _levelService.CreateLevel();
             _lanternService.InitStartLanterns(_levelService.GetInitialLanternPositions());
-            _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(), _levelService.GetChurchBuildingSpawnPoint());
-            _buildingsService.InitInitialBuildings(_buildingSlotsService.GetChurchSlot(), _buildingSlotsService.GetFirstSlot());
+            _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(),
+                _levelService.GetChurchBuildingSpawnPoint());
+            _buildingsService.InitInitialBuildings(_buildingSlotsService.GetChurchSlot(),
+                _buildingSlotsService.GetFirstSlot());
             _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
+
+            var fateStorage = _buildingsService.GetChurch().FateGenerator.GetComponent<ResourceStorage>();
+            _fateService.Init(fateStorage);
         }
 
         private bool HasProgress()

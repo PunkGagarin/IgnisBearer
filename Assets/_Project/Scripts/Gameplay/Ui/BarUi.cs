@@ -6,7 +6,7 @@ namespace _Project.Scripts.Gameplay.Ui
     public class BarUi : MonoBehaviour
     {
         [field: SerializeField]
-        public Image Bar { get; private set; }
+        private Image Bar { get; set; }
 
         public void ChangeBarProgress(float progress)
         {
