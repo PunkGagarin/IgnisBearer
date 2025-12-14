@@ -7,8 +7,6 @@ namespace _Project.Scripts.Infrastructure.GameStates.States
 
         public void Enter()
         {
-            Debug.Log(" GameloopState.Enter");
-            Object.Instantiate(Resources.Load("Player"));
         }
 
 
