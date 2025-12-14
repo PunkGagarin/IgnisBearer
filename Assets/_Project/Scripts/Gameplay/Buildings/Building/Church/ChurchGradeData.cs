@@ -12,8 +12,5 @@ namespace _Project.Scripts.Gameplay.Buildings
         public float TimeToProduceFate;
         public int AmountToProduceFateAtTime;
         public float LightSendSpeed = 3f;
-        public float LightConsumeTime = 1f;
-        public int LightConsumeAmount = 1;
-
     }
 }
