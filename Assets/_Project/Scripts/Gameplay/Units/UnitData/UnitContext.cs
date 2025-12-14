@@ -12,15 +12,17 @@ namespace _Project.Scripts.Gameplay.Units
         public float IdleMoveSpeed { get; set; }
         public UnitStatus Status { get; private set; }
         public UnitSpec Spec { get; set; }
-        public float FireUpSpeed { get; set; }
+        public float FireUpMultiplier { get; set; }
+        public float SendLightMultiplier { get; set; }
         public int LightAmount { get; set; }
 
-        public UnitContext(float moveSpeed, float fireUpSpeed, Unit unit)
+        public UnitContext(Unit unit, float moveSpeed, float fireUpMultiplier,  float sendLightMultiplier)
         {
             Unit = unit;
             MoveSpeed = moveSpeed;
             IdleMoveSpeed = moveSpeed / 2f;
-            FireUpSpeed = fireUpSpeed;
+            FireUpMultiplier = fireUpMultiplier;
+            SendLightMultiplier = sendLightMultiplier;
             Spec = UnitSpec.Worker;
             Status = UnitStatus.Free;
         }

@@ -26,7 +26,11 @@ namespace _Project.Scripts.Gameplay.Units
             var unit = _container.InstantiatePrefabForComponent<Unit>(_unitSettings.UnitPrefab,
                 unitPosition.transform.position, Quaternion.identity, unitPosition.transform);
 
-            var unitContext = new UnitContext(_unitSettings.DefaultMoveSpeed, _unitSettings.DefaultFireUpSpeed, unit);
+            var unitContext = new UnitContext(unit,
+                _unitSettings.MoveSpeed, 
+                _unitSettings.FireUpMultiplier, 
+                _unitSettings.SendLightToChurchMultiplier
+                );
             var unitStateMachine = new UnitStateMachine();
 
             foreach (var stateType in _initStates)

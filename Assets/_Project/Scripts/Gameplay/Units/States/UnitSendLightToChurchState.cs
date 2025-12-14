@@ -31,7 +31,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Update()
         {
-            _currentTime += Time.deltaTime;
+            _currentTime += Time.deltaTime * _unit.Context.FireUpMultiplier;
 
             UpdateBar();
 

@@ -33,7 +33,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Update()
         {
-            _currentTime += Time.deltaTime * _unit.Context.FireUpSpeed;
+            _currentTime += Time.deltaTime * _unit.Context.FireUpMultiplier;
 
             UpdateBar();
             if (_currentTime > _lanternSettings.FireUpTime)
