@@ -28,7 +28,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             _lightStorage.OnAmountIncreased += StartConsumeLight;
 
             _nextProgress = _lightConsumeSettings.GetProgressByIndex(_nextProgressIndex);
-            SetNextProgress();
         }
 
         private void StartConsumeLight((int amountIncreased, int newAmount, int maxAmount) obj)
@@ -42,6 +41,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void SetNextProgress()
         {
+            Debug.Log("Setting next progress");
             _lightConsumer.Init(_nextProgress.TimeToConsume, _nextProgress.Amount);
             _nextProgress = GetProgressWithIncrement();
         }

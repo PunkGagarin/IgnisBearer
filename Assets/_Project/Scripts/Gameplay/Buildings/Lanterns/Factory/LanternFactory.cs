@@ -20,19 +20,20 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             foreach (var lanternPoint in lanternPoints)
             {
-                var unit = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
+                var lantern = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
                     lanternPoint.transform.position, Quaternion.identity, null);
+                lantern.Init( _settings.InitMaxHarvestCount);
                 
-                var lightStorage = unit.GetComponent<ResourceStorage>();
+                var lightStorage = lantern.GetComponent<ResourceStorage>();
                 lightStorage.Init(_settings.InitMaxStorage);
 
-                var lanternUi = unit.GetComponent<LanternUi>();
+                var lanternUi = lantern.GetComponent<LanternUi>();
                 lanternUi.Init();
                 
-                var lightProducer = unit.GetComponent<ResourceProducer>();
+                var lightProducer = lantern.GetComponent<ResourceProducer>();
                 lightProducer.Init(_settings.LightProduceTime);
 
-                list.Add(unit);
+                list.Add(lantern);
             }
             return list;
         }

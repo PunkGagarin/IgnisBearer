@@ -44,6 +44,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _iResourceStorage.OnStorageCleared += ClearLantern;
             _iResourceStorage.OnStartHarvest += TurnOffIndicator;
             _lantern.OnFired += TurnOffIndicator;
+            _lantern.OnFireOff += TurnOffBar;
         }
 
         private void OnDestroy()
@@ -53,6 +54,12 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _iResourceStorage.OnStorageCleared -= ClearLantern;
             _iResourceStorage.OnStartHarvest -= TurnOffIndicator;
             _lantern.OnFired -= TurnOffIndicator;
+            _lantern.OnFireOff -= TurnOffBar;
+        }
+
+        private void TurnOffBar()
+        {
+            Bar.TurnOffBar();
         }
 
         private void SetCurrentAmountText()
@@ -90,7 +97,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             if (_iResourceStorage.IsFull())
             {
-                Bar.TurnOffBar();
+                TurnOffBar();
                 TurnOnIndicator();
             }
         }
