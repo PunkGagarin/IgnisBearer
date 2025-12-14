@@ -38,7 +38,7 @@ namespace _Project.Scripts.Gameplay.Units
         {
             if (_units.Count <= 0)
             {
-                Debug.LogError("Trying to find free worker when there are no workers");
+                Debug.LogWarning("Trying to find free worker when there are no workers");
                 return null;
             }
             return _units.FirstOrDefault();
