@@ -7,7 +7,6 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
 
         public int MaxUnitsCount;
-        public int MaxFateStorageCapacity;
         public int MaxLightStorageCapacity = 1000;
         public int GradePrice;
         public float TimeToProduceFate;
