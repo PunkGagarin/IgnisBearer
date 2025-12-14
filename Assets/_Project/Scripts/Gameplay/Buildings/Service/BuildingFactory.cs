@@ -47,9 +47,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(initGradeData.MaxLightStorageCapacity);
 
-            building.TryGetComponent<IResourceStorage>(out var fateStorage);
-            fateStorage.Init(initGradeData.MaxFateStorageCapacity);
-
             building.TryGetComponent<ILightConsumer>(out var lightConsumer);
             lightConsumer.Init(initGradeData.LightConsumeTime, initGradeData.LightConsumeAmount);
 
@@ -64,9 +61,9 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             var fateGenerator = building.FateGenerator;
             InitWorkers(fateGenerator, initGradeData.MaxUnitsCount);
-
-            var fateResourceStorage = fateGenerator.GetComponent<IResourceStorage>();
-            fateResourceStorage.Init(initGradeData.MaxFateStorageCapacity);
+            
+            fateGenerator.TryGetComponent<IResourceStorage>(out var fateStorage);
+            fateStorage.Init(int.MaxValue);
 
             var fateProducer = fateGenerator.GetComponent<ResourceProducer>();
             fateProducer.Init(initGradeData.TimeToProduceFate);
