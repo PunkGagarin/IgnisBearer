@@ -2,7 +2,7 @@
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-    [CreateAssetMenu(fileName = "LanternSettings", menuName = "LanternSettings", order = 0)]
+    // [CreateAssetMenu(fileName = "LanternSettings", menuName = "LanternSettings", order = 0)]
     public class LanternSettings : ScriptableObject
     {
         [field: SerializeField]
