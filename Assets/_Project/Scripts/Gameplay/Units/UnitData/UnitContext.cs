@@ -6,7 +6,8 @@ namespace _Project.Scripts.Gameplay.Units
     {
 
         public event Action<Unit> OnUnitFree = delegate { };
-        
+        public event Action<Unit> OnUnitBusy = delegate { };
+
         public Unit Unit { get; private set; }
         public float MoveSpeed { get; set; }
         public float IdleMoveSpeed { get; set; }
@@ -16,7 +17,7 @@ namespace _Project.Scripts.Gameplay.Units
         public float SendLightMultiplier { get; set; }
         public int LightAmount { get; set; }
 
-        public UnitContext(Unit unit, float moveSpeed, float fireUpMultiplier,  float sendLightMultiplier)
+        public UnitContext(Unit unit, float moveSpeed, float fireUpMultiplier, float sendLightMultiplier)
         {
             Unit = unit;
             MoveSpeed = moveSpeed;
@@ -29,10 +30,12 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void SetUnitStatus(UnitStatus status)
         {
+            Status = status;
+
             if (status == UnitStatus.Free)
                 OnUnitFree.Invoke(Unit);
-
-            Status = status;
+            else if (status == UnitStatus.Busy)
+                OnUnitBusy.Invoke(Unit);
         }
     }
 }

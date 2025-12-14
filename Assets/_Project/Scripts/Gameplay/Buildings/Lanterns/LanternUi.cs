@@ -6,6 +6,7 @@ using Zenject;
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
     [RequireComponent(typeof(ResourceProducer))]
+    [RequireComponent(typeof(LanternClickDetector))]
     public class LanternUi : MonoBehaviour
     {
         [Inject] private LanternSettings _settings;
@@ -22,17 +23,19 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private ResourceProducer _producer;
         private IResourceStorage _iResourceStorage;
         private Lantern _lantern;
+        private LanternClickDetector _clickDetector;
 
         public void Init()
         {
             SetCurrentAmountText();
-            Indicator.SetActive(true);
+            TurnOnIndicator();
             Bar.TurnOffBar();
         }
 
         private void Awake()
         {
             _producer = GetComponent<ResourceProducer>();
+            _clickDetector = GetComponent<LanternClickDetector>();
             _iResourceStorage = GetComponent<IResourceStorage>();
             _lantern = GetComponent<Lantern>();
         }
@@ -76,11 +79,13 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private void TurnOnIndicator()
         {
             Indicator.SetActive(true);
+            _clickDetector.TurnOnClick();
         }
 
-        private void TurnOffIndicator()
+        public void TurnOffIndicator()
         {
             Indicator.SetActive(false);
+            _clickDetector.TurnOffClick();
         }
 
         public void SetProgress(float progress)

@@ -41,9 +41,9 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void SetNextProgress()
         {
-            Debug.Log("Setting next progress");
             _lightConsumer.Init(_nextProgress.TimeToConsume, _nextProgress.Amount);
             _nextProgress = GetProgressWithIncrement();
+            Debug.Log($"Light consume Progress set at {_currentProgressTime}, next progress at: {_nextProgress.TimeToIncrease}");
         }
 
         private LightConsumeProgress GetProgressWithIncrement()
