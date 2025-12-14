@@ -37,6 +37,9 @@ namespace _Project.Scripts.Gameplay.Buildings
             Container.BindInterfacesAndSelfTo<AutoHarvestSettings>().FromInstance(_autoHarvestSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<AutoLighterSettings>().FromInstance(_autoLighterSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<HouseSettings>().FromInstance(_houseSettings).AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<BuildingComponentsInitService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingComponentsUpdateService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingAddingOptionsService>().AsSingle();

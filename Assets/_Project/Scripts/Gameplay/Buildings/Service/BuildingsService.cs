@@ -13,16 +13,24 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private HouseSettings _houseSettings;
         [Inject] private ChurchSettings _churchSettings;
         [Inject] private BuildingFactory _buildingFactory;
+        [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
 
         private List<Building> _buildings = new();
         private ChurchBuilding _church;
 
-        
-
-        public void InitInitialBuildings(BuildingSlot churchSlot, BuildingSlot houseSlot)
+        public void InitChurch(BuildingSlot slot)
         {
-            AddBuildingTo(BuildingType.Church, churchSlot);
-            AddBuildingTo(BuildingType.House, houseSlot);
+            AddBuildingTo(BuildingType.Church, slot);
+        }
+
+        public void InitHouse(BuildingSlot slot)
+        {
+            AddBuildingTo(BuildingType.House, slot);
+        }
+
+        public void InitChurchGrade()
+        {
+            _buildingComponentsInitService.InitGradeForChurch(_church);
         }
 
         public void AddBuildingTo(BuildingType buildingType, BuildingSlot buildingSlot)
@@ -45,7 +53,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         }
         
         public ChurchBuilding GetChurch() => _church;
-
-        public float GetHouseUnitPrice(int grade) => _houseSettings.GradeData[grade].UnitCost;
+        
     }
 }

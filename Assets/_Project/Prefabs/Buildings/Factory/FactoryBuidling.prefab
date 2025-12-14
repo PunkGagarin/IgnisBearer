@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 2294427075994986821}
   - component: {fileID: -272873710446961057}
   - component: {fileID: 6284593314332039133}
+  - component: {fileID: 5348443880111721965}
   m_Layer: 0
   m_Name: FactoryBuidling
   m_TagString: Untagged
@@ -408,6 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9112be10784bbebcf58e7e6bc31aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.Grade.Grade
+  _buyLimitedButton: {fileID: 0}
 --- !u!114 &2294427075994986821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +447,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac3edcad3e543528051d56cc0185ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingComponents.Workers.Workers
+--- !u!114 &5348443880111721965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfe8d7967fa4d76b9dff32970094a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FactoryGradeStatIncreaser
 --- !u!1 &8173564217403222345
 GameObject:
   m_ObjectHideFlags: 0

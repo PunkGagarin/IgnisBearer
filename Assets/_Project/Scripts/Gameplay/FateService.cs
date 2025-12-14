@@ -8,7 +8,7 @@ namespace _Project.Scripts.Gameplay
     {
         private IResourceStorage _fateStorage;
 
-        event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountChanged = delegate { };
+        public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountChanged = delegate { };
 
         public void Init(IResourceStorage storage)
         {

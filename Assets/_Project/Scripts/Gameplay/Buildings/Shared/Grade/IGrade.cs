@@ -6,8 +6,9 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         event Action<int> OnGradeChanged;
         int Current { get; set; }
-        float NextGradePrice { get; set; }
-        bool UpdateGrade();
-        void Init(int initValue, float gradePrice);
+        int NextGradePrice { get; set; }
+        void UpgradeGrade();
+        void Init(int initValue, int maxGrade, int gradePrice);
+        void SetNextGradePrice(int nextGradePrice);
     }
 }

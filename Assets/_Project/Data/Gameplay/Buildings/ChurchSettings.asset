@@ -27,7 +27,7 @@ MonoBehaviour:
   - MaxUnitsCount: 4
     MaxFateStorageCapacity: 6
     MaxLightStorageCapacity: 150
-    GradePrice: 2
+    GradePrice: 0
     TimeToProduceFate: 5
     AmountToProduceFateAtTime: 4
     LightSendSpeed: 2
@@ -36,7 +36,7 @@ MonoBehaviour:
   - MaxUnitsCount: 6
     MaxFateStorageCapacity: 8
     MaxLightStorageCapacity: 200
-    GradePrice: 4
+    GradePrice: 0
     TimeToProduceFate: 1
     AmountToProduceFateAtTime: 6
     LightSendSpeed: 1

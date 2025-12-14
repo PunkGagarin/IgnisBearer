@@ -24,6 +24,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             MaxCount = maxValue;
         }
 
+        public void SetMaxUnitCount(int maxUnitsCount) => MaxCount = maxUnitsCount;
+
         public void UpdateMaxCount(int count)
         {
             MaxCount = count;

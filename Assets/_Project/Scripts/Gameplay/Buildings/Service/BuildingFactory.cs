@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using UnityEngine;
 using Zenject;
@@ -16,6 +15,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private FactorySettings _factorySettings;
         [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
+        [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
 
         public BuildingSlot CreateSlotAtPosition(BuildingSlotsSpawnPoint buildingSlotsSpawnPoint)
         {
@@ -40,94 +40,42 @@ namespace _Project.Scripts.Gameplay.Buildings
         private ChurchBuilding BuildChurch(BuildingSlot slot)
         {
             var building = InstantiateBuildingOnSlot<ChurchBuilding>(slot, _churchSettings.Prefab);
-            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _churchSettings.GradeData);
-
-            InitGrade(building, initGrade, nextGradeData.GradePrice);
-
-            building.TryGetComponent<IResourceStorage>(out var lightStorage);
-            lightStorage.Init(initGradeData.MaxLightStorageCapacity);
-
-            building.TryGetComponent<IResourceStorage>(out var fateStorage);
-            fateStorage.Init(initGradeData.MaxFateStorageCapacity);
-
-            building.TryGetComponent<ILightConsumer>(out var lightConsumer);
-            lightConsumer.Init(initGradeData.LightConsumeTime, initGradeData.LightConsumeAmount);
-
+            var church = (ChurchBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
             slot.SetEnabled(false);
-
-            FateGeneratorInit(building, initGradeData);
-
-            return building;
+            return church;
         }
-
-        private static void FateGeneratorInit(ChurchBuilding building, ChurchGradeData initGradeData)
-        {
-            var fateGenerator = building.FateGenerator;
-            InitWorkers(fateGenerator, initGradeData.MaxUnitsCount);
-
-            var fateResourceStorage = fateGenerator.GetComponent<IResourceStorage>();
-            fateResourceStorage.Init(initGradeData.MaxFateStorageCapacity);
-
-            var fateProducer = fateGenerator.GetComponent<ResourceProducer>();
-            fateProducer.Init(initGradeData.TimeToProduceFate);
-        }
-
 
         private HouseBuilding BuildHouse(BuildingSlot slot)
         {
             var building = InstantiateBuildingOnSlot<HouseBuilding>(slot, _houseSettings.Prefab);
-            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _houseSettings.GradeData);
-
-            InitGrade(building, initGrade, nextGradeData.GradePrice);
-            InitDurability(building, initGradeData.MaxDurability);
-            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
-
+            var house = (HouseBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
             slot.SetEnabled(false);
-
-            return building;
+            return house;
         }
 
         private AutoLighterBuilding BuildAutoLighter(BuildingSlot slot)
         {
             var building = InstantiateBuildingOnSlot<AutoLighterBuilding>(slot, _autoLighterSettings.Prefab);
-            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _autoLighterSettings.GradeData);
-
-            InitGrade(building, initGrade, nextGradeData.GradePrice);
-            InitDurability(building, initGradeData.MaxDurability);
-            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
-
+            var autoLighter = (AutoLighterBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
             slot.SetEnabled(false);
-
-            return building;
+            return autoLighter;
         }
 
         private AutoHarvestBuilding BuildAutoHarvester(BuildingSlot slot)
         {
             var building = InstantiateBuildingOnSlot<AutoHarvestBuilding>(slot, _autoHarvestSettings.Prefab);
-            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _autoHarvestSettings.GradeData);
-
-            InitGrade(building, initGrade, nextGradeData.GradePrice);
-            InitDurability(building, initGradeData.MaxDurability);
-            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
-
+            var harvester = (AutoHarvestBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
             slot.SetEnabled(false);
-
-            return building;
+            return harvester;
         }
 
 
         private FactoryBuilding BuildFactory(BuildingSlot slot)
         {
             var building = InstantiateBuildingOnSlot<FactoryBuilding>(slot, _factorySettings.Prefab);
-            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _factorySettings.GradeData);
-
-            InitGrade(building, initGrade, nextGradeData.GradePrice);
-            InitDurability(building, initGradeData.MaxDurability);
-            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
-
+            var factory = (FactoryBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
             slot.SetEnabled(false);
-
-            return building;
+            return factory;
         }
 
         private T InstantiateBuildingOnSlot<T>(BuildingSlot slot, Building prefab) where T : Building
@@ -138,32 +86,6 @@ namespace _Project.Scripts.Gameplay.Buildings
                     parentTransform.position, Quaternion.identity, parentTransform);
             return building;
         }
-
-        private int GetGradeData<T>(out T initGradeData, out T nextGradeData, List<T> listOfGrades)
-            where T : IBaseGradeData
-        {
-            var initGrade = 0;
-            initGradeData = listOfGrades[initGrade];
-            nextGradeData = listOfGrades[1];
-            return initGrade;
-        }
-
-        private static void InitWorkers(GameObject building, int maxUnitsCount)
-        {
-            building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init(0, maxUnitsCount);
-        }
-
-        private static void InitDurability(Building building, int maxDurability)
-        {
-            building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(maxDurability, maxDurability);
-        }
-
-        private static void InitGrade(Building building, int initGrade, int gradePrice)
-        {
-            building.TryGetComponent<IGrade>(out var grade);
-            grade.Init(initGrade, gradePrice);
-        }
+        
     }
 }

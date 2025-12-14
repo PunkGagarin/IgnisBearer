@@ -7,9 +7,9 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class AutoLighterSettings : ScriptableObject
     {
         [field: SerializeField] public AutoLighterBuilding Prefab { get; private set; }
-        [field: SerializeField] public double BuildPrice { get; private set; }
+        [field: SerializeField] public float BuildPrice { get; private set; }
         [field: SerializeField] public string BuildingNameKey { get; private set; }
         [field: SerializeField] public List<AutoLighterGradeData> GradeData { get; private set; }
-
+        public int MaxGrade => GradeData.Count;
     }
 }

@@ -11,6 +11,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
         [Inject] private LocalizationTool _localizationTool;
+        [Inject] private FateService _fateService;
 
         public List<BuildingButtonData> GetAddBuildingPopupData()
         {
@@ -51,17 +52,14 @@ namespace _Project.Scripts.Gameplay.Buildings
             }
         }
 
-        private double GetFactoryInitPrice() => _factorySettings.BuildPrice;
+        private float GetFactoryInitPrice() => _factorySettings.BuildPrice;
 
-        private double GetAutoHarvesterInitPrice() => _autoHarvestSettings.BuildPrice;
+        private float GetAutoHarvesterInitPrice() => _autoHarvestSettings.BuildPrice;
 
-        private double GetAutoLighterInitPrice() => _autoLighterSettings.BuildPrice;
+        private float GetAutoLighterInitPrice() => _autoLighterSettings.BuildPrice;
 
         private string Localize(string key) => _localizationTool.GetText(key);
 
-        private bool HaveEnoughMoney(double price)
-        {
-            return true; // todo gold service?
-        }
+        private bool HaveEnoughMoney(float price) => _fateService.HasEnough((int)price);
     }
 }

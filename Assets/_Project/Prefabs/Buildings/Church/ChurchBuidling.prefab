@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 9186225910371662383}
   - component: {fileID: 3623351197947964029}
   - component: {fileID: -6887034707961980028}
+  - component: {fileID: 748098659035854399}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -458,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9112be10784bbebcf58e7e6bc31aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.Grade.Grade
+  _buyLimitedButton: {fileID: 3507764779238857012}
 --- !u!114 &4354109922516052538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +510,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3ca8b8b6b74ca5a4697d2e13aabb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BarrierUiController
+--- !u!114 &748098659035854399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7330fef6f63d46dc9e29830d695d786f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ChurchGradeStatIncreaser
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,105 +700,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1744197553744584011, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1744197553744584011, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1744197553744584011, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 4.304973
-      objectReference: {fileID: 0}
-    - target: {fileID: 1744197553744584011, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 15.847514
-      objectReference: {fileID: 0}
-    - target: {fileID: 1744197553744584011, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5.211
-      objectReference: {fileID: 0}
     - target: {fileID: 3986397363607271399, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
       propertyPath: m_Name
       value: ChurchPopup
-      objectReference: {fileID: 0}
-    - target: {fileID: 3986397363607271399, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6343626921321370251, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6343626921321370251, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6343626921321370251, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6343626921321370251, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 21.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6343626921321370251, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5.211
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950528929243779369, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950528929243779369, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950528929243779369, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 11.695027
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950528929243779369, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 6.8475137
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950528929243779369, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -5.211
-      objectReference: {fileID: 0}
-    - target: {fileID: 7671295691654089572, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7671295691654089572, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7671295691654089572, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7671295691654089572, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628377615220192615, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628377615220192615, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628377615220192615, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8628377615220192615, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -807,6 +725,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6d13463d3144a31980258d9013a7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &3507764779238857012 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4595640470774794956, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
+  m_PrefabInstance: {fileID: 1110396602198545400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8890a854d4941528405944c3cb3e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.BuyLimitedButton
 --- !u!1 &4051670230408438815 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3986397363607271399, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}

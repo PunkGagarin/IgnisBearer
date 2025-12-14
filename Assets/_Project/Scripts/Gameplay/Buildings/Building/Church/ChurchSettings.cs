@@ -10,6 +10,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         public ChurchBuilding Prefab { get; private set; }
         [field: SerializeField] public string BuildingNameKey { get; private set; }
         [field: SerializeField] public List<ChurchGradeData> GradeData { get; private set; }
-
+        public int MaxGrade => GradeData.Count;
     }
 }

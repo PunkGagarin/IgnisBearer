@@ -7,9 +7,9 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class FactorySettings : ScriptableObject
     {
         [field: SerializeField] public FactoryBuilding Prefab { get; private set; }
-        [field: SerializeField] public double BuildPrice { get; private set; }
+        [field: SerializeField] public float BuildPrice { get; private set; }
         [field: SerializeField] public string BuildingNameKey { get; private set; }
         [field: SerializeField] public List<FactoryGradeData> GradeData { get; private set; }
-
+        public int MaxGrade => GradeData.Count;
     }
 }
