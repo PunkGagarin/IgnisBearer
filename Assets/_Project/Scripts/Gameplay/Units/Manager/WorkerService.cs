@@ -31,14 +31,14 @@ namespace _Project.Scripts.Gameplay.Units
         public void MoveFreeUnit(Lantern lantern)
         {
             var unit = FindFirstFreeWorker();
-            unit.StateMachine.Enter<UnitMoveToLanternState, Lantern>(lantern);
+            unit?.StateMachine.Enter<UnitMoveToLanternState, Lantern>(lantern);
         }
 
         private Unit FindFirstFreeWorker()
         {
             if (_units.Count <= 0)
             {
-                Debug.LogError("Trying to find free worker when there are no workers");
+                Debug.LogWarning("Trying to find free worker when there are no workers");
                 return null;
             }
             return _units.FirstOrDefault();

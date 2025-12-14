@@ -9,13 +9,13 @@ namespace _Project.Scripts.Gameplay.Units
         public Unit UnitPrefab { get; private set; }
 
         [field: SerializeField]
-        public float DefaultMoveSpeed { get; private set; } = 5f;
+        public float MoveSpeed { get; private set; } = 5f;
 
         [field: SerializeField]
-        public float DefaultFireUpSpeed { get; private set; } = 1f;
+        public float FireUpMultiplier { get; private set; } = 1f;
 
         [field: SerializeField]
-        public float DefaultSendLightToChurchSpeed { get; private set; } = 4f;
+        public float SendLightToChurchMultiplier { get; private set; } = 4f;
 
         [field: SerializeField]
         public float IdleBeforeMoveMinTime { get; private set; } = 1f;
