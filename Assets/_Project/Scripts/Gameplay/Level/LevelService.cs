@@ -10,7 +10,6 @@ namespace _Project.Scripts.Gameplay.Level
 {
     public class LevelService
     {
-        
         [Inject]
         private LevelFactory _levelFactory;
 

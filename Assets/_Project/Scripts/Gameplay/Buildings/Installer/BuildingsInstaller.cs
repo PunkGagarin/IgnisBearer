@@ -28,28 +28,53 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [field: SerializeField]
         private LanternSettings _lanternSettings;
+        
+
+        [field: SerializeField]
+        private LightConsumeSettings LightConsumeSettings { get; set; }
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<BuildingSlotsSettings>().FromInstance(_buildingSlotsSettings).AsSingle();
-            Container.BindInterfacesAndSelfTo<ChurchSettings>().FromInstance(_churchSettings).AsSingle();
+            BindMainBuildings();
+            BindSlots();
+            BindChurchWithLightAndFate();
+            BindLanterns();
+
             Container.BindInterfacesAndSelfTo<FactorySettings>().FromInstance(_factorySettings).AsSingle();
             Container.BindInterfacesAndSelfTo<AutoHarvestSettings>().FromInstance(_autoHarvestSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<AutoLighterSettings>().FromInstance(_autoLighterSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<HouseSettings>().FromInstance(_houseSettings).AsSingle();
-            
+        }
+
+        private void BindMainBuildings()
+        {
+            Container.BindInterfacesAndSelfTo<BuildingFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingAddingOptionsService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingComponentsInitService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingComponentsUpdateService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BuildingFactory>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BuildingAddingOptionsService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingsService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<FateService>().AsSingle();
+        }
 
+        private void BindSlots()
+        {
+            Container.BindInterfacesAndSelfTo<BuildingSlotsSettings>().FromInstance(_buildingSlotsSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
+        }
+
+        private void BindChurchWithLightAndFate()
+        {
+            Container.BindInterfacesAndSelfTo<ChurchSettings>().FromInstance(_churchSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<LightConsumeSettings>().FromInstance(LightConsumeSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<FateService>().AsSingle();
+        }
+
+        private void BindLanterns()
+        {
             Container.BindInterfacesAndSelfTo<LanternSettings>().FromInstance(_lanternSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<LanternFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternService>().AsSingle();
         }
+
     }
 
 }

@@ -11,7 +11,9 @@ namespace _Project.Scripts.Gameplay.Buildings
         private float _timeToConsume;
         private int _amountToConsume;
         private bool _isConsuming;
-        
+
+        public bool IsConsumeStarted { get; set; }
+
         private void Awake()
         {
             _iResourceStorage = GetComponent<IResourceStorage>();
@@ -19,7 +21,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void Update()
         {
-            if (CanConsume())
+            if (IsConsumeStarted && CanConsume())
                 ConsumeLight().Forget();
         }
 
@@ -39,6 +41,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             _isConsuming = true;
             await UniTask.Delay(TimeSpan.FromSeconds(_timeToConsume));
 
+            Debug.Log("Consume light in amount " + _amountToConsume);
             _iResourceStorage.DecrementAmount(_amountToConsume);
 
             _isConsuming = false;
