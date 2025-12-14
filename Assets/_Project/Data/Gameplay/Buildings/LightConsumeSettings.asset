@@ -16,7 +16,7 @@ MonoBehaviour:
   - <TimeToIncrease>k__BackingField: 0
     <TimeToConsume>k__BackingField: 1
     <Amount>k__BackingField: 0
-  - <TimeToIncrease>k__BackingField: 0
+  - <TimeToIncrease>k__BackingField: 20
     <TimeToConsume>k__BackingField: 1
     <Amount>k__BackingField: 1
   - <TimeToIncrease>k__BackingField: 1000000

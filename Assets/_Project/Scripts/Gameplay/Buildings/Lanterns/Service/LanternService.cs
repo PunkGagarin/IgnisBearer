@@ -65,7 +65,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         private void OnLanternClicked(Lantern lantern)
         {
-            _workers.MoveFreeUnit(lantern);
+            if (_workers.MoveFreeUnit(lantern))
+                lantern.GetComponent<LanternUi>().TurnOffIndicator();
         }
 
         public List<Lantern> GetUnfiredLanterns()

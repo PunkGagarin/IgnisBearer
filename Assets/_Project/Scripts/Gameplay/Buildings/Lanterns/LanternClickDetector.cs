@@ -21,25 +21,16 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _resourceStorage = GetComponent<ResourceStorage>();
 
             Button.onClick.AddListener(OnButtonClicked);
-            _resourceStorage.OnAmountIncreased += OnAmountIncreaseHandle;
-            _resourceStorage.OnStorageCleared += TurnOffClick;
         }
 
         private void OnDestroy()
         {
             Button.onClick.RemoveListener(OnButtonClicked);
-            _resourceStorage.OnAmountIncreased -= OnAmountIncreaseHandle;
-            _resourceStorage.OnStorageCleared -= TurnOffClick;
         }
 
         private void OnButtonClicked()
         {
             OnClicked.Invoke(_lantern);
-        }
-
-        private void OnAmountIncreaseHandle((int amountIncreased, int newAmount, int maxAmount) _)
-        {
-            TurnOnClick();
         }
 
         public void TurnOnClick()

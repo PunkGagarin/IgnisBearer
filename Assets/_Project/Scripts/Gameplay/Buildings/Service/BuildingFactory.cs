@@ -47,9 +47,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(initGradeData.MaxLightStorageCapacity);
 
-            building.TryGetComponent<ILightConsumer>(out var lightConsumer);
-            lightConsumer.Init(initGradeData.LightConsumeTime, initGradeData.LightConsumeAmount);
-
             slot.SetEnabled(false);
 
             FateGeneratorInit(building, initGradeData);
