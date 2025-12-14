@@ -26,6 +26,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             WorkersCountRow.OnAddClicked += OnAddClicked;
             WorkersCountRow.OnRemoveClicked += OnRemoveClicked;
             _workerService.OnWorkerListUpdated += UpdateUi;
+            _workerService.OnFreeUnitAvailable += UpdateUi;
+            _workerService.OnAllUnitsBusy += UpdateUi;
 
             UpdateUi();
         }
@@ -35,6 +37,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             WorkersCountRow.OnAddClicked -= OnAddClicked;
             WorkersCountRow.OnRemoveClicked -= OnRemoveClicked;
             _workerService.OnWorkerListUpdated -= UpdateUi;
+            _workerService.OnFreeUnitAvailable -= UpdateUi;
+            _workerService.OnAllUnitsBusy -= UpdateUi;
         }
 
         private void UpdateUi()
@@ -53,8 +57,10 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void OnAddClicked()
         {
             var unit = _workerService.UnregisterFirstFreeWorker();
+            if (unit == null)
+                return;
+            
             _workers.AddWorker(unit);
-
             UpdateUi();
             unit.StateMachine.Enter<UnitMoveToState, Vector3>(transform.position);
         }
@@ -66,7 +72,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private bool CanAddUnit()
         {
-            return _workerService.HasWorkers() && _workers.CanAddWorker();
+            return _workerService.HasFreeWorkers() && _workers.CanAddWorker();
         }
     }
 }

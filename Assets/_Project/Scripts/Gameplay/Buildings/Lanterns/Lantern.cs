@@ -20,7 +20,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public Action OnFired = delegate { };
         public Action OnFireOff = delegate { };
 
-        private LanternClickDetector _clickDetector;
+        private LanternUi _ui;
         private IResourceStorage _lightStorage;
 
         private int _currentHarvestCount;
@@ -34,7 +34,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         private void Awake()
         {
-            _clickDetector = GetComponent<LanternClickDetector>();
+            _ui = GetComponent<LanternUi>();
             _lightStorage = GetComponent<IResourceStorage>();
         }
 
@@ -69,12 +69,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             UnFired.gameObject.SetActive(false);
             Fired.gameObject.SetActive(true);
             OnFired.Invoke();
-
-            //todo: убрать на попдиску?
-            _clickDetector.TurnOffClick();
         }
 
-        public void FireOff()
+        private void FireOff()
         {
             _isFired = false;
 
@@ -83,7 +80,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             OnFireOff.Invoke();
 
-            _clickDetector.TurnOnClick();
             OnNeededToFire.Invoke(this);
         }
 

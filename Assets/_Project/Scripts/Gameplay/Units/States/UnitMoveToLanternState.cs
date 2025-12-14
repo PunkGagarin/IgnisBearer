@@ -17,7 +17,8 @@ namespace _Project.Scripts.Gameplay.Units
         public async void Enter(Lantern lantern)
         {
             _unit.Context.SetUnitStatus(UnitStatus.Busy);
-
+            
+            //set lantern as served by unit
             await _unit.Mover.MoveTo(lantern.transform.position);
 
             if (IsNeedToFireUpLantern(lantern))
@@ -37,13 +38,15 @@ namespace _Project.Scripts.Gameplay.Units
             return !lantern.IsFired();
         }
 
-        public void Exit()
-        {
-        }
-
         public void Update()
         {
         }
+
+        public void Exit()
+        {
+            
+        }
+
     }
 
 }
