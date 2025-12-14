@@ -19,6 +19,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         [field: SerializeField]
         public int InitMaxStorage { get; private set; } = 1;
+        
+        [field: SerializeField]
+        public int InitMaxHarvestCount { get; private set; } = 3;
 
     }
 }
