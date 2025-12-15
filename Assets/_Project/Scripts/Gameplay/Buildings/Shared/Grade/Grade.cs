@@ -51,6 +51,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             NextGradePrice = nextGradePrice;
             UpdateUi();
         }
+        
+        public void HideBuyButton() => _buyLimitedButton.ShowButton(false);
 
         public void Init(int initValue, int maxGrade, int gradePrice)
         {
@@ -65,10 +67,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             var countText = $"{Current}/{Max}";
             var isButtonEnabled = CanUpdate();
             _buyLimitedButton.UpdateUi(GRADE_DESC_KEY, countText, isButtonEnabled, NextGradePrice.ToString());
-            _buyLimitedButton.ShowButton(HasNextGrade());
         }
-
-        private bool HasNextGrade() => Current + 1 <= Max;
 
         private bool CanUpdate() =>
             _fateService.HasEnough(NextGradePrice) && Current < Max;

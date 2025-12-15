@@ -10,5 +10,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         void UpgradeGrade();
         void Init(int initValue, int maxGrade, int gradePrice);
         void SetNextGradePrice(int nextGradePrice);
+        void HideBuyButton();
     }
 }

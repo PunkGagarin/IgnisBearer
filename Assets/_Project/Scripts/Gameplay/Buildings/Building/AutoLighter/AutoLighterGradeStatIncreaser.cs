@@ -28,7 +28,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 _autoLighterSettings.GradeData, newGrade);
 
             if (nextGradeData == null)
-                _buildingComponentsUpdate.UpdateGrade(gameObject, -1);
+                _grade.HideBuyButton();
             else
                 _buildingComponentsUpdate.UpdateGrade(gameObject, nextGradeData.GradePrice);
             _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);

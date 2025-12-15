@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Gameplay.Buildings;
+﻿using System;
+using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Gameplay.Units;
@@ -57,8 +58,9 @@ namespace _Project.Scripts.Gameplay
 
         private void LoadProgress()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
+
     }
 
 }

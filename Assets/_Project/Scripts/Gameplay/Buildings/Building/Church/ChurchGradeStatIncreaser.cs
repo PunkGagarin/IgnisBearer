@@ -6,6 +6,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class ChurchGradeStatIncreaser : MonoBehaviour
     {
         [Inject] private ChurchSettings _churchSettings;
+        [Inject] private LightConsumeSettings _lightConsumeSettings;
         [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
         [Inject] private BuildingComponentsUpdateService _buildingComponentsUpdate;
 
@@ -24,17 +25,15 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void OnGradeChanged(int newGrade)
         {
-            _buildingComponentsInitService.GetGradeData(out var curGradeData, out var nextGradeData,
-                _churchSettings.GradeData, newGrade);
+            _buildingComponentsInitService.GetGradeData(out var curGradeData, out var nextGradeData, _churchSettings.GradeData, newGrade);
 
-            //todo solution?
             if (nextGradeData == null)
-                _buildingComponentsUpdate.UpdateGrade(gameObject, -1);
+                _grade.HideBuyButton();
             else
                 _buildingComponentsUpdate.UpdateGrade(gameObject, nextGradeData.GradePrice);
             
             _buildingComponentsUpdate.UpdateResourceStorage(gameObject, curGradeData.MaxLightStorageCapacity);
-            _buildingComponentsUpdate.UpdateLightConsumer(gameObject, curGradeData.LightConsumeTime, curGradeData.LightConsumeAmount);
+            
         }
 
     }

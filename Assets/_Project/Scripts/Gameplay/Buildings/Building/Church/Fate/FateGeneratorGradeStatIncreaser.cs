@@ -28,7 +28,6 @@ namespace _Project.Scripts.Gameplay.Buildings
                 _churchSettings.GradeData, newGrade);
             
             _buildingComponentsUpdate.UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
-            _buildingComponentsUpdate.UpdateResourceStorage(gameObject, curGradeData.MaxFateStorageCapacity);
             _buildingComponentsUpdate.UpdateResourceProducer(gameObject, curGradeData.TimeToProduceFate);
             
         }

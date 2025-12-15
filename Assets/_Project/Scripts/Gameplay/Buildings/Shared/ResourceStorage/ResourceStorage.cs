@@ -15,10 +15,16 @@ namespace _Project.Scripts.Gameplay.Buildings
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountDecreased = delegate { };
         public event Action OnStorageCleared = delegate { };
         public event Action OnStartHarvest = delegate { };
+        public event Action OnDestroyed = delegate { };
 
         public void Init(int maxStorage)
         {
             MaxAmount = maxStorage;
+        }
+
+        private void OnDestroy()
+        {
+            OnDestroyed?.Invoke();
         }
 
         public void DecrementAmount(int amount)

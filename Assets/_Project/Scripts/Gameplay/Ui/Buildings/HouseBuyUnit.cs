@@ -6,7 +6,6 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Ui.Buildings
 {
-    [RequireComponent(typeof(IWorkers))]
     internal class HouseBuyUnit : MonoBehaviour
     {
         private const string HOUSE_BUY_UNIT_ITEM_DESC_KEY = "HOUSE_BUY_UNIT_ITEM_DESC";
@@ -18,14 +17,13 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         [SerializeField] private BuyLimitedButton _buyUnitButton;
 
-        private IWorkers _workers;
+        private int _unitsCount;
         private int _unitPrice;
         private int _maxUnitsCount;
 
         private void Awake()
         {
-            _workers = GetComponent<IWorkers>();
-            _fateService.OnAmountChanged += OnBalanceChanged; 
+            _fateService.OnAmountChanged += OnBalanceChanged;
             _buyUnitButton.OnBuyClicked += OnBuyClicked;
         }
 
@@ -35,19 +33,21 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
             _maxUnitsCount = maxUnitsCount;
             UpdateUi();
         }
-        
+
         private void UpdateUi()
         {
             _buyUnitButton.UpdateUi(
                 HOUSE_BUY_UNIT_ITEM_DESC_KEY,
-                $"{_workers.CurrentCount}/{_maxUnitsCount}",
+                $"{_unitsCount}/{_maxUnitsCount}",
                 CanBuyUnit(_unitPrice, _maxUnitsCount),
                 _unitPrice.ToString(CultureInfo.InvariantCulture)
             );
         }
 
-        private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj) => 
+        private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj)
+        {
             UpdateUi();
+        }
 
 
         private void OnDestroy()
@@ -60,11 +60,13 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         {
             _fateService.Spend(_unitPrice);
             _workerService.CreateAndRegisterUnit(gameObject.transform);
+            _unitsCount++;
+            UpdateUi();
         }
 
         private bool CanBuyUnit(float unitPrice, int maxUnitsCount)
         {
-            return _fateService.HasEnough((int)unitPrice) && _workers.CurrentCount < maxUnitsCount;
+            return _fateService.HasEnough((int)unitPrice) && _unitsCount < maxUnitsCount;
         }
     }
 }
