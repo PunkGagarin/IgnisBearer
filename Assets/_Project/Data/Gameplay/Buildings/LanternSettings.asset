@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5897a1b25b441e6bdea8e280c066d15, type: 3}
   m_Name: LanternSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Lanterns.LanternSettings
+  <SlotPrefab>k__BackingField: {fileID: 2940161318198963529, guid: ce70b17716945431fa4ed2cadaef82c9, type: 3}
   <Prefab>k__BackingField: {fileID: 7545248127224923463, guid: acfaa3f9683ec494b8d007764036ce98, type: 3}
+  <FireUpTime>k__BackingField: 3
+  <InitLanternCost>k__BackingField: 3
+  <LanternCostMultiplier>k__BackingField: 3
+  <HarvestTime>k__BackingField: 3
+  <LightProduceTime>k__BackingField: 3
+  <InitMaxStorage>k__BackingField: 1
+  <InitMaxHarvestCount>k__BackingField: 3

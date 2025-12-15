@@ -9,33 +9,48 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly LanternSettings _settings;
 
-        public Lantern CreateAndInstantiateLantern()
+        public LanternSlot CreateSlotAtPosition(LanternSlotSpawnPoint slotSpawnPoint)
         {
-            return _settings.Prefab;
+            var slot = _container.InstantiatePrefabForComponent<LanternSlot>(_settings.SlotPrefab,
+                slotSpawnPoint.transform.position, Quaternion.identity, null);
+            slot.Init(_settings.InitLanternCost);
+            return slot;
         }
 
-        public List<Lantern> CreateStartLanterns(List<LanternSpawnPoint> lanternPoints)
+        public Lantern CreateLantern(LanternSlot slot)
+        {
+            return CreateLanternAt(slot);
+        }
+
+        public List<Lantern> CreateStartLanterns(List<LanternSlot> slots)
         {
             var list = new List<Lantern>();
 
-            foreach (var lanternPoint in lanternPoints)
+            foreach (var slot in slots)
             {
-                var lantern = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
-                    lanternPoint.transform.position, Quaternion.identity, null);
-                lantern.Init( _settings.InitMaxHarvestCount);
-                
-                var lightStorage = lantern.GetComponent<ResourceStorage>();
-                lightStorage.Init(_settings.InitMaxStorage);
-
-                var lanternUi = lantern.GetComponent<LanternUi>();
-                lanternUi.Init();
-                
-                var lightProducer = lantern.GetComponent<ResourceProducer>();
-                lightProducer.Init(_settings.LightProduceTime);
-
+                var lantern = CreateLanternAt(slot);
+                slot.Hide();
                 list.Add(lantern);
             }
             return list;
+        }
+
+        private Lantern CreateLanternAt(LanternSlot slot)
+        {
+            var lantern = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
+                slot.transform.position, Quaternion.identity, null);
+            lantern.Init( _settings.InitMaxHarvestCount);
+                
+            var lightStorage = lantern.GetComponent<ResourceStorage>();
+            lightStorage.Init(_settings.InitMaxStorage);
+
+            var lanternUi = lantern.GetComponent<LanternUi>();
+            lanternUi.Init();
+                
+            var lightProducer = lantern.GetComponent<ResourceProducer>();
+            lightProducer.Init(_settings.LightProduceTime);
+
+            return lantern;
         }
     }
 }

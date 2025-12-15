@@ -20,9 +20,14 @@ namespace _Project.Scripts.Gameplay.Level
             _level = _levelFactory.CreateLevel();
         }
 
-        public List<LanternSpawnPoint> GetInitialLanternPositions()
+        public List<LanternSlotSpawnPoint> GetInitialLanternSlotsPositions()
         {
-            return _level.InitalLanternPositions;
+            return _level.InitalLanternSlotPositions;
+        }
+        
+        public List<LanternSlotSpawnPoint> GetAdditionalLanternSlotsPositions()
+        {
+            return _level.LanternSlotsPositions;
         }
 
         public UnitSpawnPoint GetInitalUnitPosition()

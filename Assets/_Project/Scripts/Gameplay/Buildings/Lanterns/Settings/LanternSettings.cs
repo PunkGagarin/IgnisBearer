@@ -6,10 +6,19 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     public class LanternSettings : ScriptableObject
     {
         [field: SerializeField]
+        public LanternSlot SlotPrefab { get; private set; }
+        
+        [field: SerializeField]
         public Lantern Prefab { get; private set; }
 
         [field: SerializeField]
         public float FireUpTime { get; private set; } = 3f;
+        
+        [field: SerializeField]
+        public int InitLanternCost { get; private set; } = 3;
+        
+        [field: SerializeField]
+        public int LanternCostMultiplier { get; private set; } = 3;
 
         [field: SerializeField]
         public float HarvestTime { get; private set; } = 3f;
