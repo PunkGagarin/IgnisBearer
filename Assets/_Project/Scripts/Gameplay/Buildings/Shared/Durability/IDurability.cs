@@ -10,5 +10,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         float Max { get; set; }
         void UpdateDurability(float updatedDurability);
         void Init(float initValue, float maxValue);
+        void SetMaxValue(int maxValue);
     }
 }

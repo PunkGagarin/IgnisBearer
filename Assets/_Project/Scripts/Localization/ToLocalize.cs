@@ -37,7 +37,11 @@ namespace _Project.Scripts.Localization
             _languageService.OnSwitchLanguage -= SwitchText;
 
         private void SwitchText()
-        {
+        { //todo 
+            if (_tmpText == null)
+            {
+                _tmpText = GetComponent<TextMeshProUGUI>();
+            }
             _tmpText.text = _localizationTool.GetText(_key).Replace("\\n", "\n");
 
             if (_fontAsset != null) _tmpText.font = _fontAsset;

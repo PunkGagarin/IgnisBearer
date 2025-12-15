@@ -19,3 +19,8 @@ SETTINGS_LANG_RU,Русский,Русский
 SETTINGS_LANG_EN,English,English
 SETTINGS_CANCEL,Отмена,Cancel
 SETTINGS_OK,Применить,Apply
+BUILD_AUTO_COLLECTOR_NAME,Автособиратель,AutoCollector
+BUILD_AUTO_LIGHTER_NAME,Автоподжигатель,AutoLighter
+BUILD_FACTORY_NAME,Фабрика,Factory
+GRADE_UPGRADE_TITLE,Уровень,Level
+HOUSE_BUY_UNIT_ITEM_DESC,Купить юнита,Buy unit

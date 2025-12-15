@@ -56,5 +56,6 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public bool IsProducing()
             => _isProducing;
+
     }
 }

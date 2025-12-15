@@ -7,6 +7,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased;
         event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountDecreased;
         event Action OnStorageCleared;
+        event Action OnDestroyed;
         event Action OnStartHarvest;
         int Amount { get; }
         int MaxAmount { get; }

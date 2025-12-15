@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Gameplay.Buildings;
+﻿using System;
+using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Gameplay.Units;
@@ -42,12 +43,12 @@ namespace _Project.Scripts.Gameplay
             _lanternService.InitStartLanterns(_levelService.GetInitialLanternPositions());
             _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(),
                 _levelService.GetChurchBuildingSpawnPoint());
-            _buildingsService.InitInitialBuildings(_buildingSlotsService.GetChurchSlot(),
-                _buildingSlotsService.GetFirstSlot());
-            _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
-
-            var fateStorage = _buildingsService.GetChurch().FateGenerator.GetComponent<ResourceStorage>();
+            _buildingsService.InitChurch(_buildingSlotsService.GetChurchSlot());
+            var fateStorage = _buildingsService.GetChurch().FateGenerator.GetComponent<IResourceStorage>();
             _fateService.Init(fateStorage);
+            _buildingsService.InitChurchGrade();
+            _buildingsService.InitHouse(_buildingSlotsService.GetFirstSlot());
+            _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
         }
 
         private bool HasProgress()
@@ -57,8 +58,9 @@ namespace _Project.Scripts.Gameplay
 
         private void LoadProgress()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
+
     }
 
 }

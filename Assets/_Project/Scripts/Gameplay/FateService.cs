@@ -8,12 +8,23 @@ namespace _Project.Scripts.Gameplay
     {
         private IResourceStorage _fateStorage;
 
-        event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountChanged = delegate { };
+        public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountChanged = delegate { };
 
         public void Init(IResourceStorage storage)
         {
             _fateStorage = storage;
+            _fateStorage.OnAmountIncreased += OnAmountIncreased;
+            _fateStorage.OnDestroyed += Unsubscribe;
         }
+
+        private void Unsubscribe()
+        {
+            _fateStorage.OnAmountIncreased -= OnAmountIncreased;
+            _fateStorage.OnDestroyed -= Unsubscribe;
+        }
+
+        private void OnAmountIncreased((int amountIncreased, int newAmount, int maxAmount) obj) =>
+            OnAmountChanged?.Invoke(obj);
 
         public bool HasEnough(int amount)
         {
@@ -29,6 +40,7 @@ namespace _Project.Scripts.Gameplay
             }
 
             _fateStorage.DecrementAmount(amount);
+            OnAmountChanged?.Invoke((amount, _fateStorage.Amount, _fateStorage.MaxAmount));
             return true;
         }
     }

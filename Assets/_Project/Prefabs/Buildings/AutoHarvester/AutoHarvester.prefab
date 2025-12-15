@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 5985126254330671187}
   - component: {fileID: 8545274884099581480}
   - component: {fileID: -5471911659956212283}
+  - component: {fileID: 5362113239767507648}
   m_Layer: 0
   m_Name: AutoHarvester
   m_TagString: Untagged
@@ -444,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9112be10784bbebcf58e7e6bc31aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.Grade.Grade
+  _buyLimitedButton: {fileID: 812562227744503572}
 --- !u!114 &2294427075994986821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +522,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a5b831da9e47ca9880f60ea2e1afdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.AutoHarvesterLanternSearcher
+--- !u!114 &5362113239767507648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336c85fe95204b98982596d0b7de809b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.AutoHarvesterGradeStatIncreaser
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +732,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -5.211
       objectReference: {fileID: 0}
+    - target: {fileID: 3634382307021846700, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634382307021846700, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634382307021846700, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 20.7076
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634382307021846700, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3986397363607271399, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
       propertyPath: m_Name
       value: AutoHarversterPopup
@@ -725,6 +755,22 @@ PrefabInstance:
     - target: {fileID: 3986397363607271399, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066535534973969121, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066535534973969121, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066535534973969121, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.1187997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066535534973969121, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6343626921321370251, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
       propertyPath: m_AnchorMax.y
@@ -766,6 +812,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -5.211
       objectReference: {fileID: 0}
+    - target: {fileID: 7272942308953545052, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272942308953545052, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272942308953545052, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 12.3564
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272942308953545052, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7671295691654089572, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -803,6 +865,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+--- !u!114 &812562227744503572 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5049160916571184475, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}
+  m_PrefabInstance: {fileID: 5572346990141811279}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8890a854d4941528405944c3cb3e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.BuyLimitedButton
 --- !u!224 &4868363163504863291 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1070469748377207412, guid: 88fcc446d7d5f7b47a723d3d847f3110, type: 3}

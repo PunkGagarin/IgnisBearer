@@ -10,5 +10,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         [field: SerializeField] public string BuildingNameKey { get; private set; }
         [field: SerializeField] public float BuildPrice { get; private set; }
         [field: SerializeField] public List<AutoHarvestGradeData> GradeData { get; private set; }
+        public int MaxGrade => GradeData.Count;
     }
 }

@@ -9,8 +9,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         public int MaxUnitsCount;
         public int MaxLightStorageCapacity = 1000;
         public int GradePrice;
-        public float TimeToProduceFate;
-        public int AmountToProduceFateAtTime;
+        public int TimeToProduceFate;
         public float LightSendSpeed = 3f;
     }
 }

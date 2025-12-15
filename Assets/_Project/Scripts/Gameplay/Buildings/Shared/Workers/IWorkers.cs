@@ -16,6 +16,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         int CurrentCount { get; set; }
 
         void Init(int initValue, int maxValue);
+        void SetMaxUnitCount(int maxUnitsCount);
         void AddWorker(Unit specUnit);
         void RemoveWorker(out Unit worker);
         void UpdateMaxCount(int count);

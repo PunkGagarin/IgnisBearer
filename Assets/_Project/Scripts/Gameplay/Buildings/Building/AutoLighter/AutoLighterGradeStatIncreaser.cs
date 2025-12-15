@@ -3,9 +3,9 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class FateGeneratorGradeStatIncreaser : MonoBehaviour
+    public class AutoLighterGradeStatIncreaser : MonoBehaviour
     {
-        [Inject] private ChurchSettings _churchSettings;
+        [Inject] private AutoLighterSettings _autoLighterSettings;
         [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
         [Inject] private BuildingComponentsUpdateService _buildingComponentsUpdate;
 
@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void Awake()
         {
-            _grade = GetComponentInParent<Grade>();
+            _grade = GetComponent<Grade>();
             _grade.OnGradeChanged += OnGradeChanged;
         }
 
@@ -24,12 +24,15 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void OnGradeChanged(int newGrade)
         {
-            _buildingComponentsInitService.GetGradeData(out var curGradeData, out _,
-                _churchSettings.GradeData, newGrade);
-            
+            _buildingComponentsInitService.GetGradeData(out var curGradeData, out var nextGradeData,
+                _autoLighterSettings.GradeData, newGrade);
+
+            if (nextGradeData == null)
+                _grade.HideBuyButton();
+            else
+                _buildingComponentsUpdate.UpdateGrade(gameObject, nextGradeData.GradePrice);
+            _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
             _buildingComponentsUpdate.UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
-            _buildingComponentsUpdate.UpdateResourceProducer(gameObject, curGradeData.TimeToProduceFate);
-            
         }
 
     }

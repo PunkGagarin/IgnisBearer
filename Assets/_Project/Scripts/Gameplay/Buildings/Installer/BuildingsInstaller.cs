@@ -50,6 +50,8 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             Container.BindInterfacesAndSelfTo<BuildingFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingAddingOptionsService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingComponentsInitService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BuildingComponentsUpdateService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingsService>().AsSingle();
         }
 

@@ -26,5 +26,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             Current = initValue;
             Max = maxValue;
         }
+
+        public void SetMaxValue(int maxValue) => Max = maxValue;
     }
 }

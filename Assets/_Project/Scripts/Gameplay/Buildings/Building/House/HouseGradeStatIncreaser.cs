@@ -3,10 +3,9 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class ChurchGradeStatIncreaser : MonoBehaviour
+    public class HouseGradeStatIncreaser : MonoBehaviour
     {
-        [Inject] private ChurchSettings _churchSettings;
-        [Inject] private LightConsumeSettings _lightConsumeSettings;
+        [Inject] private HouseSettings _settings;
         [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
         [Inject] private BuildingComponentsUpdateService _buildingComponentsUpdate;
 
@@ -25,15 +24,17 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void OnGradeChanged(int newGrade)
         {
-            _buildingComponentsInitService.GetGradeData(out var curGradeData, out var nextGradeData, _churchSettings.GradeData, newGrade);
+            _buildingComponentsInitService.GetGradeData(out var curGradeData, out var nextGradeData,
+                _settings.GradeData, newGrade);
 
             if (nextGradeData == null)
                 _grade.HideBuyButton();
             else
                 _buildingComponentsUpdate.UpdateGrade(gameObject, nextGradeData.GradePrice);
-            
-            _buildingComponentsUpdate.UpdateResourceStorage(gameObject, curGradeData.MaxLightStorageCapacity);
-            
+
+            _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
+            _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
+            _buildingComponentsUpdate.UpdateBuyUnitHouse(gameObject, curGradeData.UnitCost, curGradeData.MaxUnitsCount);
         }
 
     }
