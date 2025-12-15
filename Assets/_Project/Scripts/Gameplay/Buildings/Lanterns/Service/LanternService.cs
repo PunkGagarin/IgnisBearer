@@ -16,9 +16,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public event Action<Lantern> OnLanternFull = delegate { };
         public event Action<Lantern> OnLanternNeededToFire = delegate { };
 
-        public void InitStartLanterns(List<LanternSpawnPoint> lanternPoints)
+        public void InitStartLanterns(List<LanternSlot> slots)
         {
-            foreach (var lantern in _factory.CreateStartLanterns(lanternPoints))
+            foreach (var lantern in _factory.CreateStartLanterns(slots))
                 RegisterLantern(lantern);
         }
 
@@ -57,9 +57,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             OnLanternFull.Invoke(obj);
         }
 
-        public void CreateAndRegisterLantern()
+        public void CreateAndRegisterLantern(LanternSlot slot)
         {
-            var lantern = _factory.CreateAndInstantiateLantern();
+            var lantern = _factory.CreateLantern(slot);
             RegisterLantern(lantern);
         }
 
@@ -77,6 +77,11 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public List<Lantern> GetUnharvestedLanterns()
         {
             return _lanterns.Where(lantern => lantern.GetComponent<IResourceStorage>().IsFull()).ToList();
+        }
+
+        public int GetLanternsCount()
+        {
+            return _lanterns.Count;
         }
     }
 }

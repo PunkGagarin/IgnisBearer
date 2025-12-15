@@ -7,26 +7,20 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay
 {
-
     public class GameplayBootstrap : IInitializable
     {
-        [Inject]
-        private LanternService _lanternService;
+        [Inject] private LanternService _lanternService;
+        [Inject] private LanternSlotsService _lanternSlotsService;
 
-        [Inject]
-        private WorkerService _workerService;
+        [Inject] private WorkerService _workerService;
 
-        [Inject]
-        private LevelService _levelService;
+        [Inject] private LevelService _levelService;
 
-        [Inject]
-        private BuildingsService _buildingsService;
+        [Inject] private BuildingsService _buildingsService;
 
-        [Inject]
-        private BuildingSlotsService _buildingSlotsService;
+        [Inject] private BuildingSlotsService _buildingSlotsService;
 
-        [Inject]
-        private FateService _fateService;
+        [Inject] private FateService _fateService;
 
 
         public void Initialize()
@@ -40,15 +34,34 @@ namespace _Project.Scripts.Gameplay
         private void InitLevel()
         {
             _levelService.CreateLevel();
-            _lanternService.InitStartLanterns(_levelService.GetInitialLanternPositions());
+            InitBuildings();
+            InitLanterns();
+            _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
+        }
+
+        private void InitBuildings()
+        {
             _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(),
                 _levelService.GetChurchBuildingSpawnPoint());
             _buildingsService.InitChurch(_buildingSlotsService.GetChurchSlot());
-            var fateStorage = _buildingsService.GetChurch().FateGenerator.GetComponent<IResourceStorage>();
-            _fateService.Init(fateStorage);
+            InitFateService();
             _buildingsService.InitChurchGrade();
             _buildingsService.InitHouse(_buildingSlotsService.GetFirstSlot());
-            _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
+        }
+
+        private void InitFateService()
+        {
+            var fateStorage = _buildingsService.GetChurch().FateGenerator.GetComponent<IResourceStorage>();
+            _fateService.Init(fateStorage);
+        }
+
+        private void InitLanterns()
+        {
+            _lanternSlotsService.InitSlots(
+                _levelService.GetInitialLanternSlotsPositions(),
+                _levelService.GetAdditionalLanternSlotsPositions()
+            );
+            _lanternService.InitStartLanterns(_lanternSlotsService.GetInitialSlots());
         }
 
         private bool HasProgress()
@@ -60,7 +73,5 @@ namespace _Project.Scripts.Gameplay
         {
             throw new NotImplementedException();
         }
-
     }
-
 }

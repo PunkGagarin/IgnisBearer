@@ -16,7 +16,10 @@ namespace _Project.Scripts.Gameplay.Level
         public UnitSpawnPoint InitalUnitPosition { get; private set; }
 
         [field: SerializeField]
-        public List<LanternSpawnPoint> InitalLanternPositions { get; private set; }
+        public List<LanternSlotSpawnPoint> InitalLanternSlotPositions { get; private set; }
+        
+        [field: SerializeField]
+        public List<LanternSlotSpawnPoint> LanternSlotsPositions { get; private set; }
         
         [field: SerializeField]
         public List<BuildingSlotsSpawnPoint> InitalBuildingSlotsPositions { get; private set; }

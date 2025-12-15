@@ -72,6 +72,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             Container.BindInterfacesAndSelfTo<LanternSettings>().FromInstance(_lanternSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<LanternFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LanternSlotsService>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternService>().AsSingle();
         }
 
