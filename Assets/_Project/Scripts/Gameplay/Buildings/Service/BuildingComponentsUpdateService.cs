@@ -7,8 +7,6 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         public void UpdateLightConsumer(GameObject building, int time, int amount)
         {
-            building.TryGetComponent<ILightConsumer>(out var lightConsumer);
-            lightConsumer.Init(time, amount);
         }
 
         public void UpdateResourceStorage(GameObject building, int maxStorageCapacity)

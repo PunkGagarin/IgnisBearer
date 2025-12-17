@@ -63,7 +63,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 grade);
 
             building.TryGetComponent<IResourceStorage>(out var lightStorage);
-            lightStorage.Init(initGradeData.MaxLightStorageCapacity);
+            lightStorage.Init(_churchSettings.StartLightAmount, initGradeData.MaxLightStorageCapacity);
 
             FateGeneratorInit(building, initGradeData);
 
@@ -89,7 +89,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             InitGrade(building, initGrade, _houseSettings.MaxGrade, nextGradeData.GradePrice);
             InitDurability(building, initGradeData.MaxDurability);
-            
+
             building.TryGetComponent<HouseBuyUnit>(out var buyUnit);
             buyUnit.Init(initGradeData.UnitCost, initGradeData.MaxUnitsCount);
 

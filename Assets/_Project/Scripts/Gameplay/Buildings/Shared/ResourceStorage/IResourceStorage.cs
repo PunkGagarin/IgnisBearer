@@ -12,6 +12,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         int Amount { get; }
         int MaxAmount { get; }
         void Init(int maxStorageCapacity);
+        void Init(int startAmount, int maxStorage);
         void IncrementAmount(int amount);
         void IncrementAmount();
         void DecrementAmount(int amount);

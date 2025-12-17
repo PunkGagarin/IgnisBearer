@@ -34,7 +34,6 @@ namespace _Project.Scripts.Gameplay.Buildings
                 {
                     Debug.LogError(
                         "АЛЛО ДИЗАЙНЕР, СМОТРИ ЧЁ СТАВИШЬ!! время в TimeToIncrease не может быть меньше предыдущего!!");
-                    ConsumeProgress[i - 1].TimeToIncrease = timeToIncrease - 1f;
                 }
             }
         }

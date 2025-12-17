@@ -22,6 +22,12 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             MaxAmount = maxStorage;
         }
+        
+        public void Init(int startAmount, int maxStorage)
+        {
+            Amount = startAmount;
+            MaxAmount = maxStorage;
+        }
 
         private void OnDestroy()
         {

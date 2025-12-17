@@ -28,6 +28,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         public UniTask MoveTo(Vector3 destination, MoveType moveType = MoveType.Run, CancellationToken cancellationToken = default)
         {
+            //todo: если уничтожаем юнита он продолжает двигаться, надо залинковать внешний токен с монобехом
             var speed = GetSpeedByType(moveType);
             FlipIfNeeded(destination);
             

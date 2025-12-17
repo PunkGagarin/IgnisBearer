@@ -19,5 +19,5 @@ MonoBehaviour:
   <LanternCostMultiplier>k__BackingField: 3
   <HarvestTime>k__BackingField: 3
   <LightProduceTime>k__BackingField: 3
-  <InitMaxStorage>k__BackingField: 1
-  <InitMaxHarvestCount>k__BackingField: 3
+  <InitMaxStorage>k__BackingField: 3
+  <InitMaxHarvestCount>k__BackingField: 6
