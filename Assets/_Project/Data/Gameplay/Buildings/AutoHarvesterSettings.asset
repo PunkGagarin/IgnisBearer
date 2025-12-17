@@ -15,7 +15,7 @@ MonoBehaviour:
   <Prefab>k__BackingField: {fileID: 8545274884099581480, guid: 5c51e10469928974d88041e5193a952d, type: 3}
   <MaxCountToBuild>k__BackingField: 1
   <BuildingNameKey>k__BackingField: BUILD_AUTO_COLLECTOR_NAME
-  <BuildPrice>k__BackingField: 0
+  <BuildPrice>k__BackingField: 15
   <GradeData>k__BackingField:
   - GradePrice: 0
     MaxUnitsCount: 2

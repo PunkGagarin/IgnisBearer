@@ -16,29 +16,17 @@ MonoBehaviour:
   <BuildingNameKey>k__BackingField: 
   <GradeData>k__BackingField:
   - MaxUnitsCount: 2
-    MaxFateStorageCapacity: 4
-    MaxLightStorageCapacity: 100
+    MaxLightStorageCapacity: 120
     GradePrice: 0
-    TimeToProduceFate: 10
-    AmountToProduceFateAtTime: 2
-    LightSendSpeed: 3
-    LightConsumeTime: 1
-    LightConsumeAmount: 1
+    TimeToProduceFate: 5
+    LightSendSpeed: 0.6
   - MaxUnitsCount: 4
-    MaxFateStorageCapacity: 6
     MaxLightStorageCapacity: 150
     GradePrice: 0
     TimeToProduceFate: 5
-    AmountToProduceFateAtTime: 4
     LightSendSpeed: 2
-    LightConsumeTime: 1
-    LightConsumeAmount: 1
   - MaxUnitsCount: 6
-    MaxFateStorageCapacity: 8
     MaxLightStorageCapacity: 200
     GradePrice: 0
     TimeToProduceFate: 1
-    AmountToProduceFateAtTime: 6
     LightSendSpeed: 1
-    LightConsumeTime: 1
-    LightConsumeAmount: 1
