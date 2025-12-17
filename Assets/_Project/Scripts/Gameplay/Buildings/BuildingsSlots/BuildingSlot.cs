@@ -11,6 +11,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         [SerializeField] private Transform _content;
 
         [Inject] private BuildingsService _buildingsService;
+        [Inject] private FateService _fateService;
         [Inject] private BuildingAddingOptionsService _buildingAddingOptionsService;
 
         private AddBuildingPopup _addBuildingPopup;
@@ -20,12 +21,14 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _button.onClick.AddListener(OnClick);
             _addBuildingPopup = GetComponent<AddBuildingPopup>();
             _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
+            _fateService.OnAmountChanged += OnBalanceChanged;
         }
 
         private void OnDestroy()
         {
             _button.onClick.RemoveListener(OnClick);
             _addBuildingPopup.OnAddBuilding -= OnAddBuildingClicked;
+            _fateService.OnAmountChanged -= OnBalanceChanged;
         }
 
         private void OnAddBuildingClicked(BuildingType buildingType)
@@ -37,10 +40,17 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         private void OnClick()
         {
             _addBuildingPopup.Show();
+            InitPopup();
+        }
+
+        private void InitPopup()
+        {
             var popupData = _buildingAddingOptionsService.GetAddBuildingPopupData();
             _addBuildingPopup.Init(popupData);
         }
 
         public void SetEnabled(bool enabled) => _content.gameObject.SetActive(enabled);
+
+        private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj) => InitPopup();
     }
 }
