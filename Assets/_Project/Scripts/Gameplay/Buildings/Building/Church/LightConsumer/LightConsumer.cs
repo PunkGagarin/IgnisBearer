@@ -41,7 +41,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             _isConsuming = true;
             await UniTask.Delay(TimeSpan.FromSeconds(_timeToConsume));
 
-            Debug.Log("Consume light in amount " + _amountToConsume);
             _iResourceStorage.DecrementAmount(_amountToConsume);
 
             _isConsuming = false;

@@ -14,6 +14,11 @@ namespace _Project.Scripts.Gameplay.Ui
         [field: SerializeField]
         public TextMeshProUGUI BarrierCounter { get; private set; }
 
+        private void Awake()
+        {
+            Show();
+        }
+
         public void SetBarrierCounter(int current, int max)
         {
             BarrierCounter.text = $"{current}/{max}";

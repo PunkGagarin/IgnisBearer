@@ -102,6 +102,7 @@ MonoBehaviour:
   - {fileID: 2709071268093058265}
   - {fileID: 6909934021187158411}
   - {fileID: 7559507918556738560}
+  - {fileID: 4406969016609499956}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 0
   _editorReflectionBakingCoverageMode: 0
@@ -194,6 +195,7 @@ Transform:
   - {fileID: 7992559910599713053}
   - {fileID: 3490081368353297492}
   - {fileID: 1664293792192795122}
+  - {fileID: 413117567364158861}
   m_Father: {fileID: 2548839604113478229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6343898542285772146
@@ -286,6 +288,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadingCurtain: {fileID: 1547699981851766116}
+--- !u!1 &6823937665811029729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413117567364158861}
+  - component: {fileID: 4406969016609499956}
+  m_Layer: 0
+  m_Name: GDInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &413117567364158861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823937665811029729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2872291850772081554}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4406969016609499956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823937665811029729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d3c40d9aca4d60bbb9fe4bc18f5375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.GD.GdInstaller
+  <GdSettings>k__BackingField: {fileID: 11400000, guid: 5e130c899128af84d8f1991d7b63349c, type: 2}
 --- !u!1 &8078060722680616339
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,6 +53,10 @@ namespace _Project.Scripts.Gameplay.Buildings
         }
         
         public ChurchBuilding GetChurch() => _church;
-        
+
+        public IResourceStorage GetFateStorage()
+        {
+            return GetChurch().FateGenerator.GetComponent<IResourceStorage>();
+        }
     }
 }
