@@ -8,13 +8,21 @@ namespace _Project.Scripts.Infrastructure.SceneManagement
     {
         private AsyncOperation _asyncOperation;
         private UniTask _loadingTask;
+        private SceneEnum _currentScene;
 
         public async UniTask LoadScene(SceneEnum scene)
         {
             if (_loadingTask.Status == UniTaskStatus.Pending)
                 await _loadingTask;
+                    
+            _currentScene = scene;
 
             await LoadSceneAsync(scene);
+        }
+        
+        public async UniTask ReloadScene()
+        {
+            await LoadSceneAsync(_currentScene);
         }
 
         private async UniTask LoadSceneAsync(SceneEnum scene)

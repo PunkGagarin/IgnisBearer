@@ -18,5 +18,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         bool NotFull();
         bool HasAny();
         bool IsFull();
+        event Action OnReachZero;
     }
 }

@@ -22,6 +22,8 @@ namespace _Project.Scripts.Gameplay
 
         [Inject] private FateService _fateService;
 
+        [Inject] private GameEndService _gameEndService;
+
 
         public void Initialize()
         {
@@ -37,6 +39,7 @@ namespace _Project.Scripts.Gameplay
             InitBuildings();
             InitLanterns();
             _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
+            _gameEndService.Init();
         }
 
         private void InitBuildings()

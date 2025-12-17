@@ -21,5 +21,7 @@ namespace _Project.Scripts.Utils
         {
             content.SetActive(false);
         }
+        
+        
     }
 }

@@ -13,6 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased = delegate { };
         public event Action<Lantern> OnAmountFull = delegate { };
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountDecreased = delegate { };
+        public event Action OnReachZero = delegate { };
         public event Action OnStorageCleared = delegate { };
         public event Action OnStartHarvest = delegate { };
         public event Action OnDestroyed = delegate { };
@@ -31,6 +32,11 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             Amount -= amount;
             OnAmountDecreased.Invoke((amount, Amount, MaxAmount));
+            if (Amount <= 0)
+            {
+                Amount = 0;
+                OnReachZero?.Invoke();
+            }
         }
 
         public void IncrementAmount()

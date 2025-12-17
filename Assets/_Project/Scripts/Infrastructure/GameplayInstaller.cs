@@ -16,6 +16,7 @@ namespace _Project.Scripts.Infrastructure
         {
             Container.BindInterfacesAndSelfTo<LevelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameEndService>().AsSingle();
             Container.Bind<LevelData>().FromInstance(LevelData).AsSingle();
 
             Container.BindInterfacesAndSelfTo<GameplayBootstrap>().AsSingle().NonLazy();
