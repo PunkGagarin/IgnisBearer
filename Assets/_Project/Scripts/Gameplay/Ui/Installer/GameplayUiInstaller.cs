@@ -16,6 +16,9 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
         [field: SerializeField]
         public FateUi FateUi { get; private set; }
 
+        [field: SerializeField]
+        public GameEndUI GameEndUI { get; private set; }
+
         public override void InstallBindings()
         {
             Container.Bind<GameplayUiRoot>()
@@ -28,6 +31,10 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
 
             Container.BindInterfacesAndSelfTo<FateUi>()
                 .FromInstance(FateUi)
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<GameEndUI>()
+                .FromInstance(GameEndUI)
                 .AsSingle();
         }
     }
