@@ -1,5 +1,6 @@
 using System;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using UnityEngine;
 using Zenject;
 
@@ -10,6 +11,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private readonly DiContainer _container;
 
         [Inject] private readonly ChurchSettings _churchSettings;
+        [Inject] private readonly FateGeneratorSettings _fateGeneratorSettings;
         [Inject] private readonly BuildingSlotsSettings _buildingSlotsSettings;
         [Inject] private readonly HouseSettings _houseSettings;
         [Inject] private FactorySettings _factorySettings;
@@ -33,8 +35,17 @@ namespace _Project.Scripts.Gameplay.Buildings
                 BuildingType.Factory => BuildFactory(slot),
                 BuildingType.AutoHarvest => BuildAutoHarvester(slot),
                 BuildingType.AutoLighter => BuildAutoLighter(slot),
+                BuildingType.FateGenerator => BuildFateGenerator(slot),
                 _ => throw new ArgumentOutOfRangeException(nameof(buildingType), buildingType, null)
             };
+        }
+
+        private FateGeneratorBuilding BuildFateGenerator(BuildingSlot slot)
+        {
+            var building = InstantiateBuildingOnSlot<FateGeneratorBuilding>(slot, _fateGeneratorSettings.Prefab);
+            var fateGen = (FateGeneratorBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
+            slot.SetEnabled(false);
+            return fateGen;
         }
 
         private ChurchBuilding BuildChurch(BuildingSlot slot)

@@ -40,7 +40,6 @@ namespace _Project.Scripts.Gameplay
             InitBuildingSlots();
             InitExistingChurch();
 
-            InitFateService();
             _buildingsService.InitChurchGrade();
             InitConsumeProgressor();
 
@@ -83,12 +82,6 @@ namespace _Project.Scripts.Gameplay
         private void InitExistingChurch()
         {
             _buildingsService.InitChurch(_buildingSlotsService.GetChurchSlot());
-        }
-
-        private void InitFateService()
-        {
-            var fateStorage = _buildingsService.GetChurch().FateGenerator.GetComponent<IResourceStorage>();
-            _fateService.Init(fateStorage);
         }
 
         private void InitLanterns()

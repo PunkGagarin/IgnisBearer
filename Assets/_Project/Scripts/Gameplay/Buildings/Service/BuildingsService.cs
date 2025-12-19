@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
@@ -17,6 +19,8 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private List<Building> _buildings = new();
         private ChurchBuilding _church;
+        
+        public event Action<FateGeneratorBuilding> OnFateGeneratorBuilt = delegate { };
 
         public void InitChurch(BuildingSlot slot)
         {
@@ -43,6 +47,10 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             if (building is ChurchBuilding churchBuilding)
                 _church = churchBuilding;
+            else if (building is FateGeneratorBuilding fateGenerator)
+            {
+                OnFateGeneratorBuilt.Invoke(fateGenerator);
+            }
             else
                 _buildings.Add(building);
         }
@@ -51,7 +59,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             return _buildings.OfType<T>().FirstOrDefault();
         }
-        
+
         public ChurchBuilding GetChurch() => _church;
 
         // public IResourceStorage GetFateStorage()

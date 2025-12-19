@@ -7,6 +7,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         House = 2,
         Factory = 3,
         AutoHarvest = 4,
-        AutoLighter = 5
+        AutoLighter = 5,
+        FateGenerator = 6,
     }
 }

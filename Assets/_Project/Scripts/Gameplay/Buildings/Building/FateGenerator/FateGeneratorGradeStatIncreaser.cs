@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Buildings
+namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
 {
     public class FateGeneratorGradeStatIncreaser : MonoBehaviour
     {
@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void Awake()
         {
-            _grade = GetComponentInParent<Grade>();
+            _grade = GetComponent<Grade>();
             _grade.OnGradeChanged += OnGradeChanged;
         }
 
