@@ -487,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b7a6b520d6c4f148137bd2baa1c3c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator
-  <Type>k__BackingField: 5
+  <Type>k__BackingField: 6
 --- !u!114 &3600743880609433178
 MonoBehaviour:
   m_ObjectHideFlags: 0

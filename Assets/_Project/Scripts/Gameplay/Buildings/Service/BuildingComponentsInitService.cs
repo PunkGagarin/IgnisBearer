@@ -15,6 +15,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private readonly BuildingSlotsSettings _buildingSlotsSettings;
         [Inject] private readonly HouseSettings _houseSettings;
         [Inject] private FactorySettings _factorySettings;
+        [Inject] private FateGeneratorSettings _fateGeneratorSettings;
         [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
         [Inject] private WorkerService _workerService;
@@ -54,10 +55,10 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private FateGeneratorBuilding InitFateGenerator(FateGeneratorBuilding building, int grade)
         {
-            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _churchSettings.GradeData,
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _fateGeneratorSettings.GradeData,
                 grade);
 
-            InitGrade(building, initGrade, _churchSettings.MaxGrade, nextGradeData.GradePrice);
+            InitGrade(building, initGrade, _fateGeneratorSettings.MaxGrade, nextGradeData.GradePrice);
             InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
 
             var fateResourceStorage = building.GetComponent<IResourceStorage>();
