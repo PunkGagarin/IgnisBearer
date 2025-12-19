@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using _Project.Scripts.Localization;
 using _Project.Scripts.Utils;
 using TMPro;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 
         [SerializeField] private Button _buyButton;
         [SerializeField] private TextMeshProUGUI _priceText;
-        [SerializeField] private TextMeshProUGUI _label;
+        [SerializeField] private ToLocalize _label;
 
         private BuildingType _buildingType;
         private double _price;
@@ -28,7 +29,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _buildingType = data.BuildingType;
             _price = data.Price;
             _priceText.text = data.Price.ToString(CultureInfo.InvariantCulture);
-            _label.text = data.Label;
+            _label.SetKey(data.LabelKey);
         }
     }
 }

@@ -4,13 +4,13 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
     {
         public BuildingType BuildingType { get; }
         public double Price { get; }
-        public string Label { get; }
+        public string LabelKey { get; }
 
-        public BuildingButtonData(BuildingType buildingType, double price, string label)
+        public BuildingButtonData(BuildingType buildingType, double price, string labelKey)
         {
             BuildingType = buildingType;
             Price = price;
-            Label = label;
+            LabelKey = labelKey;
         }
     }
 }

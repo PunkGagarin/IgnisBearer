@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 18
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 596150659170442735}
   - component: {fileID: 8188688188869996815}
   - component: {fileID: 1812521369847270022}
+  - component: {fileID: 2874589181652281634}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -228,7 +229,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 18
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -272,6 +273,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2874589181652281634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386551823866250303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bad83c90fe747ad82f6472b7fc19acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Localization.ToLocalize
+  _key: 
+  _fontAsset: {fileID: 0}
 --- !u!1 &6419079477527232584
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,4 +488,4 @@ MonoBehaviour:
   content: {fileID: 9117011185530411244}
   _buyButton: {fileID: 4043709035950458084}
   _priceText: {fileID: 8796867231039473181}
-  _label: {fileID: 1812521369847270022}
+  _label: {fileID: 2874589181652281634}
