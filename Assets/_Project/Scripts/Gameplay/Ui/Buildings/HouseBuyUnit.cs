@@ -27,10 +27,23 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
             _buyUnitButton.OnBuyClicked += OnBuyClicked;
         }
 
-        public void Init(int unitPrice, int maxUnitsCount)
+        public void Init(int unitsInitCount, int unitPrice, int maxUnitsCount)
         {
+            _unitsCount = unitsInitCount;
             _unitPrice = unitPrice;
             _maxUnitsCount = maxUnitsCount;
+            UpdateUi();
+        }
+
+        public void SetMaxUnitsCount(int maxUnitsCount)
+        {
+            _maxUnitsCount = maxUnitsCount;
+            UpdateUi();
+        }
+
+        public void SetUnitPrice(int unitPrice)
+        {
+            _unitPrice = unitPrice;
             UpdateUi();
         }
 

@@ -20,8 +20,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<IGrade>(out var grade);
             grade.SetNextGradePrice(gradePrice);
         }
-        
-        
+
         public void UpdateResourceProducer(GameObject building, int timeToProduceFate)
         {
             var fateProducer = building.GetComponent<ResourceProducer>();
@@ -39,13 +38,12 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<IDurability>(out var durability);
             durability.SetMaxValue(maxDurability);
         }
-        
+
         public void UpdateBuyUnitHouse(GameObject building, int unitCost, int maxUnitCount)
         {
             building.TryGetComponent<HouseBuyUnit>(out var buyUnit);
-            buyUnit.Init(unitCost, maxUnitCount);
+            buyUnit.SetUnitPrice(unitCost);
+            buyUnit.SetMaxUnitsCount(maxUnitCount);
         }
-        
-        
     }
 }

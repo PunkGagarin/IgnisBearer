@@ -111,5 +111,10 @@ namespace _Project.Scripts.Gameplay.Units
             OnWorkerListUpdated?.Invoke();
             return unit;
         }
+
+        public int WorkersCount()
+        {
+            return _units.Count;
+        }
     }
 }

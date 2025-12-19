@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Ui.Buildings;
+using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 using Zenject;
 
@@ -15,6 +16,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private FactorySettings _factorySettings;
         [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
+        [Inject] private WorkerService _workerService;
 
         public int GetGradeData<T>(out T initGradeData, out T nextGradeData, List<T> listOfGrades, int initGrade)
             where T : IBaseGradeData
@@ -91,9 +93,14 @@ namespace _Project.Scripts.Gameplay.Buildings
             InitDurability(building, initGradeData.MaxDurability);
 
             building.TryGetComponent<HouseBuyUnit>(out var buyUnit);
-            buyUnit.Init(initGradeData.UnitCost, initGradeData.MaxUnitsCount);
+            buyUnit.Init(GetCurrentWorkersCount(),initGradeData.UnitCost, initGradeData.MaxUnitsCount);
 
             return building;
+        }
+
+        private int GetCurrentWorkersCount()
+        {
+            return _workerService.WorkersCount();
         }
 
         private AutoLighterBuilding BuildAutoLighter(AutoLighterBuilding building, int grade)
