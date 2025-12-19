@@ -26,4 +26,5 @@
   <text key="GRADE_UPGRADE_TITLE">Уровень</text>
   <text key="HOUSE_BUY_UNIT_ITEM_DESC">Купить юнита</text>
   <text key="FATE_GENERATOR_NAME_KEY">Генератор веры</text>
+  <text key="HOUSE_NAME_KEY">Дом</text>
 </Language>

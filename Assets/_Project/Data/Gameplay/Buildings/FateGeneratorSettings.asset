@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator.FateGeneratorSettings
   <Prefab>k__BackingField: {fileID: -843974861517358685, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
   <BuildingNameKey>k__BackingField: FATE_GENERATOR_NAME_KEY
+  <MaxCountToBuild>k__BackingField: 1
   <BuildPrice>k__BackingField: 0
   <GradeData>k__BackingField:
   - <GradePrice>k__BackingField: 0
     <MaxUnitsCount>k__BackingField: 2
     <MaxDurability>k__BackingField: 100
+    <TimeToProduceFate>k__BackingField: 0
   - <GradePrice>k__BackingField: 20
     <MaxUnitsCount>k__BackingField: 3
     <MaxDurability>k__BackingField: 150
+    <TimeToProduceFate>k__BackingField: 0

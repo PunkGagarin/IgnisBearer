@@ -7,6 +7,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class AutoHarvestSettings : ScriptableObject
     {
         [field: SerializeField] public AutoHarvestBuilding Prefab { get; private set; }
+        [field: SerializeField] public int MaxCountToBuild { get; private set; }
         [field: SerializeField] public string BuildingNameKey { get; private set; }
         [field: SerializeField] public float BuildPrice { get; private set; }
         [field: SerializeField] public List<AutoHarvestGradeData> GradeData { get; private set; }
