@@ -36,11 +36,11 @@ namespace _Project.Scripts.Gameplay
         private void InitLevel()
         {
             _levelService.CreateLevel();
+            _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
 
             InitBuildingSlots();
             InitExistingChurch();
-
-            _buildingsService.InitChurchGrade();
+            
             InitConsumeProgressor();
 
             InitExistingHouse();
@@ -48,7 +48,6 @@ namespace _Project.Scripts.Gameplay
             InitLanternSlots();
             InitLanterns();
 
-            _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
             _gameEndService.Init();
         }
 

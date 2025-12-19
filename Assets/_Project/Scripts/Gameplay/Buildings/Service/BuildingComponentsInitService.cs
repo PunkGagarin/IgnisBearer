@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using _Project.Scripts.Gameplay.Ui.Buildings;
+using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 using Zenject;
 
@@ -16,6 +17,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private FactorySettings _factorySettings;
         [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
+        [Inject] private WorkerService _workerService;
 
         public int GetGradeData<T>(out T initGradeData, out T nextGradeData, List<T> listOfGrades, int initGrade)
             where T : IBaseGradeData
@@ -36,15 +38,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             return initGrade;
         }
 
-        public void InitGradeForChurch(ChurchBuilding church)
-        {
-            int initGradeValue = 1;
-            var initGrade = GetGradeData(out _, out var nextGradeData, _churchSettings.GradeData,
-                initGradeValue);
-
-            InitGrade(church, initGrade, _churchSettings.MaxGrade, nextGradeData.GradePrice);
-        }
-
         public Building InitBuildingComponents(Building building, int grade = 1)
         {
             return building switch
@@ -61,9 +54,10 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private FateGeneratorBuilding InitFateGenerator(FateGeneratorBuilding building, int grade)
         {
-            GetGradeData(out var initGradeData, out _, _churchSettings.GradeData,
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _churchSettings.GradeData,
                 grade);
 
+            InitGrade(building, initGrade, _churchSettings.MaxGrade, nextGradeData.GradePrice);
             InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
 
             var fateResourceStorage = building.GetComponent<IResourceStorage>();
@@ -77,9 +71,10 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private ChurchBuilding InitChurch(ChurchBuilding building, int grade)
         {
-            GetGradeData(out var initGradeData, out _, _churchSettings.GradeData,
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _churchSettings.GradeData,
                 grade);
 
+            InitGrade(building, initGrade, _churchSettings.MaxGrade, nextGradeData.GradePrice);
             building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(_churchSettings.StartLightAmount, initGradeData.MaxLightStorageCapacity);
 
@@ -94,9 +89,14 @@ namespace _Project.Scripts.Gameplay.Buildings
             InitDurability(building, initGradeData.MaxDurability);
 
             building.TryGetComponent<HouseBuyUnit>(out var buyUnit);
-            buyUnit.Init(initGradeData.UnitCost, initGradeData.MaxUnitsCount);
+            buyUnit.Init(GetCurrentWorkersCount(),initGradeData.UnitCost, initGradeData.MaxUnitsCount);
 
             return building;
+        }
+
+        private int GetCurrentWorkersCount()
+        {
+            return _workerService.WorkersCount();
         }
 
         private AutoLighterBuilding InitAutoLighter(AutoLighterBuilding building, int grade)
