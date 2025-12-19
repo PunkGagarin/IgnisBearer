@@ -40,8 +40,7 @@ namespace _Project.Scripts.Gameplay
 
             InitBuildingSlots();
             InitExistingChurch();
-
-            _buildingsService.InitChurchGrade();
+            
             InitConsumeProgressor();
 
             InitExistingHouse();

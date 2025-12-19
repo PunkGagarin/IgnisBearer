@@ -32,11 +32,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             AddBuildingTo(BuildingType.House, slot);
         }
 
-        public void InitChurchGrade()
-        {
-            _buildingComponentsInitService.InitGradeForChurch(_church);
-        }
-
         public void AddBuildingTo(BuildingType buildingType, BuildingSlot buildingSlot)
         {
             var building = _buildingFactory.BuildByType(buildingType, buildingSlot);
@@ -61,10 +56,5 @@ namespace _Project.Scripts.Gameplay.Buildings
         }
 
         public ChurchBuilding GetChurch() => _church;
-
-        // public IResourceStorage GetFateStorage()
-        // {
-        //     return GetChurch().FateGenerator.GetComponent<IResourceStorage>();
-        // }
     }
 }

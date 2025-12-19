@@ -38,15 +38,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             return initGrade;
         }
 
-        public void InitGradeForChurch(ChurchBuilding church)
-        {
-            int initGradeValue = 1;
-            var initGrade = GetGradeData(out _, out var nextGradeData, _churchSettings.GradeData,
-                initGradeValue);
-
-            InitGrade(church, initGrade, _churchSettings.MaxGrade, nextGradeData.GradePrice);
-        }
-
         public Building InitBuildingComponents(Building building, int grade = 1)
         {
             return building switch
@@ -63,9 +54,10 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private FateGeneratorBuilding InitFateGenerator(FateGeneratorBuilding building, int grade)
         {
-            GetGradeData(out var initGradeData, out _, _churchSettings.GradeData,
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _churchSettings.GradeData,
                 grade);
 
+            InitGrade(building, initGrade, _churchSettings.MaxGrade, nextGradeData.GradePrice);
             InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
 
             var fateResourceStorage = building.GetComponent<IResourceStorage>();
@@ -79,9 +71,10 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private ChurchBuilding InitChurch(ChurchBuilding building, int grade)
         {
-            GetGradeData(out var initGradeData, out _, _churchSettings.GradeData,
+            var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _churchSettings.GradeData,
                 grade);
 
+            InitGrade(building, initGrade, _churchSettings.MaxGrade, nextGradeData.GradePrice);
             building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(_churchSettings.StartLightAmount, initGradeData.MaxLightStorageCapacity);
 
