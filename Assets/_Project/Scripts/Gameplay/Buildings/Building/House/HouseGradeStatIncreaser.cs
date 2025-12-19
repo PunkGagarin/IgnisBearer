@@ -34,7 +34,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
             _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
-            _buildingComponentsUpdate.UpdateBuyUnitHouse(gameObject, curGradeData.UnitCost, curGradeData.MaxUnitsCount);
+            _buildingComponentsUpdate.UpdateBuyUnitHouse(gameObject, curGradeData.MaxUnitsCount);
         }
 
     }

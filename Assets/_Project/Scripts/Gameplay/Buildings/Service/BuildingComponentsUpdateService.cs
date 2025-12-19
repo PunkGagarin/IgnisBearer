@@ -39,10 +39,9 @@ namespace _Project.Scripts.Gameplay.Buildings
             durability.SetMaxValue(maxDurability);
         }
 
-        public void UpdateBuyUnitHouse(GameObject building, int unitCost, int maxUnitCount)
+        public void UpdateBuyUnitHouse(GameObject building, int maxUnitCount)
         {
             building.TryGetComponent<HouseBuyUnit>(out var buyUnit);
-            buyUnit.SetUnitPrice(unitCost);
             buyUnit.SetMaxUnitsCount(maxUnitCount);
         }
     }

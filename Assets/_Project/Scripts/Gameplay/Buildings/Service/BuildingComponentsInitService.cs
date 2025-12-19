@@ -89,7 +89,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             InitDurability(building, initGradeData.MaxDurability);
 
             building.TryGetComponent<HouseBuyUnit>(out var buyUnit);
-            buyUnit.Init(GetCurrentWorkersCount(),initGradeData.UnitCost, initGradeData.MaxUnitsCount);
+            buyUnit.Init(GetCurrentWorkersCount(), _houseSettings.InitUnitCost, _houseSettings.UnitCostMultiplier, initGradeData.MaxUnitsCount);
 
             return building;
         }
