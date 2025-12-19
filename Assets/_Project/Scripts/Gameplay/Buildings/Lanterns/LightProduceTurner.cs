@@ -1,6 +1,6 @@
 ﻿namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-    public class LightProduceSwitcher : BaseProducerSwitcher
+    public class LightProduceTurner : BaseProducerSwitcher
     {
         private Lantern _lantern;
 

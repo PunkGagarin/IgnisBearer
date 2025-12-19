@@ -356,6 +356,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4089335266721107670}
+  - component: {fileID: -843974861517358685}
+  - component: {fileID: 3600743880609433178}
   - component: {fileID: 3667673321045333291}
   - component: {fileID: 875901685141009461}
   - component: {fileID: 5718879794068901836}
@@ -363,9 +365,8 @@ GameObject:
   - component: {fileID: 1622896804859822871}
   - component: {fileID: 524293900789016084}
   - component: {fileID: 473449727579905528}
-  - component: {fileID: -843974861517358685}
-  - component: {fileID: 3600743880609433178}
   - component: {fileID: -7959002282597601306}
+  - component: {fileID: -6797510577749641913}
   m_Layer: 0
   m_Name: FateGenerator
   m_TagString: Untagged
@@ -390,6 +391,33 @@ Transform:
   - {fileID: 3391545425050926486}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-843974861517358685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229708683809240057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7a6b520d6c4f148137bd2baa1c3c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator
+  <Type>k__BackingField: 5
+--- !u!114 &3600743880609433178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229708683809240057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec463f8a71aa4d6aba04b0e00b8b6ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.OpenBuildingPopup
+  _button: {fileID: 1332626638791814546}
+  _popup: {fileID: 4063828450365173526}
 --- !u!114 &3667673321045333291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,33 +503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c12a767a3e4ff6b198e6d3da177091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGeneratorGradeStatIncreaser
---- !u!114 &-843974861517358685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5229708683809240057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b7a6b520d6c4f148137bd2baa1c3c7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator
-  <Type>k__BackingField: 5
---- !u!114 &3600743880609433178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5229708683809240057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec463f8a71aa4d6aba04b0e00b8b6ecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.OpenBuildingPopup
-  _button: {fileID: 1332626638791814546}
-  _popup: {fileID: 4063828450365173526}
 --- !u!114 &-7959002282597601306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +516,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Grade
   _buyLimitedButton: {fileID: 3526854593240224317}
+--- !u!114 &-6797510577749641913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229708683809240057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc5fa0d214f4b1c9d0773c7df8af355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ResourceCollector
 --- !u!1 &5298658727275291987
 GameObject:
   m_ObjectHideFlags: 0

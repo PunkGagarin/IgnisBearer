@@ -36,8 +36,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked += OnLanternClicked;
 
-            var lightStorage = lantern.GetComponent<ResourceStorage>();
-            lightStorage.OnAmountFull += OnLanternFullHandle;
+            // var lightStorage = lantern.GetComponent<ResourceStorage>();
+            // lightStorage.OnAmountFull += OnLanternFullHandle;
         }
 
         private void UnsubscribeFromLantern(Lantern lantern)
@@ -48,8 +48,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked -= OnLanternClicked;
 
-            var lightStorage = lantern.GetComponent<ResourceStorage>();
-            lightStorage.OnAmountFull -= OnLanternFullHandle;
+            // var lightStorage = lantern.GetComponent<ResourceStorage>();
+            // lightStorage.OnAmountFull -= OnLanternFullHandle;
         }
 
         private void OnLanternFullHandle(Lantern obj)

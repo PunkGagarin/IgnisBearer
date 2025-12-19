@@ -4,6 +4,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
 {
+    [RequireComponent(typeof(IResourceStorage))]
     public class FateUiController : MonoBehaviour
     {
         [Inject] private FateUi _fateUi;

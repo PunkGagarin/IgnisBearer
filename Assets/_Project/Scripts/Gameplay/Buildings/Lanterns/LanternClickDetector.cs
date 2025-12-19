@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
+    [RequireComponent(typeof(Lantern))]
     public class LanternClickDetector : MonoBehaviour
     {
 
@@ -13,12 +14,10 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public Action<Lantern> OnClicked = delegate { };
 
         private Lantern _lantern;
-        private ResourceStorage _resourceStorage;
 
         private void Awake()
         {
             _lantern = GetComponent<Lantern>();
-            _resourceStorage = GetComponent<ResourceStorage>();
 
             Button.onClick.AddListener(OnButtonClicked);
         }
