@@ -10,8 +10,8 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         [Inject] protected readonly LanternService _lanternService;
 
-        protected Workers _workers;
-        protected Queue<Lantern> _lanternToServe = new();
+        private Workers _workers;
+        private Queue<Lantern> _lanternToServe = new();
 
         private void Awake()
         {
@@ -29,7 +29,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected abstract void SubscribeOnLantern();
 
-        protected void FindLanternsForQueue()
+        private void FindLanternsForQueue()
         {
             var unfiredLanterns = GetLanternsForQueue();
             Debug.Log($" lanterns found for harvest: {unfiredLanterns.Count}");
@@ -39,7 +39,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected abstract List<Lantern> GetLanternsForQueue();
 
-        protected void AddLanternToQueue(Lantern lantern)
+        private void AddLanternToQueue(Lantern lantern)
         {
             Debug.Log($" lantern added in harvest queue");
             _lanternToServe.Enqueue(lantern);
@@ -55,17 +55,17 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected abstract void UnsubscribeFromLantern();
 
-        protected void SubscribeUnit(Unit unit)
+        private void SubscribeUnit(Unit unit)
         {
             unit.Context.OnUnitFree += CheckLanternInQueue;
         }
 
-        protected void UnsubscribeUnit(Unit unit)
+        private void UnsubscribeUnit(Unit unit)
         {
             unit.Context.OnUnitFree -= CheckLanternInQueue;
         }
 
-        protected void CheckLanternInQueue(Unit unit)
+        private void CheckLanternInQueue(Unit unit)
         {
             Debug.Log($" checking lantern in queue for free unit");
             if (_lanternToServe.Count > 0)

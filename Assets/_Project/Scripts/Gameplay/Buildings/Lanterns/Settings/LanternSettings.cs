@@ -30,7 +30,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public int InitMaxStorage { get; private set; } = 1;
         
         [field: SerializeField]
-        public int InitMaxHarvestCount { get; private set; } = 3;
+        public int InitMaxResourceGeneratePerFireUp { get; private set; } = 6;
 
     }
 }

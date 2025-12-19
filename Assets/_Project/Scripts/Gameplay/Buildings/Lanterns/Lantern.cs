@@ -23,13 +23,13 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private LanternUi _ui;
         private IResourceStorage _lightStorage;
 
-        private int _currentHarvestCount;
-        private int _maxHarvestCount = 3;
+        private int _currentResourceGeneration;
+        private int _maxResourceGenerationPerFireUp = 3;
 
-        public void Init(int maxHarvestCount)
+        public void Init(int maxResourceGenerate)
         {
-            _maxHarvestCount = maxHarvestCount;
-            _currentHarvestCount = maxHarvestCount;
+            _maxResourceGenerationPerFireUp = maxResourceGenerate;
+            _currentResourceGeneration = maxResourceGenerate;
         }
 
         private void Awake()
@@ -40,19 +40,19 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public void Start()
         {
-            _lightStorage.OnStorageCleared += DecrementFireCount;
+            _lightStorage.OnAmountIncreased += DecrementFireCount;
         }
 
         private void OnDestroy()
         {
-            _lightStorage.OnStorageCleared -= DecrementFireCount;
+            _lightStorage.OnAmountIncreased -= DecrementFireCount;
             OnDestroyed.Invoke(this);
         }
 
-        private void DecrementFireCount()
+        private void DecrementFireCount((int amountIncreased, int newAmount, int maxAmount) valueTuple)
         {
-            _currentHarvestCount -= 1;
-            if (_currentHarvestCount <= 0)
+            _currentResourceGeneration -= 1;
+            if (_currentResourceGeneration <= 0)
                 FireOff();
         }
 
@@ -64,7 +64,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public void FireUp()
         {
             _isFired = true;
-            _currentHarvestCount = _maxHarvestCount;
+            _currentResourceGeneration = _maxResourceGenerationPerFireUp;
 
             UnFired.gameObject.SetActive(false);
             Fired.gameObject.SetActive(true);
