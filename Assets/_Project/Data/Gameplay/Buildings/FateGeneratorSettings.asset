@@ -20,8 +20,8 @@ MonoBehaviour:
   - <GradePrice>k__BackingField: 0
     <MaxUnitsCount>k__BackingField: 2
     <MaxDurability>k__BackingField: 100
-    <TimeToProduceFate>k__BackingField: 0
+    <TimeToProduceFate>k__BackingField: 1
   - <GradePrice>k__BackingField: 20
     <MaxUnitsCount>k__BackingField: 3
     <MaxDurability>k__BackingField: 150
-    <TimeToProduceFate>k__BackingField: 0
+    <TimeToProduceFate>k__BackingField: 1
