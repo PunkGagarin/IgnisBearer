@@ -11,6 +11,9 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
 
         [field: SerializeField]
         public string BuildingNameKey { get; private set; }
+        
+        [field: SerializeField]
+        public int MaxCountToBuild { get; private set; }
 
         [field: SerializeField]
         public float BuildPrice { get; private set; } = 0;

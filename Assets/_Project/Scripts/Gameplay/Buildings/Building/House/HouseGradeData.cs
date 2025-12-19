@@ -8,6 +8,5 @@ namespace _Project.Scripts.Gameplay.Buildings
         public int GradePrice;
         public int MaxUnitsCount;
         public int MaxDurability;
-        public int UnitCost;
     }
 }

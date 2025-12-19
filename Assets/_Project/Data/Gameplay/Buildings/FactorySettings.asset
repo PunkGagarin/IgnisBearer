@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FactorySettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingTypes.Factory.FactorySettings
   <Prefab>k__BackingField: {fileID: -272873710446961057, guid: 0067c703747c2461bac989dccf890730, type: 3}
+  <MaxCountToBuild>k__BackingField: 1
   <BuildPrice>k__BackingField: 12
   <BuildingNameKey>k__BackingField: BUILD_FACTORY_NAME
   <GradeData>k__BackingField:

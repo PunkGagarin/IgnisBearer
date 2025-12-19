@@ -6,10 +6,8 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class ChurchGradeData: IBaseGradeData
     {
 
-        public int MaxUnitsCount;
         public int MaxLightStorageCapacity = 1000;
         public int GradePrice;
-        public int TimeToProduceFate;
         public float LightSendSpeed = 3f;
     }
 }

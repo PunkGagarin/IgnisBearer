@@ -8,7 +8,7 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
     [RequireComponent(typeof(ResourceProducer))]
     public class FateGeneratorGradeStatIncreaser : MonoBehaviour
     {
-        [Inject] private ChurchSettings _churchSettings;
+        [Inject] private FateGeneratorSettings _fateGeneratorSettings;
         [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
         [Inject] private BuildingComponentsUpdateService _buildingComponentsUpdate;
 
@@ -28,7 +28,7 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
         private void OnGradeChanged(int newGrade)
         {
             _buildingComponentsInitService.GetGradeData(out var curGradeData, out _,
-                _churchSettings.GradeData, newGrade);
+                _fateGeneratorSettings.GradeData, newGrade);
             
             _buildingComponentsUpdate.UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
             _buildingComponentsUpdate.UpdateResourceProducer(gameObject, curGradeData.TimeToProduceFate);

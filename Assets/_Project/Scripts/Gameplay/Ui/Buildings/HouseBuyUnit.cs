@@ -20,6 +20,7 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         private int _unitsCount;
         private int _unitPrice;
         private int _maxUnitsCount;
+        private int _unitCostMultiplier;
 
         private void Awake()
         {
@@ -27,23 +28,19 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
             _buyUnitButton.OnBuyClicked += OnBuyClicked;
         }
 
-        public void Init(int unitsInitCount, int unitPrice, int maxUnitsCount)
+        public void Init(int unitsInitCount, int initUnitPrice, int unitCostMultiplier,
+            int maxUnitsCount)
         {
             _unitsCount = unitsInitCount;
-            _unitPrice = unitPrice;
+            _unitPrice = initUnitPrice;
             _maxUnitsCount = maxUnitsCount;
+            _unitCostMultiplier = unitCostMultiplier;
             UpdateUi();
         }
 
         public void SetMaxUnitsCount(int maxUnitsCount)
         {
             _maxUnitsCount = maxUnitsCount;
-            UpdateUi();
-        }
-
-        public void SetUnitPrice(int unitPrice)
-        {
-            _unitPrice = unitPrice;
             UpdateUi();
         }
 
@@ -74,7 +71,13 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
             _fateService.Spend(_unitPrice);
             _workerService.CreateAndRegisterUnit(gameObject.transform);
             _unitsCount++;
+            _unitPrice = RecalculateUnitCost();
             UpdateUi();
+        }
+
+        private int RecalculateUnitCost()
+        {
+            return _unitsCount * _unitCostMultiplier;
         }
 
         private bool CanBuyUnit(float unitPrice, int maxUnitsCount)

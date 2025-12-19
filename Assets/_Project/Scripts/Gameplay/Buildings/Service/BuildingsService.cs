@@ -19,7 +19,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private List<Building> _buildings = new();
         private ChurchBuilding _church;
-        
+
         public event Action<FateGeneratorBuilding> OnFateGeneratorBuilt = delegate { };
 
         public void InitChurch(BuildingSlot slot)
@@ -44,6 +44,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 _church = churchBuilding;
             else if (building is FateGeneratorBuilding fateGenerator)
             {
+                _buildings.Add(building);
                 OnFateGeneratorBuilt.Invoke(fateGenerator);
             }
             else
@@ -54,6 +55,9 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             return _buildings.OfType<T>().FirstOrDefault();
         }
+
+        public int GetBuildingCountByType(BuildingType buildingType) => 
+            _buildings.Count(x => x.Type == buildingType);
 
         public ChurchBuilding GetChurch() => _church;
     }
