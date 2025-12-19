@@ -11,9 +11,9 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private readonly LightConsumeSettings _lightConsumeSettings;
         [Inject] private readonly BuildingsService _buildingsService;
         [Inject] private readonly GDSettings _gdSettings;
+        [Inject] private readonly FateService _fateService;
 
         private IResourceStorage _lightStorage;
-        private IResourceStorage _fateStorage;
         private LightConsumer _lightConsumer;
 
         private int _nextProgressIndex = 0;
@@ -27,9 +27,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             _lightConsumer = GetComponent<LightConsumer>();
         }
 
-        private void Start()
+        public void Init()
         {
-            _fateStorage = _buildingsService.GetFateStorage();
             _nextProgress = _lightConsumeSettings.GetProgressByIndex(_nextProgressIndex);
             if (_gdSettings.IsConsumeStartedByDefault)
             {
@@ -38,7 +37,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             else
             {
                 _lightStorage.OnAmountIncreased += StartConsumeLightHandle;
-                _fateStorage.OnAmountIncreased += StartConsumeLightHandle;
+                _fateService.OnAmountChanged += StartConsumeLightHandle;
             }
         }
 
@@ -56,7 +55,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (!_gdSettings.IsConsumeStartedByDefault)
             {
                 _lightStorage.OnAmountIncreased -= StartConsumeLightHandle;
-                _fateStorage.OnAmountIncreased -= StartConsumeLightHandle;
+                _fateService.OnAmountChanged -= StartConsumeLightHandle;
             }
         }
 

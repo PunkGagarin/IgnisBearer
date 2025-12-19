@@ -36,20 +36,53 @@ namespace _Project.Scripts.Gameplay
         private void InitLevel()
         {
             _levelService.CreateLevel();
-            InitBuildings();
+
+            InitBuildingSlots();
+            InitExistingChurch();
+
+            InitFateService();
+            _buildingsService.InitChurchGrade();
+            InitConsumeProgressor();
+
+            InitExistingHouse();
+
+            InitLanternSlots();
             InitLanterns();
+
             _workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
             _gameEndService.Init();
         }
 
-        private void InitBuildings()
+        private void InitExistingHouse()
+        {
+            _buildingsService.InitHouse(_buildingSlotsService.GetFirstSlot());
+        }
+
+        private void InitConsumeProgressor()
+        {
+            _buildingsService
+                .GetChurch()
+                .GetComponent<LightConsumeProgressor>()
+                .Init();
+        }
+
+        private void InitLanternSlots()
+        {
+            _lanternSlotsService.InitSlots(
+                _levelService.GetInitialLanternSlotsPositions(),
+                _levelService.GetAdditionalLanternSlotsPositions()
+            );
+        }
+
+        private void InitBuildingSlots()
         {
             _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(),
                 _levelService.GetChurchBuildingSpawnPoint());
+        }
+
+        private void InitExistingChurch()
+        {
             _buildingsService.InitChurch(_buildingSlotsService.GetChurchSlot());
-            InitFateService();
-            _buildingsService.InitChurchGrade();
-            _buildingsService.InitHouse(_buildingSlotsService.GetFirstSlot());
         }
 
         private void InitFateService()
@@ -60,10 +93,6 @@ namespace _Project.Scripts.Gameplay
 
         private void InitLanterns()
         {
-            _lanternSlotsService.InitSlots(
-                _levelService.GetInitialLanternSlotsPositions(),
-                _levelService.GetAdditionalLanternSlotsPositions()
-            );
             _lanternService.InitStartLanterns(_lanternSlotsService.GetInitialSlots());
         }
 
