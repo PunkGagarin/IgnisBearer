@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Buildings
+namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
 {
     public class FateUiController : MonoBehaviour
     {

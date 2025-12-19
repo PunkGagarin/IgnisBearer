@@ -9,9 +9,11 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class ResourceProducer : MonoBehaviour
     {
         private IResourceStorage _iResourceStorage;
+        private IWorkers _workers;
 
         private bool _isProducing;
         private float _timeToProduce;
+        private int _amountToProduce = 1;
 
         public bool CanProduce { get; set; }
 
@@ -27,6 +29,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void Awake()
         {
             _iResourceStorage = GetComponent<IResourceStorage>();
+            _workers = GetComponent<IWorkers>();
         }
 
         private void Update()
@@ -47,8 +50,8 @@ namespace _Project.Scripts.Gameplay.Buildings
                 estimatedTime += Time.deltaTime;
                 OnLightProgressed(estimatedTime / _timeToProduce);
             }
-
-            _iResourceStorage.IncrementAmount();
+            int amountToIncrease = _workers.CurrentCount * _amountToProduce;
+            _iResourceStorage.IncrementAmount(amountToIncrease);
 
             _isProducing = false;
             OnEndProducing.Invoke();
@@ -56,6 +59,5 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public bool IsProducing()
             => _isProducing;
-
     }
 }

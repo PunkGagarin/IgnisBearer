@@ -1,7 +1,7 @@
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
@@ -22,6 +22,9 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [field: SerializeField]
         private AutoLighterSettings _autoLighterSettings;
+        
+        [field: SerializeField]
+        private FateGeneratorSettings FateGeneratorSettings;
 
         [field: SerializeField]
         private BuildingSlotsSettings _buildingSlotsSettings;
@@ -39,11 +42,16 @@ namespace _Project.Scripts.Gameplay.Buildings
             BindSlots();
             BindChurchWithLightAndFate();
             BindLanterns();
+            BindBuildingSettings();
+        }
 
+        private void BindBuildingSettings()
+        {
             Container.BindInterfacesAndSelfTo<FactorySettings>().FromInstance(_factorySettings).AsSingle();
             Container.BindInterfacesAndSelfTo<AutoHarvestSettings>().FromInstance(_autoHarvestSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<AutoLighterSettings>().FromInstance(_autoLighterSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<HouseSettings>().FromInstance(_houseSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<FateGeneratorSettings>().FromInstance(FateGeneratorSettings).AsSingle();
         }
 
         private void BindMainBuildings()
