@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using _Project.Scripts.Gameplay.Ui.Buildings;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
@@ -50,16 +51,33 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             return building switch
             {
-                ChurchBuilding church => BuildChurch(church, grade),
-                AutoHarvestBuilding harvester => BuildAutoHarvester(harvester, grade),
-                AutoLighterBuilding lighter => BuildAutoLighter(lighter, grade),
-                HouseBuilding house => BuildHouse(house, grade),
-                FactoryBuilding factory => BuildFactory(factory, grade),
+                ChurchBuilding church => InitChurch(church, grade),
+                AutoHarvestBuilding harvester => InitAutoHarvester(harvester, grade),
+                AutoLighterBuilding lighter => InitAutoLighter(lighter, grade),
+                HouseBuilding house => InitHouse(house, grade),
+                FactoryBuilding factory => IniFactory(factory, grade),
+                FateGeneratorBuilding fateGen => InitFateGenerator(fateGen, grade),
                 _ => throw new ArgumentException("Неизвестный тип здания")
             };
         }
 
-        private ChurchBuilding BuildChurch(ChurchBuilding building, int grade)
+        private FateGeneratorBuilding InitFateGenerator(FateGeneratorBuilding building, int grade)
+        {
+            GetGradeData(out var initGradeData, out _, _churchSettings.GradeData,
+                grade);
+
+            InitWorkers(building.gameObject, initGradeData.MaxUnitsCount);
+
+            var fateResourceStorage = building.GetComponent<IResourceStorage>();
+            fateResourceStorage.Init(int.MaxValue);
+
+            var fateProducer = building.GetComponent<ResourceProducer>();
+            fateProducer.Init(initGradeData.TimeToProduceFate);
+
+            return building;
+        }
+
+        private ChurchBuilding InitChurch(ChurchBuilding building, int grade)
         {
             GetGradeData(out var initGradeData, out _, _churchSettings.GradeData,
                 grade);
@@ -67,25 +85,10 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(_churchSettings.StartLightAmount, initGradeData.MaxLightStorageCapacity);
 
-            FateGeneratorInit(building, initGradeData);
-
             return building;
         }
 
-        private void FateGeneratorInit(ChurchBuilding building, ChurchGradeData initGradeData)
-        {
-            var fateGenerator = building.FateGenerator;
-            InitWorkers(fateGenerator, initGradeData.MaxUnitsCount);
-
-            var fateResourceStorage = fateGenerator.GetComponent<IResourceStorage>();
-            fateResourceStorage.Init(int.MaxValue);
-
-            var fateProducer = fateGenerator.GetComponent<ResourceProducer>();
-            fateProducer.Init(initGradeData.TimeToProduceFate);
-        }
-
-
-        private HouseBuilding BuildHouse(HouseBuilding building, int grade)
+        private HouseBuilding InitHouse(HouseBuilding building, int grade)
         {
             var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _houseSettings.GradeData, grade);
 
@@ -103,7 +106,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             return _workerService.WorkersCount();
         }
 
-        private AutoLighterBuilding BuildAutoLighter(AutoLighterBuilding building, int grade)
+        private AutoLighterBuilding InitAutoLighter(AutoLighterBuilding building, int grade)
         {
             var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _autoLighterSettings.GradeData,
                 grade);
@@ -115,7 +118,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             return building;
         }
 
-        private AutoHarvestBuilding BuildAutoHarvester(AutoHarvestBuilding building, int grade)
+        private AutoHarvestBuilding InitAutoHarvester(AutoHarvestBuilding building, int grade)
         {
             var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _autoHarvestSettings.GradeData,
                 grade);
@@ -127,7 +130,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             return building;
         }
 
-        private FactoryBuilding BuildFactory(FactoryBuilding building, int grade)
+        private FactoryBuilding IniFactory(FactoryBuilding building, int grade)
         {
             var initGrade = GetGradeData(out var initGradeData, out var nextGradeData, _factorySettings.GradeData,
                 grade);

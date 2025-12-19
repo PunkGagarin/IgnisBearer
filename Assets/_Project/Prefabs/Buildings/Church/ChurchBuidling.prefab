@@ -429,7 +429,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2889761149856935840}
   - {fileID: 9093567719910953777}
   - {fileID: 630100173817219542}
   m_Father: {fileID: 0}
@@ -447,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchBuilding
   <Type>k__BackingField: 1
-  <FateGenerator>k__BackingField: {fileID: 6361874197431997071}
+  <FateGenerator>k__BackingField: {fileID: 0}
 --- !u!114 &5029327711760116034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,17 +726,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1070469748377207412, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
   m_PrefabInstance: {fileID: 1110396602198545400}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1670120069817327769 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1748978342833304417, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
-  m_PrefabInstance: {fileID: 1110396602198545400}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6d13463d3144a31980258d9013a7ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &3507764779238857012 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4595640470774794956, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
@@ -753,75 +741,4 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3986397363607271399, guid: 29ddcb4c2cb214804b4415a38bc0bb8a, type: 3}
   m_PrefabInstance: {fileID: 1110396602198545400}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1214356402245591414
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 209318664705434260}
-    m_Modifications:
-    - target: {fileID: 1622896804859822871, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: <WorkersCountRow>k__BackingField
-      value: 
-      objectReference: {fileID: 1670120069817327769}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5229708683809240057, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-      propertyPath: m_Name
-      value: FateGenerator
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
---- !u!4 &2889761149856935840 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4089335266721107670, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-  m_PrefabInstance: {fileID: 1214356402245591414}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6361874197431997071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5229708683809240057, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-  m_PrefabInstance: {fileID: 1214356402245591414}
   m_PrefabAsset: {fileID: 0}

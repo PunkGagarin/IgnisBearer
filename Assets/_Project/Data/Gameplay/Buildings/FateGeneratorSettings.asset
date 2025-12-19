@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8f837958264d5db2ff189c56095cc1, type: 3}
+  m_Name: FateGeneratorSettings
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator.FateGeneratorSettings
+  <Prefab>k__BackingField: {fileID: -843974861517358685, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+  <BuildingNameKey>k__BackingField: 
+  <BuildPrice>k__BackingField: 0
+  <GradeData>k__BackingField:
+  - <GradePrice>k__BackingField: 0
+    <MaxUnitsCount>k__BackingField: 2
+    <MaxDurability>k__BackingField: 100
+  - <GradePrice>k__BackingField: 20
+    <MaxUnitsCount>k__BackingField: 3
+    <MaxDurability>k__BackingField: 150

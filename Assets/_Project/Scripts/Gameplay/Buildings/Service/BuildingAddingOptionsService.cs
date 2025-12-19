@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using _Project.Scripts.Localization;
 using Zenject;
 
@@ -10,6 +11,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private FactorySettings _factorySettings;
         [Inject] private AutoHarvestSettings _autoHarvestSettings;
         [Inject] private AutoLighterSettings _autoLighterSettings;
+        [Inject] private FateGeneratorSettings _fateGeneratorSettings;
         [Inject] private LocalizationTool _localizationTool;
         [Inject] private FateService _fateService;
 
@@ -21,6 +23,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 _autoHarvestSettings.BuildingNameKey);
             AddBuildingButton(list, GetAutoLighterInitPrice(), BuildingType.AutoLighter,
                 _autoLighterSettings.BuildingNameKey);
+            AddBuildingButton(list, GetFateGenInitPrice(), BuildingType.FateGenerator, _fateGeneratorSettings.BuildingNameKey);
             return list;
         }
 
@@ -30,6 +33,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (HaveEnoughMoney(initPrice))
                 list.Add(new BuildingButtonData(buildingType, initPrice, buildingNameKey));
         }
+
+        private float GetFateGenInitPrice() => _fateGeneratorSettings.BuildPrice;
 
         private float GetFactoryInitPrice() => _factorySettings.BuildPrice;
 

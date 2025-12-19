@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    [CreateAssetMenu(fileName = "LightConsumeSettings", menuName = "LightConsumeSettings", order = 0)]
+    // [CreateAssetMenu(fileName = "LightConsumeSettings", menuName = "LightConsumeSettings", order = 0)]
     public class LightConsumeSettings : ScriptableObject
     {
         [field: SerializeField]

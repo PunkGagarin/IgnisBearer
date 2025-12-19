@@ -1571,6 +1571,7 @@ MonoBehaviour:
   _factorySettings: {fileID: 11400000, guid: 31f96bd6067a64afcb933e8befd06568, type: 2}
   _autoHarvestSettings: {fileID: 11400000, guid: 2218723ae83ee4933878a7bcadc9b458, type: 2}
   _autoLighterSettings: {fileID: 11400000, guid: 45bab764c9bc74e918a7bcdde987db35, type: 2}
+  FateGeneratorSettings: {fileID: 11400000, guid: 3e090197e48478846b7cd913a5a27540, type: 2}
   _buildingSlotsSettings: {fileID: 11400000, guid: c1a5e69f05164419ea053ce89b7864db, type: 2}
   _lanternSettings: {fileID: 11400000, guid: d761d35b5970f444fbb1fbbe5458caa7, type: 2}
   <LightConsumeSettings>k__BackingField: {fileID: 11400000, guid: 9acf9c67c5bf4f94aa59909e91f8afe7, type: 2}
