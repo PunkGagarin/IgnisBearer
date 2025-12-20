@@ -23,8 +23,8 @@ namespace _Project.Scripts.Gameplay.Units
 
             if (IsNeedToFireUpLantern(lantern))
                 _unit.StateMachine.Enter<FireUpLanternState, Lantern>(lantern);
-            else if (IsLanternReadyToHarvest(lantern))
-                _unit.StateMachine.Enter<HarvestLanternState, Lantern>(lantern);
+            // else if (IsLanternReadyToHarvest(lantern))
+            //     _unit.StateMachine.Enter<HarvestLanternState, Lantern>(lantern);
         }
 
         private bool IsLanternReadyToHarvest(Lantern lantern)

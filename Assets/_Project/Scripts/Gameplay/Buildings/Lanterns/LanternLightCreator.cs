@@ -1,6 +1,8 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
@@ -9,6 +11,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     [RequireComponent(typeof(ResourceProducer))]
     public class LanternLightCreator : MonoBehaviour
     {
+        [Inject] private LightResourceService _lightResourceService;
+        
         [field: SerializeField]
         private LightResource LightPrefab { get; set; }
 
@@ -23,12 +27,14 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         [field: SerializeField]
         public float YBuffer { get; private set; } = 3f;
-        
+
         [field: SerializeField]
         public AnimationCurve AnimaCurve { get; private set; }
 
         //create object pool
         private ResourceProducer _resourceProducer;
+
+        
 
         private void Awake()
         {
@@ -48,16 +54,29 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private void CreateLight(int count)
         {
             for (int i = 0; i < count; i++)
+                InstantiateLight().Forget();
+        }
+
+        private async UniTaskVoid InstantiateLight()
+        {
+            var lightResource = Instantiate(LightPrefab, SpawnPoint.position, Quaternion.identity, transform);
+
+            Vector3 endPosition = FindRandomPositionToDropResource();
+            lightResource.SetFinalPosition(endPosition);
+
+            try
             {
-                var lightResource = Instantiate(LightPrefab, SpawnPoint.position, Quaternion.identity, transform);
-
-                Vector3 endPosition = FindRandomPositionToDropResource();
-                lightResource.SetFinalPosition(endPosition);
-
-                lightResource.transform
+                await lightResource.transform
                     .DOMove(endPosition, DropAnimationTime)
                     .SetEase(AnimaCurve)
-                    .ToUniTask(cancellationToken: destroyCancellationToken);
+                    .ToUniTask(cancellationToken: lightResource.destroyCancellationToken);
+
+                _lightResourceService.RegisterResource(lightResource);
+                // OnLightCreated.Invoke(lightResource);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
             }
         }
 

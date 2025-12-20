@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure.GameStates
@@ -30,7 +31,7 @@ namespace _Project.Scripts.Infrastructure.GameStates
             var state = ChangeCurrentState(stateType) as IState;
             state?.Enter();
         }
-        
+
         public void Enter<TPayload>(Type stateType, TPayload payload)
         {
             Debug.Log($"Tryint to change state from  {_currentState?.GetType().Name} to {stateType.GetType().Name}");
@@ -38,13 +39,23 @@ namespace _Project.Scripts.Infrastructure.GameStates
             state?.Enter(payload);
         }
 
+
         public void Enter<TState, TPayload>(TPayload payload) where TState : class, T, IPayloadState<TPayload>
         {
             Debug.Log($"Tryint to change state from  {_currentState?.GetType().Name} to {typeof(TState).Name}");
             TState state = ChangeCurrentState<TState>();
             state.Enter(payload);
         }
-        
+
+        public void Enter<TState, TNextState, TPayload, TNextPayload>(TPayload payload, TNextPayload nextPayload)
+            where TState : class, T, IEnterWithPayloadAndNextPayload<TPayload>
+            where TNextState : class, IPayloadState<TNextPayload>, IUnitState
+        {
+            Debug.Log($"Tryint to change state from  {_currentState?.GetType().Name} to {typeof(TState).Name}");
+            TState state = ChangeCurrentState<TState>();
+            state.Enter<TNextState, TNextPayload>(payload, nextPayload);
+        }
+
         public void Enter<TState, TPayload, TPayload2>(TPayload payload, TPayload2 payload2)
             where TState : class, T, IPayloadState<TPayload, TPayload2>
         {
@@ -52,7 +63,7 @@ namespace _Project.Scripts.Infrastructure.GameStates
             TState state = ChangeCurrentState<TState>();
             state.Enter(payload, payload2);
         }
-        
+
         protected T ChangeCurrentState(Type nextState)
         {
             if (_currentState is IExitableState state)
@@ -62,8 +73,7 @@ namespace _Project.Scripts.Infrastructure.GameStates
             _currentState = newState;
             return newState;
         }
-        
-        
+
 
         protected TState ChangeCurrentState<TState>() where TState : class, T, IExitableState
         {

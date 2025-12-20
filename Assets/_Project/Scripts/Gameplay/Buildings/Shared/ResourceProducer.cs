@@ -27,10 +27,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             _amountToProduce = amount;
         }
 
-        private void Awake()
-        {
-        }
-
         private void Update()
         {
             if (CanProduce)

@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Utils;
+using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-    public class LightResource : MonoBehaviour
+    public class LightResource : ClickableView<LightResource>
     {
         public Vector3 FinalPosition { get; private set; }
 
@@ -12,5 +13,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             FinalPosition = pos;
         }
 
+        public void Harvest()
+        {
+            Debug.LogError("We are harvesting");
+        }
     }
 }

@@ -12,12 +12,13 @@ namespace _Project.Scripts.Gameplay.Units
 
         private List<Type> _initStates = new()
         {
+            typeof(SimpleMoveToState),
+            typeof(MoveToWithNext),
+            typeof(MoveToWithNextAndPayload),
+            
             typeof(UnitIdleState),
-            typeof(UnitMoveToState),
-            typeof(UnitMoveToLanternState),
             typeof(FireUpLanternState),
-            typeof(HarvestLanternState),
-            typeof(UnitMoveToChurchState),
+            typeof(HarvestResourceState),
             typeof(UnitSendLightToChurchState)
         };
 
@@ -27,10 +28,10 @@ namespace _Project.Scripts.Gameplay.Units
                 unitPosition.transform.position, Quaternion.identity, unitPosition.transform);
 
             var unitContext = new UnitContext(unit,
-                _unitSettings.MoveSpeed, 
-                _unitSettings.FireUpMultiplier, 
+                _unitSettings.MoveSpeed,
+                _unitSettings.FireUpMultiplier,
                 _unitSettings.SendLightToChurchMultiplier
-                );
+            );
             var unitStateMachine = new UnitStateMachine();
 
             foreach (var stateType in _initStates)

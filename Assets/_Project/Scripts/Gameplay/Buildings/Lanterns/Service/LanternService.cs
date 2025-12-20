@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Units;
@@ -10,10 +10,10 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     {
         [Inject] private LanternFactory _factory;
         [Inject] private WorkerService _workers;
+        [Inject] private LightResourceService _lightResourceService;
 
         private readonly List<Lantern> _lanterns = new();
 
-        public event Action<Lantern> OnLanternFull = delegate { };
         public event Action<Lantern> OnLanternNeededToFire = delegate { };
 
         public void InitStartLanterns(List<LanternSlot> slots)
@@ -35,9 +35,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked += OnLanternClicked;
-
-            // var lightStorage = lantern.GetComponent<ResourceStorage>();
-            // lightStorage.OnAmountFull += OnLanternFullHandle;
         }
 
         private void UnsubscribeFromLantern(Lantern lantern)
@@ -47,14 +44,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked -= OnLanternClicked;
-
-            // var lightStorage = lantern.GetComponent<ResourceStorage>();
-            // lightStorage.OnAmountFull -= OnLanternFullHandle;
-        }
-
-        private void OnLanternFullHandle(Lantern obj)
-        {
-            OnLanternFull.Invoke(obj);
         }
 
         public void CreateAndRegisterLantern(LanternSlot slot)
@@ -65,7 +54,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         private void OnLanternClicked(Lantern lantern)
         {
-            if (_workers.MoveFreeUnit(lantern))
+            if (_workers.MoveFreeUnitTo(lantern))
                 lantern.GetComponent<LanternUi>().TurnOffIndicator();
         }
 

@@ -60,10 +60,10 @@ namespace _Project.Scripts.Gameplay.Buildings
             var unit = _workerService.UnregisterFirstFreeWorker();
             if (unit == null)
                 return;
-            
+
             _workers.AddWorker(unit);
             UpdateUi();
-            unit.StateMachine.Enter<UnitMoveToState, Vector3>(transform.position);
+            unit.StateMachine.Enter<SimpleMoveToState, Vector3>(transform.position);
         }
 
         private bool CanRemoveUnit()
