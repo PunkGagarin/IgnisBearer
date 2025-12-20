@@ -65,7 +65,8 @@ namespace _Project.Scripts.Gameplay.Units
             _nextIdleMovePoint = GetRandomMovePoint();
 
             _moveTask = Mover.MoveTo(_nextIdleMovePoint, MoveType.Idle, _cts.Token).ToAsyncLazy();
-            await _moveTask.Task;
+            
+            await _moveTask.Task.SuppressCancellationThrow();
 
             _currentIdleTime = 0f;
             _idleTimeCap = GetRandomIdleTime();
