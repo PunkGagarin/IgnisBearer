@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Units
         private List<Type> _initStates = new()
         {
             typeof(SimpleMoveToState),
-            typeof(MoveToWithNext),
+            typeof(UnitMoveToWithNext),
             typeof(MoveToWithNextAndPayload),
             
             typeof(UnitIdleState),

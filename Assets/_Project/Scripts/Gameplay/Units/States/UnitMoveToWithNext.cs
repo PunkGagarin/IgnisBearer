@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class MoveToWithNext : IUnitState, IEnterWithNext<Vector3>
+    public class UnitMoveToWithNext : IUnitState, IEnterWithNext<Vector3>
     {
         private Unit _unit;
 

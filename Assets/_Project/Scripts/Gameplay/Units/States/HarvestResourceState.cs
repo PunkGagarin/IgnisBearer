@@ -1,6 +1,10 @@
-﻿using _Project.Scripts.Gameplay.Buildings;
+﻿using System;
+using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Infrastructure.GameStates;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units
 {
@@ -8,25 +12,27 @@ namespace _Project.Scripts.Gameplay.Units
     {
         // [Inject] private LanternSettings _lanternSettings;
 
+        [Inject] BuildingSlotsService _buildingSlotsService;
         private Unit _unit;
+
         // private float _currentTime = 0f;
-        // private ResourceStorage _resourceStorage;
-        // private LanternUi _lanternUi;
         private UnitContext Context => _unit.Context;
 
-        // private Action _enterNextState;
 
         public void Init(Unit unit)
         {
             _unit = unit;
         }
 
-        public void Enter(LightResource resource)
+        public async void Enter(LightResource resource)
         {
             resource.Harvest();
-            // _resourceStorage = lantern.GetComponent<ResourceStorage>();
-            // _lanternUi = lantern.GetComponent<LanternUi>();
-            // _resourceStorage.StartCollecting();
+
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
+
+            Context.LightAmount += 1;
+            _unit.StateMachine.Enter<UnitMoveToWithNext, UnitSendLightToChurchState, Vector3>(
+                _buildingSlotsService.GetChurchPosition());
         }
 
         public void Update()

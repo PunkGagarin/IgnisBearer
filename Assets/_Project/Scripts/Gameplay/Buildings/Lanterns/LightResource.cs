@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Utils;
+﻿using System;
+using _Project.Scripts.Utils;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
@@ -6,6 +7,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     public class LightResource : ClickableView<LightResource>
     {
         public Vector3 FinalPosition { get; private set; }
+        
+        public Action<LightResource> OnHarvested = delegate { };
 
 
         public void SetFinalPosition(Vector3 pos)
@@ -15,7 +18,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public void Harvest()
         {
-            Debug.LogError("We are harvesting");
+            OnHarvested.Invoke(this);
         }
     }
 }

@@ -28,9 +28,9 @@ namespace _Project.Scripts.Gameplay.Units
             _lightResourceService.OnLightResourceClicked += OnResourceClickHandle;
         }
 
-        private void OnResourceClickHandle(LightResource obj)
+        private void OnResourceClickHandle(LightResource resource)
         {
-            MoveFreeUnitTo(obj);
+            MoveFreeUnitTo(resource);
         }
 
         public void CreateStartUnit(UnitSpawnPoint unitPosition)

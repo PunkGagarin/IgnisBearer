@@ -55,6 +55,15 @@ namespace _Project.Scripts.Infrastructure.GameStates
             TState state = ChangeCurrentState<TState>();
             state.Enter<TNextState, TNextPayload>(payload, nextPayload);
         }
+        
+        public void Enter<TState, TNextState, TPayload>(TPayload payload)
+            where TState : class, T, IEnterWithNext<TPayload>
+            where TNextState : class, IState, IUnitState
+        {
+            Debug.Log($"Tryint to change state from  {_currentState?.GetType().Name} to {typeof(TState).Name}");
+            TState state = ChangeCurrentState<TState>();
+            state.Enter<TNextState>(payload);
+        }
 
         public void Enter<TState, TPayload, TPayload2>(TPayload payload, TPayload2 payload2)
             where TState : class, T, IPayloadState<TPayload, TPayload2>
