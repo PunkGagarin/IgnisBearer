@@ -31,5 +31,10 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             Object.Destroy(lightResource.gameObject);
         }
+
+        public List<LightResource> GetUnharvestedResources()
+        {
+            return _lights;
+        }
     }
 }
