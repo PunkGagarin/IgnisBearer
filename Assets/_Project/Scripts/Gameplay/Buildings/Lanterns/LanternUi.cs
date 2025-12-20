@@ -21,13 +21,13 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public GameObject Indicator { get; private set; }
 
         private ResourceProducer _producer;
-        private IResourceStorage _iResourceStorage;
+        // private IResourceStorage _iResourceStorage;
         private Lantern _lantern;
         private LanternClickDetector _clickDetector;
 
         public void Init()
         {
-            SetCurrentAmountText();
+            // SetCurrentAmountText();
             TurnOnIndicator();
             Bar.TurnOffBar();
         }
@@ -36,16 +36,16 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             _producer = GetComponent<ResourceProducer>();
             _clickDetector = GetComponent<LanternClickDetector>();
-            _iResourceStorage = GetComponent<IResourceStorage>();
+            // _iResourceStorage = GetComponent<IResourceStorage>();
             _lantern = GetComponent<Lantern>();
         }
 
         private void Start()
         {
             _producer.OnLightProgressed += SetProgress;
-            _iResourceStorage.OnAmountIncreased += SetAmount;
-            _iResourceStorage.OnStorageCleared += ClearLantern;
-            _iResourceStorage.OnStartHarvest += TurnOffIndicator;
+            // _iResourceStorage.OnAmountIncreased += SetAmount;
+            // _iResourceStorage.OnStorageCleared += ClearLantern;
+            // _iResourceStorage.OnStartHarvest += TurnOffIndicator;
             _lantern.OnFired += TurnOffIndicator;
             _lantern.OnFireOff += TurnOffBar;
             _lantern.OnFireOff += TurnOnIndicator;
@@ -54,9 +54,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private void OnDestroy()
         {
             _producer.OnLightProgressed -= SetProgress;
-            _iResourceStorage.OnAmountIncreased -= SetAmount;
-            _iResourceStorage.OnStorageCleared -= ClearLantern;
-            _iResourceStorage.OnStartHarvest -= TurnOffIndicator;
+            // _iResourceStorage.OnAmountIncreased -= SetAmount;
+            // _iResourceStorage.OnStorageCleared -= ClearLantern;
+            // _iResourceStorage.OnStartHarvest -= TurnOffIndicator;
             _lantern.OnFired -= TurnOffIndicator;
             _lantern.OnFireOff -= TurnOffBar;
             _lantern.OnFireOff -= TurnOnIndicator;
@@ -69,7 +69,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         private void SetCurrentAmountText()
         {
-            AmountText.text = $" {_iResourceStorage.Amount}/{_iResourceStorage.MaxAmount}";
+            // AmountText.text = $" {_iResourceStorage.Amount}/{_iResourceStorage.MaxAmount}";
         }
 
         private void ClearLantern()
@@ -102,13 +102,13 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public void SetAmount((int amountIncreased, int newAmount, int maxAmount) args)
         {
-            SetCurrentAmountText();
+            // SetCurrentAmountText();
 
-            if (_iResourceStorage.IsFull())
-            {
-                TurnOffBar();
-                TurnOnIndicator();
-            }
+            // if (_iResourceStorage.IsFull())
+            // {
+            //     TurnOffBar();
+            //     TurnOnIndicator();
+            // }
         }
     }
 }

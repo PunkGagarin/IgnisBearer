@@ -5,6 +5,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
+    [RequireComponent(typeof(IWorkers))]
     public class BuildingUnitIncreaser : MonoBehaviour
     {
 
@@ -14,7 +15,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         public AddRemoveWithCountRow WorkersCountRow { get; private set; }
 
 
-        private Workers _workers;
+        private IWorkers _workers;
 
         private void Awake()
         {
@@ -59,10 +60,10 @@ namespace _Project.Scripts.Gameplay.Buildings
             var unit = _workerService.UnregisterFirstFreeWorker();
             if (unit == null)
                 return;
-            
+
             _workers.AddWorker(unit);
             UpdateUi();
-            unit.StateMachine.Enter<UnitMoveToState, Vector3>(transform.position);
+            unit.StateMachine.Enter<SimpleMoveToState, Vector3>(transform.position);
         }
 
         private bool CanRemoveUnit()

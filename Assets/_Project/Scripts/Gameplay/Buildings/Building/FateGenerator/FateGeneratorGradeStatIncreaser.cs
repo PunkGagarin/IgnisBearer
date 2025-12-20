@@ -3,6 +3,9 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
 {
+    [RequireComponent(typeof(Grade))]
+    [RequireComponent(typeof(IWorkers))]
+    [RequireComponent(typeof(ResourceProducer))]
     public class FateGeneratorGradeStatIncreaser : MonoBehaviour
     {
         [Inject] private FateGeneratorSettings _fateGeneratorSettings;

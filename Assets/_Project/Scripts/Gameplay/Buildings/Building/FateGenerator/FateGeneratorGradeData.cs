@@ -14,9 +14,9 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
 
         [field: SerializeField]
         public int MaxDurability { get; set; }
-        
+
         [field: SerializeField]
-        public int TimeToProduceFate  { get; set; }
+        public float TimeToProduceFate { get; set; } = 3f;
 
     }
 }

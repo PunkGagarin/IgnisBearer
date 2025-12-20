@@ -49,7 +49,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             foreach (var unit in _workers.CurWorkers)
                 UnsubscribeUnit(unit);
-            
+
             UnsubscribeFromLantern();
         }
 
@@ -71,8 +71,14 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (_lanternToServe.Count > 0)
             {
                 var lantern = _lanternToServe.Dequeue();
-                unit.StateMachine.Enter<UnitMoveToLanternState, Lantern>(lantern);
+                MoveToLantern(unit, lantern);
             }
+        }
+
+        private void MoveToLantern(Unit unit, Lantern lantern)
+        {
+            unit.StateMachine.Enter<MoveToWithNextAndPayload, FireUpLanternState, Vector3, Lantern>(
+                lantern.transform.position, lantern);
         }
 
         protected void SendFirstUnit(Lantern lantern)
@@ -83,7 +89,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 AddLanternToQueue(lantern);
                 return;
             }
-            unit.StateMachine.Enter<UnitMoveToLanternState, Lantern>(lantern);
+            MoveToLantern(unit, lantern);
         }
     }
 }

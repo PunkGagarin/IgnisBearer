@@ -21,7 +21,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             grade.SetNextGradePrice(gradePrice);
         }
 
-        public void UpdateResourceProducer(GameObject building, int timeToProduceFate)
+        public void UpdateResourceProducer(GameObject building, float timeToProduceFate)
         {
             var fateProducer = building.GetComponent<ResourceProducer>();
             fateProducer.Init(timeToProduceFate);

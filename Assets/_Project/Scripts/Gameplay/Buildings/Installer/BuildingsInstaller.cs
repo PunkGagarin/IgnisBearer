@@ -40,7 +40,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             BindMainBuildings();
             BindSlots();
-            BindChurchWithLightAndFate();
+            BindServices();
             BindLanterns();
             BindBuildingSettings();
         }
@@ -52,6 +52,9 @@ namespace _Project.Scripts.Gameplay.Buildings
             Container.BindInterfacesAndSelfTo<AutoLighterSettings>().FromInstance(_autoLighterSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<HouseSettings>().FromInstance(_houseSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<FateGeneratorSettings>().FromInstance(FateGeneratorSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<ChurchSettings>().FromInstance(_churchSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<LanternSettings>().FromInstance(_lanternSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<LightConsumeSettings>().FromInstance(LightConsumeSettings).AsSingle();
         }
 
         private void BindMainBuildings()
@@ -69,19 +72,17 @@ namespace _Project.Scripts.Gameplay.Buildings
             Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
         }
 
-        private void BindChurchWithLightAndFate()
+        private void BindServices()
         {
-            Container.BindInterfacesAndSelfTo<ChurchSettings>().FromInstance(_churchSettings).AsSingle();
-            Container.BindInterfacesAndSelfTo<LightConsumeSettings>().FromInstance(LightConsumeSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<FateService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LanternService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LightResourceService>().AsSingle();
         }
 
         private void BindLanterns()
         {
-            Container.BindInterfacesAndSelfTo<LanternSettings>().FromInstance(_lanternSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<LanternFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternSlotsService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<LanternService>().AsSingle();
         }
 
     }

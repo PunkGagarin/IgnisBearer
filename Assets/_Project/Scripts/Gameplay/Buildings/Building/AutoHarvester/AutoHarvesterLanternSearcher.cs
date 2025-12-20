@@ -7,7 +7,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         protected override void SubscribeOnLantern()
         {
-            _lanternService.OnLanternFull += SendFirstUnit;
+            // _lanternService.OnLanternFull += SendFirstUnit;
         }
 
         protected override List<Lantern> GetLanternsForQueue()
@@ -17,7 +17,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected override void UnsubscribeFromLantern()
         {
-            _lanternService.OnLanternFull -= SendFirstUnit;
+            // _lanternService.OnLanternFull -= SendFirstUnit;
         }
     }
 }

@@ -3,11 +3,9 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-    [RequireComponent(typeof(LanternClickDetector))]
-    [RequireComponent(typeof(IResourceStorage))]
+    [RequireComponent(typeof(ResourceProducer))]
     public class Lantern : MonoBehaviour
     {
-        private bool _isFired;
 
         [field: SerializeField]
         private SpriteRenderer UnFired { get; set; }
@@ -15,16 +13,17 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         [field: SerializeField]
         private SpriteRenderer Fired { get; set; }
 
+        private ResourceProducer _producer;
+        
+        private bool _isFired;
+        private int _currentResourceGeneration;
+        private int _maxResourceGenerationPerFireUp = 3;
+
         public Action<Lantern> OnDestroyed = delegate { };
         public Action<Lantern> OnNeededToFire = delegate { };
         public Action OnFired = delegate { };
         public Action OnFireOff = delegate { };
 
-        private LanternUi _ui;
-        private IResourceStorage _lightStorage;
-
-        private int _currentResourceGeneration;
-        private int _maxResourceGenerationPerFireUp = 3;
 
         public void Init(int maxResourceGenerate)
         {
@@ -34,22 +33,21 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         private void Awake()
         {
-            _ui = GetComponent<LanternUi>();
-            _lightStorage = GetComponent<IResourceStorage>();
+            _producer = GetComponent<ResourceProducer>();
         }
 
         public void Start()
         {
-            _lightStorage.OnAmountIncreased += DecrementFireCount;
+            _producer.OnProduced += DecrementFireCount;
         }
 
         private void OnDestroy()
         {
-            _lightStorage.OnAmountIncreased -= DecrementFireCount;
+            _producer.OnProduced -= DecrementFireCount;
             OnDestroyed.Invoke(this);
         }
 
-        private void DecrementFireCount((int amountIncreased, int newAmount, int maxAmount) valueTuple)
+        private void DecrementFireCount(int _)
         {
             _currentResourceGeneration -= 1;
             if (_currentResourceGeneration <= 0)
