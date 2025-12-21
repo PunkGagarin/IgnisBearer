@@ -12,7 +12,7 @@ namespace _Project.Scripts.Infrastructure.GameStates
         void Exit();
     }
 
-    public interface IPayloadState<TPayload> : IExitableState
+    public interface IPayloadState<in TPayload> : IExitableState
     {
         void Enter(TPayload payload);
     }

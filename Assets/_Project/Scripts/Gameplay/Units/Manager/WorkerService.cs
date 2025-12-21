@@ -7,15 +7,31 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class WorkerService
+    public class WorkerService : IInitializable, IDisposable
     {
         public event Action OnWorkerListUpdated;
         public event Action OnFreeUnitAvailable = delegate { };
         public event Action OnAllUnitsBusy = delegate { };
 
         [Inject] private UnitFactory _factory;
+        [Inject] private LightResourceService _lightResourceService;
 
         private List<Unit> _units = new();
+
+        public void Initialize()
+        {
+            _lightResourceService.OnLightResourceClicked += OnResourceClickHandle;
+        }
+
+        public void Dispose()
+        {
+            _lightResourceService.OnLightResourceClicked += OnResourceClickHandle;
+        }
+
+        private void OnResourceClickHandle(LightResource resource)
+        {
+            MoveFreeUnitTo(resource);
+        }
 
         public void CreateStartUnit(UnitSpawnPoint unitPosition)
         {
@@ -29,14 +45,27 @@ namespace _Project.Scripts.Gameplay.Units
             RegisterUnit(unit);
         }
 
-        //todo: move out to another class
-        public bool MoveFreeUnit(Lantern lantern)
+
+        public bool MoveFreeUnitTo(Lantern lantern)
         {
             var unit = FindFirstFreeWorker();
             if (unit == null)
                 return false;
 
-            unit.StateMachine.Enter<UnitMoveToLanternState, Lantern>(lantern);
+            unit.StateMachine.Enter<MoveToWithNextAndPayload, FireUpLanternState, Vector3, Lantern>(
+                lantern.transform.position, lantern);
+
+            return true;
+        }
+
+        public bool MoveFreeUnitTo(LightResource resource)
+        {
+            var unit = FindFirstFreeWorker();
+            if (unit == null)
+                return false;
+
+            unit.StateMachine.Enter<MoveToWithNextAndPayload, HarvestResourceState, Vector3, LightResource>(
+                resource.transform.position, resource);
             return true;
         }
 
@@ -95,7 +124,7 @@ namespace _Project.Scripts.Gameplay.Units
         {
             return _units.Count > 0;
         }
-        
+
         public bool HasFreeWorkers()
         {
             return _units.Any(unit => unit.Context.Status == UnitStatus.Free);

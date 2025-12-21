@@ -4,13 +4,9 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-
-    [RequireComponent(typeof(IResourceStorage))]
+    
     public class ResourceProducer : MonoBehaviour
     {
-        private IResourceStorage _iResourceStorage;
-        private IWorkers _workers;
-
         private bool _isProducing;
         private float _timeToProduce;
         private int _amountToProduce = 1;
@@ -19,17 +15,16 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public event Action<float> OnLightProgressed = delegate { };
         public event Action OnStartProducing = delegate { };
-        public event Action OnEndProducing = delegate { };
+        public event Action<int> OnProduced = delegate { };
 
         public void Init(float produceTime)
         {
             _timeToProduce = produceTime;
         }
 
-        private void Awake()
+        public void SetAmountToProduce(int amount)
         {
-            _iResourceStorage = GetComponent<IResourceStorage>();
-            _workers = GetComponent<IWorkers>();
+            _amountToProduce = amount;
         }
 
         private void Update()
@@ -50,11 +45,9 @@ namespace _Project.Scripts.Gameplay.Buildings
                 estimatedTime += Time.deltaTime;
                 OnLightProgressed(estimatedTime / _timeToProduce);
             }
-            int amountToIncrease = _workers.CurrentCount * _amountToProduce;
-            _iResourceStorage.IncrementAmount(amountToIncrease);
 
             _isProducing = false;
-            OnEndProducing.Invoke();
+            OnProduced.Invoke(_amountToProduce);
         }
 
         public bool IsProducing()

@@ -2,15 +2,14 @@
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
+    [RequireComponent( typeof(ResourceProducer))]
     public abstract class BaseProducerSwitcher : MonoBehaviour
     {
         private ResourceProducer _resourceProducer;
-        private IResourceStorage _iResourceStorage;
 
 
         protected virtual void Awake()
         {
-            _iResourceStorage = GetComponent<IResourceStorage>();
             _resourceProducer = GetComponent<ResourceProducer>();
         }
 
@@ -21,7 +20,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private bool CanProduce()
         {
-            return IsReadyToProduce() && _iResourceStorage.NotFull() && !_resourceProducer.IsProducing();
+            return IsReadyToProduce() && !_resourceProducer.IsProducing();
         }
 
         protected abstract bool IsReadyToProduce();

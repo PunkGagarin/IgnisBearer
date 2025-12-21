@@ -40,9 +40,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             var lantern = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
                 slot.transform.position, Quaternion.identity, null);
             lantern.Init( _settings.InitMaxResourceGeneratePerFireUp);
-                
-            var lightStorage = lantern.GetComponent<ResourceStorage>();
-            lightStorage.Init(_settings.InitMaxStorage);
 
             var lanternUi = lantern.GetComponent<LanternUi>();
             lanternUi.Init();

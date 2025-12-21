@@ -6,10 +6,15 @@ namespace _Project.Scripts.Utils
 {
     public abstract class ClickableView<T> : MonoBehaviour where T : ClickableView<T>
     {
-        [SerializeField]
+        // [SerializeField]
         protected Collider2D _collider2D;
 
         public event Action<T> OnClicked = delegate { };
+
+        private void Awake()
+        {
+            _collider2D = GetComponent<Collider2D>();
+        }
 
         public virtual void OnMouseDown()
         {
