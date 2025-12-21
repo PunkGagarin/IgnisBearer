@@ -17,7 +17,7 @@ MonoBehaviour:
   <FireUpTime>k__BackingField: 3
   <InitLanternCost>k__BackingField: 5
   <LanternCostMultiplier>k__BackingField: 2
-  <HarvestTime>k__BackingField: 0.8
+  <HarvestTime>k__BackingField: 0.4
   <LightProduceTime>k__BackingField: 4
   <InitMaxStorage>k__BackingField: 1
-  <InitMaxHarvestCount>k__BackingField: 3
+  <InitMaxResourceGeneratePerFireUp>k__BackingField: 3

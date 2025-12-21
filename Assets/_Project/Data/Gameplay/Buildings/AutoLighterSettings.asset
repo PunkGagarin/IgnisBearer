@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingTypes.AutoLighter.AutoLighterSettings
   <Prefab>k__BackingField: {fileID: 4250012244517143146, guid: b1471e8d7720f4f1581e3c4c660bd9fe, type: 3}
   <MaxCountToBuild>k__BackingField: 1
-  <BuildPrice>k__BackingField: 0
+  <BuildPrice>k__BackingField: 20
   <BuildingNameKey>k__BackingField: BUILD_AUTO_LIGHTER_NAME
   <GradeData>k__BackingField:
   - GradePrice: 0

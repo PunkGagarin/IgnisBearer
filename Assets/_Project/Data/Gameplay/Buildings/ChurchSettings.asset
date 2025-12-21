@@ -15,18 +15,13 @@ MonoBehaviour:
   <Prefab>k__BackingField: {fileID: 4756976558124453703, guid: 1f692f9e4b18b498ea91173011d2cde0, type: 3}
   <BuildingNameKey>k__BackingField: 
   <GradeData>k__BackingField:
-  - MaxUnitsCount: 2
-    MaxLightStorageCapacity: 120
+  - MaxLightStorageCapacity: 100
     GradePrice: 0
-    TimeToProduceFate: 5
-    LightSendSpeed: 0.6
-  - MaxUnitsCount: 4
-    MaxLightStorageCapacity: 150
-    GradePrice: 0
-    TimeToProduceFate: 5
+    LightSendSpeed: 0.4
+  - MaxLightStorageCapacity: 150
+    GradePrice: 1509
     LightSendSpeed: 2
-  - MaxUnitsCount: 6
-    MaxLightStorageCapacity: 200
-    GradePrice: 0
-    TimeToProduceFate: 1
+  - MaxLightStorageCapacity: 200
+    GradePrice: 29090
     LightSendSpeed: 1
+  <StartLightAmount>k__BackingField: 10
