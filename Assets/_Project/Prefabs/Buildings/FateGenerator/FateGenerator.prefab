@@ -362,11 +362,11 @@ GameObject:
   - component: {fileID: 875901685141009461}
   - component: {fileID: 5718879794068901836}
   - component: {fileID: 1508350922495688693}
-  - component: {fileID: 1622896804859822871}
   - component: {fileID: 524293900789016084}
   - component: {fileID: 473449727579905528}
   - component: {fileID: -7959002282597601306}
   - component: {fileID: -6797510577749641913}
+  - component: {fileID: 7950240056432494027}
   m_Layer: 0
   m_Name: FateGenerator
   m_TagString: Untagged
@@ -466,19 +466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac3edcad3e543528051d56cc0185ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Workers
---- !u!114 &1622896804859822871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5229708683809240057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ebfb28047264369b0185b5b83bfbe18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingUnitIncreaser
-  <WorkersCountRow>k__BackingField: {fileID: 1689562002467793808}
 --- !u!114 &524293900789016084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +515,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc5fa0d214f4b1c9d0773c7df8af355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ResourceCollector
+--- !u!114 &7950240056432494027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229708683809240057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f574065e817b4686b29f9b2ede889f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator.FateGeneratorUnitIncreaser
+  <WorkersCountRow>k__BackingField: {fileID: 1689562002467793808}
 --- !u!1 &5298658727275291987
 GameObject:
   m_ObjectHideFlags: 0
