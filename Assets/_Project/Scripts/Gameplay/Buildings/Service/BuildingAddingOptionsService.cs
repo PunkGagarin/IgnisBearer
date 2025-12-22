@@ -17,8 +17,9 @@ namespace _Project.Scripts.Gameplay.Buildings
         public List<BuildingButtonData> GetAddBuildingPopupData()
         {
             List<BuildingButtonData> list = new List<BuildingButtonData>();
-            AddBuildingButton(list, GetFactoryInitPrice(), BuildingType.Factory, _factorySettings.BuildingNameKey,
-                _factorySettings.MaxCountToBuild);
+            //disabled building factory
+            /*AddBuildingButton(list, GetFactoryInitPrice(), BuildingType.Factory, _factorySettings.BuildingNameKey,
+                _factorySettings.MaxCountToBuild);*/
             AddBuildingButton(list, GetAutoHarvesterInitPrice(), BuildingType.AutoHarvest,
                 _autoHarvestSettings.BuildingNameKey, _autoHarvestSettings.MaxCountToBuild);
             AddBuildingButton(list, GetAutoLighterInitPrice(), BuildingType.AutoLighter,
