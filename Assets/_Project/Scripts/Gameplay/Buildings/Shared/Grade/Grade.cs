@@ -13,6 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public int Current { get; set; }
         public int Max { get; set; }
+        public int CurrentGradeIndex { get; set; }
         public int NextGradePrice { get; set; }
 
         [SerializeField] private BuyLimitedButton _buyLimitedButton;

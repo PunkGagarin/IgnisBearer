@@ -1,41 +1,26 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Gameplay.Ui.Buildings;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class HouseGradeStatIncreaser : MonoBehaviour
+    public class HouseGradeStatIncreaser : BaseGradeStatIncreaser
     {
         [Inject] private HouseSettings _settings;
-        [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
-        [Inject] private BuildingComponentsUpdateService _buildingComponentsUpdate;
 
-        private Grade _grade;
-
-        private void Awake()
+        protected override void OnGradeChanged(int newGrade)
         {
-            _grade = GetComponent<Grade>();
-            _grade.OnGradeChanged += OnGradeChanged;
-        }
-
-        private void OnDestroy()
-        {
-            _grade.OnGradeChanged -= OnGradeChanged;
-        }
-
-        private void OnGradeChanged(int newGrade)
-        {
-            _buildingComponentsInitService.GetGradeData(out var curGradeData, out var nextGradeData,
-                _settings.GradeData, newGrade);
+            var curGradeData = _settings.GetData(newGrade);
+            var nextGradeData = _settings.GetNextData(newGrade); 
 
             if (nextGradeData == null)
                 _grade.HideBuyButton();
             else
-                _buildingComponentsUpdate.UpdateGrade(gameObject, nextGradeData.GradePrice);
+                UpdateGrade(gameObject, nextGradeData.GradePrice);
 
-            _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
-            _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
-            _buildingComponentsUpdate.UpdateBuyUnitHouse(gameObject, curGradeData.MaxUnitsCount);
+            UpdateDurability(gameObject, curGradeData.MaxDurability);
+            gameObject.TryGetComponent<HouseBuyUnit>(out var buyUnit);
+            buyUnit.SetMaxUnitsCount(curGradeData.MaxUnitsCount);
         }
-
     }
 }

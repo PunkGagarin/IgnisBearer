@@ -1,102 +1,41 @@
-using System;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
-using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class BuildingFactory
+    public abstract class BuildingFactory<TBuilding, TSettings, TGradeDataSettings>
+        where TSettings : GradeSettings<TBuilding, TGradeDataSettings> where TBuilding : Building
     {
-        [Inject] private readonly DiContainer _container;
+        [Inject] protected readonly DiContainer _container;
+        [Inject] protected readonly TSettings _settings;
 
-        [Inject] private readonly ChurchSettings _churchSettings;
-        [Inject] private readonly FateGeneratorSettings _fateGeneratorSettings;
-        [Inject] private readonly BuildingSlotsSettings _buildingSlotsSettings;
-        [Inject] private readonly HouseSettings _houseSettings;
-        [Inject] private FactorySettings _factorySettings;
-        [Inject] private AutoHarvestSettings _autoHarvestSettings;
-        [Inject] private AutoLighterSettings _autoLighterSettings;
-        [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
+        public abstract TBuilding Create(BuildingSlot slot, int grade);
 
-        public BuildingSlot CreateSlotAtPosition(BuildingSlotsSpawnPoint buildingSlotsSpawnPoint)
-        {
-            var slot = _container.InstantiatePrefabForComponent<BuildingSlot>(_buildingSlotsSettings.Prefab,
-                buildingSlotsSpawnPoint.transform.position, Quaternion.identity, null);
-            return slot;
-        }
-
-        public Building BuildByType(BuildingType buildingType, BuildingSlot slot)
-        {
-            return buildingType switch
-            {
-                BuildingType.Church => BuildChurch(slot),
-                BuildingType.House => BuildHouse(slot),
-                BuildingType.Factory => BuildFactory(slot),
-                BuildingType.AutoHarvest => BuildAutoHarvester(slot),
-                BuildingType.AutoLighter => BuildAutoLighter(slot),
-                BuildingType.FateGenerator => BuildFateGenerator(slot),
-                _ => throw new ArgumentOutOfRangeException(nameof(buildingType), buildingType, null)
-            };
-        }
-
-        private FateGeneratorBuilding BuildFateGenerator(BuildingSlot slot)
-        {
-            var building = InstantiateBuildingOnSlot<FateGeneratorBuilding>(slot, _fateGeneratorSettings.Prefab);
-            var fateGen = (FateGeneratorBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
-            slot.SetEnabled(false);
-            return fateGen;
-        }
-
-        private ChurchBuilding BuildChurch(BuildingSlot slot)
-        {
-            var building = InstantiateBuildingOnSlot<ChurchBuilding>(slot, _churchSettings.Prefab);
-            var church = (ChurchBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
-            slot.SetEnabled(false);
-            return church;
-        }
-
-        private HouseBuilding BuildHouse(BuildingSlot slot)
-        {
-            var building = InstantiateBuildingOnSlot<HouseBuilding>(slot, _houseSettings.Prefab);
-            var house = (HouseBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
-            slot.SetEnabled(false);
-            return house;
-        }
-
-        private AutoLighterBuilding BuildAutoLighter(BuildingSlot slot)
-        {
-            var building = InstantiateBuildingOnSlot<AutoLighterBuilding>(slot, _autoLighterSettings.Prefab);
-            var autoLighter = (AutoLighterBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
-            slot.SetEnabled(false);
-            return autoLighter;
-        }
-
-        private AutoHarvestBuilding BuildAutoHarvester(BuildingSlot slot)
-        {
-            var building = InstantiateBuildingOnSlot<AutoHarvestBuilding>(slot, _autoHarvestSettings.Prefab);
-            var harvester = (AutoHarvestBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
-            slot.SetEnabled(false);
-            return harvester;
-        }
-
-
-        private FactoryBuilding BuildFactory(BuildingSlot slot)
-        {
-            var building = InstantiateBuildingOnSlot<FactoryBuilding>(slot, _factorySettings.Prefab);
-            var factory = (FactoryBuilding)_buildingComponentsInitService.InitBuildingComponents(building);
-            slot.SetEnabled(false);
-            return factory;
-        }
-
-        private T InstantiateBuildingOnSlot<T>(BuildingSlot slot, Building prefab) where T : Building
+        protected TBuilding InstantiateBuildingOnSlot(BuildingSlot slot, TBuilding prefab)
         {
             var parentTransform = slot.transform;
             var building =
-                _container.InstantiatePrefabForComponent<T>(prefab,
+                _container.InstantiatePrefabForComponent<TBuilding>(prefab,
                     parentTransform.position, Quaternion.identity, parentTransform);
             return building;
         }
         
+        protected static void InitGradeComponent(Building building, int initGrade, int maxGrade, int gradePrice)
+        {
+            building.TryGetComponent<IGrade>(out var grade);
+            grade.Init(initGrade, maxGrade, gradePrice);
+        }
+        protected static void InitWorkersComponent(GameObject building, int maxUnitsCount)
+        {
+            building.TryGetComponent<IWorkers>(out var specUnits);
+            specUnits.Init(0, maxUnitsCount);
+        }
+
+        protected static void InitDurabilityComponent(Building building, int maxDurability)
+        {
+            building.TryGetComponent<IDurability>(out var durability);
+            durability.Init(maxDurability, maxDurability);
+        }
     }
 }

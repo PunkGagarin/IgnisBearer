@@ -59,15 +59,19 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void BindMainBuildings()
         {
-            Container.BindInterfacesAndSelfTo<BuildingFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AutoHarvesterFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AutoLighterFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ChurchFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<HouseFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<FactoryBuildingFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<FateGeneratorFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingAddingOptionsService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BuildingComponentsInitService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BuildingComponentsUpdateService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingsService>().AsSingle();
         }
 
         private void BindSlots()
         {
+            Container.BindInterfacesAndSelfTo<BuildingSlotsFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsSettings>().FromInstance(_buildingSlotsSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
         }
