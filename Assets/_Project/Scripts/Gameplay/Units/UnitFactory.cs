@@ -16,6 +16,7 @@ namespace _Project.Scripts.Gameplay.Units
             typeof(UnitMoveToWithNext),
             typeof(MoveToWithNextAndPayload),
             
+            typeof(DisableState),
             typeof(UnitIdleState),
             typeof(FireUpLanternState),
             typeof(HarvestResourceState),

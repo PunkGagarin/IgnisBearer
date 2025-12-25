@@ -53,6 +53,14 @@ namespace _Project.Scripts.Gameplay.Buildings
             _workers.RemoveWorker(out var worker);
             _workerService.RegisterUnit(worker);
             UpdateUi();
+            OnUnitRemoved(worker);
+        }
+
+        protected virtual void OnUnitRemoved(Unit worker)
+        {
+            worker.StateMachine.Enter<UnitIdleState>();
+            if (!worker.gameObject.activeSelf)
+                worker.gameObject.SetActive(true);
         }
 
         private void OnAddClicked()
@@ -63,6 +71,11 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             _workers.AddWorker(unit);
             UpdateUi();
+            OnUnitAdded(unit);
+        }
+
+        protected virtual void OnUnitAdded(Unit unit)
+        {
             unit.StateMachine.Enter<SimpleMoveToState, Vector3>(transform.position);
         }
 
