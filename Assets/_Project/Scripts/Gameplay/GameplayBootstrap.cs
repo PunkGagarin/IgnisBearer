@@ -1,5 +1,7 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.BuildingsData;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Gameplay.Units;
@@ -24,6 +26,8 @@ namespace _Project.Scripts.Gameplay
 
         [Inject] private GameEndService _gameEndService;
 
+        [Inject] private BuildingDataService _buildingDataService;
+
 
         public void Initialize()
         {
@@ -40,7 +44,7 @@ namespace _Project.Scripts.Gameplay
 
             InitBuildingSlots();
             InitExistingChurch();
-            
+
             InitConsumeProgressor();
 
             InitExistingHouse();
@@ -95,7 +99,8 @@ namespace _Project.Scripts.Gameplay
 
         private void LoadProgress()
         {
-            throw new NotImplementedException();
+            _buildingDataService.RestoreChurch(_levelService.GetChurchBuildingSpawnPoint());
+            _buildingDataService.RestoreOtherBuildings(_levelService.GetInitialBuildingsSpawnPoints());
         }
     }
 }

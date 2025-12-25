@@ -11,6 +11,8 @@ namespace _Project.Scripts.Gameplay
 
         private PlayerData _playerData;
 
+        public PlayerData PlayerData => _playerData;
+
         public void Initialize()
         {
             if (PlayerPrefs.HasKey(SaveKey))

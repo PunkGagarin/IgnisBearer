@@ -44,5 +44,12 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             return _buildingSlots.First();
         }
+
+        public BuildingSlot RestoreSlotWithId(BuildingSlotsSpawnPoint spawnPoint, string slotId)
+        {
+            var slot = _buildingSlotsFactory.CreateSlotAtPosition(spawnPoint, slotId);
+            _buildingSlots.Add(slot);
+            return slot;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Gameplay.Buildings.BuildingsData;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using Zenject;
@@ -45,6 +46,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 BuildingType.FateGenerator => _fateGeneratorFactory.Create(buildingSlot, initGrade),
                 _ => throw new ArgumentOutOfRangeException(nameof(buildingType), buildingType, null)
             };
+            building.AttachToSlot(buildingSlot.Id);
             RegisterBuilding(building);
         }
 
@@ -70,5 +72,34 @@ namespace _Project.Scripts.Gameplay.Buildings
             _buildings.Count(x => x.Type == buildingType);
 
         public ChurchBuilding GetChurch() => _church;
+
+        public void RestoreChurch(ChurchBuildingData church, BuildingSlot slot)
+        {
+            var building = _churchFactory.Restore(slot, church.CurrentGrade, church.ResourceCount);
+            building.AttachToSlot(slot.Id);
+            RegisterBuilding(building);
+        }
+
+        public void RestoreBuildingAt(BuildingData data, BuildingSlot buildingSlot)
+        {
+            Building building = data switch
+            {
+                ChurchBuildingData churchBuildingData => _churchFactory.Restore(buildingSlot, initGrade,
+                    churchBuildingData.ResourceCount),
+                HouseBuildingData houseBuildingData => _houseFactory.Restore(buildingSlot, initGrade,
+                    houseBuildingData.WorkersCount, houseBuildingData.DurabilityLevel),
+                FactoryBuildingData factoryBuildingData => _factoryBuildingFactory.Restore(buildingSlot, initGrade,
+                    factoryBuildingData.WorkersCount, factoryBuildingData.DurabilityLevel),
+                AutoHarvesterBuildingData autoHarvesterBuildingData => _autoHarvesterFactory.Restore(buildingSlot,
+                    initGrade, autoHarvesterBuildingData.WorkersCount, autoHarvesterBuildingData.DurabilityLevel),
+                AutoLighterBuildingData autoLighterBuildingData => _autoLighterFactory.Restore(buildingSlot, initGrade,
+                    autoLighterBuildingData.WorkersCount, autoLighterBuildingData.DurabilityLevel),
+                FateGeneratorBuildingData fateGeneratorBuildingData => _fateGeneratorFactory.Restore(buildingSlot,
+                    initGrade, fateGeneratorBuildingData.WorkersCount, fateGeneratorBuildingData.ResourceCount),
+                _ => throw new ArgumentOutOfRangeException(nameof(data), data, null)
+            };
+            building.AttachToSlot(buildingSlot.Id);
+            RegisterBuilding(building);
+        }
     }
 }

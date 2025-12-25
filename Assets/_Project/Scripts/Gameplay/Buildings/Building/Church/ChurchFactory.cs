@@ -19,5 +19,21 @@ namespace _Project.Scripts.Gameplay.Buildings
             slot.SetEnabled(false);
             return building;
         }
+
+        public ChurchBuilding Restore(BuildingSlot slot, int grade, int lightAmount)
+        {
+            var building = InstantiateBuildingOnSlot(slot, _settings.Prefab);
+            var gradeData = _settings.GetData(grade);
+            var nextGradeData = _settings.GetNextData(grade);
+
+            var nextGradePrice = nextGradeData?.GradePrice ?? 0;
+            InitGradeComponent(building, grade, _settings.MaxGrade, nextGradePrice);
+
+            building.TryGetComponent<IResourceStorage>(out var lightStorage);
+            lightStorage.Init(lightAmount, gradeData.MaxLightStorageCapacity);
+
+            slot.SetEnabled(false);
+            return building;   
+        }
     }
 }

@@ -12,7 +12,21 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             InitGradeComponent(building, grade, _settings.MaxGrade, nextGradeData.GradePrice);
             InitDurabilityComponent(building, gradeData.MaxDurability);
-            InitWorkersComponent(building.gameObject, gradeData.MaxUnitsCount);
+            InitWorkersComponent(building.gameObject, gradeData.MaxUnitsCount, 0);
+
+            slot.SetEnabled(false);
+            return building;
+        }
+
+        public Building Restore(BuildingSlot slot, int grade, int workersCount, int durabilityLevel)
+        {
+            var building = InstantiateBuildingOnSlot(slot, _settings.Prefab);
+            var gradeData = _settings.GetData(grade);
+            var nextGradeData = _settings.GetNextData(grade);
+
+            InitGradeComponent(building, grade, _settings.MaxGrade, nextGradeData.GradePrice);
+            InitDurabilityComponent(building, gradeData.MaxDurability, durabilityLevel);
+            InitWorkersComponent(building.gameObject, gradeData.MaxUnitsCount, workersCount);
 
             slot.SetEnabled(false);
             return building;

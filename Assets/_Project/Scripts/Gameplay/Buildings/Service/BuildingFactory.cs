@@ -26,16 +26,16 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<IGrade>(out var grade);
             grade.Init(initGrade, maxGrade, gradePrice);
         }
-        protected static void InitWorkersComponent(GameObject building, int maxUnitsCount)
+        protected static void InitWorkersComponent(GameObject building, int maxUnitsCount, int initCount = 0)
         {
             building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init(0, maxUnitsCount);
+            specUnits.Init(initCount, maxUnitsCount);
         }
 
-        protected static void InitDurabilityComponent(Building building, int maxDurability)
+        protected static void InitDurabilityComponent(Building building, int maxDurability, int initDurability = 0)
         {
             building.TryGetComponent<IDurability>(out var durability);
-            durability.Init(maxDurability, maxDurability);
+            durability.Init(initDurability, maxDurability);
         }
     }
 }

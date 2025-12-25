@@ -31,5 +31,22 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             return _workerService.WorkersCount();
         }
+
+        public Building Restore(BuildingSlot slot, int grade, int workersCount, int durabilityLevel)
+        {
+            var building = InstantiateBuildingOnSlot(slot, _settings.Prefab);
+            var gradeData = _settings.GetData(grade);
+            var nextGradeData = _settings.GetNextData(grade);
+
+            InitGradeComponent(building, grade, _settings.MaxGrade, nextGradeData.GradePrice);
+            InitDurabilityComponent(building, gradeData.MaxDurability, durabilityLevel);
+
+            building.TryGetComponent<HouseBuyUnit>(out var buyUnit);
+            buyUnit.Init(workersCount, _settings.InitUnitCost, _settings.UnitCostMultiplier,
+                gradeData.MaxUnitsCount);
+            
+            slot.SetEnabled(false);
+            return building;
+        }
     }
 }

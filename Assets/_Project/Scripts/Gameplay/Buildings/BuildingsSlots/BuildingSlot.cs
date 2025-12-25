@@ -6,6 +6,8 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     public class BuildingSlot : MonoBehaviour
     {
+        public string Id { get; private set; }
+
         [SerializeField] private Button _button;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Transform _content;
@@ -31,6 +33,8 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _fateService.OnAmountChanged -= OnBalanceChanged;
         }
 
+        public void Init(string id) => Id = id;
+
         private void OnAddBuildingClicked(BuildingType buildingType)
         {
             _addBuildingPopup.Hide();
@@ -49,7 +53,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _addBuildingPopup.Init(popupData);
         }
 
-        public void SetEnabled(bool enabled) => _content.gameObject.SetActive(enabled);
+        public void SetEnabled(bool isEnabled) => _content.gameObject.SetActive(isEnabled);
 
         private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj) => InitPopup();
     }
