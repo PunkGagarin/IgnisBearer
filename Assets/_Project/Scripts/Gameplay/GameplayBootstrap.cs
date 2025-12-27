@@ -1,7 +1,9 @@
 ﻿using System;
 using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using _Project.Scripts.Gameplay.Data;
 using _Project.Scripts.Gameplay.Level;
+using _Project.Scripts.Gameplay.Ui.SkillTree;
 using _Project.Scripts.Gameplay.Units;
 using Zenject;
 
@@ -23,6 +25,9 @@ namespace _Project.Scripts.Gameplay
         [Inject] private FateService _fateService;
 
         [Inject] private GameEndService _gameEndService;
+        [Inject] private SkillTreeService _skillTreeService;
+        
+        [Inject] private PlayerDataService _playerDataService;
 
 
         public void Initialize()
@@ -47,6 +52,8 @@ namespace _Project.Scripts.Gameplay
 
             InitLanternSlots();
             InitLanterns();
+            
+            _skillTreeService.Create();
 
             _gameEndService.Init();
         }
@@ -95,7 +102,10 @@ namespace _Project.Scripts.Gameplay
 
         private void LoadProgress()
         {
-            throw new NotImplementedException();
+            _playerDataService.Load();
+            var context = _playerDataService.PlayerData;
+            _skillTreeService.Init(context.SkillTreeData);
+            //foreach 
         }
     }
 }
