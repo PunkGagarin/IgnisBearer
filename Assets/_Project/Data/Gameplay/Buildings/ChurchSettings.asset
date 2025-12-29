@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d38ae8d1e249dfa77988ab86275b95, type: 3}
   m_Name: ChurchSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchSettings
-  <Prefab>k__BackingField: {fileID: 4756976558124453703, guid: 1f692f9e4b18b498ea91173011d2cde0, type: 3}
-  <BuildingNameKey>k__BackingField: 
-  <GradeData>k__BackingField:
+  _prefab: {fileID: 4756976558124453703, guid: 1f692f9e4b18b498ea91173011d2cde0, type: 3}
+  _gradeData:
   - MaxLightStorageCapacity: 100
     GradePrice: 0
-    LightSendSpeed: 0.4
+    LightSendSpeed: 3
   - MaxLightStorageCapacity: 150
-    GradePrice: 1509
+    GradePrice: 0
     LightSendSpeed: 2
   - MaxLightStorageCapacity: 200
-    GradePrice: 29090
+    GradePrice: 0
     LightSendSpeed: 1
+  <BuildingNameKey>k__BackingField: 
   <StartLightAmount>k__BackingField: 10

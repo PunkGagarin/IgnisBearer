@@ -13,8 +13,5 @@ MonoBehaviour:
   m_Name: UnitSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Units.UnitSettings
   <UnitPrefab>k__BackingField: {fileID: 7531569944373003940, guid: 9f8ccb3f6d2064a4d862a778e1728042, type: 3}
-  <MoveSpeed>k__BackingField: 5
-  <FireUpMultiplier>k__BackingField: 1
-  <SendLightToChurchMultiplier>k__BackingField: 0.6
-  <IdleBeforeMoveMinTime>k__BackingField: 1
-  <IdleBeforeMoveMaxTime>k__BackingField: 5
+  <DefaultMoveSpeed>k__BackingField: 3
+  <DefaultFireUpSpeed>k__BackingField: 1

@@ -10,40 +10,14 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         public event Action<Unit> OnUnitAdded = delegate { };
         public event Action<Unit> OnUnitRemoved = delegate { };
-        public event Action<int> CountChanged;
-        public event Action<int> MaxCountChanged;
         
         public List<Unit> CurWorkers { get; set; } = new();
-        public int CurrentCount { get; set; }
-
+        public int CurrentCount => CurWorkers.Count;
         public int MaxCount { get; set; }
 
-        public void Init(int initValue, int maxValue)
-        {
-            CurrentCount = initValue;
-            MaxCount = maxValue;
-        }
+        public void Init(int maxValue) => MaxCount = maxValue;
 
-        public void SetMaxUnitCount(int maxUnitsCount) => MaxCount = maxUnitsCount;
-
-        public void UpdateMaxCount(int count)
-        {
-            MaxCount = count;
-            MaxCountChanged?.Invoke(count);
-        }
-
-        private void IncrementCount() => UpdateCount(CurrentCount + 1);
-
-        private void DecrementCount() => UpdateCount(CurrentCount - 1);
-
-        public void UpdateCount(int count)
-        {
-            CurrentCount = count;
-            CountChanged?.Invoke(count);
-        }
-
-        public bool CanAddWorker()
-            => CurrentCount < MaxCount;
+        public bool CanAddWorker() => CurrentCount < MaxCount;
 
         public void AddWorker(Unit specUnit)
         {
@@ -54,7 +28,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             }
 
             CurWorkers.Add(specUnit);
-            IncrementCount();
             OnUnitAdded?.Invoke(specUnit);
         }
 
@@ -88,7 +61,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             {
                 worker = CurWorkers.First();
                 CurWorkers.Remove(worker);
-                DecrementCount();
                 OnUnitRemoved?.Invoke(worker);
             }
         }

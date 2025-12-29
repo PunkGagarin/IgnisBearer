@@ -3,36 +3,21 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class AutoLighterGradeStatIncreaser : MonoBehaviour
+    public class AutoLighterGradeStatIncreaser : BaseGradeStatIncreaser
     {
         [Inject] private AutoLighterSettings _autoLighterSettings;
-        [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
-        [Inject] private BuildingComponentsUpdateService _buildingComponentsUpdate;
 
-        private Grade _grade;
-
-        private void Awake()
+        protected override void OnGradeChanged(int newGrade)
         {
-            _grade = GetComponent<Grade>();
-            _grade.OnGradeChanged += OnGradeChanged;
-        }
-
-        private void OnDestroy()
-        {
-            _grade.OnGradeChanged -= OnGradeChanged;
-        }
-
-        private void OnGradeChanged(int newGrade)
-        {
-            _buildingComponentsInitService.GetGradeData(out var curGradeData, out var nextGradeData,
-                _autoLighterSettings.GradeData, newGrade);
+            var curGradeData = _autoLighterSettings.GetData(newGrade);
+            var nextGradeData = _autoLighterSettings.GetNextData(newGrade); 
 
             if (nextGradeData == null)
                 _grade.HideBuyButton();
             else
-                _buildingComponentsUpdate.UpdateGrade(gameObject, nextGradeData.GradePrice);
-            _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
-            _buildingComponentsUpdate.UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
+                UpdateGrade(gameObject, nextGradeData.GradePrice);
+            UpdateDurability(gameObject, curGradeData.MaxDurability);
+            UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
         }
 
     }

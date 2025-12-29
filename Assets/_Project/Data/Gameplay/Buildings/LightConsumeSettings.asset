@@ -14,29 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.LightConsumeSettings
   <ConsumeProgress>k__BackingField:
   - <TimeToIncrease>k__BackingField: 0
-    <TimeToConsume>k__BackingField: 20
-    <Amount>k__BackingField: 1
-  - <TimeToIncrease>k__BackingField: 60
-    <TimeToConsume>k__BackingField: 15
-    <Amount>k__BackingField: 1
-  - <TimeToIncrease>k__BackingField: 120
-    <TimeToConsume>k__BackingField: 10
-    <Amount>k__BackingField: 1
-  - <TimeToIncrease>k__BackingField: 180
-    <TimeToConsume>k__BackingField: 5
-    <Amount>k__BackingField: 1
-  - <TimeToIncrease>k__BackingField: 240
-    <TimeToConsume>k__BackingField: 4
-    <Amount>k__BackingField: 1
-  - <TimeToIncrease>k__BackingField: 300
-    <TimeToConsume>k__BackingField: 3
-    <Amount>k__BackingField: 1
-  - <TimeToIncrease>k__BackingField: 360
-    <TimeToConsume>k__BackingField: 2
-    <Amount>k__BackingField: 1
-  - <TimeToIncrease>k__BackingField: 420
+    <TimeToConsume>k__BackingField: 1.2
+    <Amount>k__BackingField: 0
+  - <TimeToIncrease>k__BackingField: 20
     <TimeToConsume>k__BackingField: 1
     <Amount>k__BackingField: 1
-  - <TimeToIncrease>k__BackingField: 480
-    <TimeToConsume>k__BackingField: 0.5
-    <Amount>k__BackingField: 1
+  - <TimeToIncrease>k__BackingField: 1000000
+    <TimeToConsume>k__BackingField: 1
+    <Amount>k__BackingField: 2
