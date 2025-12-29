@@ -29,7 +29,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         protected static void InitWorkersComponent(GameObject building, int maxUnitsCount)
         {
             building.TryGetComponent<IWorkers>(out var specUnits);
-            specUnits.Init(0, maxUnitsCount);
+            specUnits.Init(maxUnitsCount);
         }
 
         protected static void InitDurabilityComponent(Building building, int maxDurability)

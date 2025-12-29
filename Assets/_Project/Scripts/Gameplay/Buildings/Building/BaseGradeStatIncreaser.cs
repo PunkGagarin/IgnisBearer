@@ -41,7 +41,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         protected void UpdateWorkers(GameObject building, int maxUnitsCount)
         {
             building.TryGetComponent<IWorkers>(out var workers);
-            workers.SetMaxUnitCount(maxUnitsCount);
+            workers.Init(maxUnitsCount);
         }
 
         protected void UpdateDurability(GameObject building, int maxDurability)
