@@ -1,0 +1,44 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+namespace _Project.Scripts.Gameplay.Ui
+{
+    public class MetaCurrencyService
+    {
+        private Dictionary<MetaCurrencyType, int> _bank = new();
+
+        public bool HasEnough(MetaCurrencyType type, int amount)
+        {
+            return _bank[type] >= amount;
+        }
+
+
+        public void Add(MetaCurrencyType type, int amount)
+        {
+            _bank[type] += amount;
+        }
+
+        public bool TrySpend(MetaCurrencyType type, int amount)
+        {
+            if (!HasEnough(type, amount))
+            {
+                // Debug.LogError();
+                return false;
+            }
+
+            _bank[type] -= amount;
+            return true;
+        }
+
+        public void Spend(MetaCurrencyType type, int amount)
+        {
+            if (!HasEnough(type, amount))
+            {
+                Debug.LogError(" Не должны были вызывать этот метод без наличия денег!!");
+                return;
+            }
+            _bank[type] -= amount;
+        }
+    }
+
+}

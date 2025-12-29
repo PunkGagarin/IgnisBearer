@@ -8,8 +8,12 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
 {
     public class SkillNodeUI : MonoBehaviour
     {
+
         [field: SerializeField]
-        private SkillNodeType Type { get; set; }
+        private Button MainButton { get; set; }
+
+        [field: SerializeField]
+        public SkillNodeType Type { get; private set; }
 
         [field: SerializeField]
         private Image Icon { get; set; }
@@ -18,13 +22,16 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
         private Image Background { get; set; }
 
         [field: SerializeField]
-        private Button MainButton { get; set; }
-
-        [field: SerializeField]
         private TextMeshProUGUI Price { get; set; }
 
         [field: SerializeField]
         private Image PriceIcon { get; set; }
+
+        [field: SerializeField]
+        private TextMeshProUGUI CurrentLevelText { get; set; }
+
+        [field: SerializeField]
+        private TextMeshProUGUI MaxLevelText { get; set; }
 
         [field: SerializeField]
         private List<GameObject> ArrowsFromHere { get; set; } = new();
@@ -47,7 +54,22 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
 
         private SkillNodeState State { get; set; }
 
-        public event Action<SkillNodeUI> OnBought = delegate { };
+        public event Action<SkillNodeUI> OnClick = delegate { };
+
+        private void Awake()
+        {
+            MainButton.onClick.AddListener(OnClickHandle);
+        }
+
+        private void OnDestroy()
+        {
+            MainButton.onClick.RemoveListener(OnClickHandle);
+        }
+
+        private void OnClickHandle()
+        {
+            OnClick.Invoke(this);
+        }
 
 
         public void Init(Sprite icon, int price, Sprite priceIcon)
@@ -61,7 +83,14 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
 
         public void UpdateUi()
         {
-            
+        }
+
+        public void BuyNode()
+        {
+        }
+
+        public void SetState(NodeBoughtState boughtState)
+        {
         }
 
         public void SetState(SkillNodeState nodeState)
@@ -78,16 +107,13 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
                 case SkillNodeState.CanBuy:
                     SetCanBuy();
                     break;
-                case SkillNodeState.Active:
-                    SetNodeActive();
-                    break;
                 case SkillNodeState.None:
                 default:
                     throw new NotImplementedException();
             }
         }
 
-        private void SetNodeActive()
+        public void SetNodeActive()
         {
             Background.color = ActiveNodeColor;
             foreach (var arrow in ArrowsFromHere)
@@ -110,6 +136,16 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
         private void SetCanBuy()
         {
             Background.color = CanBuyNodeColor;
+        }
+
+        public void SetNewLevel(int currentLevel)
+        {
+            CurrentLevelText.text = currentLevel.ToString();
+        }
+
+        public void StartCantBuyAnimation()
+        {
+            Debug.Log(" Здесь должна быть анимация тряски");
         }
     }
 

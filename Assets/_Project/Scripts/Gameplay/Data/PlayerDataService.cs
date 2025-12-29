@@ -1,5 +1,4 @@
 ﻿using System;
-using _Project.Scripts.Gameplay.Ui;
 using Newtonsoft.Json;
 using UnityEngine;
 using Zenject;
@@ -38,4 +37,5 @@ namespace _Project.Scripts.Gameplay.Data
             PlayerPrefs.SetString(SaveKey, json);
         }
     }
+
 }

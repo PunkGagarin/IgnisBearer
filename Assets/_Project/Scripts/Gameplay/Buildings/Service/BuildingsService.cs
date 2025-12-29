@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.FateGenerator;
+using _Project.Scripts.Gameplay.Data;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings

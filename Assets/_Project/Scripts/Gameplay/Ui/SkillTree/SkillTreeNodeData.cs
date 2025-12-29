@@ -8,7 +8,10 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
     public class SkillTreeNodeData
     {
         [field: JsonProperty]
-        public SkillNodeState State { get; set; } = SkillNodeState.None;
+        public SkillNodeState State { get; set; } = SkillNodeState.None;        
+        
+        [field: JsonProperty]
+        public NodeBoughtState BoughtState { get; set; } = NodeBoughtState.None;
 
         [field: JsonProperty]
         public SkillNodeType Type { get; set; }  = SkillNodeType.None;
