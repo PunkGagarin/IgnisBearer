@@ -8,7 +8,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public class BuildingSlotsService
     {
-        [Inject] private BuildingSlotsFactory _buildingSlotsFactory;
+        [Inject] private BuildingFactory _buildingFactory;
 
         private List<BuildingSlot> _buildingSlots = new();
         private BuildingSlot _churchSlot;
@@ -19,14 +19,14 @@ namespace _Project.Scripts.Gameplay.Buildings
             InitChurchSlot(churchBuildingSpawnPoint);
             foreach (var buildingSlotsSpawnPoint in buildingsSpawnPoints)
             {
-                var slot = _buildingSlotsFactory.CreateSlotAtPosition(buildingSlotsSpawnPoint);
+                var slot = _buildingFactory.CreateSlotAtPosition(buildingSlotsSpawnPoint);
                 _buildingSlots.Add(slot);
             }
         }
 
         private void InitChurchSlot(BuildingSlotsSpawnPoint churchBuildingSpawnPoint)
         {
-            var church = _buildingSlotsFactory.CreateSlotAtPosition(churchBuildingSpawnPoint);
+            var church = _buildingFactory.CreateSlotAtPosition(churchBuildingSpawnPoint);
             _churchSlot = church;
         }
         

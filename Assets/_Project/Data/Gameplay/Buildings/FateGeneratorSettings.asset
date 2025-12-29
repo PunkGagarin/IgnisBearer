@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8f837958264d5db2ff189c56095cc1, type: 3}
   m_Name: FateGeneratorSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.FateGenerator.FateGeneratorSettings
-  _prefab: {fileID: -843974861517358685, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
-  _gradeData:
+  <Prefab>k__BackingField: {fileID: -843974861517358685, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
+  <BuildingNameKey>k__BackingField: FATE_GENERATOR_NAME_KEY
+  <MaxCountToBuild>k__BackingField: 1
+  <BuildPrice>k__BackingField: 0
+  <GradeData>k__BackingField:
   - <GradePrice>k__BackingField: 0
     <MaxUnitsCount>k__BackingField: 2
     <MaxDurability>k__BackingField: 100
@@ -22,6 +25,3 @@ MonoBehaviour:
     <MaxUnitsCount>k__BackingField: 3
     <MaxDurability>k__BackingField: 150
     <TimeToProduceFate>k__BackingField: 3
-  <BuildingNameKey>k__BackingField: FATE_GENERATOR_NAME_KEY
-  <MaxCountToBuild>k__BackingField: 1
-  <BuildPrice>k__BackingField: 0

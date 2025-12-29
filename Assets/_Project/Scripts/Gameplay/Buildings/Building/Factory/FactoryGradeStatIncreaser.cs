@@ -1,23 +1,39 @@
-﻿using Zenject;
+﻿using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    public class FactoryGradeStatIncreaser : BaseGradeStatIncreaser
+    public class FactoryGradeStatIncreaser : MonoBehaviour
     {
         [Inject] private FactorySettings _settings;
+        [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
+        [Inject] private BuildingComponentsUpdateService _buildingComponentsUpdate;
 
+        private Grade _grade;
 
-        protected override void OnGradeChanged(int newGrade)
+        private void Awake()
         {
-            var curGradeData = _settings.GetData(newGrade);
-            var nextGradeData = _settings.GetNextData(newGrade);
+            _grade = GetComponent<Grade>();
+            _grade.OnGradeChanged += OnGradeChanged;
+        }
+
+        private void OnDestroy()
+        {
+            _grade.OnGradeChanged -= OnGradeChanged;
+        }
+
+        private void OnGradeChanged(int newGrade)
+        {
+            _buildingComponentsInitService.GetGradeData(out var curGradeData, out var nextGradeData,
+                _settings.GradeData, newGrade);
 
             if (nextGradeData == null)
                 _grade.HideBuyButton();
             else
-                UpdateGrade(gameObject, nextGradeData.GradePrice);
-            UpdateDurability(gameObject, curGradeData.MaxDurability);
-            UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
+                _buildingComponentsUpdate.UpdateGrade(gameObject, nextGradeData.GradePrice);
+            _buildingComponentsUpdate.UpdateDurability(gameObject, curGradeData.MaxDurability);
+            _buildingComponentsUpdate.UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
         }
+
     }
 }

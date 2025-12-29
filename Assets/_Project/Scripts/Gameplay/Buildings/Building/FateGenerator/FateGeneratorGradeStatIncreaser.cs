@@ -6,22 +6,32 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
     [RequireComponent(typeof(Grade))]
     [RequireComponent(typeof(IWorkers))]
     [RequireComponent(typeof(ResourceProducer))]
-    public class FateGeneratorGradeStatIncreaser : BaseGradeStatIncreaser
+    public class FateGeneratorGradeStatIncreaser : MonoBehaviour
     {
         [Inject] private FateGeneratorSettings _fateGeneratorSettings;
+        [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
+        [Inject] private BuildingComponentsUpdateService _buildingComponentsUpdate;
 
-        protected override void OnGradeChanged(int newGrade)
+        private Grade _grade;
+
+        private void Awake()
         {
-            var curGradeData = _fateGeneratorSettings.GetData(newGrade);
-            var nextGradeData = _fateGeneratorSettings.GetNextData(newGrade); 
-            
-            if (nextGradeData == null)
-                _grade.HideBuyButton();
-            else
-                UpdateGrade(gameObject, nextGradeData.GradePrice);
+            _grade = GetComponent<Grade>();
+            _grade.OnGradeChanged += OnGradeChanged;
+        }
 
-            UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
-            UpdateResourceProducer(gameObject, curGradeData.TimeToProduceFate);
+        private void OnDestroy()
+        {
+            _grade.OnGradeChanged -= OnGradeChanged;
+        }
+
+        private void OnGradeChanged(int newGrade)
+        {
+            _buildingComponentsInitService.GetGradeData(out var curGradeData, out _,
+                _fateGeneratorSettings.GradeData, newGrade);
+            
+            _buildingComponentsUpdate.UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
+            _buildingComponentsUpdate.UpdateResourceProducer(gameObject, curGradeData.TimeToProduceFate);
             
         }
 
