@@ -7,7 +7,6 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         [field: SerializeField] public BuildingType Type { get; private set; }
 
-
         protected virtual void Awake()
         {
         }
