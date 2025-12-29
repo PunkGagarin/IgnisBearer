@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Units;
 
 namespace _Project.Scripts.Gameplay.Buildings
@@ -8,6 +9,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         public event Action<Unit> OnUnitAdded;
         public event Action<Unit> OnUnitRemoved;
 
+        List<Unit> CurWorkers { get; }
         int MaxCount { get; }
         int CurrentCount { get; }
 
