@@ -9,17 +9,16 @@ namespace _Project.Scripts.Gameplay.Buildings
 {
     public class BuildingsService
     {
-        [Inject] private readonly ChurchFactory _churchFactory;
-        [Inject] private readonly HouseFactory _houseFactory;
-        [Inject] private readonly FateGeneratorFactory _fateGeneratorFactory;
-        [Inject] private readonly AutoHarvesterFactory _autoHarvesterFactory;
-        [Inject] private readonly AutoLighterFactory _autoLighterFactory;
-        [Inject] private readonly FactoryBuildingFactory _factoryBuildingFactory;
-        [Inject] private readonly PlayerDataService _playerDataService;
+        [Inject] private FactorySettings _factorySettings;
+        [Inject] private AutoHarvestSettings _autoHarvestSettings;
+        [Inject] private AutoLighterSettings _autoLighterSettings;
+        [Inject] private HouseSettings _houseSettings;
+        [Inject] private ChurchSettings _churchSettings;
+        [Inject] private BuildingFactory _buildingFactory;
+        [Inject] private BuildingComponentsInitService _buildingComponentsInitService;
 
         private List<Building> _buildings = new();
         private ChurchBuilding _church;
-        private int initGrade = 1; //todo from save
 
         public event Action<FateGeneratorBuilding> OnFateGeneratorBuilt = delegate { };
 
@@ -35,16 +34,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public void AddBuildingTo(BuildingType buildingType, BuildingSlot buildingSlot)
         {
-            Building building = buildingType switch
-            {
-                BuildingType.Church => _churchFactory.Create(buildingSlot, initGrade),
-                BuildingType.House => _houseFactory.Create(buildingSlot, initGrade),
-                BuildingType.Factory => _factoryBuildingFactory.Create(buildingSlot, initGrade),
-                BuildingType.AutoHarvest => _autoHarvesterFactory.Create(buildingSlot, initGrade),
-                BuildingType.AutoLighter => _autoLighterFactory.Create(buildingSlot, initGrade),
-                BuildingType.FateGenerator => _fateGeneratorFactory.Create(buildingSlot, initGrade),
-                _ => throw new ArgumentOutOfRangeException(nameof(buildingType), buildingType, null)
-            };
+            var building = _buildingFactory.BuildByType(buildingType, buildingSlot);
             RegisterBuilding(building);
         }
 
@@ -66,7 +56,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             return _buildings.OfType<T>().FirstOrDefault();
         }
 
-        public int GetBuildingCountByType(BuildingType buildingType) =>
+        public int GetBuildingCountByType(BuildingType buildingType) => 
             _buildings.Count(x => x.Type == buildingType);
 
         public ChurchBuilding GetChurch() => _church;

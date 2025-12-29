@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b175f346368d4f3c988915d868005ab8, type: 3}
   m_Name: FactorySettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingTypes.Factory.FactorySettings
-  _prefab: {fileID: -272873710446961057, guid: 0067c703747c2461bac989dccf890730, type: 3}
-  _gradeData:
-  - GradePrice: 0
-    MaxUnitsCount: 2
-    MaxDurability: 100
-  - GradePrice: 0
-    MaxUnitsCount: 4
-    MaxDurability: 100
-  - GradePrice: 0
-    MaxUnitsCount: 6
-    MaxDurability: 100
+  <Prefab>k__BackingField: {fileID: -272873710446961057, guid: 0067c703747c2461bac989dccf890730, type: 3}
   <MaxCountToBuild>k__BackingField: 1
   <BuildPrice>k__BackingField: 12
   <BuildingNameKey>k__BackingField: BUILD_FACTORY_NAME
+  <GradeData>k__BackingField:
+  - GradePrice: 0
+    MaxUnitsCount: 0
+    MaxDurability: 100
+  - GradePrice: 2
+    MaxUnitsCount: 2
+    MaxDurability: 100
+  - GradePrice: 4
+    MaxUnitsCount: 4
+    MaxDurability: 100

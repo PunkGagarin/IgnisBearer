@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316390498e75467da53c6b4a85095d61, type: 3}
   m_Name: HouseSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.House.HouseSettings
-  _prefab: {fileID: -6917743041111328387, guid: 4fcb4e480a1ba441fa33f229429cf27b, type: 3}
-  _gradeData:
+  <Prefab>k__BackingField: {fileID: -6917743041111328387, guid: 4fcb4e480a1ba441fa33f229429cf27b, type: 3}
+  <MaxCountToBuild>k__BackingField: 1
+  <BuildingNameKey>k__BackingField: HOUSE_NAME_KEY
+  <BuildPrice>k__BackingField: 0
+  <UnitCostMultiplier>k__BackingField: 2
+  <InitUnitCost>k__BackingField: 2
+  <GradeData>k__BackingField:
   - GradePrice: 0
     MaxUnitsCount: 2
     MaxDurability: 100
@@ -23,8 +28,3 @@ MonoBehaviour:
   - GradePrice: 0
     MaxUnitsCount: 6
     MaxDurability: 100
-  <MaxCountToBuild>k__BackingField: 1
-  <BuildingNameKey>k__BackingField: HOUSE_NAME_KEY
-  <BuildPrice>k__BackingField: 0
-  <UnitCostMultiplier>k__BackingField: 2
-  <InitUnitCost>k__BackingField: 2

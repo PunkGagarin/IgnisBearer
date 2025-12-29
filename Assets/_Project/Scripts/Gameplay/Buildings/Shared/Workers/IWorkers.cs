@@ -8,14 +8,19 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         public event Action<Unit> OnUnitAdded;
         public event Action<Unit> OnUnitRemoved;
+        event Action<int> CountChanged;
+        event Action<int> MaxCountChanged;
 
-        List<Unit> CurWorkers { get; }
-        int MaxCount { get; }
-        int CurrentCount { get; }
+        List<Unit> CurWorkers { get; set; }
+        int MaxCount { get; set; }
+        int CurrentCount { get; set; }
 
-        void Init(int maxValue);
+        void Init(int initValue, int maxValue);
+        void SetMaxUnitCount(int maxUnitsCount);
         void AddWorker(Unit specUnit);
         void RemoveWorker(out Unit worker);
+        void UpdateMaxCount(int count);
+        void UpdateCount(int count);
         bool CanAddWorker();
         bool HasAnyWorker();
     }
