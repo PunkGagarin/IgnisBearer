@@ -6,15 +6,18 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     public class BuildingSlot : MonoBehaviour
     {
-        [SerializeField] private Button _button;
+        public string Id { get; private set; }
+
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Transform _content;
+        [SerializeField] private Button _button;
 
+        [Inject] private BuildingAddingOptionsService _buildingAddingOptionsService;
         [Inject] private BuildingsService _buildingsService;
         [Inject] private FateService _fateService;
-        [Inject] private BuildingAddingOptionsService _buildingAddingOptionsService;
 
         private AddBuildingPopup _addBuildingPopup;
+        private IResourceStorage _lightResourceStorage;
 
         private void Awake()
         {
@@ -22,6 +25,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _addBuildingPopup = GetComponent<AddBuildingPopup>();
             _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
             _fateService.OnAmountChanged += OnBalanceChanged;
+            _buildingsService.OnChurchBuilt += OnChurchBuilt;
         }
 
         private void OnDestroy()
@@ -29,6 +33,13 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _button.onClick.RemoveListener(OnClick);
             _addBuildingPopup.OnAddBuilding -= OnAddBuildingClicked;
             _fateService.OnAmountChanged -= OnBalanceChanged;
+            _buildingsService.OnChurchBuilt -= OnChurchBuilt;
+            _lightResourceStorage.OnAmountIncreased -= OnLightAmountIncreased;
+        }
+
+        public void Init(string id)
+        {
+            Id = id;
         }
 
         private void OnAddBuildingClicked(BuildingType buildingType)
@@ -49,8 +60,31 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _addBuildingPopup.Init(popupData);
         }
 
-        public void SetEnabled(bool enabled) => _content.gameObject.SetActive(enabled);
+        public void SetEnabled(bool isEnabled)
+        {
+            _content.gameObject.SetActive(isEnabled);
+        }
 
-        private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj) => InitPopup();
+        private void SetButtonEnabled(bool isEnabled)
+        {
+            _button.interactable = isEnabled;
+        }
+
+        private void OnChurchBuilt(ChurchBuilding churchBuilding)
+        {
+            IResourceStorage lightResourceStorage = churchBuilding.GetComponent<IResourceStorage>();
+            _lightResourceStorage = lightResourceStorage;
+            _lightResourceStorage.OnAmountIncreased += OnLightAmountIncreased;
+        }
+
+        private void OnLightAmountIncreased((int amountIncreased, int newAmount, int maxAmount) obj)
+        {
+            SetButtonEnabled(true);
+        }
+
+        private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj)
+        {
+            InitPopup();
+        }
     }
 }

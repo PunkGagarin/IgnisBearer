@@ -11,22 +11,28 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [Inject] public FateService _fateService;
 
+        [SerializeField] private BuyLimitedButton _buyLimitedButton;
+        public int NextGradePrice { get; set; }
         public int Current { get; set; }
         public int Max { get; set; }
-        public int CurrentGradeIndex { get; set; }
-        public int NextGradePrice { get; set; }
 
-        [SerializeField] private BuyLimitedButton _buyLimitedButton;
         public event Action<int> OnGradeChanged;
 
         private void Awake()
         {
             _fateService.OnAmountChanged += OnFateAmountChanged;
             _buyLimitedButton.OnBuyClicked += UpgradeGrade;
+            ShowUi(false);
+        }
+
+        private void ShowUi(bool show)
+        {
+            _buyLimitedButton.gameObject.SetActive(show);
         }
 
         private void OnFateAmountChanged((int amountIncreased, int newAmount, int maxAmount) obj)
         {
+            ShowUi(true);
             UpdateUi();
         }
 
@@ -52,7 +58,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             NextGradePrice = nextGradePrice;
             UpdateUi();
         }
-        
+
         public void HideBuyButton() => _buyLimitedButton.ShowButton(false);
 
         public void Init(int initValue, int maxGrade, int gradePrice)
