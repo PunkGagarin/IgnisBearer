@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts.Gameplay;
 using _Project.Scripts.Gameplay.Level;
+using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Infrastructure.GameStates.States;
 using UnityEngine;
 using Zenject;
@@ -17,6 +18,8 @@ namespace _Project.Scripts.Infrastructure
             Container.BindInterfacesAndSelfTo<LevelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelService>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameEndService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MetaCurrencyService>().AsSingle();
+            
             Container.Bind<LevelData>().FromInstance(LevelData).AsSingle();
 
             Container.BindInterfacesAndSelfTo<GameplayBootstrap>().AsSingle().NonLazy();

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b91ec72893849aea6c11f7547365c8d, type: 3}
+  m_Name: HouseCapacityNodeSettings
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.SkillTree.SkillNodeSettings
+  <NodeType>k__BackingField: 1
+  <MaxLevel>k__BackingField: 1
+  <CurrencyType>k__BackingField: 1
+  <Prices>k__BackingField: 00000000
+  <Icon>k__BackingField: {fileID: -4307269327017326166, guid: 2e2cf682ece3f45f2ad4fba2d352e339, type: 3}

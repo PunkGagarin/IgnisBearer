@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using _Project.Scripts.Gameplay.Data;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay
 {
@@ -9,8 +10,7 @@ namespace _Project.Scripts.Gameplay
         {
             Container
                 .BindInterfacesAndSelfTo<PlayerDataService>()
-                .AsSingle()
-                .NonLazy();
+                .AsSingle();
         }
     }
 }

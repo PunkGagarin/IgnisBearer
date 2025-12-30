@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Gameplay.SkillTree;
+using _Project.Scripts.Gameplay.Ui.SkillTree;
 using Newtonsoft.Json;
 
-namespace _Project.Scripts.Gameplay
+namespace _Project.Scripts.Gameplay.Data
 {
     [Serializable]
     public class PlayerData
@@ -12,7 +14,10 @@ namespace _Project.Scripts.Gameplay
         public Dictionary<int, int> SomeDic { get; set; } = new();
 
         [field: JsonProperty]
-        public LevelContext LevelContext { get; set; } = new LevelContext();
+        public LevelContext LevelContext { get; set; } = new();
+        
+        [field: JsonProperty]
+        public SkillTreeData SkillTreeData { get; set; } = new();
     }
 
     [Serializable]
