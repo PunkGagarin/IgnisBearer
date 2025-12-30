@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Data;
 using _Project.Scripts.Gameplay.Ui;
 using UnityEngine;
@@ -36,7 +37,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void TryBuyNode(SkillNodeUI node)
         {
-            if (CanBuyNode(node, out var currency, out var price))
+            if (CanBuyNode(node.Type, out var currency, out var price))
             {
                 _metaCurrencyService.Spend(currency, price);
 
@@ -44,12 +45,17 @@ namespace _Project.Scripts.Gameplay.SkillTree
                 _skillTreeData.SetCurrentLevel(node.Type, newLevel);
 
                 if (ActivatingFirstTime(node.Type))
-                    node.SetNodeActive();
+                    ActivateNode(node);
 
                 if (newLevel == GetMaxNodeLevel(node.Type))
                     SetMaxLevel(node);
+                else
+                    node.SetPrice(_settings.GetPriceFor(node.Type, newLevel));
 
                 node.SetNewLevel(newLevel);
+
+
+                UpdateAllActiveNodePrices();
             }
             else
             {
@@ -58,11 +64,36 @@ namespace _Project.Scripts.Gameplay.SkillTree
             }
         }
 
+        private void ActivateNode(SkillNodeUI node)
+        {
+            node.SetNodeActive();
+
+            foreach (var nextNode in node.NextNodes)
+            {
+                var data = _skillTreeData.CreateNewNode(nextNode.Type);
+                InitNode(data);
+            }
+        }
+
+        private void UpdateAllActiveNodePrices()
+        {
+            List<SkillTreeNodeData> nonMaxedNodes = _skillTreeData.GetNonMaxedNodes();
+            foreach (var node in nonMaxedNodes)
+            {
+                bool canBuyNode = CanBuyNode(node.Type, out var currency, out var price);
+                if (canBuyNode)
+                    _ui.SetCanBuyFor(node.Type);
+                else
+                    _ui.SetCanNotBuyFor(node.Type);
+            }
+        }
+
         private void SetMaxLevel(SkillNodeUI node)
         {
             NodeBoughtState boughtState = NodeBoughtState.Maxed;
             _skillTreeData.SetBoughtState(node.Type, boughtState);
             node.SetState(boughtState);
+            node.HidePrice();
         }
 
         private bool ActivatingFirstTime(SkillNodeType type)
@@ -75,11 +106,11 @@ namespace _Project.Scripts.Gameplay.SkillTree
             return _skillTreeData.GetMaxLevel(nodeType);
         }
 
-        private bool CanBuyNode(SkillNodeUI node, out MetaCurrencyType currencyType, out int price)
+        private bool CanBuyNode(SkillNodeType type, out MetaCurrencyType currencyType, out int price)
         {
-            currencyType = _settings.GetCurrencyTypeFor(node.Type);
-            int currentLevel = GetCurrentNodeLevel(node.Type);
-            price = _settings.GetPriceFor(node.Type, currentLevel);
+            currencyType = _settings.GetCurrencyTypeFor(type);
+            int currentLevel = GetCurrentNodeLevel(type);
+            price = _settings.GetPriceFor(type, currentLevel);
             return _metaCurrencyService.HasEnough(currencyType, price);
         }
 
@@ -104,15 +135,18 @@ namespace _Project.Scripts.Gameplay.SkillTree
         public void Init(SkillTreeData data)
         {
             foreach (var nodeData in data.Nodes)
-            {
-                _ui.InitNode(nodeData.Type, 
-                    nodeData.BoughtState, 
-                    nodeData.CurrentLevel, 
-                    nodeData.MaxLevel,
-                    _settings.GetPriceFor(nodeData.Type, nodeData.CurrentLevel),
-                    _settings.GetCurrencyTypeFor(nodeData.Type), 
-                    _settings.GetIconFor(nodeData.Type));
-            }
+                InitNode(nodeData);
+        }
+
+        private void InitNode(SkillTreeNodeData nodeData)
+        {
+            _ui.InitNode(nodeData.Type,
+                nodeData.BoughtState,
+                nodeData.CurrentLevel,
+                nodeData.MaxLevel,
+                _settings.GetPriceFor(nodeData.Type, nodeData.CurrentLevel),
+                _settings.GetCurrencyTypeFor(nodeData.Type),
+                _settings.GetIconFor(nodeData.Type));
         }
     }
 }
