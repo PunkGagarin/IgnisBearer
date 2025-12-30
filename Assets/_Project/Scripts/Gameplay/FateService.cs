@@ -56,7 +56,10 @@ namespace _Project.Scripts.Gameplay
 
         public bool Spend(int amount)
         {
-            if (!_isInited || !HasEnough(amount))
+            if (amount == 0)
+                return true;
+            
+            if (!HasEnough(amount))
             {
                 Debug.LogError($" Not enough fate to spend {amount}");
                 return false;
