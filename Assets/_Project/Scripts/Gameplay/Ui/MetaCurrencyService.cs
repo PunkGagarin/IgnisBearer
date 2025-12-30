@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Ui
@@ -6,6 +7,17 @@ namespace _Project.Scripts.Gameplay.Ui
     public class MetaCurrencyService
     {
         private Dictionary<MetaCurrencyType, int> _bank = new();
+
+        public void Create()
+        {
+            MetaCurrencyType[] allCurrencyTypes = (MetaCurrencyType[])Enum.GetValues(typeof(MetaCurrencyType));
+            foreach (var currencyType in allCurrencyTypes)
+                _bank.Add(currencyType, 0);
+        }
+
+        public void Init()
+        {
+        }
 
         public bool HasEnough(MetaCurrencyType type, int amount)
         {

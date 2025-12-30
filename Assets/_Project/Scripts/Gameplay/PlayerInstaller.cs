@@ -10,8 +10,11 @@ namespace _Project.Scripts.Gameplay
         {
             Container
                 .BindInterfacesAndSelfTo<PlayerDataService>()
-                .AsSingle()
-                .NonLazy();
+                .AsSingle();
+            
+            Container
+                .BindInterfacesAndSelfTo<SkillTreeDataFacade>()
+                .AsSingle();
         }
     }
 }

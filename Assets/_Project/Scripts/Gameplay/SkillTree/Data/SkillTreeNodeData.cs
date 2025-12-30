@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace _Project.Scripts.Gameplay.Ui.SkillTree
+namespace _Project.Scripts.Gameplay.SkillTree
 {
     [Serializable]
     public class SkillTreeNodeData

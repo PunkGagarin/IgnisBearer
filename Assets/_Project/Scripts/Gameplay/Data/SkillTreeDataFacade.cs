@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using _Project.Scripts.Gameplay.SkillTree;
 using _Project.Scripts.Gameplay.Ui.SkillTree;
 using UnityEngine;
 using Zenject;
@@ -54,6 +55,11 @@ namespace _Project.Scripts.Gameplay.Data
         {
             var node = GetNode(nodeType);
             node.CurrentLevel = newLevel;
+        }
+
+        public void SetTreeData(SkillTreeData treeData)
+        {
+            _dataService.PlayerData.SkillTreeData = treeData;
         }
     }
 }

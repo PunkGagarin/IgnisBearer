@@ -10,8 +10,8 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         public event Action<Unit> OnUnitAdded = delegate { };
         public event Action<Unit> OnUnitRemoved = delegate { };
-        
         public List<Unit> CurWorkers { get; set; } = new();
+        
         public int CurrentCount => CurWorkers.Count;
         public int MaxCount { get; set; }
 

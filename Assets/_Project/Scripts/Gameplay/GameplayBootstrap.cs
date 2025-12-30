@@ -3,6 +3,8 @@ using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Data;
 using _Project.Scripts.Gameplay.Level;
+using _Project.Scripts.Gameplay.SkillTree;
+using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Gameplay.Ui.SkillTree;
 using _Project.Scripts.Gameplay.Units;
 using Zenject;
@@ -28,6 +30,7 @@ namespace _Project.Scripts.Gameplay
         [Inject] private SkillTreeService _skillTreeService;
         
         [Inject] private PlayerDataService _playerDataService;
+        [Inject] private MetaCurrencyService _metaCurrencyService;
 
 
         public void Initialize()
@@ -53,6 +56,7 @@ namespace _Project.Scripts.Gameplay
             InitLanternSlots();
             InitLanterns();
             
+            _metaCurrencyService.Create();
             _skillTreeService.Create();
 
             _gameEndService.Init();

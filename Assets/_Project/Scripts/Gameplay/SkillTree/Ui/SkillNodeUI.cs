@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Ui;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Gameplay.Ui.SkillTree
+namespace _Project.Scripts.Gameplay.SkillTree
 {
     public class SkillNodeUI : MonoBehaviour
     {
@@ -37,7 +38,7 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
         private List<GameObject> ArrowsFromHere { get; set; } = new();
 
         [field: SerializeField]
-        private List<SkillNodeUI> NextNodes { get; set; }
+        public List<SkillNodeUI> NextNodes { get; private set; }
 
         [field: SerializeField]
         private SkillNodeUI ParentNode { get; set; }
@@ -71,55 +72,59 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
             OnClick.Invoke(this);
         }
 
-
-        public void Init(Sprite icon, int price, Sprite priceIcon)
-        {
-            Icon.sprite = icon;
-            Price.text = price.ToString();
-            PriceIcon.sprite = priceIcon;
-
-            UpdateUi();
-        }
-
-        public void UpdateUi()
-        {
-        }
-
-        public void BuyNode()
-        {
-        }
-
         public void SetState(NodeBoughtState boughtState)
         {
+            switch (boughtState)
+            {
+                case NodeBoughtState.Maxed:
+                    SetMaxed();
+                    break;
+                case NodeBoughtState.Bought:
+                    SetNodeActive();
+                    break;
+                case NodeBoughtState.NotBought:
+                    ActivateSelf();
+                    break;
+            }
         }
 
-        public void SetState(SkillNodeState nodeState)
+        private void SetMaxed()
         {
-            State = nodeState;
-            switch (nodeState)
-            {
-                case SkillNodeState.Unreachable:
-                    SetUnreachable();
-                    break;
-                case SkillNodeState.NoMoney:
-                    SetNoMoney();
-                    break;
-                case SkillNodeState.CanBuy:
-                    SetCanBuy();
-                    break;
-                case SkillNodeState.None:
-                default:
-                    throw new NotImplementedException();
-            }
+            SetNodeActive();
+            Debug.Log(" Включаем состояние ноды - замакшена");
+        }
+
+        private void ActivateSelf()
+        {
+            gameObject.SetActive(true);
         }
 
         public void SetNodeActive()
         {
             Background.color = ActiveNodeColor;
+            ActivateNode();
+        }
+
+        private void ActivateNode()
+        {
+            ActivateArrows();
+            ActivateNextNodes();
+        }
+
+        private void ActivateArrows()
+        {
             foreach (var arrow in ArrowsFromHere)
-            {
-                //activate arrow
-            }
+                arrow.gameObject.SetActive(true);
+        }
+
+        private void ActivateNextNodes()
+        {
+            foreach (var skillNodeUI in NextNodes)
+                skillNodeUI.SetState(NodeBoughtState.NotBought);
+        }
+
+        private void DeactivateNode()
+        {
         }
 
         private void SetUnreachable()
@@ -147,6 +152,26 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
         {
             Debug.Log(" Здесь должна быть анимация тряски");
         }
-    }
 
+        public void SetMaxLevel(int maxLevel)
+        {
+            MaxLevelText.text = maxLevel.ToString();
+        }
+
+        public void SetPrice(int price)
+        {
+            Price.text = price.ToString();
+        }
+
+        public void SetCurrencyType(MetaCurrencyType currencyType)
+        {
+            //todo: implement me
+            // PriceIcon.sprite = priceIcon;
+        }
+
+        public void SetIcon(Sprite icon)
+        {
+            Icon.sprite = icon;
+        }
+    }
 }

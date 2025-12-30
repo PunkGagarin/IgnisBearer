@@ -1,9 +1,10 @@
 ﻿using System;
 using _Project.Scripts.Gameplay.Data;
+using _Project.Scripts.Gameplay.Ui;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Ui.SkillTree
+namespace _Project.Scripts.Gameplay.SkillTree
 {
     public class SkillTreeService : IInitializable, IDisposable
     {
@@ -76,7 +77,7 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
 
         private bool CanBuyNode(SkillNodeUI node, out MetaCurrencyType currencyType, out int price)
         {
-            currencyType = _settings.GetTypeFor(node.Type);
+            currencyType = _settings.GetCurrencyTypeFor(node.Type);
             int currentLevel = GetCurrentNodeLevel(node.Type);
             price = _settings.GetPriceFor(node.Type, currentLevel);
             return _metaCurrencyService.HasEnough(currencyType, price);
@@ -95,12 +96,23 @@ namespace _Project.Scripts.Gameplay.Ui.SkillTree
 
         public void Create()
         {
-            // var treeData = _factory.Create(_ui);
-            // Init(treeData);
+            var treeData = _factory.Create(_ui);
+            _skillTreeData.SetTreeData(treeData);
+            Init(treeData);
         }
 
         public void Init(SkillTreeData data)
         {
+            foreach (var nodeData in data.Nodes)
+            {
+                _ui.InitNode(nodeData.Type, 
+                    nodeData.BoughtState, 
+                    nodeData.CurrentLevel, 
+                    nodeData.MaxLevel,
+                    _settings.GetPriceFor(nodeData.Type, nodeData.CurrentLevel),
+                    _settings.GetCurrencyTypeFor(nodeData.Type), 
+                    _settings.GetIconFor(nodeData.Type));
+            }
         }
     }
 }
