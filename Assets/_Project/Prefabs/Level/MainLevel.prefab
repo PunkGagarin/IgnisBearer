@@ -5014,8 +5014,6 @@ Transform:
   - {fileID: 3532037880840059771}
   - {fileID: 7018062684945231404}
   - {fileID: 7229433716782936248}
-  - {fileID: 1999802526245607762}
-  - {fileID: 7677577504585366578}
   - {fileID: 2887040856194480698}
   - {fileID: 4052981032820104062}
   - {fileID: 638548589928452897}
@@ -5163,8 +5161,6 @@ MonoBehaviour:
   - {fileID: 2554958787805185261}
   <LanternSlotsPositions>k__BackingField:
   - {fileID: 2316995509709615414}
-  - {fileID: 6585281755101659620}
-  - {fileID: 8887779229449609330}
   <InitalBuildingSlotsPositions>k__BackingField:
   - {fileID: 6275662601446319472}
   - {fileID: 2224867380079414959}
@@ -5214,50 +5210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572219c88ccf445690a1350d701573ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingSlotsSpawnPoint
---- !u!1 &4451665103110506613
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1999802526245607762}
-  - component: {fileID: 6585281755101659620}
-  m_Layer: 0
-  m_Name: LanternSpawnPoint (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1999802526245607762
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4451665103110506613}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.1, y: 9.5, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9125757822894066938}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6585281755101659620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4451665103110506613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa094ed8f7f4783b2d3a4081d7696d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Lanterns.LanternStartPoint
 --- !u!1 &5058173724849915121
 GameObject:
   m_ObjectHideFlags: 0
@@ -46540,50 +46492,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!1 &5613122062037568044
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7677577504585366578}
-  - component: {fileID: 8887779229449609330}
-  m_Layer: 0
-  m_Name: LanternSpawnPoint (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7677577504585366578
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613122062037568044}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21, y: -10.3, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9125757822894066938}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8887779229449609330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613122062037568044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa094ed8f7f4783b2d3a4081d7696d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Lanterns.LanternStartPoint
 --- !u!1 &6591989363132473681
 GameObject:
   m_ObjectHideFlags: 0

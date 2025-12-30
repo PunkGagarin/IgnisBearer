@@ -27,4 +27,4 @@ MonoBehaviour:
   <BuildingNameKey>k__BackingField: HOUSE_NAME_KEY
   <BuildPrice>k__BackingField: 0
   <UnitCostMultiplier>k__BackingField: 2
-  <InitUnitCost>k__BackingField: 2
+  <InitUnitCost>k__BackingField: 0

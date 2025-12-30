@@ -35,7 +35,7 @@ namespace _Project.Scripts.Gameplay.Units
 
             Debug.Log("We are in idle state");
             _unit.Context.SetUnitStatus(UnitStatus.Free);
-            _idleTimeCap = GetRandomIdleTime();
+            // _idleTimeCap = GetRandomIdleTime();
         }
 
         public void Update()

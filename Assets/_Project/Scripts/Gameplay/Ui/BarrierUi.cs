@@ -16,7 +16,7 @@ namespace _Project.Scripts.Gameplay.Ui
 
         private void Awake()
         {
-            Show();
+            // Show();
         }
 
         public void SetBarrierCounter(int current, int max)
