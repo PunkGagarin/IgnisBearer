@@ -1,7 +1,5 @@
 ﻿using System.Linq;
 using _Project.Scripts.Gameplay.SkillTree;
-using _Project.Scripts.Gameplay.Ui.SkillTree;
-using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Data
@@ -9,7 +7,8 @@ namespace _Project.Scripts.Gameplay.Data
     public class SkillTreeDataFacade
     {
         [Inject] private PlayerDataService _dataService;
-        
+        [Inject] private SkillTreeFactory _factory;
+
         public SkillTreeData TreeData => _dataService.PlayerData.SkillTreeData;
 
         public NodeBoughtState GetBoughtStateFor(SkillNodeType nodeType)
@@ -22,16 +21,16 @@ namespace _Project.Scripts.Gameplay.Data
         {
             if (!TreeData.Nodes.Exists(el => el.Type == nodeType))
             {
-                Debug.LogError($" у нас в сохранке нету ноды дерева с типом: {nodeType}");
-                return null;
+                // Debug.LogError($" у нас в сохранке нету ноды дерева с типом: {nodeType}");
+                return CreateNewNode(nodeType);
             }
             return TreeData.Nodes.FirstOrDefault(el => el.Type == nodeType);
         }
 
-        // private SkillTreeNodeData CreateNewNode(SkillNodeType nodeType)
-        // {
-        
-        // }
+        private SkillTreeNodeData CreateNewNode(SkillNodeType nodeType)
+        {
+            return _factory.CreateNode(nodeType);
+        }
 
         public int GetCurrentLevel(SkillNodeType nodeType)
         {

@@ -1918,7 +1918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7057340835992208834, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7509268178971951499, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
       propertyPath: <OpenButton>k__BackingField

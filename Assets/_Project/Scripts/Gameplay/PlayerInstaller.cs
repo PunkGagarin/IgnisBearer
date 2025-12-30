@@ -11,10 +11,6 @@ namespace _Project.Scripts.Gameplay
             Container
                 .BindInterfacesAndSelfTo<PlayerDataService>()
                 .AsSingle();
-            
-            Container
-                .BindInterfacesAndSelfTo<SkillTreeDataFacade>()
-                .AsSingle();
         }
     }
 }

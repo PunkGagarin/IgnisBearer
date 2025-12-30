@@ -96,7 +96,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         public void Create()
         {
-            var treeData = _factory.Create(_ui);
+            var treeData = _factory.Create();
             _skillTreeData.SetTreeData(treeData);
             Init(treeData);
         }

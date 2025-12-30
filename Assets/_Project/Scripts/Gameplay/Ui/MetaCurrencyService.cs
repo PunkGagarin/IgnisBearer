@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Ui
@@ -11,7 +12,8 @@ namespace _Project.Scripts.Gameplay.Ui
         public void Create()
         {
             MetaCurrencyType[] allCurrencyTypes = (MetaCurrencyType[])Enum.GetValues(typeof(MetaCurrencyType));
-            foreach (var currencyType in allCurrencyTypes)
+
+            foreach (var currencyType in allCurrencyTypes.Where(currencyType => currencyType != MetaCurrencyType.None))
                 _bank.Add(currencyType, 0);
         }
 

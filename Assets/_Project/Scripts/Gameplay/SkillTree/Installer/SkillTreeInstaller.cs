@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Gameplay.Data;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.SkillTree
@@ -17,6 +18,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
             Container.Bind<SkillTreeSettings>().FromInstance(Settings).AsSingle();
             Container.BindInterfacesAndSelfTo<SkillTreeService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SkillTreeFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SkillTreeDataFacade>().AsSingle();
         }
     }
 }
