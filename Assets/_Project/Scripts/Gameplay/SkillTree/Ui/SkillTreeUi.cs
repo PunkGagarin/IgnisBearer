@@ -48,34 +48,37 @@ namespace _Project.Scripts.Gameplay.SkillTree
             OnNodeClicked.Invoke(node);
         }
 
-        public void SetNodeState1(SkillNodeType nodeDataType, NodeBoughtState nodeDataBoughtState,
-            int nodeDataCurrentLevel, int nodeDataMaxLevel)
-        {
-            var nodeUi = SkillNodeUIs.FirstOrDefault(el => el.Type == nodeDataType);
-            if (nodeUi == null)
-            {
-                Debug.LogError($"Не могу найти ноду {nodeDataType} в UI!");
-                return;
-            }
-            nodeUi.SetState(nodeDataBoughtState);
-            nodeUi.SetNewLevel(nodeDataCurrentLevel);
-            nodeUi.SetMaxLevel(nodeDataMaxLevel);
-        }
-
         public void InitNode(SkillNodeType nodeDataType, NodeBoughtState nodeDataBoughtState, int nodeDataCurrentLevel, int nodeDataMaxLevel, int price, MetaCurrencyType currencyType, Sprite Icon)
         {
-            var nodeUi = SkillNodeUIs.FirstOrDefault(el => el.Type == nodeDataType);
-            if (nodeUi == null)
-            {
-                Debug.LogError($"Не могу найти ноду {nodeDataType} в UI!");
-                return;
-            }
+            var nodeUi = FindNodeUi(nodeDataType);
             nodeUi.SetState(nodeDataBoughtState);
             nodeUi.SetNewLevel(nodeDataCurrentLevel);
             nodeUi.SetMaxLevel(nodeDataMaxLevel);
             nodeUi.SetPrice(price);
             nodeUi.SetCurrencyType(currencyType);
             nodeUi.SetIcon(Icon);
+        }
+
+        private SkillNodeUI FindNodeUi(SkillNodeType nodeDataType)
+        {
+            var nodeUi = SkillNodeUIs.FirstOrDefault(el => el.Type == nodeDataType);
+            if (nodeUi == null)
+            {
+                Debug.LogError($"Не могу найти ноду {nodeDataType} в UI!");
+            }
+            return nodeUi;
+        }
+
+        public void SetCanBuyFor(SkillNodeType nodeType)
+        {
+            var node = FindNodeUi(nodeType);
+            node.SetState(SkillNodeState.CanBuy);
+        }
+
+        public void SetCanNotBuyFor(SkillNodeType nodeType)
+        {
+            var node = FindNodeUi(nodeType);
+            node.SetState(SkillNodeState.NoMoney);
         }
     }
 }

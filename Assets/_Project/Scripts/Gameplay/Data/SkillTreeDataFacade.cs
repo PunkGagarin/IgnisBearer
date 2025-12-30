@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.Gameplay.SkillTree;
 using Zenject;
 
@@ -27,9 +28,11 @@ namespace _Project.Scripts.Gameplay.Data
             return TreeData.Nodes.FirstOrDefault(el => el.Type == nodeType);
         }
 
-        private SkillTreeNodeData CreateNewNode(SkillNodeType nodeType)
+        public SkillTreeNodeData CreateNewNode(SkillNodeType nodeType)
         {
-            return _factory.CreateNode(nodeType);
+            var skillTreeNodeData = _factory.CreateNode(nodeType);
+            _dataService.PlayerData.SkillTreeData.Nodes.Add(skillTreeNodeData);
+            return skillTreeNodeData;
         }
 
         public int GetCurrentLevel(SkillNodeType nodeType)
@@ -59,6 +62,11 @@ namespace _Project.Scripts.Gameplay.Data
         public void SetTreeData(SkillTreeData treeData)
         {
             _dataService.PlayerData.SkillTreeData = treeData;
+        }
+
+        public List<SkillTreeNodeData> GetNonMaxedNodes()
+        {
+            return TreeData.Nodes.Where(el => el.BoughtState != NodeBoughtState.Maxed).ToList();
         }
     }
 }

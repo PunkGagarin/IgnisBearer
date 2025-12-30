@@ -87,6 +87,23 @@ namespace _Project.Scripts.Gameplay.SkillTree
                     break;
             }
         }
+        
+        public void SetState(SkillNodeState state)
+        {
+            switch (state)
+            {
+                case SkillNodeState.CanBuy:
+                    SetCanBuy();
+                    break;
+                case SkillNodeState.NoMoney:
+                    SetNoMoney();
+                    break;
+                case SkillNodeState.None:
+                case SkillNodeState.Unreachable:
+                default:
+                    break;
+            }
+        }
 
         private void SetMaxed()
         {
@@ -172,6 +189,12 @@ namespace _Project.Scripts.Gameplay.SkillTree
         public void SetIcon(Sprite icon)
         {
             Icon.sprite = icon;
+        }
+
+        public void HidePrice()
+        {
+            Price.gameObject.SetActive(false);
+            PriceIcon.gameObject.SetActive(false);
         }
     }
 }
