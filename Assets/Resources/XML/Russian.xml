@@ -44,4 +44,5 @@
   <text key="END_GAME_FAIL_TITLE">Вы проиграли</text>
   <text key="END_GAME_FAIL_RESTART">Начать заново</text>
   <text key="END_GAME_FAIL_SKILL_TREE">Древо навыков</text>
+  <text key="END_GAME_FAIL_CLOSE">Закрыть</text>
 </Language>

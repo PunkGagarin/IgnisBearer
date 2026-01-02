@@ -44,4 +44,5 @@
   <text key="END_GAME_FAIL_TITLE">You lost</text>
   <text key="END_GAME_FAIL_RESTART">Restart</text>
   <text key="END_GAME_FAIL_SKILL_TREE">Skill tree</text>
+  <text key="END_GAME_FAIL_CLOSE">Close</text>
 </Language>

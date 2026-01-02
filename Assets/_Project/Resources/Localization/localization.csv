@@ -43,3 +43,4 @@ WORKERS_DESC_KEY,Рабочие,Workers
 END_GAME_FAIL_TITLE,Вы проиграли,You lost
 END_GAME_FAIL_RESTART,Начать заново,Restart
 END_GAME_FAIL_SKILL_TREE,Древо навыков,Skill tree
+END_GAME_FAIL_CLOSE,Закрыть,Close
