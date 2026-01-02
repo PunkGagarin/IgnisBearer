@@ -25,6 +25,23 @@
   <text key="BUILD_FACTORY_NAME">Фабрика</text>
   <text key="GRADE_UPGRADE_TITLE">Уровень</text>
   <text key="HOUSE_BUY_UNIT_ITEM_DESC">Купить юнита</text>
-  <text key="FATE_GENERATOR_NAME_KEY">Генератор веры</text>
+  <text key="FATE_GENERATOR_NAME_KEY">Часовня</text>
   <text key="HOUSE_NAME_KEY">Дом</text>
+  <text key="BUILDING_SLOT_INFO_BTN">Построить</text>
+  <text key="HARVESTER_INFO_BTN">Инфо</text>
+  <text key="LIGHTER_INFO_BTN">Инфо</text>
+  <text key="CHURCH_INFO_BTN">Инфо</text>
+  <text key="FACTORY_INFO_BTN">Инфо</text>
+  <text key="FATE_GEN_INFO_BUTTON">Инфо</text>
+  <text key="HOUSE_INFO_BTN">Инфо</text>
+  <text key="HARVESTER_POPUP_TITLE">Автособиратель</text>
+  <text key="LIGHTER_POPUP_TITLE">Автоподжигатель</text>
+  <text key="CHURCH_POPUP_TITLE">Церковь</text>
+  <text key="FATE_GEN_POPUP_TITLE">Часовня</text>
+  <text key="HOUSE_POPUP_TITLE">Дом</text>
+  <text key="BUILDING_SLOT_POPUP_TITLE">Построить</text>
+  <text key="WORKERS_DESC_KEY">Рабочие</text>
+  <text key="END_GAME_FAIL_TITLE">Вы проиграли</text>
+  <text key="END_GAME_FAIL_RESTART">Начать заново</text>
+  <text key="END_GAME_FAIL_SKILL_TREE">Древо навыков</text>
 </Language>

@@ -337,7 +337,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6623132937020996250, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8607664206779756689}
   m_SourcePrefab: {fileID: 100100000, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
 --- !u!114 &1421868904305999730 stripped
 MonoBehaviour:
@@ -355,6 +358,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8813306289806007852, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
   m_PrefabInstance: {fileID: 3559949482609281749}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7677902211523833935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6623132937020996250, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
+  m_PrefabInstance: {fileID: 3559949482609281749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8607664206779756689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677902211523833935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bad83c90fe747ad82f6472b7fc19acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Localization.ToLocalize
+  _key: HOUSE_POPUP_TITLE
+  _fontAsset: {fileID: 0}
 --- !u!1001 &7284810888532813106
 PrefabInstance:
   m_ObjectHideFlags: 0

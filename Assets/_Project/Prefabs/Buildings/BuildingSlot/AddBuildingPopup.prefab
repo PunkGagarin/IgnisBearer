@@ -640,8 +640,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6623132937020996250, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8456698951253106959}
   m_SourcePrefab: {fileID: 100100000, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
+--- !u!1 &2274036008594395254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6623132937020996250, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
+  m_PrefabInstance: {fileID: 4928318855096576748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8456698951253106959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274036008594395254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bad83c90fe747ad82f6472b7fc19acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Localization.ToLocalize
+  _key: BUILDING_SLOT_POPUP_TITLE
+  _fontAsset: {fileID: 0}
 --- !u!224 &4479885923315512512 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8813306289806007852, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
