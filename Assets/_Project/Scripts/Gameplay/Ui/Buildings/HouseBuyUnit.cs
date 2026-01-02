@@ -1,7 +1,9 @@
+using System;
 using System.Globalization;
 using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Ui.Buildings
@@ -17,10 +19,14 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         [SerializeField] private BuyLimitedButton _buyUnitButton;
 
-        private int _unitsCount;
+        public int MaxUnitsCount  { get; private set; }
+        public int UnitsCount  { get; private set; }
+        
         private int _unitPrice;
-        private int _maxUnitsCount;
         private int _unitCostMultiplier;
+        
+        public event Action<int> OnUnitCountChanged = delegate { };
+        public event Action<int> OnMaxCountChanged = delegate { };
 
         private void Awake()
         {
@@ -31,16 +37,19 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         public void Init(int unitsInitCount, int initUnitPrice, int unitCostMultiplier,
             int maxUnitsCount)
         {
-            _unitsCount = unitsInitCount;
+            UnitsCount = unitsInitCount;
             _unitPrice = initUnitPrice;
-            _maxUnitsCount = maxUnitsCount;
+            MaxUnitsCount = maxUnitsCount;
             _unitCostMultiplier = unitCostMultiplier;
+            OnUnitCountChanged?.Invoke(UnitsCount);
+            OnMaxCountChanged?.Invoke(MaxUnitsCount);
             UpdateUi();
         }
 
         public void SetMaxUnitsCount(int maxUnitsCount)
         {
-            _maxUnitsCount = maxUnitsCount;
+            MaxUnitsCount = maxUnitsCount;
+            OnMaxCountChanged?.Invoke(MaxUnitsCount);
             UpdateUi();
         }
 
@@ -48,8 +57,8 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         {
             _buyUnitButton.UpdateUi(
                 HOUSE_BUY_UNIT_ITEM_DESC_KEY,
-                $"{_unitsCount}/{_maxUnitsCount}",
-                CanBuyUnit(_unitPrice, _maxUnitsCount),
+                $"{UnitsCount}/{MaxUnitsCount}",
+                CanBuyUnit(_unitPrice, MaxUnitsCount),
                 _unitPrice.ToString(CultureInfo.InvariantCulture)
             );
         }
@@ -70,19 +79,21 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         {
             _fateService.Spend(_unitPrice);
             _workerService.CreateAndRegisterUnit(gameObject.transform);
-            _unitsCount++;
+            UnitsCount++;
+            OnUnitCountChanged?.Invoke(UnitsCount);
+            OnMaxCountChanged?.Invoke(MaxUnitsCount);
             _unitPrice = RecalculateUnitCost();
             UpdateUi();
         }
 
         private int RecalculateUnitCost()
         {
-            return _unitsCount * _unitCostMultiplier;
+            return UnitsCount * _unitCostMultiplier;
         }
 
         private bool CanBuyUnit(float unitPrice, int maxUnitsCount)
         {
-            return _fateService.HasEnough((int)unitPrice) && _unitsCount < maxUnitsCount;
+            return _fateService.HasEnough((int)unitPrice) && UnitsCount < maxUnitsCount;
         }
     }
 }

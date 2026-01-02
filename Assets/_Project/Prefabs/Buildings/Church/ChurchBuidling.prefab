@@ -446,7 +446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchBuilding
   <Type>k__BackingField: 1
-  <FateGenerator>k__BackingField: {fileID: 0}
 --- !u!114 &5029327711760116034
 MonoBehaviour:
   m_ObjectHideFlags: 0
