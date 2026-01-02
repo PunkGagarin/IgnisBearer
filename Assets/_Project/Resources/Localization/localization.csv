@@ -19,10 +19,27 @@ SETTINGS_LANG_RU,Русский,Русский
 SETTINGS_LANG_EN,English,English
 SETTINGS_CANCEL,Отмена,Cancel
 SETTINGS_OK,Применить,Apply
-BUILD_AUTO_COLLECTOR_NAME,Автособиратель,AutoCollector
-BUILD_AUTO_LIGHTER_NAME,Автоподжигатель,AutoLighter
+BUILD_AUTO_COLLECTOR_NAME,Автособиратель,Auto Harvester
+BUILD_AUTO_LIGHTER_NAME,Автоподжигатель,Auto Lighter
 BUILD_FACTORY_NAME,Фабрика,Factory
 GRADE_UPGRADE_TITLE,Уровень,Level
 HOUSE_BUY_UNIT_ITEM_DESC,Купить юнита,Buy unit
-FATE_GENERATOR_NAME_KEY,Генератор веры,Fate Generator
+FATE_GENERATOR_NAME_KEY,Часовня,Chapel
 HOUSE_NAME_KEY,Дом,House
+BUILDING_SLOT_INFO_BTN,Построить,Build
+HARVESTER_INFO_BTN,Инфо,Info
+LIGHTER_INFO_BTN,Инфо,Info
+CHURCH_INFO_BTN,Инфо,Info
+FACTORY_INFO_BTN,Инфо,Info
+FATE_GEN_INFO_BUTTON,Инфо,Info
+HOUSE_INFO_BTN,Инфо,Info
+HARVESTER_POPUP_TITLE,Автособиратель,Auto Harvester
+LIGHTER_POPUP_TITLE,Автоподжигатель,Auto Lighter
+CHURCH_POPUP_TITLE,Церковь,Church
+FATE_GEN_POPUP_TITLE,Часовня,Chapel
+HOUSE_POPUP_TITLE,Дом,House
+BUILDING_SLOT_POPUP_TITLE,Построить,Biuld
+WORKERS_DESC_KEY,Рабочие,Workers
+END_GAME_FAIL_TITLE,Вы проиграли,You lost
+END_GAME_FAIL_RESTART,Начать заново,Restart
+END_GAME_FAIL_SKILL_TREE,Древо навыков,Skill tree

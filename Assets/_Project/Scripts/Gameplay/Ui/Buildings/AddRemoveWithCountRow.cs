@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Localization;
 using _Project.Scripts.Utils;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         [SerializeField] private Button _addUnitButton;
         [SerializeField] private Button _removeUnitButton;
         [SerializeField] private TextMeshProUGUI _countText;
+        [SerializeField] private ToLocalize _text;
         
         private void Awake()
         {
@@ -31,8 +33,9 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         private void OnAddButtonClicked() => OnAddClicked.Invoke();
 
-        public void UpdateUi(string countText, bool isAddEnabled, bool isRemoveEnabled)
+        public void UpdateUi(string countText, bool isAddEnabled, bool isRemoveEnabled, string textKey)
         {
+            _text.SetKey(textKey);
             _countText.text = countText;
             _addUnitButton.interactable = isAddEnabled;
             _removeUnitButton.interactable = isRemoveEnabled;

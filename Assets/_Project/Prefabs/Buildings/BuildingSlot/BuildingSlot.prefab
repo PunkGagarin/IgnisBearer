@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 4818184736231761088}
   - component: {fileID: 2521039615836874165}
   - component: {fileID: 4746080792725856266}
+  - component: {fileID: 8253602159270701300}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -515,6 +516,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8253602159270701300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369634892333298987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bad83c90fe747ad82f6472b7fc19acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Localization.ToLocalize
+  _key: BUILDING_SLOT_INFO_BTN
+  _fontAsset: {fileID: 0}
 --- !u!1 &9147645552498895976
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,9 +576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fcb171275f43248e77528b13e5cc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.BuildingSlot
-  _button: {fileID: 548458261993586264}
   _spriteRenderer: {fileID: 5827439799081328517}
   _content: {fileID: 5097682329865492106}
+  _button: {fileID: 548458261993586264}
 --- !u!114 &1222236930328830872
 MonoBehaviour:
   m_ObjectHideFlags: 0

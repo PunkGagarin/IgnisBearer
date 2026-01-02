@@ -8,14 +8,14 @@ namespace _Project.Scripts.Gameplay.Buildings
     [RequireComponent(typeof(IWorkers))]
     public class BuildingUnitIncreaser : MonoBehaviour
     {
-
         [Inject] private WorkerService _workerService;
 
-        [field: SerializeField]
+        [field: SerializeField] 
         public AddRemoveWithCountRow WorkersCountRow { get; private set; }
 
-
         private IWorkers _workers;
+
+        private const string WORKERS_DESC_KEY = "WORKERS_DESC_KEY";
 
         private void Awake()
         {
@@ -45,7 +45,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void UpdateUi()
         {
             var countText = $"{_workers.CurrentCount}/{_workers.MaxCount}";
-            WorkersCountRow.UpdateUi(countText, CanAddUnit(), CanRemoveUnit());
+            WorkersCountRow.UpdateUi(countText, CanAddUnit(), CanRemoveUnit(), WORKERS_DESC_KEY);
         }
 
         private void OnRemoveClicked()
