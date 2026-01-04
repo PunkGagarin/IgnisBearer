@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Shaders
 {
-    public class FullscreenMaterialController : MonoBehaviour
+    public class VignetteShaderController : MonoBehaviour
     {
         private static readonly int PulseSpeed = Shader.PropertyToID("_PulseSpeed");
         private static readonly int VignetteIntensity = Shader.PropertyToID("_VignetteIntensity");
