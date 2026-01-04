@@ -337,13 +337,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6623132937020996250, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7880642126551475137}
   m_SourcePrefab: {fileID: 100100000, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
 --- !u!224 &1166222375719160349 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8813306289806007852, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
   m_PrefabInstance: {fileID: 7665239206892934193}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3569804343266995883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6623132937020996250, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
+  m_PrefabInstance: {fileID: 7665239206892934193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7880642126551475137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569804343266995883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bad83c90fe747ad82f6472b7fc19acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Localization.ToLocalize
+  _key: FATE_GEN_POPUP_TITLE
+  _fontAsset: {fileID: 0}
 --- !u!114 &5241173463637827990 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2511888246751245735, guid: 06cdc26d96fdb4efb96739a34fbd3740, type: 3}
