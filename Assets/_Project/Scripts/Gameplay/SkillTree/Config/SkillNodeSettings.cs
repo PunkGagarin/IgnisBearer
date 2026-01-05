@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.SkillTree
 {
-    [CreateAssetMenu(fileName = "SkillTreeNodes", menuName = "Gameplay/SkillTreeNodes", order = 1)]
+    // [CreateAssetMenu(fileName = "SkillTreeNodes", menuName = "Gameplay/SkillTreeNodes", order = 1)]
     public class SkillNodeSettings : ScriptableObject
     {
         [field: SerializeField]

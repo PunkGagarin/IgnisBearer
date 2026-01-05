@@ -40,7 +40,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
             return GetSettingsFor(nodeType).MaxLevel;
         }
 
-        private SkillNodeSettings GetSettingsFor(SkillNodeType nodeType)
+        public SkillNodeSettings GetSettingsFor(SkillNodeType nodeType)
         {
             var skillNodeSettings = SkillNodeSettings.FirstOrDefault(el => el.NodeType == nodeType);
             if (skillNodeSettings == null)

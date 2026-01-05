@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkillTreeSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.SkillTree.SkillTreeSettings
   <SkillNodeSettings>k__BackingField:
-  - {fileID: 11400000, guid: ecd2e94452f5b604ca0fab1c1b9cb30f, type: 2}
+  - {fileID: 11400000, guid: fbc69517c22cb5246a4659d76eaaee02, type: 2}
   - {fileID: 11400000, guid: 55590eaef477c9945b92ca871cac291b, type: 2}
   - {fileID: 11400000, guid: ed86155435e9dc849964df0265926c3f, type: 2}
   <InitNode>k__BackingField: 1
