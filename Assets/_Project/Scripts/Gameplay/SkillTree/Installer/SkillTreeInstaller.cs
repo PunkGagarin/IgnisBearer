@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Gameplay.Data;
+using _Project.Scripts.Gameplay.SkillTree.Effectors;
 using UnityEngine;
 using Zenject;
 
@@ -17,8 +18,23 @@ namespace _Project.Scripts.Gameplay.SkillTree
             Container.Bind<SkillTreeUi>().FromInstance(SkillTreeUi).AsSingle();
             Container.Bind<SkillTreeSettings>().FromInstance(Settings).AsSingle();
             Container.BindInterfacesAndSelfTo<SkillTreeService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SkillTreeNodeEffectorService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SkillTreeFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<SkillTreeDataFacade>().AsSingle();
+
+            BindEffectors();
+        }
+
+        public void BindEffectors()
+        {
+            Container.BindInterfacesAndSelfTo<HouseCapacityEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LanternGenerationSpeedEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<WorkerMoveSpeedEffector>().AsSingle();
+        }
+
+        public void BindSettings()
+        {
+            
         }
     }
 }

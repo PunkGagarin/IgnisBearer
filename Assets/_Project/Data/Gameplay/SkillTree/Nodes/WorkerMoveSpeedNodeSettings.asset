@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b91ec72893849aea6c11f7547365c8d, type: 3}
+  m_Script: {fileID: 11500000, guid: b2a888128059400b9eabb716bcc574a6, type: 3}
   m_Name: WorkerMoveSpeedNodeSettings
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.SkillTree.SkillNodeSettings
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.SkillTree.WorkerMoveSpeedNodeSettings
   <NodeType>k__BackingField: 2
   <MaxLevel>k__BackingField: 1
   <CurrencyType>k__BackingField: 2
   <Prices>k__BackingField: 0a000000
-  <Icon>k__BackingField: {fileID: 3039202643319287922, guid: 7f25453b4b6f64d8d9f2d69427d5c206, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 40cc30e0527a8ed499251b53aca4a2a4, type: 3}
+  <Effects>k__BackingField:
+  - <MoveSpeedMultiplier>k__BackingField: 0.1

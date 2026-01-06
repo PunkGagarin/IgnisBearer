@@ -391,17 +391,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60726358}
   m_CullTransparentMesh: 1
---- !u!114 &63133237 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 822512904204598260, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
-  m_PrefabInstance: {fileID: 1427663442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbfe65191dba483db09ee64048f811a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.SkillTree.SkillNodeUI
 --- !u!1 &116993184
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,17 +980,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &529118224 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1777836832899649145, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
-  m_PrefabInstance: {fileID: 1427663442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbfe65191dba483db09ee64048f811a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.SkillTree.SkillNodeUI
 --- !u!1 &648738206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,10 +1922,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1425791520}
     m_Modifications:
-    - target: {fileID: 822512904204598260, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
-      propertyPath: <Type>k__BackingField
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 952146237564745158, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2028,10 +2002,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1777836832899649145, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
-      propertyPath: <Type>k__BackingField
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7057340835992208834, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2040,18 +2010,6 @@ PrefabInstance:
       propertyPath: <OpenButton>k__BackingField
       value: 
       objectReference: {fileID: 648738208}
-    - target: {fileID: 7509268178971951499, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
-      propertyPath: <SkillNodeUIs>k__BackingField.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7509268178971951499, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
-      propertyPath: '<SkillNodeUIs>k__BackingField.Array.data[1]'
-      value: 
-      objectReference: {fileID: 529118224}
-    - target: {fileID: 7509268178971951499, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
-      propertyPath: '<SkillNodeUIs>k__BackingField.Array.data[2]'
-      value: 
-      objectReference: {fileID: 63133237}
     - target: {fileID: 8461650631932860320, guid: 64fa7d87bbb93ae439b7606d50cc60a3, type: 3}
       propertyPath: m_Name
       value: SkillTreeUi
