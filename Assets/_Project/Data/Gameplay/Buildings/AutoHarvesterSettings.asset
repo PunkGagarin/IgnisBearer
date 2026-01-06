@@ -21,8 +21,8 @@ MonoBehaviour:
     MaxUnitsCount: 4
     MaxDurability: 100
   - GradePrice: 4
-    MaxUnitsCount: 5
+    MaxUnitsCount: 6
     MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
   <BuildingNameKey>k__BackingField: BUILD_AUTO_COLLECTOR_NAME
-  <BuildPrice>k__BackingField: 0
+  <BuildPrice>k__BackingField: 15

@@ -16,12 +16,12 @@ MonoBehaviour:
   _gradeData:
   - MaxLightStorageCapacity: 100
     GradePrice: 0
-    LightSendSpeed: 3
+    LightSendSpeed: 0.4
   - MaxLightStorageCapacity: 150
     GradePrice: 0
-    LightSendSpeed: 2
+    LightSendSpeed: 0.4
   - MaxLightStorageCapacity: 200
     GradePrice: 0
-    LightSendSpeed: 1
+    LightSendSpeed: 0.4
   <BuildingNameKey>k__BackingField: 
   <StartLightAmount>k__BackingField: 10
