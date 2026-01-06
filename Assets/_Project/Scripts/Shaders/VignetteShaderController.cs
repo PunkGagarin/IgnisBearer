@@ -8,7 +8,7 @@ namespace _Project.Scripts.Shaders
         private static readonly int VignetteIntensity = Shader.PropertyToID("_VignetteIntensity");
         private static readonly int VignettePower = Shader.PropertyToID("_VignettePower");
 
-        [Header("Fullscreen Material")] 
+        [Header("Fullscreen Share Material")] 
         [SerializeField]
         private Material _material;
 

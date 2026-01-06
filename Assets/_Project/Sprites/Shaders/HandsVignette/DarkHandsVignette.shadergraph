@@ -17,6 +17,9 @@
         },
         {
             "m_Id": "8884663bd19b4ce896c8ef180dd01c3a"
+        },
+        {
+            "m_Id": "a9493c8eb22e49ca91ffc28f32e3edce"
         }
     ],
     "m_Keywords": [],
@@ -594,6 +597,9 @@
         },
         {
             "m_Id": "8884663bd19b4ce896c8ef180dd01c3a"
+        },
+        {
+            "m_Id": "a9493c8eb22e49ca91ffc28f32e3edce"
         }
     ]
 }
@@ -672,10 +678,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 133.00001525878907,
-            "y": 747.0,
+            "x": 147.00010681152345,
+            "y": 777.9999389648438,
             "width": 208.00001525878907,
-            "height": 302.0
+            "height": 302.00006103515627
         }
     },
     "m_Slots": [
@@ -1312,7 +1318,7 @@
     "m_Title": "TEXTURE",
     "m_Position": {
         "x": -371.0,
-        "y": 870.0
+        "y": 869.9998779296875
     }
 }
 
@@ -2058,8 +2064,8 @@
     "m_ObjectId": "9a5539154f5d4c72ab3328d197a4237f",
     "m_Title": "VIGNETTE",
     "m_Position": {
-        "x": -1014.5,
-        "y": 342.0
+        "x": -1014.4999389648438,
+        "y": 342.00006103515627
     }
 }
 
@@ -2109,6 +2115,39 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "a9493c8eb22e49ca91ffc28f32e3edce",
+    "m_Guid": {
+        "m_GuidSerialized": "594711ea-3db4-4201-acf8-09732b15381b"
+    },
+    "m_Name": "MainTex",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "MainTex",
+    "m_DefaultReferenceName": "_MainTex",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_PerRendererData": false,
+    "m_customAttributes": [],
+    "m_Value": {
+        "m_SerializedTexture": "",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "useTexelSize": true,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 
 {
@@ -2226,7 +2265,7 @@
     "m_Title": "PULSE",
     "m_Position": {
         "x": -392.5,
-        "y": 1590.5
+        "y": 1590.4998779296875
     }
 }
 
