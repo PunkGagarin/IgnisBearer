@@ -8,7 +8,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Level
 {
-    public class LevelService
+    public class LevelService : IBuildContainer
     {
         [Inject]
         private LevelFactory _levelFactory;
@@ -60,6 +60,15 @@ namespace _Project.Scripts.Gameplay.Level
         public void GetMapBounds()
         {
             var bg = _level.Background;
+        }
+
+        public Transform GetSlotsContainer()
+        {
+            return _level.SlotsContainer;
+        }
+        public Transform GetBuildingContainer()
+        {
+            return _level.BuildingsContainer;
         }
     }
 }
