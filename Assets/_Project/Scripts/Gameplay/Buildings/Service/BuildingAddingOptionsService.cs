@@ -13,27 +13,41 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private FateGeneratorSettings _fateGeneratorSettings;
         [Inject] private FateService _fateService;
         [Inject] private BuildingsService _buildingsService;
-
         public List<BuildingButtonData> GetAddBuildingPopupData()
         {
             List<BuildingButtonData> list = new List<BuildingButtonData>();
             //disabled building factory
-            /*AddBuildingButton(list, GetFactoryInitPrice(), BuildingType.Factory, _factorySettings.BuildingNameKey,
+            /*AddBuildingButton(BuildingType.Factory, list, GetFactoryInitPrice(), _factorySettings.BuildingNameKey,
                 _factorySettings.MaxCountToBuild);*/
-            AddBuildingButton(list, GetAutoHarvesterInitPrice(), BuildingType.AutoHarvest,
-                _autoHarvestSettings.BuildingNameKey, _autoHarvestSettings.MaxCountToBuild);
-            AddBuildingButton(list, GetAutoLighterInitPrice(), BuildingType.AutoLighter,
-                _autoLighterSettings.BuildingNameKey, _autoLighterSettings.MaxCountToBuild);
-            AddBuildingButton(list, GetFateGenInitPrice(), BuildingType.FateGenerator,
+            
+            AddBuildingButton(BuildingType.FateGenerator, list, GetFateGenInitPrice(),
                 _fateGeneratorSettings.BuildingNameKey, _fateGeneratorSettings.MaxCountToBuild);
+
+            var isFateGenBuilt = _buildingsService.GetBuildingCountByType(BuildingType.FateGenerator) > 0;
+
+            if (isFateGenBuilt)
+                AddBuildingButton(BuildingType.AutoHarvest, list, GetAutoHarvesterInitPrice(),
+                    _autoHarvestSettings.BuildingNameKey, _autoHarvestSettings.MaxCountToBuild);
+
+            if (isFateGenBuilt)
+                AddBuildingButton(BuildingType.AutoLighter, list, GetAutoLighterInitPrice(),
+                    _autoLighterSettings.BuildingNameKey, _autoLighterSettings.MaxCountToBuild);
+
             return list;
         }
 
-        private void AddBuildingButton(List<BuildingButtonData> list, float initPrice, BuildingType buildingType,
+        private void AddBuildingButton(BuildingType buildingType, List<BuildingButtonData> list, float initPrice,
             string buildingNameKey, int maxBuildingCount)
         {
-            if (HaveEnoughMoney(initPrice) && CanHaveAnother(buildingType, maxBuildingCount))
-                list.Add(new BuildingButtonData(buildingType, initPrice, buildingNameKey));
+            if (CanHaveAnother(buildingType, maxBuildingCount))
+                list.Add(
+                    new BuildingButtonData(
+                        buildingType,
+                        initPrice,
+                        buildingNameKey,
+                        HaveEnoughMoney(initPrice)
+                    )
+                );
         }
 
         private bool CanHaveAnother(BuildingType buildingType, int maxCount)
