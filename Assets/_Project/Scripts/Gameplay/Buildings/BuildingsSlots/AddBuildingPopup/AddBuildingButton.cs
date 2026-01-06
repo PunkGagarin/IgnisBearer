@@ -30,6 +30,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _price = data.Price;
             _priceText.text = data.Price.ToString(CultureInfo.InvariantCulture);
             _label.SetKey(data.LabelKey);
+            _buyButton.interactable = data.IsEnabled;
         }
     }
 }
