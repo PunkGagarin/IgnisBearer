@@ -14,6 +14,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
         [Inject] private SkillTreeDataFacade _skillTreeData;
         [Inject] private SkillTreeSettings _settings;
         [Inject] private MetaCurrencyService _metaCurrencyService;
+        [Inject] private SkillTreeNodeEffectorService _nodeEffectorService;
 
         public void Initialize()
         {
@@ -53,7 +54,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
                     node.SetPrice(_settings.GetPriceFor(node.Type, newLevel));
 
                 node.SetNewLevel(newLevel);
-
+                ActivateNodeEffect(node.Type, newLevel);
 
                 UpdateAllActiveNodePrices();
             }
@@ -64,6 +65,11 @@ namespace _Project.Scripts.Gameplay.SkillTree
             }
         }
 
+        private void ActivateNodeEffect(SkillNodeType nodeType, int newLevel)
+        {
+            _nodeEffectorService.ActivateEffectFor(nodeType, newLevel);
+        }
+
         private void ActivateNode(SkillNodeUI node)
         {
             node.SetNodeActive();
@@ -71,7 +77,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
             foreach (var nextNode in node.NextNodes)
             {
                 var data = _skillTreeData.CreateNewNode(nextNode.Type);
-                InitNode(data);
+                InitNodeUi(data);
             }
         }
 
@@ -135,10 +141,10 @@ namespace _Project.Scripts.Gameplay.SkillTree
         public void Init(SkillTreeData data)
         {
             foreach (var nodeData in data.Nodes)
-                InitNode(nodeData);
+                InitNodeUi(nodeData);
         }
 
-        private void InitNode(SkillTreeNodeData nodeData)
+        private void InitNodeUi(SkillTreeNodeData nodeData)
         {
             _ui.InitNode(nodeData.Type,
                 nodeData.BoughtState,

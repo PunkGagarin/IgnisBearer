@@ -5,6 +5,6 @@
         None = 0,
         HouseCapacity = 1,
         WorkerMoveSpeed = 2,
-        LanternLightGenerationSpeed = 3,
+        LanternGenerationSpeed = 3,
     }
 }
