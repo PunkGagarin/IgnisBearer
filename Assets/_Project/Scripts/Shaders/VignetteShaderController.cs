@@ -45,7 +45,8 @@ namespace _Project.Scripts.Shaders
             if (Input.GetKeyDown(KeyCode.Q))
                 DisableEffect();
 
-            if (Mathf.Approximately(_currentVignetteIntensity, _targetVignetteIntensity)) return;
+            if (!_isEnabled && IsNearTargetIntensity()) 
+                return;
             _currentVignetteIntensity = Mathf.MoveTowards(
                 _currentVignetteIntensity,
                 _targetVignetteIntensity,
@@ -54,6 +55,11 @@ namespace _Project.Scripts.Shaders
 
             if (_material != null)
                 _material.SetFloat(VignetteIntensity, _currentVignetteIntensity);
+        }
+
+        private bool IsNearTargetIntensity()
+        {
+            return Mathf.Approximately(_currentVignetteIntensity, _targetVignetteIntensity);
         }
 
         private void OnValidate()
