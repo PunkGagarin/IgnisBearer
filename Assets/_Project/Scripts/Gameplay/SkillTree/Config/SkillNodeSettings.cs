@@ -7,36 +7,48 @@ namespace _Project.Scripts.Gameplay.SkillTree
     // [CreateAssetMenu(fileName = "SkillTreeNodes", menuName = "Gameplay/SkillTreeNodes", order = 1)]
     public class SkillNodeSettings : ScriptableObject
     {
-        [field: SerializeField]
-        public SkillNodeType NodeType { get; private set; }
+        [field: SerializeField] public SkillNodeType NodeType { get; private set; }
 
-        [field: SerializeField]
-        public int MaxLevel { get; private set; } = 1;
+        [field: SerializeField] public int MaxLevel { get; private set; } = 1;
 
-        [field: SerializeField]
-        public MetaCurrencyType CurrencyType { get; private set; } = MetaCurrencyType.Dollars;
+        [field: SerializeField] public MetaCurrencyType CurrencyType { get; private set; } = MetaCurrencyType.Dollars;
 
-        [field: SerializeField]
-        public List<int> Prices { get; private set; }
+        [field: SerializeField] public List<int> Prices { get; private set; }
 
-        [field: SerializeField]
-        public Sprite Icon { get; private set; }
+        [field: SerializeField] public Sprite Icon { get; private set; }
 
-        private void OnValidate()
+        protected virtual void OnValidate()
         {
             if (Prices.Count != MaxLevel)
             {
                 Debug.LogError($"Не совпадает количество цен и максимальный уровень!");
-            }
-
-            if (Prices.Count == 0)
-            {
-                Debug.LogError($"Не заполнены цены!");
+                for (int i = 0; i < MaxLevel - Prices.Count; i++)
+                {
+                    Prices.Add(0);
+                }
             }
 
             if (NodeType == SkillNodeType.None)
             {
                 Debug.LogError($"Не заполнен тип ноды!");
+            }
+        }
+    }
+
+    public class SkillTreeNodeWithEffectSettings<T> : SkillNodeSettings
+    {
+        [field: SerializeField] public List<T> Effects { get; private set; }
+
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            if (Effects.Count != MaxLevel)
+            {
+                Debug.LogError($"Не совпадает количество эффектов и максимальный уровень!");
+                for (int i = 0; i < MaxLevel - Effects.Count; i++)
+                {
+                    Effects.Add(default);
+                }
             }
         }
     }

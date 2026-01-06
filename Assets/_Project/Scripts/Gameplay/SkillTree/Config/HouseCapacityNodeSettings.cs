@@ -5,10 +5,8 @@ using UnityEngine;
 namespace _Project.Scripts.Gameplay.SkillTree
 {
     // [CreateAssetMenu(fileName = "HouseCapacityNodeSettings", menuName = "Gameplay/HouseCapacityNodeSettings", order = 1)]
-    public class HouseCapacityNodeSettings : SkillNodeSettings
+    public class HouseCapacityNodeSettings : SkillTreeNodeWithEffectSettings<HouseCapacityEffectSettings>
     {
-        [field: SerializeField]
-        public List<HouseCapacityEffectSettings> Effects { get; private set; }
     }
     
     [Serializable]

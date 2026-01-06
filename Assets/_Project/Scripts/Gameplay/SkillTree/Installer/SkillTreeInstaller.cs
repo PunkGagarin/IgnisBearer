@@ -28,6 +28,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
         public void BindEffectors()
         {
             Container.BindInterfacesAndSelfTo<HouseCapacityEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LanternGenerationSpeedEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<WorkerMoveSpeedEffector>().AsSingle();
         }
 
         public void BindSettings()
