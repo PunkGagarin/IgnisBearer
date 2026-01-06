@@ -15,11 +15,11 @@ MonoBehaviour:
   _prefab: {fileID: -843974861517358685, guid: 7d47f89e399315647a254c2512acebc3, type: 3}
   _gradeData:
   - <GradePrice>k__BackingField: 0
-    <MaxUnitsCount>k__BackingField: 2
+    <MaxUnitsCount>k__BackingField: 1
     <MaxDurability>k__BackingField: 100
     <TimeToProduceFate>k__BackingField: 3
   - <GradePrice>k__BackingField: 20
-    <MaxUnitsCount>k__BackingField: 3
+    <MaxUnitsCount>k__BackingField: 2
     <MaxDurability>k__BackingField: 150
     <TimeToProduceFate>k__BackingField: 3
   <BuildingNameKey>k__BackingField: FATE_GENERATOR_NAME_KEY
