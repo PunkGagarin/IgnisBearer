@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Level;
 using UnityEngine;
 using Zenject;
 
@@ -8,11 +9,12 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     {
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly LanternSettings _settings;
+        [Inject] private readonly IBuildContainer _iBuildContainer;
 
         public LanternSlot CreateSlotAtPosition(LanternSlotSpawnPoint slotSpawnPoint)
         {
             var slot = _container.InstantiatePrefabForComponent<LanternSlot>(_settings.SlotPrefab,
-                slotSpawnPoint.transform.position, Quaternion.identity, null);
+                slotSpawnPoint.transform.position, Quaternion.identity, _iBuildContainer.GetSlotsContainer());
             slot.Init(_settings.InitLanternCost);
             return slot;
         }
@@ -38,7 +40,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private Lantern CreateLanternAt(LanternSlot slot)
         {
             var lantern = _container.InstantiatePrefabForComponent<Lantern>(_settings.Prefab,
-                slot.transform.position, Quaternion.identity, null);
+                slot.transform.position, Quaternion.identity, _iBuildContainer.GetBuildingContainer());
             lantern.Init( _settings.InitMaxResourceGeneratePerFireUp);
 
             var lanternUi = lantern.GetComponent<LanternUi>();

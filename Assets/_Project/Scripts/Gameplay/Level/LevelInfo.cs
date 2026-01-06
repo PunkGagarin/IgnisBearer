@@ -26,5 +26,11 @@ namespace _Project.Scripts.Gameplay.Level
         
         [field: SerializeField]
         public BuildingSlotsSpawnPoint ChurchBuildingSlotPosition { get; private set; }
+        
+        [field: SerializeField]
+        public Transform SlotsContainer { get; private set; }
+        
+        [field: SerializeField]
+        public Transform BuildingsContainer { get; private set; }
     }
 }

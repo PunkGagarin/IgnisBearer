@@ -1,4 +1,5 @@
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Level;
 using UnityEngine;
 using Zenject;
 
@@ -9,15 +10,15 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         [Inject] protected readonly DiContainer _container;
         [Inject] protected readonly TSettings _settings;
+        [Inject] protected readonly IBuildContainer _buildContainer;
 
         public abstract TBuilding Create(BuildingSlot slot, int grade);
 
         protected TBuilding InstantiateBuildingOnSlot(BuildingSlot slot, TBuilding prefab)
         {
-            var parentTransform = slot.transform;
             var building =
                 _container.InstantiatePrefabForComponent<TBuilding>(prefab,
-                    parentTransform.position, Quaternion.identity, parentTransform);
+                    slot.transform.position, Quaternion.identity, _buildContainer.GetBuildingContainer());
             return building;
         }
         
