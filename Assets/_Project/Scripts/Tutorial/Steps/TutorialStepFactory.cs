@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using System;
+using Zenject;
 
 namespace _Project.Scripts.Tutorial
 {
@@ -12,8 +13,18 @@ namespace _Project.Scripts.Tutorial
             {
                 case TutorStepType.BuyUnit:
                     return _container.Instantiate<BuyUnitStep>();
+                case TutorStepType.FireUpLantern:
+                    return _container.Instantiate<FireUpLanternStep>();
+                case TutorStepType.SendLightToChurch:
+                    return _container.Instantiate<SendLightToChurchStep>();
+                case TutorStepType.BuyChapel:
+                    return _container.Instantiate<BuyChapelStep>();
+                case TutorStepType.SendUnitIntoChapel:
+                    return _container.Instantiate<SendUnitIntoChapelStep>();
+                case TutorStepType.BuySecondUnit:
+                    return _container.Instantiate<BuySecondUnitStep>();
                 default:
-                    return null;
+                    throw new ArgumentException();
             }
         }
     }
