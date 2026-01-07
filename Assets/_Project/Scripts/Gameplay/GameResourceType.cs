@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Gameplay.Ui.SkillTree
+﻿namespace _Project.Scripts.Gameplay
 {
     public enum GameResourceType
     {

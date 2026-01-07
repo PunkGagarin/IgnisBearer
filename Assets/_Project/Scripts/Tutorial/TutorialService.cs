@@ -11,15 +11,24 @@ namespace _Project.Scripts.Tutorial
 
         private ITutorialStep _tutorialStep;
 
-        // купить доп юнита
-        // флоу - все действия необходимые по тутору
-        // цели - конечные цели тутора
-
-
         public void StartTutor()
         {
-            _tutorialStep = _factory.CreateStep(FirstStep);
+            CreateAndStartStep(FirstStep);
+        }
+
+        private void CreateAndStartStep(TutorStepType step)
+        {
+            _tutorialStep = _factory.CreateStep(step);
             _tutorialStep.StartStep();
+            _tutorialStep.OnFinishStep += SetNextStep;
+        }
+
+        private void SetNextStep(TutorStepType nextStep)
+        {
+            _tutorialStep.OnFinishStep -= SetNextStep;
+
+            if (nextStep != TutorStepType.None)
+                CreateAndStartStep(nextStep);
         }
     }
 }

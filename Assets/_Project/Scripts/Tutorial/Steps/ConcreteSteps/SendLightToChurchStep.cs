@@ -1,11 +1,11 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
 using Zenject;
 
-namespace _Project.Scripts.Tutorial.Steps.ConcreteSteps
+namespace _Project.Scripts.Tutorial
 {
     public class SendLightToChurchStep : BaseTutorialStep
     {
-        public override TutorStepType NextStep => TutorStepType.None;
+        public override TutorStepType NextStep => TutorStepType.BuyChapel;
         protected override string Text { get; set; } = "Отправь в церковь 3 ресурса";
 
         private int _currentRes;
@@ -16,7 +16,7 @@ namespace _Project.Scripts.Tutorial.Steps.ConcreteSteps
         protected override void Subscribe()
         {
             var church = _buildingsService.GetChurch();
-            IResourceStorage lightResourceStorage = church.GetComponent<IResourceStorage>();
+            var lightResourceStorage = church.GetComponent<IResourceStorage>();
             lightResourceStorage.OnAmountIncreased += OnStepIterated;
         }
 
@@ -30,7 +30,7 @@ namespace _Project.Scripts.Tutorial.Steps.ConcreteSteps
         protected override void Unsubscribe()
         {
             var church = _buildingsService.GetChurch();
-            IResourceStorage lightResourceStorage = church.GetComponent<IResourceStorage>();
+            var lightResourceStorage = church.GetComponent<IResourceStorage>();
             lightResourceStorage.OnAmountIncreased -= OnStepIterated;
         }
     }

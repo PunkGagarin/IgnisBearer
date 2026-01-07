@@ -1,7 +1,7 @@
 ﻿using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using Zenject;
 
-namespace _Project.Scripts.Tutorial.Steps.ConcreteSteps
+namespace _Project.Scripts.Tutorial
 {
     public class FireUpLanternStep : BaseTutorialStep
     {

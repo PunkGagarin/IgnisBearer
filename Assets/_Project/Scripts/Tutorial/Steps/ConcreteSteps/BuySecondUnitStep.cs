@@ -1,13 +1,15 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using _Project.Scripts.Gameplay.Ui.Buildings;
+using _Project.Scripts.Gameplay.Units;
 using Zenject;
 
 namespace _Project.Scripts.Tutorial
 {
-    public class BuyUnitStep : BaseTutorialStep
+    public class BuySecondUnitStep : BaseTutorialStep
     {
-        public override TutorStepType NextStep { get; } = TutorStepType.FireUpLantern;
-        protected override string Text { get; set; } = "Купить юнита в доме";
+        public override TutorStepType NextStep => TutorStepType.None;
+        protected override string Text { get; set; } = "Купи второго юнита";
 
         [Inject] private BuildingsService _buildingsService;
 
@@ -33,4 +35,3 @@ namespace _Project.Scripts.Tutorial
         }
     }
 }
-    
