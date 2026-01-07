@@ -7,6 +7,7 @@ using _Project.Scripts.Gameplay.SkillTree;
 using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Gameplay.Ui.SkillTree;
 using _Project.Scripts.Gameplay.Units;
+using _Project.Scripts.Tutorial;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay
@@ -28,9 +29,10 @@ namespace _Project.Scripts.Gameplay
 
         [Inject] private GameEndService _gameEndService;
         [Inject] private SkillTreeService _skillTreeService;
-        
+
         [Inject] private PlayerDataService _playerDataService;
         [Inject] private MetaCurrencyService _metaCurrencyService;
+        [Inject] private TutorialService _tutorial;
 
 
         public void Initialize()
@@ -48,18 +50,20 @@ namespace _Project.Scripts.Gameplay
 
             InitBuildingSlots();
             InitExistingChurch();
-            
+
             InitConsumeProgressor();
 
             InitExistingHouse();
 
             InitLanternSlots();
             InitLanterns();
-            
+
             _metaCurrencyService.Create();
             _skillTreeService.Create();
 
             _gameEndService.Init();
+
+            _tutorial.StartTutor();
         }
 
         private void InitExistingHouse()
