@@ -23,6 +23,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         private int initGrade = 1; //todo from save
 
         public event Action<FateGeneratorBuilding> OnFateGeneratorBuilt = delegate { };
+        //todo: madgine а почему не решается через GameplayBootstraper?
         public event Action<ChurchBuilding> OnChurchBuilt = delegate { };
 
         public void InitChurch(BuildingSlot slot)

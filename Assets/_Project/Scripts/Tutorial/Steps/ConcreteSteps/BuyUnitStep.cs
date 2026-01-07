@@ -6,7 +6,7 @@ namespace _Project.Scripts.Tutorial.Steps.ConcreteSteps
 {
     public class BuyUnitStep : BaseTutorialStep
     {
-        public override TutorStepType NextStep { get; } = TutorStepType.None;
+        public override TutorStepType NextStep { get; } = TutorStepType.FireUpLantern;
         protected override string Text { get; set; } = "Купить юнита в доме";
 
         [Inject] private BuildingsService _buildingsService;

@@ -33,7 +33,6 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _button.onClick.RemoveListener(OnClick);
             _addBuildingPopup.OnAddBuilding -= OnAddBuildingClicked;
             _fateService.OnAmountChanged -= OnBalanceChanged;
-            _buildingsService.OnChurchBuilt -= OnChurchBuilt;
             _lightResourceStorage.OnAmountIncreased -= OnLightAmountIncreased;
         }
 
@@ -72,6 +71,8 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 
         private void OnChurchBuilt(ChurchBuilding churchBuilding)
         {
+            _buildingsService.OnChurchBuilt -= OnChurchBuilt;
+            
             IResourceStorage lightResourceStorage = churchBuilding.GetComponent<IResourceStorage>();
             _lightResourceStorage = lightResourceStorage;
             _lightResourceStorage.OnAmountIncreased += OnLightAmountIncreased;
