@@ -15,7 +15,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private readonly List<Lantern> _lanterns = new();
 
         public event Action<Lantern> OnLanternNeededToFire = delegate { };
-        public event Action<Lantern> OnLanternFired = delegate { };
+        public event Action OnLanternFired = delegate { };
 
         public void InitStartLanterns(List<LanternSlot> slots)
         {
@@ -33,6 +33,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             lantern.OnDestroyed += UnsubscribeFromLantern;
             lantern.OnNeededToFire -= OnLanternNeededToFire;
+            lantern.OnFired -= OnLanternFired;
 
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked += OnLanternClicked;
