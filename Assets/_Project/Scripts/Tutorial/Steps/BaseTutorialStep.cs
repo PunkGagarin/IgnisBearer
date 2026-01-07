@@ -7,7 +7,7 @@ namespace _Project.Scripts.Tutorial
     {
         [Inject] private TutorialUi _ui;
 
-        public Action<TutorStepType> OnFinishStep = delegate { };
+        public event Action<TutorStepType> OnFinishStep = delegate { };
 
         public abstract TutorStepType NextStep { get; }
 

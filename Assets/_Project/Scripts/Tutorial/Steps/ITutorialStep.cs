@@ -1,9 +1,11 @@
-﻿namespace _Project.Scripts
+﻿using System;
+
+namespace _Project.Scripts.Tutorial
 {
     public interface ITutorialStep
     {
         void StartStep();
-        void FinishStep();
         public TutorStepType NextStep { get; }
+        public event Action<TutorStepType> OnFinishStep;
     }
 }

@@ -5,7 +5,6 @@ using _Project.Scripts.Gameplay.Data;
 using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Gameplay.SkillTree;
 using _Project.Scripts.Gameplay.Ui;
-using _Project.Scripts.Gameplay.Ui.SkillTree;
 using _Project.Scripts.Gameplay.Units;
 using _Project.Scripts.Tutorial;
 using Zenject;
