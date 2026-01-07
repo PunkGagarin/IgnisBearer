@@ -32,8 +32,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private void SubscribeToLantern(Lantern lantern)
         {
             lantern.OnDestroyed += UnsubscribeFromLantern;
-            lantern.OnNeededToFire -= OnLanternNeededToFire;
-            lantern.OnFired -= OnLanternFired;
+            lantern.OnNeededToFire += OnLanternNeededToFire;
+            lantern.OnFired += OnLanternFiredHandle;
 
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked += OnLanternClicked;
@@ -43,9 +43,15 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             lantern.OnDestroyed -= UnsubscribeFromLantern;
             lantern.OnNeededToFire -= OnLanternNeededToFire;
+            lantern.OnFired -= OnLanternFiredHandle;
 
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked -= OnLanternClicked;
+        }
+
+        private void OnLanternFiredHandle()
+        {
+            OnLanternFired.Invoke();
         }
 
         public void CreateAndRegisterLantern(LanternSlot slot)

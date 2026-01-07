@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Tutorial
@@ -17,6 +18,7 @@ namespace _Project.Scripts.Tutorial
 
         private void OnStepIterated()
         {
+            Debug.LogError(" on lantern fired");
             FinishStep();
         }
 
