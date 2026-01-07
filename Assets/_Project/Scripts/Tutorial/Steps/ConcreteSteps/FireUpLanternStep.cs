@@ -18,7 +18,6 @@ namespace _Project.Scripts.Tutorial
 
         private void OnStepIterated()
         {
-            Debug.LogError(" on lantern fired");
             FinishStep();
         }
 
