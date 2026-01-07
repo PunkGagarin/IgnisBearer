@@ -15,6 +15,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private readonly List<Lantern> _lanterns = new();
 
         public event Action<Lantern> OnLanternNeededToFire = delegate { };
+        public event Action<Lantern> OnLanternFired = delegate { };
 
         public void InitStartLanterns(List<LanternSlot> slots)
         {
