@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 
@@ -12,7 +10,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [field: SerializeField]
         public List<ChurchLightSendSlot> Slots { get; private set; }
 
-        private Queue<Unit> _queue = new Queue<Unit>();
+        private readonly Queue<Unit> _queue = new();
 
         private void Awake()
         {
@@ -56,38 +54,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             slot = Slots.FirstOrDefault(el => el.IsActive && !el.IsBusy);
             return slot != null;
-        }
-    }
-
-    public class ChurchLightSendSlot : MonoBehaviour
-    {
-        [field: SerializeField]
-        public BarUi BarUi { get; private set; }
-
-
-        public bool IsActive { get; private set; }
-        public bool IsBusy { get; private set; }
-        public Action<ChurchLightSendSlot> OnFree = delegate { };
-
-        public void SetBusy()
-        {
-            IsBusy = true;
-        }
-
-        public void Activate()
-        {
-            IsActive = true;
-        }
-
-        public void Progress(float progress)
-        {
-            BarUi.ChangeBarProgress(progress);
-        }
-
-        public void SetFree()
-        {
-            IsBusy = false;
-            OnFree.Invoke(this);
         }
     }
 }
