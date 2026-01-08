@@ -44,5 +44,14 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             return _buildingSlots.First();
         }
+
+        public void SubscribeSlotsForBuildEnabled()
+        {
+            _churchSlot.SubscribeForBuildEnabled();
+            foreach (var buildingSlot in _buildingSlots)
+            {
+                buildingSlot.SubscribeForBuildEnabled();
+            }
+        }
     }
 }
