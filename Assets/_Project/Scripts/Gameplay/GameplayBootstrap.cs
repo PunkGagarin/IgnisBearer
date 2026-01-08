@@ -49,6 +49,7 @@ namespace _Project.Scripts.Gameplay
 
             InitBuildingSlots();
             InitExistingChurch();
+            SubscribeSlotsForBuildEnabled();
 
             InitConsumeProgressor();
 
@@ -63,6 +64,11 @@ namespace _Project.Scripts.Gameplay
             _gameEndService.Init();
 
             _tutorial.StartTutor();
+        }
+
+        private void SubscribeSlotsForBuildEnabled()
+        {
+            _buildingSlotsService.SubscribeSlotsForBuildEnabled();
         }
 
         private void InitExistingHouse()

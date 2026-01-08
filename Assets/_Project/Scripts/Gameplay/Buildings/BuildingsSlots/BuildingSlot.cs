@@ -25,7 +25,6 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _addBuildingPopup = GetComponent<AddBuildingPopup>();
             _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
             _fateService.OnAmountChanged += OnBalanceChanged;
-            _buildingsService.OnChurchBuilt += OnChurchBuilt;
         }
 
         private void OnDestroy()
@@ -68,16 +67,6 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         {
             _button.interactable = isEnabled;
         }
-
-        private void OnChurchBuilt(ChurchBuilding churchBuilding)
-        {
-            _buildingsService.OnChurchBuilt -= OnChurchBuilt;
-            
-            IResourceStorage lightResourceStorage = churchBuilding.GetComponent<IResourceStorage>();
-            _lightResourceStorage = lightResourceStorage;
-            _lightResourceStorage.OnAmountIncreased += OnLightAmountIncreased;
-        }
-
         private void OnLightAmountIncreased((int amountIncreased, int newAmount, int maxAmount) obj)
         {
             SetButtonEnabled(true);
@@ -86,6 +75,13 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj)
         {
             InitPopup();
+        }
+
+        public void SubscribeForBuildEnabled()
+        {
+            IResourceStorage lightResourceStorage = _buildingsService.GetChurch().GetComponent<IResourceStorage>();
+            _lightResourceStorage = lightResourceStorage;
+            _lightResourceStorage.OnAmountIncreased += OnLightAmountIncreased;
         }
     }
 }
