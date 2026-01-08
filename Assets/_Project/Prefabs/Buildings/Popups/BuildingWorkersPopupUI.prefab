@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3311212697546180774, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
       propertyPath: m_Name
-      value: BuldingWorkersPopupUI
+      value: BuildingWorkersPopupUI
       objectReference: {fileID: 0}
     - target: {fileID: 3576652876029172554, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
       propertyPath: m_SizeDelta.x
@@ -155,6 +155,22 @@ PrefabInstance:
     - target: {fileID: 3946202075904710655, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082051509513003298, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082051509513003298, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082051509513003298, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082051509513003298, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4471770776987270491, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
       propertyPath: m_AnchorMax.x
@@ -266,42 +282,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3946202075904710655, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
       insertIndex: 0
       addedObject: {fileID: 7213333823185191944}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4347825125855231141, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2486559878170373598}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
---- !u!1 &376306317986321886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4347825125855231141, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
-  m_PrefabInstance: {fileID: 4138380831625390459}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2486559878170373598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376306317986321886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!224 &1129773013397716612 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3946202075904710655, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
@@ -376,6 +358,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2538756699947487057, guid: 218f528947ec642f5b29f840a26fedc9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100523966812158073, guid: 218f528947ec642f5b29f840a26fedc9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100523966812158073, guid: 218f528947ec642f5b29f840a26fedc9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100523966812158073, guid: 218f528947ec642f5b29f840a26fedc9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100523966812158073, guid: 218f528947ec642f5b29f840a26fedc9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

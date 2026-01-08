@@ -154,7 +154,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7093825127515901888}
-  - {fileID: 2792748091887388565}
   m_Father: {fileID: 5097682329865492106}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -183,7 +182,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: -1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 40
+  m_SortingOrder: 75
   m_TargetDisplay: 0
 --- !u!114 &1240371967748815420
 MonoBehaviour:
@@ -255,6 +254,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1808984469507236379}
+  - {fileID: 3763788204578177967}
   - {fileID: 1460186631908905934}
   m_Father: {fileID: 2652851915532646577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -591,145 +591,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffacbd20e392d4388aa52dad85124dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingPopup
-  content: {fileID: 2254122322847281670}
+  content: {fileID: 5580059709435668144}
   _addBuildingsButton:
-  - {fileID: 5111006133398412054}
-  - {fileID: 7899955716436568652}
-  - {fileID: 2850780764882242627}
-  - {fileID: 6730181090704136237}
---- !u!1001 &4695009147970620620
+  - {fileID: 4847951747977821439}
+  - {fileID: 1761407067642077849}
+  - {fileID: 1136218091902043128}
+  - {fileID: 2808013723241377366}
+--- !u!1001 &6954561517234761238
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1808984469507236379}
+    m_TransformParent: {fileID: 5097682329865492106}
     m_Modifications:
-    - target: {fileID: 394507890348857239, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 394507890348857239, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 394507890348857239, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740441392936654361, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740441392936654361, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740441392936654361, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740441392936654361, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173022438537825364, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173022438537825364, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173022438537825364, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173022438537825364, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6800512122568097482, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 3311212697546180774, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_Name
-      value: AddBuildingPopup
+      value: BuildingSlotPopupUI
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
+    - target: {fileID: 3311212697546180774, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 3.39877
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
+    - target: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -737,58 +657,58 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
---- !u!1 &2254122322847281670 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+--- !u!114 &1136218091902043128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8018439851748666862, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+  m_PrefabInstance: {fileID: 6954561517234761238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
+--- !u!114 &1761407067642077849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8715123607938403471, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+  m_PrefabInstance: {fileID: 6954561517234761238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
+--- !u!114 &2808013723241377366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5078795120717348928, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+  m_PrefabInstance: {fileID: 6954561517234761238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
+--- !u!4 &3763788204578177967 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6104692741714816441, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+  m_PrefabInstance: {fileID: 6954561517234761238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4847951747977821439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2577451756721181417, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+  m_PrefabInstance: {fileID: 6954561517234761238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
+--- !u!1 &5580059709435668144 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6800512122568097482, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-  m_PrefabInstance: {fileID: 4695009147970620620}
+  m_CorrespondingSourceObject: {fileID: 3311212697546180774, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+  m_PrefabInstance: {fileID: 6954561517234761238}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &2792748091887388565 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7487744992755485529, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-  m_PrefabInstance: {fileID: 4695009147970620620}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2850780764882242627 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7401674721511407759, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-  m_PrefabInstance: {fileID: 4695009147970620620}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
---- !u!114 &5111006133398412054 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 560123169758877658, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-  m_PrefabInstance: {fileID: 4695009147970620620}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
---- !u!114 &6730181090704136237 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2039688604447872225, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-  m_PrefabInstance: {fileID: 4695009147970620620}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
---- !u!114 &7899955716436568652 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3209450456945993344, guid: 66c78eb02d93c43b9ba434a28b4e0632, type: 3}
-  m_PrefabInstance: {fileID: 4695009147970620620}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
