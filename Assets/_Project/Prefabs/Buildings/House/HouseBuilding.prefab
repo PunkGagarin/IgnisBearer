@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec463f8a71aa4d6aba04b0e00b8b6ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.OpenBuildingPopup
-  _button: {fileID: 2872637380423578552}
+  _button: {fileID: 657271497963361172}
   _popup: {fileID: 4530127581680816230}
 --- !u!114 &6023656242212212725
 MonoBehaviour:
@@ -305,6 +305,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7195398411938322113, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+      propertyPath: _key
+      value: HOUSE_INFO_BTN
+      objectReference: {fileID: 0}
     - target: {fileID: 8231282556226875513, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -390,9 +394,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
---- !u!114 &2872637380423578552 stripped
+--- !u!114 &657271497963361172 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4194246847729312446, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1510471427148120722, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
   m_PrefabInstance: {fileID: 2155356372304318726}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -425,6 +429,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1592962405684818874}
     m_Modifications:
+    - target: {fileID: 353632641144774976, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: _key
+      value: HOUSE_POPUP_TITLE
+      objectReference: {fileID: 0}
     - target: {fileID: 446207452282092158, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
