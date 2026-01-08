@@ -17,10 +17,10 @@ namespace _Project.Scripts.Gameplay.Units
 
         public async void Enter()
         {
-            _unit.Context.SetUnitStatus(UnitStatus.Busy);
-            var churchPosition = _buildingSlotsService.GetChurchPosition();
-            await _unit.Mover.MoveTo(churchPosition);
-            _unit.StateMachine.Enter<UnitSendLightToChurchState>();
+            // _unit.Context.SetUnitStatus(UnitStatus.Busy);
+            // var churchPosition = _buildingSlotsService.GetChurchPosition();
+            // await _unit.Mover.MoveTo(churchPosition);
+            // _unit.StateMachine.Enter<UnitAddToChurchQueueState>();
         }
 
         public void Exit()

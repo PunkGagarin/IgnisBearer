@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: -6887034707961980028}
   - component: {fileID: -2442300844691490121}
   - component: {fileID: 748098659035854399}
+  - component: {fileID: 8719285551427915964}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -174,6 +175,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7330fef6f63d46dc9e29830d695d786f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ChurchGradeStatIncreaser
+--- !u!114 &8719285551427915964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832aae4b078f4715a6ded21457c04b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ChurchQueue
+  <Slots>k__BackingField: []
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0

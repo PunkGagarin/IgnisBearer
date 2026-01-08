@@ -10,17 +10,19 @@ namespace _Project.Scripts.Gameplay.Units
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly UnitSettings _unitSettings;
 
-        private List<Type> _initStates = new()
+        private readonly List<Type> _initStates = new()
         {
             typeof(SimpleMoveToState),
             typeof(UnitMoveToWithNext),
             typeof(MoveToWithNextAndPayload),
-            
+
             typeof(DisableState),
             typeof(UnitIdleState),
+            typeof(UnitWaitState),
             typeof(FireUpLanternState),
             typeof(HarvestResourceState),
-            typeof(UnitSendLightToChurchState)
+            typeof(UnitAddToChurchQueueState),
+            typeof(UnitSendLightToChurchState),
         };
 
         public Unit CreateAndInstantiateUnit(Transform unitPosition)
@@ -50,5 +52,4 @@ namespace _Project.Scripts.Gameplay.Units
             unitStateMachine.Register(idle);
         }
     }
-
 }
