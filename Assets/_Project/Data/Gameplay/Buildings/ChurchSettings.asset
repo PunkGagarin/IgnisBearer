@@ -16,7 +16,7 @@ MonoBehaviour:
   _gradeData:
   - MaxLightStorageCapacity: 100
     GradePrice: 0
-    LightSendSpeed: 0.4
+    LightSendSpeed: 5
   - MaxLightStorageCapacity: 150
     GradePrice: 0
     LightSendSpeed: 0.4

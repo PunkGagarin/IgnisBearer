@@ -10,12 +10,9 @@ namespace _Project.Scripts.Gameplay.Units
 {
     public class HarvestResourceState : IUnitState, IPayloadState<LightResource>
     {
-        // [Inject] private LanternSettings _lanternSettings;
-
         [Inject] BuildingSlotsService _buildingSlotsService;
         private Unit _unit;
 
-        // private float _currentTime = 0f;
         private UnitContext Context => _unit.Context;
 
 
@@ -31,33 +28,16 @@ namespace _Project.Scripts.Gameplay.Units
             await UniTask.Delay(TimeSpan.FromSeconds(1));
 
             Context.LightAmount += 1;
-            _unit.StateMachine.Enter<UnitMoveToWithNext, UnitSendLightToChurchState, Vector3>(
+            _unit.StateMachine.Enter<UnitMoveToWithNext, UnitAddToChurchQueueState, Vector3>(
                 _buildingSlotsService.GetChurchPosition());
         }
 
         public void Update()
         {
-            // _currentTime += Time.deltaTime * _unit.Context.FireUpMultiplier;
-            //
-            // UpdateBar(_currentTime, _lanternSettings.HarvestTime);
-            //
-            // if (_currentTime > _lanternSettings.HarvestTime)
-            // {
-            //     Context.LightAmount = _resourceStorage.Collect();
-            //     _unit.StateMachine.Enter<UnitMoveToChurchState>();
-            // }
         }
 
         public void Exit()
         {
-            // _currentTime = 0f;
-            // _resourceStorage = null;
-            // _lanternUi = null;
         }
-
-        // private void UpdateBar(float currentTime, float lanternSettingsHarvestTime)
-        // {
-        //     _lanternUi.SetProgress(currentTime / lanternSettingsHarvestTime);
-        // }
     }
 }

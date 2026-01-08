@@ -5,7 +5,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class UnitSendLightToChurchState : IUnitState, IState
+    public class UnitSendLightToChurchState : IUnitState, IPayloadState<ChurchLightSendSlot>
     {
         [Inject] private BuildingsService _buildingsService;
         [Inject] private UnitSettings _unitSettings;
@@ -15,16 +15,12 @@ namespace _Project.Scripts.Gameplay.Units
         private Unit _unit;
 
         private float _currentTime = 0f;
-
-        // private Action _enterNextState;
+        private ChurchLightSendSlot _slot;
+        private float _lightSendSpeed;
 
         public void Init(Unit unit)
         {
             _unit = unit;
-        }
-
-        public void Enter()
-        {
         }
 
         public void Update()
@@ -33,21 +29,33 @@ namespace _Project.Scripts.Gameplay.Units
 
             UpdateBar();
 
-            if (_currentTime > _buildingsService.GetChurch().GetLightSendSpeed())
+            if (_currentTime > _lightSendSpeed)
             {
                 ChurchResourceStorage.IncrementAmount(_unit.Context.LightAmount);
-                _unit.Context.LightAmount = 0;
+                _slot.SetFree();
                 _unit.StateMachine.Enter<UnitIdleState>();
             }
+        }
+
+        public void Enter(ChurchLightSendSlot slot)
+        {
+            _slot = slot;
+            //todo: stat move from settings or add more complex logic
+            _lightSendSpeed = _buildingsService.GetChurch().GetLightSendSpeed();
+            
+            //todo: move to church queue and incapsualte???
+            slot.SetBusy();
         }
 
         public void Exit()
         {
             _currentTime = 0f;
+            _unit.Context.LightAmount = 0;
         }
 
         private void UpdateBar()
         {
+            _slot.Progress(_currentTime / _lightSendSpeed);
         }
     }
 }
