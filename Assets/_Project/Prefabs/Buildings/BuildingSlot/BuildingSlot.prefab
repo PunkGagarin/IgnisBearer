@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6468368148676573631, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_fontSize
-      value: 1.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6971475225506418875, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_Name
@@ -501,6 +501,10 @@ PrefabInstance:
     - target: {fileID: 2012108994814166181, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_Spacing
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280542954648004587, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+      propertyPath: _key
+      value: BUILDING_SLOT_INFO_BTN
       objectReference: {fileID: 0}
     - target: {fileID: 2411841907311645348, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_AnchorMax.y
