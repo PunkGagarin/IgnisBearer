@@ -16,7 +16,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             _lights.Add(lightResource);
 
-            lightResource.OnClicked += OnLightResourceClicked;
+            lightResource.OnClicked += OnLightResourceClickedHandle;
             lightResource.OnHarvested += DestroyResource;
 
             OnLightCreated.Invoke(lightResource);
@@ -26,10 +26,16 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             _lights.Remove(lightResource);
 
-            lightResource.OnClicked -= OnLightResourceClicked;
+            lightResource.OnClicked -= OnLightResourceClickedHandle;
             lightResource.OnHarvested -= DestroyResource;
 
             Object.Destroy(lightResource.gameObject);
+        }
+
+        private void OnLightResourceClickedHandle(LightResource resource)
+        {
+            resource.SetBusy();
+            OnLightResourceClicked.Invoke(resource);
         }
 
         public List<LightResource> GetUnharvestedResources()

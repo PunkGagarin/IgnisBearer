@@ -27,6 +27,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected override void MoveTo(Unit unit, LightResource res)
         {
+            res.SetBusy();
             unit.StateMachine.Enter<MoveToWithNextAndPayload, HarvestResourceState, Vector3, LightResource>(
                 res.transform.position, res);
         }

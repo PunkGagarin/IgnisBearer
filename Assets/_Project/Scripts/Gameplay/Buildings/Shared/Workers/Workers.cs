@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Units;
+using _Project.Scripts.Utils;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings
@@ -11,7 +12,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         public event Action<Unit> OnUnitAdded = delegate { };
         public event Action<Unit> OnUnitRemoved = delegate { };
         public List<Unit> CurWorkers { get; } = new();
-        
+
         public int CurrentCount => CurWorkers.Count;
         public int MaxCount { get; private set; }
 
@@ -40,17 +41,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (CurrentCount == 0)
                 return false;
 
-            for (int index = 0; index < CurWorkers.Count; index++)
-            {
-                unit = CurWorkers[index];
-                if (unit.Context.Status == UnitStatus.Free)
-                {
-                    unit = CurWorkers[index];
-                    return true;
-                }
-            }
-
-            return false;
+            unit = CurWorkers.RandomOrDefault(el => el.Context.Status == UnitStatus.Free);
+            return unit != null;
         }
 
 
@@ -59,6 +51,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             worker = null;
             if (HasAnyWorker())
             {
+                //todo: worker вот тут потенциальная бага: не проверяет
+                //свободен ли юнит а просто снимает его,юнит может не закончить текущее дейтвие
                 worker = CurWorkers.First();
                 CurWorkers.Remove(worker);
                 OnUnitRemoved?.Invoke(worker);
