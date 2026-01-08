@@ -16,6 +16,11 @@ namespace _Project.Scripts.Utils
             _collider2D = GetComponent<Collider2D>();
         }
 
+        public void DisableInteract()
+        {
+            _collider2D.enabled = false;
+        }
+
         public virtual void OnMouseDown()
         {
             if (IsPointerOverUI())

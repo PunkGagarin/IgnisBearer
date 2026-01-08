@@ -20,5 +20,10 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             OnHarvested.Invoke(this);
         }
+
+        public void SetBusy()
+        {
+            DisableInteract();
+        }
     }
 }
