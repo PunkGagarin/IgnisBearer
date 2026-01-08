@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using _Project.Scripts.Utils;
 using UnityEngine;
 using Zenject;
 
@@ -76,7 +77,7 @@ namespace _Project.Scripts.Gameplay.Units
                 Debug.LogWarning("Trying to find free worker when there are no workers");
                 return null;
             }
-            return _units.FirstOrDefault(unit => unit.Context.Status == UnitStatus.Free);
+            return _units.RandomOrDefault(unit => unit.Context.Status == UnitStatus.Free);
         }
 
         public void RegisterUnit(Unit unit)
