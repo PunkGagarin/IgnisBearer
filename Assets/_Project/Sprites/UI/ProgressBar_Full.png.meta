@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b4a782848db104778b9836afa2166cde
+guid: e5e8be87984d84709a418fc929f736c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5334824761365221810
-    second: full progressbar_0
+      213: -7652212503845841003
+    second: ProgressBar_Full_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,56 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: full progressbar_0
+      name: ProgressBar_Full_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 468
-        height: 48
+        width: 52
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4e2ed70525e6f5b0800000000000000
-      internalID: -5334824761365221810
+      spriteID: 597577a5541edc590800000000000000
+      internalID: -7652212503845841003
       vertices: []
       indices: 
       edges: []
@@ -187,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      full progressbar_0: -5334824761365221810
+      ProgressBar_Full_0: -7652212503845841003
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
