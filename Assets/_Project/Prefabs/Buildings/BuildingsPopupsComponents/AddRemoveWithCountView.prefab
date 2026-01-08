@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   content: {fileID: 7891574734316833264}
-  _addUnitButton: {fileID: 0}
+  _addUnitButton: {fileID: 1154595838601965354}
   _removeUnitButton: {fileID: 4003416106839195630}
   _countText: {fileID: 7442761742594539390}
   _text: {fileID: 1850141517362825274}
@@ -535,6 +535,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
+--- !u!114 &1154595838601965354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5818075573795754333, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
+  m_PrefabInstance: {fileID: 4663484169848536695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &3100523966812158073 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7763994901336213006, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
