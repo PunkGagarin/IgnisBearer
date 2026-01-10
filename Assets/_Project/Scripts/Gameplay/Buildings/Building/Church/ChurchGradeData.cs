@@ -9,5 +9,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         public int MaxLightStorageCapacity = 1000;
         public int GradePrice;
         public float LightSendSpeed = 3f;
+        public int QueueCapacity = 2;
     }
 }

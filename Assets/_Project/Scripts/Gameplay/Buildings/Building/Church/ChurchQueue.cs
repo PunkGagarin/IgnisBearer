@@ -2,11 +2,14 @@
 using System.Linq;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
     public class ChurchQueue : MonoBehaviour
     {
+        [Inject] private readonly ChurchSettings _settings;
+
         [field: SerializeField]
         public List<ChurchLightSendSlot> Slots { get; private set; }
 
@@ -24,13 +27,47 @@ namespace _Project.Scripts.Gameplay.Buildings
                 slot.OnFree -= CheckForUnit;
         }
 
+        public void Init(int capacity)
+        {
+            ActivateCapacityFor(capacity);
+        }
+
+        private void ActivateCapacityFor(int capacity)
+        {
+            if (capacity > Slots.Count)
+            {
+                Debug.LogError($" Не совпадает количество слотов для инициализации и реальное" +
+                               $"Просят: {capacity}, есть: {Slots.Count}");
+                capacity = Slots.Count;
+            }
+
+            for (int i = 0; i < Slots.Count; i++)
+                SetSlotActivity(capacity, i);
+        }
+
+        private void SetSlotActivity(int capacity, int i)
+        {
+            var slot = Slots[i];
+            if (i < capacity)
+                slot.Activate();
+            else
+                slot.Deactivate();
+        }
+
         private void CheckForUnit(ChurchLightSendSlot slot)
         {
             if (_queue.Count > 0)
             {
+                foreach (var unitInQueue in _queue)
+                    MoveForwardBy(unitInQueue);
+
                 var unit = _queue.Dequeue();
                 SetUnitToSlot(slot, unit);
             }
+        }
+
+        private void MoveForwardBy(Unit unitInQueue)
+        {
         }
 
         public void AddUnitForQueue(Unit unit)

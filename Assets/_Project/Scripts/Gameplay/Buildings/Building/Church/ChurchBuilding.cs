@@ -19,6 +19,13 @@ namespace _Project.Scripts.Gameplay.Buildings
             var curGrade = GetComponent<IGrade>().Current;
             var curGradeData = _churchSettings.GetData(curGrade); //todo get from save?
             return curGradeData.LightSendSpeed;
+        }     
+        
+        public float GetQueueCapacity()
+        {
+            var curGrade = GetComponent<IGrade>().Current;
+            var curGradeData = _churchSettings.GetData(curGrade); //todo get from save?
+            return curGradeData.QueueCapacity;
         }
     }
 }

@@ -45,5 +45,10 @@ namespace _Project.Scripts.Gameplay.Buildings
             ResetProgress();
             OnFree.Invoke(this);
         }
+
+        public void Deactivate()
+        {
+            IsActive = false;
+        }
     }
 }
