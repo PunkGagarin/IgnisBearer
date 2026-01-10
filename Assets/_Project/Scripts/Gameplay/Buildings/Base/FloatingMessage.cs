@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings
@@ -7,10 +8,14 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         [SerializeField] private RectTransform _rectTransform;
         [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private TextMeshProUGUI _text;
+        [Header("Animation")]
         [SerializeField] private float _moveUpDistance;
         [SerializeField] private float _duration;
-        [SerializeField] private float _downMargin = 2f;
         [SerializeField] private AnimationCurve moveCurve;
+        [Header("Random Start Offset")]
+        [SerializeField] private bool _useRandomOffset = false;
+        [SerializeField] private float _randomRadius = .2f;
 
         private Sequence _sequence;
         private Vector2 _startPos;
@@ -21,6 +26,12 @@ namespace _Project.Scripts.Gameplay.Buildings
             Hide();
         }
 
+        public void Play(string message)
+        {
+            _text.text = message;
+            Play();
+        }
+        
         public void Play()
         {
             Show();
@@ -38,7 +49,12 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void Prepare()
         {
-            _rectTransform.anchoredPosition = _startPos;
+            Vector2 offset = Vector2.zero;
+
+            if (_useRandomOffset) 
+                offset = Random.insideUnitCircle * _randomRadius;
+
+            _rectTransform.anchoredPosition = _startPos + offset;
             _rectTransform.localScale = Vector3.zero;
         }
 

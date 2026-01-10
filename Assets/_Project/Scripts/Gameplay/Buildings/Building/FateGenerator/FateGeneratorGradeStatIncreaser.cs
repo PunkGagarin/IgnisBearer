@@ -22,8 +22,13 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
 
             UpdateWorkers(gameObject, curGradeData.MaxUnitsCount);
             UpdateResourceProducer(gameObject, curGradeData.TimeToProduceFate);
-            
+            UpdateWorkerProduceAmountIncreaser(curGradeData);
         }
 
+        private void UpdateWorkerProduceAmountIncreaser(FateGeneratorGradeData curGradeData)
+        {
+            var workerProduceAmountIncreaser = gameObject.GetComponent<WorkerProduceAmountIncreaser>();
+            workerProduceAmountIncreaser.Init(curGradeData.AmountToProduceFate);
+        }
     }
 }

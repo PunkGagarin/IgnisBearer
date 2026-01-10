@@ -1,5 +1,4 @@
-﻿using System;
-using _Project.Scripts.Gameplay.Units;
+﻿using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings
@@ -10,12 +9,18 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         private IWorkers _workers;
         private ResourceProducer _resourceProducer;
-        private int amountPerWorker = 1;
+        private int _amountPerWorker;
 
         private void Awake()
         {
-             _workers = GetComponent<Workers>();
-             _resourceProducer = GetComponent<ResourceProducer>();
+            _workers = GetComponent<Workers>();
+            _resourceProducer = GetComponent<ResourceProducer>();
+        }
+
+        public void Init(int amountPerWorker)
+        {
+            _amountPerWorker = amountPerWorker;
+            UpdateAmountProduced();
         }
 
         private void Start()
@@ -30,10 +35,12 @@ namespace _Project.Scripts.Gameplay.Buildings
             _workers.OnUnitRemoved -= UpdateAmountProduced;
         }
 
-        private void UpdateAmountProduced(Unit _)
+        private void UpdateAmountProduced(Unit _) => UpdateAmountProduced();
+
+        private void UpdateAmountProduced()
         {
             int workersCurrentCount = _workers.CurrentCount;
-            int totalAmount = workersCurrentCount * amountPerWorker;
+            int totalAmount = workersCurrentCount * _amountPerWorker;
             _resourceProducer.SetAmountToProduce(totalAmount);
         }
     }
