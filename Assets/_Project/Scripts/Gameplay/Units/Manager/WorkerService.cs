@@ -59,12 +59,13 @@ namespace _Project.Scripts.Gameplay.Units
             return true;
         }
 
-        public bool MoveFreeUnitTo(LightResource resource)
+        private bool MoveFreeUnitTo(LightResource resource)
         {
             var unit = FindFirstFreeWorker();
             if (unit == null)
                 return false;
 
+            resource.SetBusy();
             unit.StateMachine.Enter<MoveToWithNextAndPayload, HarvestResourceState, Vector3, LightResource>(
                 resource.transform.position, resource);
             return true;

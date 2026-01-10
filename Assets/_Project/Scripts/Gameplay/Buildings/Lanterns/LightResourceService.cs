@@ -34,7 +34,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         private void OnLightResourceClickedHandle(LightResource resource)
         {
-            resource.SetBusy();
             OnLightResourceClicked.Invoke(resource);
         }
 
