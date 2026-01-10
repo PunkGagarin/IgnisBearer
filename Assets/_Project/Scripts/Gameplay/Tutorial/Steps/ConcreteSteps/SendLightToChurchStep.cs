@@ -27,6 +27,11 @@ namespace _Project.Scripts.Tutorial
                 FinishStep();
         }
 
+        public override void FinishStep()
+        {
+            base.FinishStep();
+        }
+
         protected override void Unsubscribe()
         {
             var church = _buildingsService.GetChurch();

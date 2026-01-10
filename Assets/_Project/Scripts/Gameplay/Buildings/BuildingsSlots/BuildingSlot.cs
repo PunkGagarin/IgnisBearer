@@ -70,7 +70,15 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         }
         private void OnLightAmountIncreased((int amountIncreased, int newAmount, int maxAmount) obj)
         {
-            SetButtonEnabled(true);
+            if (!IsButtonEnabled())
+            {
+                SetButtonEnabled(true);
+            }
+        }
+
+        private bool IsButtonEnabled()
+        {
+            return _button.interactable;
         }
 
         private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj)
