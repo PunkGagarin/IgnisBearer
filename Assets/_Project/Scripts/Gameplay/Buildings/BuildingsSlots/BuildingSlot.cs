@@ -25,6 +25,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _addBuildingPopup = GetComponent<AddBuildingPopup>();
             _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
             _fateService.OnAmountChanged += OnBalanceChanged;
+            SetButtonEnabled(false);
         }
 
         private void OnDestroy()
