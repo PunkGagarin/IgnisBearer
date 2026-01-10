@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Tutorial
+﻿namespace _Project.Scripts.Gameplay.Tutorial
 {
     public enum TutorStepType
     {
