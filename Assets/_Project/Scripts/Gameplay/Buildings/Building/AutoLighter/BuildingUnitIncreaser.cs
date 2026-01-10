@@ -29,7 +29,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             _workerService.OnWorkerListUpdated += UpdateUi;
             _workerService.OnFreeUnitAvailable += UpdateUi;
             _workerService.OnAllUnitsBusy += UpdateUi;
-
+            _workers.OnMaxCountChanged += UpdateUi;
+            
             UpdateUi();
         }
 
@@ -40,8 +41,11 @@ namespace _Project.Scripts.Gameplay.Buildings
             _workerService.OnWorkerListUpdated -= UpdateUi;
             _workerService.OnFreeUnitAvailable -= UpdateUi;
             _workerService.OnAllUnitsBusy -= UpdateUi;
+            _workers.OnMaxCountChanged -= UpdateUi;
         }
 
+        private void UpdateUi(int _) => UpdateUi();
+        
         private void UpdateUi()
         {
             var countText = $"{_workers.CurrentCount}/{_workers.MaxCount}";

@@ -18,10 +18,12 @@ MonoBehaviour:
     <MaxUnitsCount>k__BackingField: 1
     <MaxDurability>k__BackingField: 100
     <TimeToProduceFate>k__BackingField: 3
-  - <GradePrice>k__BackingField: 20
+    <AmountToProduceFate>k__BackingField: 1
+  - <GradePrice>k__BackingField: 1
     <MaxUnitsCount>k__BackingField: 2
     <MaxDurability>k__BackingField: 150
     <TimeToProduceFate>k__BackingField: 3
+    <AmountToProduceFate>k__BackingField: 3
   <BuildingNameKey>k__BackingField: FATE_GENERATOR_NAME_KEY
   <MaxCountToBuild>k__BackingField: 1
   <BuildPrice>k__BackingField: 0

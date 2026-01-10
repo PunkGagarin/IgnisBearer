@@ -7,6 +7,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         public event Action<Unit> OnUnitAdded;
         public event Action<Unit> OnUnitRemoved;
+        public event Action<int> OnMaxCountChanged;
 
         int MaxCount { get; }
         int CurrentCount { get; }

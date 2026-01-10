@@ -2,7 +2,7 @@
 using _Project.Scripts.Gameplay.Ui.Buildings;
 using Zenject;
 
-namespace _Project.Scripts.Tutorial
+namespace _Project.Scripts.Gameplay.Tutorial
 {
     public class BuyUnitStep : BaseTutorialStep
     {

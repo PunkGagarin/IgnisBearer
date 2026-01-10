@@ -9,11 +9,9 @@ namespace _Project.Scripts.Gameplay.Units
     {
         [Inject] private LanternSettings _lanternSettings;
         
-        
         private float _currentTime = 0f;
         
-        //todo: bar
-        // private LanternBar _bar;
+        private LanternUi _lanternUi;
         private Lantern _lantern;
 
         private Unit _unit;
@@ -23,11 +21,11 @@ namespace _Project.Scripts.Gameplay.Units
         {
             _unit = unit;
         }
-
-
+        
         public void Enter(Lantern lantern)
         {
             _lantern = lantern;
+            _lanternUi = lantern.GetComponent<LanternUi>();
         }
 
         public void Update()
@@ -44,7 +42,8 @@ namespace _Project.Scripts.Gameplay.Units
 
         private void UpdateBar()
         {
-            //todo: implement me
+            var progress = Mathf.Clamp01(_currentTime / _lanternSettings.FireUpTime);
+            _lanternUi.SetProgress(progress);
         }
 
         public void Exit()

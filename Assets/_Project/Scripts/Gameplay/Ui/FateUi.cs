@@ -1,4 +1,5 @@
 using _Project.Scripts.Utils;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -8,10 +9,19 @@ namespace _Project.Scripts.Gameplay.Ui
     {
         [field: SerializeField]
         public TextMeshProUGUI FateCounter { get; private set; }
+        
+        private Tween _counterTween;
+        private float _currentValue;
 
-        public void SetFateCounter(int current)
+        public void SetFateCounter(int target)
         {
-            FateCounter.text = $"{current}";
+            _counterTween?.Kill();
+
+            _counterTween = DOTween.To(() => _currentValue, x =>
+            {
+                _currentValue = x;
+                FateCounter.text = _currentValue.ToString("N0");
+            }, target, 1f).SetEase(Ease.OutQuart);
         }
     }
 }

@@ -18,5 +18,8 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
         [field: SerializeField]
         public float TimeToProduceFate { get; set; } = 3f;
 
+        [field: SerializeField]
+        public int AmountToProduceFate { get; set; } = 1;
+
     }
 }

@@ -15,20 +15,23 @@ namespace _Project.Scripts.Gameplay.Buildings
             _workers = GetComponent<IWorkers>();
             _workers.OnUnitAdded += UpdateUi;
             _workers.OnUnitRemoved += UpdateUi;
+            _workers.OnMaxCountChanged += UpdateUi;
         }
-        
-        private void Start()
-        {
-            UpdateUi();
-        }
-        
-        private void UpdateUi(Unit obj) => UpdateUi();
 
         private void OnDestroy()
         {
             _workers.OnUnitAdded -= UpdateUi;
             _workers.OnUnitRemoved -= UpdateUi;
+            _workers.OnMaxCountChanged -= UpdateUi;
         }
+
+        private void Start()
+        {
+            UpdateUi();
+        }
+        
+        private void UpdateUi(Unit _) => UpdateUi();
+        private void UpdateUi(int _) => UpdateUi();
 
         private void UpdateUi()
         {

@@ -1,10 +1,8 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
-using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using _Project.Scripts.Gameplay.Ui.Buildings;
-using _Project.Scripts.Gameplay.Units;
 using Zenject;
 
-namespace _Project.Scripts.Tutorial
+namespace _Project.Scripts.Gameplay.Tutorial
 {
     public class BuySecondUnitStep : BaseTutorialStep
     {

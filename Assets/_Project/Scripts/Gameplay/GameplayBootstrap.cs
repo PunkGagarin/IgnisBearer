@@ -4,9 +4,9 @@ using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Data;
 using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Gameplay.SkillTree;
+using _Project.Scripts.Gameplay.Tutorial;
 using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Gameplay.Units;
-using _Project.Scripts.Tutorial;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay
@@ -49,7 +49,6 @@ namespace _Project.Scripts.Gameplay
 
             InitBuildingSlots();
             InitExistingChurch();
-            SubscribeSlotsForBuildEnabled();
 
             InitConsumeProgressor();
 
@@ -64,11 +63,6 @@ namespace _Project.Scripts.Gameplay
             _gameEndService.Init();
 
             _tutorial.StartTutor();
-        }
-
-        private void SubscribeSlotsForBuildEnabled()
-        {
-            _buildingSlotsService.SubscribeSlotsForBuildEnabled();
         }
 
         private void InitExistingHouse()

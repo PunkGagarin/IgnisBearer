@@ -1,7 +1,7 @@
 ﻿using System;
 using Zenject;
 
-namespace _Project.Scripts.Tutorial
+namespace _Project.Scripts.Gameplay.Tutorial
 {
     public abstract class BaseTutorialStep : ITutorialStep
     {
