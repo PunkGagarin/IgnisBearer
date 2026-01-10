@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace _Project.Scripts.Tutorial
+namespace _Project.Scripts.Gameplay.Tutorial
 {
     public class TutorialUi : ContentUi
     {

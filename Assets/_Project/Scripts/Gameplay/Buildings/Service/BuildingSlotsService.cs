@@ -45,12 +45,12 @@ namespace _Project.Scripts.Gameplay.Buildings
             return _buildingSlots.First();
         }
 
-        public void SubscribeSlotsForBuildEnabled()
+        public void EnableButtonForSlots()
         {
-            _churchSlot.SubscribeForBuildEnabled();
+            _churchSlot.SetButtonEnabled(true);
             foreach (var buildingSlot in _buildingSlots)
             {
-                buildingSlot.SubscribeForBuildEnabled();
+                buildingSlot.SetButtonEnabled(true);
             }
         }
     }

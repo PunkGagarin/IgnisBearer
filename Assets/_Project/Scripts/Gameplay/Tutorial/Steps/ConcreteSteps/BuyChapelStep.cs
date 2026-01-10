@@ -2,7 +2,7 @@
 using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using Zenject;
 
-namespace _Project.Scripts.Tutorial
+namespace _Project.Scripts.Gameplay.Tutorial
 {
     public class BuyChapelStep : BaseTutorialStep
     {

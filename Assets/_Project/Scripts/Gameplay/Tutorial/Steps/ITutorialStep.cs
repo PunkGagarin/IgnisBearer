@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _Project.Scripts.Tutorial
+namespace _Project.Scripts.Gameplay.Tutorial
 {
     public interface ITutorialStep
     {
