@@ -25,6 +25,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _addBuildingPopup = GetComponent<AddBuildingPopup>();
             _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
             _fateService.OnAmountChanged += OnBalanceChanged;
+            SetButtonEnabled(false);
         }
 
         private void OnDestroy()
@@ -69,7 +70,15 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         }
         private void OnLightAmountIncreased((int amountIncreased, int newAmount, int maxAmount) obj)
         {
-            SetButtonEnabled(true);
+            if (!IsButtonEnabled())
+            {
+                SetButtonEnabled(true);
+            }
+        }
+
+        private bool IsButtonEnabled()
+        {
+            return _button.interactable;
         }
 
         private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj)

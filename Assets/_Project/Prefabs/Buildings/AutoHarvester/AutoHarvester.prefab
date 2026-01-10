@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec463f8a71aa4d6aba04b0e00b8b6ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.OpenBuildingPopup
-  _button: {fileID: 0}
+  _button: {fileID: 3869869000970056309}
   _popup: {fileID: 7539041091512719729}
 --- !u!114 &5985126254330671187
 MonoBehaviour:
@@ -293,7 +293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2130189039916214896, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_fontSize
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7195398411938322113, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: _key
@@ -384,6 +384,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+--- !u!114 &3869869000970056309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1510471427148120722, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+  m_PrefabInstance: {fileID: 2396702908152754407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &6015031498574561438 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8231282556226875513, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
