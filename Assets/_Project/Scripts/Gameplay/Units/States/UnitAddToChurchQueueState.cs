@@ -20,7 +20,7 @@ namespace _Project.Scripts.Gameplay.Units
 
         public void Enter()
         {
-            ChurchQueue.AddUnitForQueue(_unit);
+            // ChurchQueue.AddUnitForQueue(_unit);
         }
 
         public void Exit()

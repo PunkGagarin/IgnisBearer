@@ -21,7 +21,7 @@ namespace _Project.Scripts.Gameplay.Units
         private float _currentIdleTime;
         private float _idleTimeCap;
         private Vector3 _nextIdleMovePoint;
-        private AsyncLazy _moveTask;
+        private AsyncLazy<bool> _moveTask;
         private CancellationTokenSource _cts;
 
         public void Init(Unit unit)

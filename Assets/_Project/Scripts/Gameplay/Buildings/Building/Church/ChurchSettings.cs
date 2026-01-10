@@ -11,6 +11,9 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [field: SerializeField]
         public int StartLightAmount { get; private set; } = 10;
+        
+        [field: SerializeField]
+        public float PositionOffset { get; private set; } = 0.3f;
 
         public int MaxGrade => GradeData.Count;
     }

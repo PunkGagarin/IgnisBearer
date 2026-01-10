@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using _Project.Scripts.Infrastructure.GameStates;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace _Project.Scripts.Gameplay.Units
     public class UnitMoveToWithNext : IUnitState, IEnterWithNext<Vector3>
     {
         private Unit _unit;
+        private CancellationTokenSource _cts;
 
         public void Init(Unit unit)
         {
@@ -15,13 +17,26 @@ namespace _Project.Scripts.Gameplay.Units
 
         public async void Enter<TNextState>(Vector3 moveTo) where TNextState : class, IState, IUnitState
         {
+            _cts = new CancellationTokenSource();
+
             _unit.Context.SetUnitStatus(UnitStatus.Busy);
-            await _unit.Mover.MoveTo(moveTo);
-            _unit.StateMachine.Enter<TNextState>();
+
+            bool isCanceled = await _unit.Mover
+                .MoveTo(moveTo, cancellationToken: _cts.Token);
+            if (isCanceled)
+            {
+                Debug.LogError("Was canceled (удалю этот лог позже)");
+            }
+            else
+            {
+                _unit.StateMachine.Enter<TNextState>();
+            }
         }
 
         public void Exit()
         {
+            _cts.Cancel();
+            _cts.Dispose();
         }
 
         public void Update()

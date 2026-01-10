@@ -76,7 +76,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected virtual void OnUnitAdded(Unit unit)
         {
-            unit.StateMachine.Enter<SimpleMoveToState, Vector3>(transform.position);
+            unit.StateMachine.Enter<UnitMoveToWithIdleAfterState, Vector3>(transform.position);
         }
 
         private bool CanRemoveUnit()

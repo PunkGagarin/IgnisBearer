@@ -1,12 +1,10 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using _Project.Scripts.Infrastructure.GameStates;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class MoveToWithNextAndPayload : IUnitState, IEnterWithPayloadAndNextPayload<Vector3>
+    public class UnitMoveToWithIdleAfterState : IUnitState, IPayloadState<Vector3>
     {
         private Unit _unit;
         private CancellationTokenSource _cts;
@@ -20,21 +18,20 @@ namespace _Project.Scripts.Gameplay.Units
         {
         }
 
-        public async void Enter<TNextState, TNextPayload>(Vector3 moveTo, TNextPayload nextPayload)
-            where TNextState : class, IPayloadState<TNextPayload>, IUnitState
+        public async void Enter(Vector3 movePos)
         {
             _cts = new CancellationTokenSource();
             _unit.Context.SetUnitStatus(UnitStatus.Busy);
 
             bool isCanceled = await _unit.Mover
-                .MoveTo(moveTo, cancellationToken: _cts.Token);
+                .MoveTo(movePos, cancellationToken: _cts.Token);
             if (isCanceled)
             {
                 Debug.LogError("Was canceled (удалю этот лог позже)");
             }
             else
             {
-                _unit.StateMachine.Enter<TNextState, TNextPayload>(nextPayload);
+                _unit.StateMachine.Enter<UnitIdleState>();
             }
         }
 

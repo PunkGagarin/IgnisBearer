@@ -14,6 +14,14 @@ namespace _Project.Scripts.Gameplay.Buildings
         public List<ChurchLightSendSlot> Slots { get; private set; }
 
         private readonly Queue<Unit> _queue = new();
+        private readonly HashSet<Unit> _movingUnits = new();
+
+        private int _currentCapacity;
+
+        public void Init(int capacity)
+        {
+            ActivateCapacityFor(capacity);
+        }
 
         private void Awake()
         {
@@ -27,22 +35,68 @@ namespace _Project.Scripts.Gameplay.Buildings
                 slot.OnFree -= CheckForUnit;
         }
 
-        public void Init(int capacity)
+        public void SendUnitToQueue(Unit unit)
         {
-            ActivateCapacityFor(capacity);
+            unit.StateMachine.Enter<UnitMoveToState, Vector3>(
+                GetNextPositionForFarUnits());
+            unit.Mover.OnReach += DequeueFromMoving;
+            _movingUnits.Add(unit);
+        }
+
+        private void DequeueFromMoving(Unit unit)
+        {
+            unit.Mover.OnReach -= DequeueFromMoving;
+            _movingUnits.Remove(unit);
+
+            if (_queue.Count > _currentCapacity)
+            {
+                unit.StateMachine.Enter<UnitMoveToWithNext, UnitWaitState, Vector3>(
+                    GetNextPositionForInQueue());
+            }
+            else
+            {
+                AddUnitForQueue(unit);
+            }
+        }
+
+        private Vector3 GetNextPositionForFarUnits()
+        {
+            var movingUnitsCount = _queue.Count + _movingUnits.Count;
+
+            return _currentCapacity < movingUnitsCount
+                ? transform.position
+                : GetNextPositionWithOffset(movingUnitsCount - _currentCapacity);
+        }
+
+        private Vector3 GetNextPositionForInQueue()
+        {
+            var unitsCount = _queue.Count;
+
+            return _currentCapacity < unitsCount
+                ? transform.position
+                : GetNextPositionWithOffset(unitsCount - _currentCapacity);
+        }
+
+        private Vector3 GetNextPositionWithOffset(int offsetCount)
+        {
+            var settingsPositionYOffset = -1f * _settings.PositionOffset * offsetCount;
+            var offset = new Vector3(0, settingsPositionYOffset, 0);
+            return transform.position + offset;
         }
 
         private void ActivateCapacityFor(int capacity)
         {
-            if (capacity > Slots.Count)
+            _currentCapacity = capacity;
+
+            if (_currentCapacity > Slots.Count)
             {
                 Debug.LogError($" Не совпадает количество слотов для инициализации и реальное" +
-                               $"Просят: {capacity}, есть: {Slots.Count}");
-                capacity = Slots.Count;
+                               $"Просят: {_currentCapacity}, есть: {Slots.Count}");
+                _currentCapacity = Slots.Count;
             }
 
             for (int i = 0; i < Slots.Count; i++)
-                SetSlotActivity(capacity, i);
+                SetSlotActivity(_currentCapacity, i);
         }
 
         private void SetSlotActivity(int capacity, int i)
@@ -70,7 +124,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
         }
 
-        public void AddUnitForQueue(Unit unit)
+        private void AddUnitForQueue(Unit unit)
         {
             if (TryGetFreeSlot(out var slot))
                 SetUnitToSlot(slot, unit);

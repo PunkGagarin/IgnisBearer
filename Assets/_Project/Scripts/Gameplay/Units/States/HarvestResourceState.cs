@@ -3,14 +3,13 @@ using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Infrastructure.GameStates;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Units
 {
     public class HarvestResourceState : IUnitState, IPayloadState<LightResource>
     {
-        [Inject] BuildingSlotsService _buildingSlotsService;
+        [Inject] BuildingsService _buildingsService;
         private Unit _unit;
 
         private UnitContext Context => _unit.Context;
@@ -26,10 +25,12 @@ namespace _Project.Scripts.Gameplay.Units
             resource.Harvest();
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
-
+            
             Context.LightAmount += 1;
-            _unit.StateMachine.Enter<UnitMoveToWithNext, UnitAddToChurchQueueState, Vector3>(
-                _buildingSlotsService.GetChurchPosition());
+            
+            _buildingsService.GetChurch().GetComponent<ChurchQueue>().SendUnitToQueue(_unit);
+            // _unit.StateMachine.Enter<UnitMoveToWithNext, UnitAddToChurchQueueState, Vector3>(
+            //     _buildingSlotsService.GetChurchPosition());
         }
 
         public void Update()
