@@ -21,8 +21,7 @@ namespace _Project.Scripts.Gameplay.Units
         {
             _unit = unit;
         }
-
-
+        
         public void Enter(Lantern lantern)
         {
             _lantern = lantern;

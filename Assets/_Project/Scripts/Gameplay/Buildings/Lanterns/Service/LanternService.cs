@@ -64,6 +64,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             if (_workers.MoveFreeUnitTo(lantern))
                 lantern.GetComponent<LanternUi>().TurnOffIndicator();
+            else
+                lantern.GetComponent<FloatingMessage>().Play();
         }
 
         public List<Lantern> GetUnfiredLanterns()
