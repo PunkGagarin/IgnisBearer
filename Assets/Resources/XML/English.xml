@@ -46,4 +46,5 @@
   <text key="END_GAME_FAIL_RESTART">Restart</text>
   <text key="END_GAME_FAIL_SKILL_TREE">Skill tree</text>
   <text key="END_GAME_FAIL_CLOSE">Close</text>
+  <text key="END_GAME_FAIL_DESC">The forces of evil have broken free.%%The light no longer holds them back.%%The village has fallen.</text>
 </Language>
