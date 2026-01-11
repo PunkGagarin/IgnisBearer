@@ -51,10 +51,10 @@ namespace _Project.Scripts.Gameplay.Buildings
                 SetSlotActivity(_capacity, i);
         }
 
-        private void SetSlotActivity(int capacity, int i)
+        private void SetSlotActivity(int capacity, int index)
         {
-            var slot = Slots[i];
-            if (i < capacity)
+            var slot = Slots[index];
+            if (index < capacity)
                 slot.Activate();
             else
                 slot.Deactivate();
@@ -124,7 +124,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (!HasUnitsInQueue()) return;
             
             foreach (var unitInQueue in _queue)
-                MoveForwardBy(unitInQueue);
+                MoveForwardInQueue(unitInQueue);
 
             var unit = _queue.Dequeue();
             SetUnitToSlot(slot, unit);
@@ -135,7 +135,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             return _queue.Count > 0;
         }
 
-        private void MoveForwardBy(Unit unit)
+        private void MoveForwardInQueue(Unit unit)
         {
             //todo: bug нужен порядковый номер
             unit.StateMachine.Enter<UnitMoveToWithNext, UnitWaitState, Vector3>(
