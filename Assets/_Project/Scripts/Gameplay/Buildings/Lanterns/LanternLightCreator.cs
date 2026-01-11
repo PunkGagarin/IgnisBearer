@@ -7,12 +7,11 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-
     [RequireComponent(typeof(ResourceProducer))]
     public class LanternLightCreator : MonoBehaviour
     {
         [Inject] private LightResourceService _lightResourceService;
-        
+
         [field: SerializeField]
         private LightResource LightPrefab { get; set; }
 
@@ -34,7 +33,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         //create object pool
         private ResourceProducer _resourceProducer;
 
-        
 
         private void Awake()
         {
@@ -66,12 +64,13 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             try
             {
+                _lightResourceService.RegisterResource(lightResource);
+
                 await lightResource.transform
                     .DOMove(endPosition, DropAnimationTime)
                     .SetEase(AnimaCurve)
                     .ToUniTask(cancellationToken: lightResource.destroyCancellationToken);
 
-                _lightResourceService.RegisterResource(lightResource);
                 // OnLightCreated.Invoke(lightResource);
             }
             catch (Exception e)
@@ -90,5 +89,4 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             return finalPosition;
         }
     }
-
 }

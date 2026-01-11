@@ -67,7 +67,7 @@ namespace _Project.Scripts.Gameplay.Units
 
             resource.SetBusy();
             unit.StateMachine.Enter<UnitMoveToWithNextAndPayload, HarvestResourceState, Vector3, LightResource>(
-                resource.transform.position, resource);
+                resource.FinalPosition, resource);
             return true;
         }
 
