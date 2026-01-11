@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.Infrastructure.SceneManagement.LoadingCurtain
   content: {fileID: 5541811322997451971}
-  <HideDuration>k__BackingField: 2
+  <HideDuration>k__BackingField: 3
   image: {fileID: 3725569268997752053}
 --- !u!1 &9176751431445267747
 GameObject:
