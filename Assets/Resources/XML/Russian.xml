@@ -46,4 +46,5 @@
   <text key="END_GAME_FAIL_RESTART">Начать заново</text>
   <text key="END_GAME_FAIL_SKILL_TREE">Древо навыков</text>
   <text key="END_GAME_FAIL_CLOSE">Закрыть</text>
+  <text key="END_GAME_FAIL_DESC">Силы зла вырвались на свободу.%%Свет больше не сдерживает их.%%Деревня пала.</text>
 </Language>

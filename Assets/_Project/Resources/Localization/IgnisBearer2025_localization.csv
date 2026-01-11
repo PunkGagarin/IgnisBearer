@@ -45,3 +45,4 @@ END_GAME_FAIL_TITLE,Вы проиграли,You lost
 END_GAME_FAIL_RESTART,Начать заново,Restart
 END_GAME_FAIL_SKILL_TREE,Древо навыков,Skill tree
 END_GAME_FAIL_CLOSE,Закрыть,Close
+END_GAME_FAIL_DESC,Силы зла вырвались на свободу.%%Свет больше не сдерживает их.%%Деревня пала.,The forces of evil have broken free.%%The light no longer holds them back.%%The village has fallen.
