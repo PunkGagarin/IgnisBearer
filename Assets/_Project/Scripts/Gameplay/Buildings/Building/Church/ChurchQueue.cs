@@ -13,11 +13,10 @@ namespace _Project.Scripts.Gameplay.Buildings
         [field: SerializeField]
         public List<ChurchLightSendSlot> Slots { get; private set; }
 
+
+        private readonly Vector3 _gatherPointOffset = new Vector3(3, -3, 0);
+
         private readonly Queue<Unit> _queue = new();
-        private readonly HashSet<Unit> _movingUnits = new();
-
-        private Vector3 _gatherPointOffset = new Vector3(3, -3, 0);
-
         private int _capacity;
 
         public void Init(int capacity)
@@ -39,18 +38,9 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public void SendUnitToQueue(Unit unit)
         {
-            // записать порядок ВСЕХ действий в виде await do await do2 await do3
-            //choosePosition
-            //addToMove
-            //await moveToQueue
-            //chooseInQueuePosition
-            //addToQueue
-
-
             unit.Mover.OnReach += DequeueFromMoving;
 
             var nextPositionForFarUnits = GetGatherPoint();
-            _movingUnits.Add(unit);
 
             unit.StateMachine.Enter<UnitMoveToState, Vector3>(
                 nextPositionForFarUnits);
@@ -66,7 +56,6 @@ namespace _Project.Scripts.Gameplay.Buildings
                     GetNextPositionForInQueue());
             }
 
-            _movingUnits.Remove(unit);
             AddUnitForQueue(unit);
         }
 
@@ -79,20 +68,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             return transform.position + _gatherPointOffset;
         }
-
-        // private Vector3 GetNextPositionForFarUnits()
-        // {
-        //    
-        //     var unitsCount = _queue.Count + _movingUnits.Count;
-        //
-        //     var hasSpaceInside = HasSpaceInside(unitsCount);
-        //     var nextPositionForFarUnits = hasSpaceInside
-        //         ? transform.position
-        //         : GetNextPositionWithOffset(unitsCount - _capacity);
-        //     Debug.LogError($" Get pos for far unit, _queue.Count:{_queue.Count} _movingUnits.Count{_movingUnits.Count}, " +
-        //                    $"Has space: {hasSpaceInside}, final pos: {nextPositionForFarUnits}");
-        //     return nextPositionForFarUnits;
-        // }
 
         private bool HasSpaceInside(int movingUnitsCount)
         {
@@ -107,9 +82,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             var nextPositionForFarUnits = hasSpaceInside
                 ? transform.position
                 : GetNextPositionWithOffset(unitsCount - _capacity + 1);
-            // Debug.LogError(
-            //     $" Get pos for inside queue, _queue.Count:{_queue.Count} _movingUnits.Count{_movingUnits.Count}, " +
-            //     $"Has space: {hasSpaceInside}, final pos: {nextPositionForFarUnits}");
             return nextPositionForFarUnits;
         }
 
@@ -168,11 +140,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (TryGetFreeSlot(out var slot))
                 SetUnitToSlot(slot, unit);
             else
-            {
-                // первое нарушение? не юнит решает, а этот класс?
-                // unit.StateMachine.Enter<UnitWaitState>();
                 _queue.Enqueue(unit);
-            }
         }
 
         private void SetUnitToSlot(ChurchLightSendSlot slot, Unit unit)
@@ -181,7 +149,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             unit.StateMachine
                 .Enter<UnitMoveToWithNextAndPayload, UnitSendLightToChurchState,
                     Vector3, ChurchLightSendSlot>(transform.position, slot);
-            // unit.StateMachine.Enter<UnitSendLightToChurchState, ChurchLightSendSlot>(slot);
         }
 
         private bool TryGetFreeSlot(out ChurchLightSendSlot slot)
