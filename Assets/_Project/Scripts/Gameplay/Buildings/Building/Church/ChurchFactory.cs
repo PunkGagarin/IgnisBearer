@@ -15,6 +15,9 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(_settings.StartLightAmount, gradeData.MaxLightStorageCapacity);
+            
+            building.TryGetComponent<ChurchQueue>(out var churchQueue);
+            churchQueue.Init(gradeData.QueueCapacity);
 
             slot.SetEnabled(false);
             return building;

@@ -12,16 +12,17 @@ namespace _Project.Scripts.Gameplay.Units
 
         private readonly List<Type> _initStates = new()
         {
-            typeof(SimpleMoveToState),
+            typeof(UnitMoveToWithIdleAfterState),
             typeof(UnitMoveToWithNext),
-            typeof(MoveToWithNextAndPayload),
+            typeof(UnitMoveToWithNextAndPayload),
 
             typeof(DisableState),
             typeof(UnitIdleState),
             typeof(UnitWaitState),
+            typeof(UnitMoveToState),
             typeof(FireUpLanternState),
             typeof(HarvestResourceState),
-            typeof(UnitAddToChurchQueueState),
+            // typeof(UnitAddToChurchQueueState),
             typeof(UnitSendLightToChurchState),
         };
 

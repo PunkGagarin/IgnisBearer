@@ -22,7 +22,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected override void MoveTo(Unit unit, Lantern res)
         {
-            unit.StateMachine.Enter<MoveToWithNextAndPayload, FireUpLanternState, Vector3, Lantern>(
+            unit.StateMachine.Enter<UnitMoveToWithNextAndPayload, FireUpLanternState, Vector3, Lantern>(
                 res.transform.position, res);
         }
         

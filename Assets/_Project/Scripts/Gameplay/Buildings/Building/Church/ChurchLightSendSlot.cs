@@ -31,7 +31,14 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public void Activate()
         {
+            gameObject.SetActive(true);
             IsActive = true;
+        }
+
+        public void Deactivate()
+        {
+            IsActive = false;
+            gameObject.SetActive(false);
         }
 
         public void Progress(float progress)

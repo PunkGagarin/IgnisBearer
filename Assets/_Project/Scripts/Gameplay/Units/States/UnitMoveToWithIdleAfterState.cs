@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class UnitMoveToWithNext : IUnitState, IEnterWithNext<Vector3>
+    public class UnitMoveToWithIdleAfterState : IUnitState, IPayloadState<Vector3>
     {
         private Unit _unit;
         private CancellationTokenSource _cts;
@@ -15,20 +15,23 @@ namespace _Project.Scripts.Gameplay.Units
             _unit = unit;
         }
 
-        public async void Enter<TNextState>(Vector3 moveTo) where TNextState : class, IState, IUnitState
+        public void Update()
+        {
+        }
+
+        public async void Enter(Vector3 movePos)
         {
             _cts = new CancellationTokenSource();
             _unit.Context.SetUnitStatus(UnitStatus.Busy);
-            
+
             try
             {
                 await _unit.Mover
-                    .MoveTo(moveTo, cancellationToken: _cts.Token);
-                _unit.StateMachine.Enter<TNextState>();
+                    .MoveTo(movePos, cancellationToken: _cts.Token);
+                _unit.StateMachine.Enter<UnitIdleState>();
             }
             catch (Exception e)
             {
-                Debug.LogError("Was canceled (удалю этот лог позже)");
                 // ignored
             }
         }
@@ -37,10 +40,6 @@ namespace _Project.Scripts.Gameplay.Units
         {
             _cts.Cancel();
             _cts.Dispose();
-        }
-
-        public void Update()
-        {
         }
     }
 }

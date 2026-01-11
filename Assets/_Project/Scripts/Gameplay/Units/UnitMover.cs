@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace _Project.Scripts.Gameplay.Units
         private Unit _unit;
 
         private SpriteRenderer _spriteRenderer;
+
+        public Action<Unit> OnReach = delegate { };
 
         private void Awake()
         {
@@ -31,12 +34,12 @@ namespace _Project.Scripts.Gameplay.Units
             //todo: если уничтожаем юнита он продолжает двигаться, надо залинковать внешний токен с монобехом
             var speed = GetSpeedByType(moveType);
             FlipIfNeeded(destination);
-            
+
             var task = transform.DOMove(destination, speed)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
-                .ToUniTask(cancellationToken: cancellationToken)
-                .SuppressCancellationThrow();
+                .OnComplete(() => OnReach.Invoke(_unit))
+                .ToUniTask(cancellationToken: cancellationToken);
 
             return task;
         }
