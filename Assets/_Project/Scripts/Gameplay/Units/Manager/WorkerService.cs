@@ -53,7 +53,7 @@ namespace _Project.Scripts.Gameplay.Units
             if (unit == null)
                 return false;
 
-            unit.StateMachine.Enter<MoveToWithNextAndPayload, FireUpLanternState, Vector3, Lantern>(
+            unit.StateMachine.Enter<UnitMoveToWithNextAndPayload, FireUpLanternState, Vector3, Lantern>(
                 lantern.transform.position, lantern);
 
             return true;
@@ -66,7 +66,7 @@ namespace _Project.Scripts.Gameplay.Units
                 return false;
 
             resource.SetBusy();
-            unit.StateMachine.Enter<MoveToWithNextAndPayload, HarvestResourceState, Vector3, LightResource>(
+            unit.StateMachine.Enter<UnitMoveToWithNextAndPayload, HarvestResourceState, Vector3, LightResource>(
                 resource.transform.position, resource);
             return true;
         }
@@ -146,6 +146,14 @@ namespace _Project.Scripts.Gameplay.Units
         public int WorkersCount()
         {
             return _units.Count;
+        }
+
+        public void MoveAllUnitsTo(Vector2 pos)
+        {
+            foreach (var unit in _units)
+            {
+                unit.StateMachine.Enter<UnitMoveToWithNext, UnitWaitState, Vector3>(pos);
+            }
         }
     }
 }

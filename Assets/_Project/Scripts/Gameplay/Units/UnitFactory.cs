@@ -14,7 +14,7 @@ namespace _Project.Scripts.Gameplay.Units
         {
             typeof(UnitMoveToWithIdleAfterState),
             typeof(UnitMoveToWithNext),
-            typeof(MoveToWithNextAndPayload),
+            typeof(UnitMoveToWithNextAndPayload),
 
             typeof(DisableState),
             typeof(UnitIdleState),

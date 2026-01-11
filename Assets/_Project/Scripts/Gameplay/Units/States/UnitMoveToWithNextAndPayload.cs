@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Units
 {
-    public class MoveToWithNextAndPayload : IUnitState, IEnterWithPayloadAndNextPayload<Vector3>
+    public class UnitMoveToWithNextAndPayload : IUnitState, IEnterWithPayloadAndNextPayload<Vector3>
     {
         private Unit _unit;
         private CancellationTokenSource _cts;
@@ -26,15 +26,15 @@ namespace _Project.Scripts.Gameplay.Units
             _cts = new CancellationTokenSource();
             _unit.Context.SetUnitStatus(UnitStatus.Busy);
 
-            bool isCanceled = await _unit.Mover
-                .MoveTo(moveTo, cancellationToken: _cts.Token);
-            if (isCanceled)
+            try
             {
-                Debug.LogError("Was canceled (удалю этот лог позже)");
-            }
-            else
-            {
+                await _unit.Mover
+                    .MoveTo(moveTo, cancellationToken: _cts.Token);
                 _unit.StateMachine.Enter<TNextState, TNextPayload>(nextPayload);
+            }
+            catch (Exception e)
+            {
+                // ignored
             }
         }
 

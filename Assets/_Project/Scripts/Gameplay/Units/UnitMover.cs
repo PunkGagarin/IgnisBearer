@@ -29,18 +29,17 @@ namespace _Project.Scripts.Gameplay.Units
         }
 
 
-        public UniTask<bool> MoveTo(Vector3 destination, MoveType moveType = MoveType.Run, CancellationToken cancellationToken = default)
+        public UniTask MoveTo(Vector3 destination, MoveType moveType = MoveType.Run, CancellationToken cancellationToken = default)
         {
             //todo: если уничтожаем юнита он продолжает двигаться, надо залинковать внешний токен с монобехом
             var speed = GetSpeedByType(moveType);
             FlipIfNeeded(destination);
-            
+
             var task = transform.DOMove(destination, speed)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
                 .OnComplete(() => OnReach.Invoke(_unit))
-                .ToUniTask(cancellationToken: cancellationToken)
-                .SuppressCancellationThrow();
+                .ToUniTask(cancellationToken: cancellationToken);
 
             return task;
         }

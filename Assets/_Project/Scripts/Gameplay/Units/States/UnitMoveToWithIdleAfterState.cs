@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using _Project.Scripts.Infrastructure.GameStates;
 using UnityEngine;
 
@@ -23,15 +24,15 @@ namespace _Project.Scripts.Gameplay.Units
             _cts = new CancellationTokenSource();
             _unit.Context.SetUnitStatus(UnitStatus.Busy);
 
-            bool isCanceled = await _unit.Mover
-                .MoveTo(movePos, cancellationToken: _cts.Token);
-            if (isCanceled)
+            try
             {
-                Debug.LogError("Was canceled (удалю этот лог позже)");
-            }
-            else
-            {
+                await _unit.Mover
+                    .MoveTo(movePos, cancellationToken: _cts.Token);
                 _unit.StateMachine.Enter<UnitIdleState>();
+            }
+            catch (Exception e)
+            {
+                // ignored
             }
         }
 

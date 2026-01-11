@@ -18,18 +18,18 @@ namespace _Project.Scripts.Gameplay.Units
         public async void Enter<TNextState>(Vector3 moveTo) where TNextState : class, IState, IUnitState
         {
             _cts = new CancellationTokenSource();
-
             _unit.Context.SetUnitStatus(UnitStatus.Busy);
-
-            bool isCanceled = await _unit.Mover
-                .MoveTo(moveTo, cancellationToken: _cts.Token);
-            if (isCanceled)
+            
+            try
+            {
+                await _unit.Mover
+                    .MoveTo(moveTo, cancellationToken: _cts.Token);
+                _unit.StateMachine.Enter<TNextState>();
+            }
+            catch (Exception e)
             {
                 Debug.LogError("Was canceled (удалю этот лог позже)");
-            }
-            else
-            {
-                _unit.StateMachine.Enter<TNextState>();
+                // ignored
             }
         }
 

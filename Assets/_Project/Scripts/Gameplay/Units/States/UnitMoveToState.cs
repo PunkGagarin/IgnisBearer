@@ -23,12 +23,8 @@ namespace _Project.Scripts.Gameplay.Units
             _cts = new CancellationTokenSource();
             _unit.Context.SetUnitStatus(UnitStatus.Busy);
 
-            bool isCanceled = await _unit.Mover
-                .MoveTo(movePos, cancellationToken: _cts.Token);
-            if (isCanceled)
-            {
-                Debug.LogError("Was canceled (удалю этот лог позже)");
-            }
+            await _unit.Mover
+                .MoveTo(movePos, cancellationToken: _cts.Token).SuppressCancellationThrow();
         }
 
         public void Exit()

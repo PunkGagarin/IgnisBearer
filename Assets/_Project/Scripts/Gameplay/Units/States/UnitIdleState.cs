@@ -21,7 +21,7 @@ namespace _Project.Scripts.Gameplay.Units
         private float _currentIdleTime;
         private float _idleTimeCap;
         private Vector3 _nextIdleMovePoint;
-        private AsyncLazy<bool> _moveTask;
+        private AsyncLazy _moveTask;
         private CancellationTokenSource _cts;
 
         public void Init(Unit unit)
@@ -90,7 +90,7 @@ namespace _Project.Scripts.Gameplay.Units
                 await UniTask.Delay(TimeSpan.FromSeconds(idleTime), cancellationToken: token);
 
                 var point = GetRandomMovePoint();
-                await Mover.MoveTo(point, MoveType.Idle, token);
+                await Mover.MoveTo(point, MoveType.Idle, token).SuppressCancellationThrow();
             }
         }
     }

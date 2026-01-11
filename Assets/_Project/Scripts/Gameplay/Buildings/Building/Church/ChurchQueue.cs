@@ -16,7 +16,9 @@ namespace _Project.Scripts.Gameplay.Buildings
         private readonly Queue<Unit> _queue = new();
         private readonly HashSet<Unit> _movingUnits = new();
 
-        private int _currentCapacity;
+        private Vector3 _gatherPointOffset = new Vector3(3, -3, 0);
+
+        private int _capacity;
 
         public void Init(int capacity)
         {
@@ -37,44 +39,78 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public void SendUnitToQueue(Unit unit)
         {
-            unit.StateMachine.Enter<UnitMoveToState, Vector3>(
-                GetNextPositionForFarUnits());
+            // записать порядок ВСЕХ действий в виде await do await do2 await do3
+            //choosePosition
+            //addToMove
+            //await moveToQueue
+            //chooseInQueuePosition
+            //addToQueue
+
+
             unit.Mover.OnReach += DequeueFromMoving;
+
+            var nextPositionForFarUnits = GetGatherPoint();
             _movingUnits.Add(unit);
+
+            unit.StateMachine.Enter<UnitMoveToState, Vector3>(
+                nextPositionForFarUnits);
         }
 
         private void DequeueFromMoving(Unit unit)
         {
             unit.Mover.OnReach -= DequeueFromMoving;
-            _movingUnits.Remove(unit);
 
-            if (_queue.Count > _currentCapacity)
+            if (_queue.Count + GetBusySlotsCount() >= _capacity)
             {
                 unit.StateMachine.Enter<UnitMoveToWithNext, UnitWaitState, Vector3>(
                     GetNextPositionForInQueue());
             }
-            else
-            {
-                AddUnitForQueue(unit);
-            }
+
+            _movingUnits.Remove(unit);
+            AddUnitForQueue(unit);
         }
 
-        private Vector3 GetNextPositionForFarUnits()
+        private int GetBusySlotsCount()
         {
-            var movingUnitsCount = _queue.Count + _movingUnits.Count;
+            return Slots.Count(el => el.IsBusy);
+        }
 
-            return _currentCapacity < movingUnitsCount
-                ? transform.position
-                : GetNextPositionWithOffset(movingUnitsCount - _currentCapacity);
+        private Vector3 GetGatherPoint()
+        {
+            return transform.position + _gatherPointOffset;
+        }
+
+        // private Vector3 GetNextPositionForFarUnits()
+        // {
+        //    
+        //     var unitsCount = _queue.Count + _movingUnits.Count;
+        //
+        //     var hasSpaceInside = HasSpaceInside(unitsCount);
+        //     var nextPositionForFarUnits = hasSpaceInside
+        //         ? transform.position
+        //         : GetNextPositionWithOffset(unitsCount - _capacity);
+        //     Debug.LogError($" Get pos for far unit, _queue.Count:{_queue.Count} _movingUnits.Count{_movingUnits.Count}, " +
+        //                    $"Has space: {hasSpaceInside}, final pos: {nextPositionForFarUnits}");
+        //     return nextPositionForFarUnits;
+        // }
+
+        private bool HasSpaceInside(int movingUnitsCount)
+        {
+            return _capacity > movingUnitsCount;
         }
 
         private Vector3 GetNextPositionForInQueue()
         {
-            var unitsCount = _queue.Count;
+            var unitsCount = _queue.Count + GetBusySlotsCount();
 
-            return _currentCapacity < unitsCount
+            var hasSpaceInside = HasSpaceInside(unitsCount);
+            var nextPositionForFarUnits = hasSpaceInside
                 ? transform.position
-                : GetNextPositionWithOffset(unitsCount - _currentCapacity);
+                : GetNextPositionWithOffset(unitsCount - _capacity + 1);
+            // Debug.LogError(
+            //     $" Get pos for inside queue, _queue.Count:{_queue.Count} _movingUnits.Count{_movingUnits.Count}, " +
+            //     $"Has space: {hasSpaceInside}, final pos: {nextPositionForFarUnits}");
+            return nextPositionForFarUnits;
         }
 
         private Vector3 GetNextPositionWithOffset(int offsetCount)
@@ -86,17 +122,17 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void ActivateCapacityFor(int capacity)
         {
-            _currentCapacity = capacity;
+            _capacity = capacity;
 
-            if (_currentCapacity > Slots.Count)
+            if (_capacity > Slots.Count)
             {
                 Debug.LogError($" Не совпадает количество слотов для инициализации и реальное" +
-                               $"Просят: {_currentCapacity}, есть: {Slots.Count}");
-                _currentCapacity = Slots.Count;
+                               $"Просят: {_capacity}, есть: {Slots.Count}");
+                _capacity = Slots.Count;
             }
 
             for (int i = 0; i < Slots.Count; i++)
-                SetSlotActivity(_currentCapacity, i);
+                SetSlotActivity(_capacity, i);
         }
 
         private void SetSlotActivity(int capacity, int i)
@@ -120,8 +156,11 @@ namespace _Project.Scripts.Gameplay.Buildings
             }
         }
 
-        private void MoveForwardBy(Unit unitInQueue)
+        private void MoveForwardBy(Unit unit)
         {
+            //todo: bug нужен порядковый номер
+            unit.StateMachine.Enter<UnitMoveToWithNext, UnitWaitState, Vector3>(
+                unit.transform.position + new Vector3(0, _settings.PositionOffset, 0));
         }
 
         private void AddUnitForQueue(Unit unit)
@@ -131,14 +170,18 @@ namespace _Project.Scripts.Gameplay.Buildings
             else
             {
                 // первое нарушение? не юнит решает, а этот класс?
-                unit.StateMachine.Enter<UnitWaitState>();
+                // unit.StateMachine.Enter<UnitWaitState>();
                 _queue.Enqueue(unit);
             }
         }
 
         private void SetUnitToSlot(ChurchLightSendSlot slot, Unit unit)
         {
-            unit.StateMachine.Enter<UnitSendLightToChurchState, ChurchLightSendSlot>(slot);
+            slot.SetBusy();
+            unit.StateMachine
+                .Enter<UnitMoveToWithNextAndPayload, UnitSendLightToChurchState,
+                    Vector3, ChurchLightSendSlot>(transform.position, slot);
+            // unit.StateMachine.Enter<UnitSendLightToChurchState, ChurchLightSendSlot>(slot);
         }
 
         private bool TryGetFreeSlot(out ChurchLightSendSlot slot)
