@@ -23,6 +23,19 @@ namespace _Project.Scripts.Gameplay.Units
             _unit = unit;
         }
 
+        public void Enter(ChurchLightSendSlot slot)
+        {
+            _slot = slot;
+            
+            //todo: stat move from settings or add more complex logic
+            _lightSendSpeed = _buildingsService.GetChurch().GetLightSendSpeed();
+            
+            //todo: move to church queue and incapsualte???
+            slot.SetBusy();
+            
+            _unit.SetVisualStatus(false);
+        }
+
         public void Update()
         {
             _currentTime += Time.deltaTime * _unit.Context.FireUpMultiplier;
@@ -33,18 +46,9 @@ namespace _Project.Scripts.Gameplay.Units
             {
                 ChurchResourceStorage.IncrementAmount(_unit.Context.LightAmount);
                 _slot.SetFree();
+                _unit.SetVisualStatus(true);
                 _unit.StateMachine.Enter<UnitIdleState>();
             }
-        }
-
-        public void Enter(ChurchLightSendSlot slot)
-        {
-            _slot = slot;
-            //todo: stat move from settings or add more complex logic
-            _lightSendSpeed = _buildingsService.GetChurch().GetLightSendSpeed();
-            
-            //todo: move to church queue and incapsualte???
-            slot.SetBusy();
         }
 
         public void Exit()

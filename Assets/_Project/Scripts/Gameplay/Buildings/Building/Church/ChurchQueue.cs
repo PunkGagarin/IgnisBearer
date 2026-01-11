@@ -51,10 +51,10 @@ namespace _Project.Scripts.Gameplay.Buildings
                 SetSlotActivity(_capacity, i);
         }
 
-        private void SetSlotActivity(int capacity, int i)
+        private void SetSlotActivity(int capacity, int index)
         {
-            var slot = Slots[i];
-            if (i < capacity)
+            var slot = Slots[index];
+            if (index < capacity)
                 slot.Activate();
             else
                 slot.Deactivate();
@@ -122,9 +122,14 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void CheckForUnit(ChurchLightSendSlot slot)
         {
             if (!HasUnitsInQueue()) return;
+
+            int index = 0;
             
-            foreach (var unitInQueue in _queue)
-                MoveForwardBy(unitInQueue);
+            foreach (Unit unitInQueue in _queue)
+            {
+                MoveForwardInQueue(unitInQueue, index);
+                index++;
+            }
 
             var unit = _queue.Dequeue();
             SetUnitToSlot(slot, unit);
@@ -135,15 +140,16 @@ namespace _Project.Scripts.Gameplay.Buildings
             return _queue.Count > 0;
         }
 
-        private void MoveForwardBy(Unit unit)
+        private void MoveForwardInQueue(Unit unit, int index)
         {
+            var posToMove = GetNextPositionWithOffset(index);
             //todo: bug нужен порядковый номер
-            unit.StateMachine.Enter<UnitMoveToWithNext, UnitWaitState, Vector3>(
-                unit.transform.position + new Vector3(0, _settings.PositionOffset, 0));
+            unit.StateMachine.Enter<UnitMoveToWithNext, UnitWaitState, Vector3>(posToMove);
         }
 
         private void SetUnitToSlot(ChurchLightSendSlot slot, Unit unit)
         {
+            //todo: roman double slot setBusy
             slot.SetBusy();
             unit.StateMachine
                 .Enter<UnitMoveToWithNextAndPayload, UnitSendLightToChurchState,

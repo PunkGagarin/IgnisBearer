@@ -17,7 +17,13 @@ namespace _Project.Scripts.Gameplay.Buildings
             else
                 UpdateGrade(gameObject, nextGradeData.GradePrice);
             UpdateResourceStorage(gameObject, curGradeData.MaxLightStorageCapacity);
+            UpdateQueueCapacity(gameObject, curGradeData.QueueCapacity);
         }
 
+        private void UpdateQueueCapacity(GameObject building, int queueCapacity)
+        {
+            building.TryGetComponent<ChurchQueue>(out var queue);
+            queue.Init(queueCapacity);
+        }
     }
 }
