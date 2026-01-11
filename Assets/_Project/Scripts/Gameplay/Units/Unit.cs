@@ -5,6 +5,9 @@ namespace _Project.Scripts.Gameplay.Units
     [RequireComponent(typeof(UnitMover))]
     public class Unit : MonoBehaviour
     {
+        [field: SerializeField]
+        public GameObject Visual { get; private set; }
+        
         public UnitStateMachine StateMachine { get; private set; }
         public UnitContext Context { get; private set; }
         public UnitMover Mover { get; private set; }
@@ -22,12 +25,9 @@ namespace _Project.Scripts.Gameplay.Units
             StateMachine.Update();
         }
 
-        //idle
-        //moveToLantern
-        //moveToChurch
-        //moveToHome
-        //FirUpLantern
-        //HarvestLight
-        //GiveResourceToChurch
+        public void SetVisualStatus(bool isActive)
+        {
+            Visual.SetActive(isActive);
+        }
     }
 }
