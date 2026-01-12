@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Ui;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using _Project.Scripts.Utils;
 using UnityEngine;
 
@@ -11,6 +13,12 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 
         [SerializeField] private List<AddBuildingButton> _addBuildingsButton;
 
+        private UiPopupDisplayer _popupDisplayer;
+
+        private void Awake()
+        {
+            _popupDisplayer = content.GetComponent<UiPopupDisplayer>();
+        }
 
         private void OnDestroy()
         {
@@ -26,6 +34,11 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
                 _addBuildingsButton[i].Init(buildingButtonsData[i]);
                 _addBuildingsButton[i].OnClicked += OnAddBuildingClicked;
             }
+        }
+
+        public override void Hide()
+        {
+            _popupDisplayer.AnimateAndHide();
         }
 
         private void OnAddBuildingClicked(BuildingType buildingType, double price) =>

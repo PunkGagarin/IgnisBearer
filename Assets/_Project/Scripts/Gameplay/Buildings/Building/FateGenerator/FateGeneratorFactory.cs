@@ -20,7 +20,7 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
             fateProducer.Init(gradeData.TimeToProduceFate);
 
             var workerProduceAmountIncreaser = building.GetComponent<WorkerProduceAmountIncreaser>();
-            workerProduceAmountIncreaser.Init(gradeData.AmountToProduceFate);
+            workerProduceAmountIncreaser.Init(gradeData.FateAmountPerWorker);
             
             slot.SetEnabled(false);
             return building;

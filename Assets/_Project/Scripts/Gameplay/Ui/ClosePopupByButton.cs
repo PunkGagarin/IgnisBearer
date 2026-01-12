@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Gameplay.Ui.UiEffects;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Project.Scripts.Gameplay.Ui
 {
-    public class CloseContentUiByButton : MonoBehaviour
+    public class ClosePopupByButton : MonoBehaviour
     {
         [field: SerializeField] public Button СloseButton { get; private set; }
 
@@ -19,7 +20,8 @@ namespace _Project.Scripts.Gameplay.Ui
 
         private void Hide()
         {
-            gameObject.SetActive(false);
+            var uiPopupScaler = GetComponent<UiPopupDisplayer>();
+            uiPopupScaler.AnimateAndHide();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace _Project.Scripts.Gameplay.Units
                     .MoveTo(moveTo, cancellationToken: _cts.Token);
                 _unit.StateMachine.Enter<TNextState>();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Debug.LogError("Was canceled (удалю этот лог позже)");
                 // ignored

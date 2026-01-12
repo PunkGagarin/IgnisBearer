@@ -2759,6 +2759,7 @@ MonoBehaviour:
   <BarrierUi>k__BackingField: {fileID: 465039844}
   <FateUi>k__BackingField: {fileID: 176969690}
   <GameEndUI>k__BackingField: {fileID: 670492306}
+  <UiSettings>k__BackingField: {fileID: 11400000, guid: 726a58169434043a6b6072846a71f566, type: 2}
 --- !u!1 &1705130821
 GameObject:
   m_ObjectHideFlags: 0

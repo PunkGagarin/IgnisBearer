@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using _Project.Scripts.Gameplay.Ui.UiEffects;
+using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Project.Scripts.Gameplay.Ui.Buildings
@@ -9,8 +11,8 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         [SerializeField]
         private Button _button;
 
-        [SerializeField]
-        private GameObject _popup;
+        [FormerlySerializedAs("_popup")] [SerializeField]
+        private UiPopupDisplayer popupDisplayer;
 
         protected virtual void Awake()
         {
@@ -22,7 +24,7 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         protected virtual void HandleButtonClick()
         {
-            _popup.SetActive(true);
+            popupDisplayer.AnimateAndShow();
         }
 
         public void SetButtonEnabled(bool isEnabled) => _button.gameObject.SetActive(isEnabled);

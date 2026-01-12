@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.OpenBuildingPopup
   _button: {fileID: 231557981709371022}
-  _popup: {fileID: 2415963446581034699}
+  _popup: {fileID: 1818265724694985809}
 --- !u!114 &5985126254330671187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +536,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2aaca0f99b764586a60d6a70686926a, type: 3}
+--- !u!114 &1818265724694985809 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 941998752899631862, guid: b2aaca0f99b764586a60d6a70686926a, type: 3}
+  m_PrefabInstance: {fileID: 1452799922104956583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9f08a06ec04066bd274ed45a9d0f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UIPopupScaler
 --- !u!114 &2410111121319889700 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3844682784324615555, guid: b2aaca0f99b764586a60d6a70686926a, type: 3}
@@ -547,11 +558,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6d13463d3144a31980258d9013a7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!1 &2415963446581034699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3868126027524704364, guid: b2aaca0f99b764586a60d6a70686926a, type: 3}
-  m_PrefabInstance: {fileID: 1452799922104956583}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4919532930466383614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5795236577035612249, guid: b2aaca0f99b764586a60d6a70686926a, type: 3}

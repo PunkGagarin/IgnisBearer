@@ -307,6 +307,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 5827439799081328517}
   _content: {fileID: 5097682329865492106}
   _button: {fileID: 8528477521318342905}
+  _popupShower: {fileID: 2699767444147614236}
 --- !u!114 &1222236930328830872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +723,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -5.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8270274569107297910, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+      propertyPath: duration
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 8813035839302831298, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -765,6 +770,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6858d9fbf61246fb8ae84f9228d5b38a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.AddBuildingButton
+--- !u!114 &2699767444147614236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5040672531144776714, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}
+  m_PrefabInstance: {fileID: 6954561517234761238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801276386638663425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9f08a06ec04066bd274ed45a9d0f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UIPopupScaler
 --- !u!114 &2808013723241377366 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5078795120717348928, guid: 6b2b75e79fc5547bd90bcfef078609a6, type: 3}

@@ -163,6 +163,9 @@ GameObject:
   - component: {fileID: 2294718240582825481}
   - component: {fileID: 5976807573045347745}
   - component: {fileID: 5818075573795754333}
+  - component: {fileID: 889646171641820909}
+  - component: {fileID: 900990837176948903}
+  - component: {fileID: 3539527164080227363}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -272,3 +275,47 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &889646171641820909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971475225506418875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47f98f58efeb40e693164e432b23a95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UIButtonHoverAndShake
+  shakeDuration: 0.5
+  shakeStrength: 20
+  shakeVibrato: 10
+  shakeRandomness: 90
+--- !u!114 &900990837176948903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971475225506418875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7aa2aef3ab04935b8e424e4cd58b727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UiButtonHover
+  hoverScale: 1.1
+  hoverDuration: 0.2
+--- !u!114 &3539527164080227363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971475225506418875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65484e54d7d845a4bb7d60d6e3b9b1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UiTransformClick
+  pressedScale: 0.9
+  _scaleDuration: 0.05

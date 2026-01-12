@@ -1,5 +1,4 @@
-﻿using _Project.Scripts.Gameplay.Buildings;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Ui.Installer
@@ -18,6 +17,9 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
 
         [field: SerializeField]
         public GameEndUI GameEndUI { get; private set; }
+        
+        [field: SerializeField]
+        public UiSettings UiSettings { get; private set; }
 
         public override void InstallBindings()
         {
@@ -35,6 +37,10 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
 
             Container.BindInterfacesAndSelfTo<GameEndUI>()
                 .FromInstance(GameEndUI)
+                .AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<UiSettings>()
+                .FromInstance(UiSettings)
                 .AsSingle();
         }
     }
