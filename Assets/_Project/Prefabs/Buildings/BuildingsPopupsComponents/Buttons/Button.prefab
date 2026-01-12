@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 900990837176948903}
   - component: {fileID: 3539527164080227363}
   - component: {fileID: 4687214701575756052}
+  - component: {fileID: 8334616995105121449}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -324,3 +325,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e9871eabda4104aaa996d68a68e79f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UiEffects.UiButtonEnableEffect
+  <Button>k__BackingField: {fileID: 5818075573795754333}
+  <CanvasGroup>k__BackingField: {fileID: 8334616995105121449}
+--- !u!225 &8334616995105121449
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971475225506418875}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

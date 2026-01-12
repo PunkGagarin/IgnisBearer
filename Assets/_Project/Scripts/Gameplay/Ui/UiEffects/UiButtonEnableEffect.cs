@@ -1,7 +1,4 @@
-using DG.Tweening;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
@@ -11,20 +8,14 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
     public class UiButtonEnableEffect : MonoBehaviour
     {
         [Inject] private readonly UiSettings _settings;
-        
-        private Button _button;
-        private TextMeshProUGUI _text;
 
-        private void Awake()
-        {
-            _button = GetComponent<Button>();
-            _text = GetComponentInChildren<TextMeshProUGUI>();
-        }
-        
+        [field: SerializeField] public Button Button { get; private set; }
+        [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
+
         public void SetInteractable(bool isEnabled)
         {
-            _button.interactable = isEnabled;
-            _text.color = isEnabled ? _settings.EnableNormalButtonColor : _settings.EnableDisabledButtonColor;
+            Button.interactable = isEnabled;
+            CanvasGroup.alpha = isEnabled ? _settings.EnableNormalButtonValue : _settings.EnableDisabledButtonValue;
         }
     }
 }
