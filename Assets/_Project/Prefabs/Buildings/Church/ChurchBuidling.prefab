@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.OpenBuildingPopup
   _button: {fileID: 4309999159775069034}
-  _popup: {fileID: 6163271607439115157}
+  _popup: {fileID: 7869099304648229135}
 --- !u!114 &3623351197947964029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,11 +438,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8890a854d4941528405944c3cb3e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.BuyLimitedButton
---- !u!1 &6163271607439115157 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 918773150745665815, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
+--- !u!114 &7869099304648229135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3782141531899601805, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
   m_PrefabInstance: {fileID: 6433521326097719938}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9f08a06ec04066bd274ed45a9d0f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UIPopupScaler
 --- !u!1001 &8160502380593997903
 PrefabInstance:
   m_ObjectHideFlags: 0

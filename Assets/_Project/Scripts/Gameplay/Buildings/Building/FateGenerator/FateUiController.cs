@@ -1,4 +1,7 @@
-﻿using _Project.Scripts.Gameplay.Ui;
+﻿using System;
+using System.Threading.Tasks;
+using _Project.Scripts.Gameplay.Ui;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -37,5 +40,17 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
                 _fateUi.Show();
             _fateUi.SetFateCounter(obj.newAmount);
         }
+    }
+}
+
+public class Test : MonoBehaviour
+{
+    [Inject] private FateUi _fateUi;
+
+    private async Task Start()
+    {
+        _fateUi.SetFateCounter(1000);
+        await UniTask.Delay(100);
+        _fateUi.SetFateCounter(5000);
     }
 }

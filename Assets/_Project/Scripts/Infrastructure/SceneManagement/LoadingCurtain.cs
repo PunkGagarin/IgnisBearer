@@ -1,5 +1,4 @@
 using _Project.Scripts.Utils;
-using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
@@ -27,24 +26,9 @@ namespace _Project.Scripts.Infrastructure.SceneManagement
             image.color = color;
             content.SetActive(true);
         }
-
-        public async UniTask HideAsync()
-        {
-            var tcs = new UniTaskCompletionSource();
-
-            await image.DOFade(0, HideDuration)
-                .OnComplete(() =>
-                {
-                    content.SetActive(false);
-                    tcs.TrySetResult();
-                });
-
-            await tcs.Task;
-        }
-
+        
         public override void Hide()
         {
-            // DOTween.KillAll();
             _tween = image.DOFade(0, HideDuration)
                 .SetEase(Ease.Linear)
                 .OnComplete(() => { content.SetActive(false); });

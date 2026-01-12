@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a601803dec4252bf90f2afd5e96a36, type: 3}
+  m_Name: UiSettings
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UiSettings
+  <PopupOpenDuration>k__BackingField: 0.3
+  <PopupCloseDuration>k__BackingField: 0.125
+  <PopupScaleStart>k__BackingField: 0.8
+  <PopupScaleOvershootStart>k__BackingField: 1.1
+  <PopupCloseScale>k__BackingField: 0.3
+  <PopupCloseEase>k__BackingField: 1
+  <HoverDuration>k__BackingField: 0.2
+  <HoverScale>k__BackingField: 1.1
+  <ShakeRandomness>k__BackingField: 90
+  <ShakeDuration>k__BackingField: 0.5
+  <ShakeStrength>k__BackingField: 0.2
+  <ShakeVibrato>k__BackingField: 13

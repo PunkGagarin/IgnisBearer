@@ -28,7 +28,7 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
         private void UpdateWorkerProduceAmountIncreaser(FateGeneratorGradeData curGradeData)
         {
             var workerProduceAmountIncreaser = gameObject.GetComponent<WorkerProduceAmountIncreaser>();
-            workerProduceAmountIncreaser.Init(curGradeData.AmountToProduceFate);
+            workerProduceAmountIncreaser.Init(curGradeData.FateAmountPerWorker);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace _Project.Scripts.Gameplay.Units
                     .MoveTo(moveTo, cancellationToken: _cts.Token);
                 _unit.StateMachine.Enter<TNextState, TNextPayload>(nextPayload);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // ignored
             }

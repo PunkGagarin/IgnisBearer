@@ -30,7 +30,7 @@ namespace _Project.Scripts.Gameplay.Units
                     .MoveTo(movePos, cancellationToken: _cts.Token);
                 _unit.StateMachine.Enter<UnitIdleState>();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // ignored
             }

@@ -1,4 +1,7 @@
+using _Project.Scripts.Gameplay.Ui;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
@@ -11,6 +14,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Transform _content;
         [SerializeField] private Button _button;
+        [FormerlySerializedAs("popup")] [FormerlySerializedAs("_popupShower")] [SerializeField] private UiPopupDisplayer popupDisplayer;
 
         [Inject] private BuildingAddingOptionsService _buildingAddingOptionsService;
         [Inject] private BuildingsService _buildingsService;
@@ -47,7 +51,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 
         private void OnClick()
         {
-            _addBuildingPopup.Show();
+            popupDisplayer.AnimateAndShow();
             InitPopup();
         }
 
