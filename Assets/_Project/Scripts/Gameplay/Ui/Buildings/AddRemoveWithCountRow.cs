@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using _Project.Scripts.Localization;
 using _Project.Scripts.Utils;
 using TMPro;
@@ -37,8 +38,8 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         {
             _text.SetKey(textKey);
             _countText.text = countText;
-            _addUnitButton.interactable = isAddEnabled;
-            _removeUnitButton.interactable = isRemoveEnabled;
+            _addUnitButton.GetComponent<UiButtonEnableEffect>().SetInteractable(isAddEnabled);
+            _removeUnitButton.GetComponent<UiButtonEnableEffect>().SetInteractable(isRemoveEnabled);
         }
     }
 }

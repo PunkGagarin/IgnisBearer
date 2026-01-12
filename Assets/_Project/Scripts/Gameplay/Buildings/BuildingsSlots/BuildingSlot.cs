@@ -1,3 +1,4 @@
+using System;
 using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Gameplay.Ui.UiEffects;
 using UnityEngine;
@@ -28,7 +29,11 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _addBuildingPopup = GetComponent<AddBuildingPopup>();
             _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
             _fateService.OnAmountChanged += OnBalanceChanged;
-            SetButtonEnabled(false);
+        }
+
+        private void Start()
+        {
+            SetButtonInteractable(false);
         }
 
         private void OnDestroy()
@@ -66,9 +71,9 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _content.gameObject.SetActive(isEnabled);
         }
 
-        public void SetButtonEnabled(bool isEnabled)
+        public void SetButtonInteractable(bool isEnabled)
         {
-            _button.interactable = isEnabled;
+            _button.GetComponent<UiButtonEnableEffect>().SetInteractable(isEnabled);
         }
 
         private void OnBalanceChanged((int amountIncreased, int newAmount, int maxAmount) obj)

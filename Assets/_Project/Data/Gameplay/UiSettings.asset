@@ -24,3 +24,7 @@ MonoBehaviour:
   <ShakeDuration>k__BackingField: 0.5
   <ShakeStrength>k__BackingField: 0.2
   <ShakeVibrato>k__BackingField: 13
+  <ClickPressedScale>k__BackingField: 0.9
+  <ClickScaleDuration>k__BackingField: 0.05
+  <EnableNormalButtonColor>k__BackingField: {r: 1, g: 1, b: 1, a: 0}
+  <EnableDisabledButtonColor>k__BackingField: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}

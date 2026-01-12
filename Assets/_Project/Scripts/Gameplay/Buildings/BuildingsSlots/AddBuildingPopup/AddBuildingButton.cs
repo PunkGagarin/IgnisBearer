@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using _Project.Scripts.Localization;
 using _Project.Scripts.Utils;
 using TMPro;
@@ -30,7 +31,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _price = data.Price;
             _priceText.text = data.Price.ToString(CultureInfo.InvariantCulture);
             _label.SetKey(data.LabelKey);
-            _buyButton.interactable = data.IsEnabled;
+            _buyButton.GetComponent<UiButtonEnableEffect>().SetInteractable(data.IsEnabled);
         }
     }
 }
