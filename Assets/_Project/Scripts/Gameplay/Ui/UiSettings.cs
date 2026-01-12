@@ -24,6 +24,9 @@ namespace _Project.Scripts.Gameplay.Ui
         [field: SerializeField] public float ClickPressedScale { get; private set; } = 0.9f;
         
         [field: SerializeField] public float ClickScaleDuration { get; private set; } = 0.05f;
+
+        [field: SerializeField] public float EnableNormalButtonValue { get; private set; } = 1f;
+        [field: SerializeField] public float EnableDisabledButtonValue { get; private set; } = .5f;
         
         
     }

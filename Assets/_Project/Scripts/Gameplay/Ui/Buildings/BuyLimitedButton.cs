@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using _Project.Scripts.Localization;
 using _Project.Scripts.Utils;
 using TMPro;
@@ -32,7 +33,7 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         {
             _itemTextToLocalize.SetKey(itemNameKey);
             _countText.text = countText;
-            _buyButton.interactable = isButtonEnabled;
+            _buyButton.GetComponent<UiButtonEnableEffect>().SetInteractable(isButtonEnabled);
             _costText.text = costText;
         }
 

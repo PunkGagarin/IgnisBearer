@@ -47,10 +47,10 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public void EnableButtonForSlots()
         {
-            _churchSlot.SetButtonEnabled(true);
+            _churchSlot.SetButtonInteractable(true);
             foreach (var buildingSlot in _buildingSlots)
             {
-                buildingSlot.SetButtonEnabled(true);
+                buildingSlot.SetButtonInteractable(true);
             }
         }
     }

@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using _Project.Scripts.Utils;
 using TMPro;
 using UnityEngine;
@@ -54,7 +55,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         private void UpdateUi()
         {
-            _buyButton.interactable = CanBuyLantern();
+            _buyButton.GetComponent<UiButtonEnableEffect>().SetInteractable(CanBuyLantern());
             _costText.text = _lanternCost.ToString();
         }
 
