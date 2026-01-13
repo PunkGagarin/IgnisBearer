@@ -15,7 +15,7 @@ namespace _Project.Scripts.Audio.View
         [SerializeField] private ToggleGroup _toggleGroup;
 
         [Inject] private SettingsPresenter _settingsPresenter;
-        [Inject] private AudioService _audioService;
+        // [Inject] private AudioService _audioService;
         [Inject] private LanguageService _languageService;
 
         private void Awake()
@@ -49,45 +49,45 @@ namespace _Project.Scripts.Audio.View
 
         private void SaveSettings()
         {
-            _audioService.PlaySound(Sounds.buttonClick);
+            // _audioService.PlaySound(Sounds.buttonClick);
             _settingsPresenter.SaveChanges();
             Hide();
         }
 
         private void UndoChanges()
         {
-            _audioService.PlaySound(Sounds.buttonClick);
+            // _audioService.PlaySound(Sounds.buttonClick);
             _settingsPresenter.UndoChanges();
             Hide();
         }
 
         private void UpdateSoundVolume(float newVolume)
         {
-            _audioService.PlaySoundInSingleAudioSource(Sounds.buttonClickShortHigh.ToString());
+            // _audioService.PlaySoundInSingleAudioSource(Sounds.buttonClickShortHigh.ToString());
             _settingsPresenter.SetSoundVolume(newVolume);
         }
 
         private void UpdateMusicVolume(float newVolume)
         {
-            _audioService.PlaySoundInSingleAudioSource(Sounds.buttonClickShortHigh.ToString());
+            // _audioService.PlaySoundInSingleAudioSource(Sounds.buttonClickShortHigh.ToString());
             _settingsPresenter.SetMusicVolume(newVolume);
         }
 
         private void UpdateMasterVolume(float newVolume)
         {
-            _audioService.PlaySoundInSingleAudioSource(Sounds.buttonClickShortHigh.ToString());
+            // _audioService.PlaySoundInSingleAudioSource(Sounds.buttonClickShortHigh.ToString());
             _settingsPresenter.SetMasterVolume(newVolume);
         }
 
         private void OnEnToggleValueChanged(bool isOn)
         {
-            _audioService.PlaySound(Sounds.buttonClick);
+            // _audioService.PlaySound(Sounds.buttonClick);
             _settingsPresenter.OnEnToggleValueChanged(isOn);
         }
 
         private void OnRuToggleValueChanged(bool isOn)
         {
-            _audioService.PlaySound(Sounds.buttonClick);
+            // _audioService.PlaySound(Sounds.buttonClick);
             _settingsPresenter.OnRuToggleValueChanged(isOn);
         }
 
