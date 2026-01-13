@@ -21,7 +21,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<HouseBuyUnit>(out var buyUnit);
             buyUnit.Init(GetCurrentWorkersCount(), _settings.InitUnitCost, _settings.UnitCostMultiplier,
                 gradeData.MaxUnitsCount);
-
+            InitGradeUpdateNotificationComponent(building.gameObject);
 
             slot.SetEnabled(false);
             return building;

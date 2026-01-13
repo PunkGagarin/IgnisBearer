@@ -38,5 +38,11 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<IDurability>(out var durability);
             durability.Init(maxDurability, maxDurability);
         }
+        
+        protected void InitGradeUpdateNotificationComponent(GameObject buildingGameObject)
+        {
+            var gradeUpdateNotification = buildingGameObject.GetComponent<GradeUpdateNotification>();
+            gradeUpdateNotification.Init();
+        }
     }
 }

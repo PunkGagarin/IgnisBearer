@@ -25,7 +25,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 
         private void OnBuyButtonClicked() => OnClicked?.Invoke(_buildingType, _price);
 
-        public void Init(BuildingButtonData data)
+        public void UpdateUi(BuildingButtonData data)
         {
             _buildingType = data.BuildingType;
             _price = data.Price;

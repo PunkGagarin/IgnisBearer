@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1cb2fdfd166247f6b82a7b86377be47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b67c2a885d784387aed3d7226eea817, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 8271183100487509942}
   - component: {fileID: 7967651894202863261}
   - component: {fileID: -1158224221589188761}
+  - component: {fileID: 2459046797008852578}
   m_Layer: 0
   m_Name: FateGenerator
   m_TagString: Untagged
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.OpenBuildingPopup
   _button: {fileID: 144314752348893075}
-  _popup: {fileID: 5862389885333918170}
+  popupDisplayer: {fileID: 5862389885333918170}
 --- !u!114 &3667673321045333291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +419,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2eb7bba184c49caa614147214717669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.WorkerProduceAmountIncreaser
+--- !u!114 &2459046797008852578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229708683809240057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52cff03deda4efc8896af1358e4f519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.GradeUpdateNotification
+  _notification: {fileID: 3519375056500262642}
 --- !u!1 &5298658727275291987
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,6 +805,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!224 &3519375056500262642 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2747658347602881523, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+  m_PrefabInstance: {fileID: 1654774080287550721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5141124891686143558 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5885643530764757831, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}

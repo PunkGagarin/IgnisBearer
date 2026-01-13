@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: -2442300844691490121}
   - component: {fileID: 748098659035854399}
   - component: {fileID: 8719285551427915964}
+  - component: {fileID: 1110182973537468170}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.OpenBuildingPopup
   _button: {fileID: 4309999159775069034}
-  _popup: {fileID: 7869099304648229135}
+  popupDisplayer: {fileID: 7869099304648229135}
 --- !u!114 &3623351197947964029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +192,21 @@ MonoBehaviour:
   - {fileID: 5080192001434211273}
   - {fileID: 8966598139100509958}
   - {fileID: 136673938825088815}
+  <GatherPointOffset>k__BackingField: {x: 3, y: -3, z: 0}
+--- !u!114 &1110182973537468170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52cff03deda4efc8896af1358e4f519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.GradeUpdateNotification
+  _notification: {fileID: 650717444811991563}
+  _isEnabled: 0
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +593,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.78
       objectReference: {fileID: 0}
+    - target: {fileID: 8662741762305147460, guid: 36840c5b0f6d74082beabe5567324f88, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062033205105243987, guid: 36840c5b0f6d74082beabe5567324f88, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -593,6 +617,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5042d6682f743dcb28a3e70e16b6aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ChurchLightSendSlot
+--- !u!224 &650717444811991563 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8662741762305147460, guid: 36840c5b0f6d74082beabe5567324f88, type: 3}
+  m_PrefabInstance: {fileID: 8160502380593997903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4309999159775069034 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5399777244097342245, guid: 36840c5b0f6d74082beabe5567324f88, type: 3}
