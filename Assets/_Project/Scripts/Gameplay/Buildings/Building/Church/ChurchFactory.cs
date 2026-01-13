@@ -19,6 +19,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             building.TryGetComponent<ChurchQueue>(out var churchQueue);
             churchQueue.Init(gradeData.QueueCapacity);
 
+            InitGradeUpdateNotificationComponent(building.gameObject);
+            
             slot.SetEnabled(false);
             return building;
         }

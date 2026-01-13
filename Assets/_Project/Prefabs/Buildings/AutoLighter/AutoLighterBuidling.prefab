@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 1408906329184389520}
   - component: {fileID: 6565932507784765113}
   - component: {fileID: 4347306893313624291}
+  - component: {fileID: 9187921833789375805}
   m_Layer: 0
   m_Name: AutoLighterBuidling
   m_TagString: Untagged
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.OpenBuildingPopup
   _button: {fileID: 231557981709371022}
-  _popup: {fileID: 1818265724694985809}
+  popupDisplayer: {fileID: 1818265724694985809}
 --- !u!114 &5985126254330671187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +190,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.WorkersCounter
   _unitsCountView: {fileID: 5075253971496742747}
+--- !u!114 &9187921833789375805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52cff03deda4efc8896af1358e4f519, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.GradeUpdateNotification
+  _notification: {fileID: 3594235027597733871}
+  _isEnabled: 1
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +609,14 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2747658347602881523, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747658347602881523, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.07
+      objectReference: {fileID: 0}
     - target: {fileID: 7195398411938322113, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: _key
       value: LIGHTER_INFO_BTN
@@ -694,6 +717,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!224 &3594235027597733871 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2747658347602881523, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+  m_PrefabInstance: {fileID: 1711628457525052444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5075253971496742747 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5885643530764757831, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}

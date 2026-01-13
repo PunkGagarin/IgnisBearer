@@ -67,6 +67,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             NextGradePrice = gradePrice;
             Max = maxGrade;
             UpdateUi();
+            if (CanUpdate()) 
+                ShowUi(true);
         }
 
         private void UpdateUi()
@@ -76,7 +78,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             _buyLimitedButton.UpdateUi(GRADE_DESC_KEY, countText, isButtonEnabled, NextGradePrice.ToString());
         }
 
-        private bool CanUpdate() =>
+        public bool CanUpdate() =>
             _fateService.HasEnough(NextGradePrice) && Current < Max;
     }
 }
