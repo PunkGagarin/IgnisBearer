@@ -1,17 +1,15 @@
 ﻿namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
-    public class LightProduceTurner : BaseProducerSwitcher
+    public class LightProduceResolver : BaseProducerResolver
     {
         private Lantern _lantern;
 
-
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
             _lantern = GetComponent<Lantern>();
         }
 
-        protected override bool IsReadyToProduce()
+        public override bool CanProduce()
         {
             return _lantern.IsFired();
         }
