@@ -19,7 +19,7 @@ MonoBehaviour:
     <MaxDurability>k__BackingField: 100
     <TimeToProduceFate>k__BackingField: 5
     <FateAmountPerWorker>k__BackingField: 2
-  - <GradePrice>k__BackingField: 60
+  - <GradePrice>k__BackingField: 15
     <MaxUnitsCount>k__BackingField: 2
     <MaxDurability>k__BackingField: 150
     <TimeToProduceFate>k__BackingField: 4
