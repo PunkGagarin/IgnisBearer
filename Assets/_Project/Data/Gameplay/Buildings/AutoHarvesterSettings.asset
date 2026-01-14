@@ -25,4 +25,4 @@ MonoBehaviour:
     MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
   <BuildingNameKey>k__BackingField: BUILD_AUTO_COLLECTOR_NAME
-  <BuildPrice>k__BackingField: 20
+  <BuildPrice>k__BackingField: 25
