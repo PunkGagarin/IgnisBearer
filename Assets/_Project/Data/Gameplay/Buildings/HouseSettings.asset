@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.House.HouseSettings
   _prefab: {fileID: -6917743041111328387, guid: 4fcb4e480a1ba441fa33f229429cf27b, type: 3}
   _gradeData:
-  - GradePrice: 15
+  - GradePrice: 0
     MaxUnitsCount: 2
     MaxDurability: 100
-  - GradePrice: 40
-    MaxUnitsCount: 4
+  - GradePrice: 25
+    MaxUnitsCount: 5
     MaxDurability: 100
-  - GradePrice: 65
-    MaxUnitsCount: 6
+  - GradePrice: 40
+    MaxUnitsCount: 7
     MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
   <BuildingNameKey>k__BackingField: HOUSE_NAME_KEY

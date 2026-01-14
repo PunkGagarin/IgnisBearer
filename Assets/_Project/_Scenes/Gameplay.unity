@@ -2756,6 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69d50a9aa614a948d0aae4edc85e099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Installer.GameplayUiInstaller
+  <UiCamera>k__BackingField: {fileID: 1956432700}
   <GameplayUiRoot>k__BackingField: {fileID: 1425791521}
   <BarrierUi>k__BackingField: {fileID: 465039844}
   <FateUi>k__BackingField: {fileID: 176969690}
