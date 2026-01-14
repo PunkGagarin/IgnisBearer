@@ -7,6 +7,9 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class BuildingSettings : ScriptableObject
     {
         [field: SerializeField]
+        public BuildingType FirstToBuyBuilding { get; private set; } = BuildingType.FateGenerator;
+
+        [field: SerializeField]
         public List<BuildingType> AvailableToBuildBuildings { get; private set; }
 
         [field: SerializeField]
