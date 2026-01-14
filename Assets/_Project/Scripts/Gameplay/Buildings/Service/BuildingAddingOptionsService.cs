@@ -18,7 +18,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             List<BuildingButtonData> list = new List<BuildingButtonData>();
 
             AddBuildingButtonFor(BuildingType.House, list);
-            var isHouseBuilt = _buildingsService.GetBuildingCountByType(BuildingType.FateGenerator) > 0;
+            var isHouseBuilt = _buildingsService.GetBuildingCountByType(BuildingType.House) > 0;
             if (!isHouseBuilt)
                 return list;
 
