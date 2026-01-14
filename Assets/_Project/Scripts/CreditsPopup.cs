@@ -10,14 +10,14 @@ namespace _Project.Scripts
     {
         [SerializeField] private Button _closeButton;
 
-        // [Inject] private AudioService _audioService;
+        [Inject] private AudioService _audioService;
         private void Awake() => _closeButton.onClick.AddListener(Close);
 
         private void OnDestroy() => _closeButton.onClick.RemoveListener(Close);
 
         private void Close()
         {
-            // _audioService.PlaySound(Sounds.buttonClick);
+            _audioService.PlaySound(Sounds.buttonClick);
             Hide();
         }
     }

@@ -15,6 +15,9 @@ namespace _Project.Scripts.Audio.Domain
 
         [SerializeField]
         private SoundRepository _soundRepository;
+        
+        [SerializeField]
+        private AudioService _audioService;
 
         public override void InstallBindings()
         {
@@ -56,9 +59,8 @@ namespace _Project.Scripts.Audio.Domain
                 .AsSingle();
 
             Container.BindInterfacesAndSelfTo<AudioService>()
-                .FromNewComponentOnNewGameObject()
-                .AsSingle()
-                .NonLazy();
+                .FromInstance(_audioService)
+                .AsSingle();
         }
     }
 }

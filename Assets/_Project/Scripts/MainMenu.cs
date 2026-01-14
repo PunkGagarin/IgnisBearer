@@ -18,7 +18,7 @@ namespace _Project.Scripts
 
         [Inject] private SceneLoader _sceneLoader;
         [Inject] private GameStateMachine _stateMachine;
-        // [Inject] private AudioService _audio;
+        [Inject] private AudioService _audio;
         [Inject] private SettingsView _settingsView;
 
         private void Awake()
@@ -37,7 +37,7 @@ namespace _Project.Scripts
 
         private void StartGame()
         {
-            // _audio.PlaySound(Sounds.buttonClick);
+            _audio.PlaySound(Sounds.buttonClick);
             _stateMachine.Enter<LoadGameplayState>();
         }
 
