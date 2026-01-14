@@ -10,5 +10,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         public int GradePrice;
         public float LightSendSpeed = 3f;
         public int QueueCapacity = 2;
+        public int AmountPerLight = 1;
     }
 }

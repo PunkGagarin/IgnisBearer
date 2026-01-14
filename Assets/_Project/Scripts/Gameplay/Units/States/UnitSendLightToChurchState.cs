@@ -9,6 +9,7 @@ namespace _Project.Scripts.Gameplay.Units
     {
         [Inject] private BuildingsService _buildingsService;
         [Inject] private UnitSettings _unitSettings;
+        [Inject] private ChurchSettings _churchSettings;
 
         private ResourceStorage ChurchResourceStorage => _buildingsService.GetChurch().GetComponent<ResourceStorage>();
 
@@ -44,7 +45,9 @@ namespace _Project.Scripts.Gameplay.Units
 
             if (_currentTime > _lightSendSpeed)
             {
-                ChurchResourceStorage.IncrementAmount(_unit.Context.LightAmount);
+                var amountPerLight = _buildingsService.GetChurch().GetAmountPerLight();
+                var contextLightAmount = _unit.Context.LightAmount * amountPerLight;
+                ChurchResourceStorage.IncrementAmount(contextLightAmount);
                 _slot.SetFree();
                 _unit.SetVisualStatus(true);
                 _unit.StateMachine.Enter<UnitIdleState>();

@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Gameplay;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Level;
 using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Infrastructure.GameStates.States;
@@ -15,6 +16,7 @@ namespace _Project.Scripts.Infrastructure
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<PopupController>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelService>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameEndService>().AsSingle();

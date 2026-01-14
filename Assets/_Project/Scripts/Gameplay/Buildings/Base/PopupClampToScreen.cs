@@ -34,7 +34,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             var topRightPopupCoord = _uiCamera.WorldToScreenPoint(corners[2]);
 
             float screenWidth = Screen.width;
-            float screenHeight = Screen.height;
+            float screenHeight = Screen.height * 0.8f;
 
             offset = CheckLeft(bottomLeftPopupCoord, offset);
 

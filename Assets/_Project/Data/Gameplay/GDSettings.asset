@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GDSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.GD.GDSettings
   <IsConsumeStartedByDefault>k__BackingField: 0
+  <IsTutorialOn>k__BackingField: 0

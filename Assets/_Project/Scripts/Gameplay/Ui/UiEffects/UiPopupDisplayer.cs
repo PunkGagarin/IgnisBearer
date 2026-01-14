@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using DG.Tweening;
 using UnityEngine;
 using Zenject;
@@ -8,6 +9,7 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
     public class UiPopupDisplayer : MonoBehaviour
     {
         [Inject] private readonly UiSettings _settings;
+        [Inject] private PopupController _popupController;
 
         private Vector3 _originalScale;
         
@@ -22,6 +24,7 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
 
         public void AnimateAndShow()
         {
+            _popupController.Register(this);
             gameObject.SetActive(true);
             transform.localScale = _originalScale * _settings.PopupScaleStart;
             transform.DOScale(_originalScale * _settings.PopupScaleOvershootStart, _settings.PopupOpenDuration)

@@ -4,8 +4,9 @@ using UnityEngine;
 namespace _Project.Scripts.Gameplay.Buildings
 {
     // [CreateAssetMenu(fileName = "HouseSettings", menuName = "Gameplay/Buildings/HouseSettings", order = 0)]
-    public class HouseSettings: GradeSettings<HouseBuilding, HouseGradeData>
+    public class HouseSettings: GradeSettings<HouseBuilding, HouseGradeData>, IBuildInfo
     {
+        public BuildingType Type { get; } = BuildingType.House;
         [field: SerializeField] public int MaxCountToBuild { get; private set; }
         [field: SerializeField] public string BuildingNameKey { get; private set; }
         [field: SerializeField] public float BuildPrice { get; private set; }
