@@ -21,12 +21,9 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private List<Building> _buildings = new();
         private ChurchBuilding _church;
-        private int initGrade = 1; //todo from save
+        private int initGrade = 1;
 
         public event Action<FateGeneratorBuilding> OnFateGeneratorBuilt = delegate { };
-
-        //todo: madgine а почему не решается через GameplayBootstraper?
-        public event Action<ChurchBuilding> OnChurchBuilt = delegate { };
 
         public void InitChurch(BuildingSlot slot)
         {
@@ -58,7 +55,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (building is ChurchBuilding churchBuilding)
             {
                 _church = churchBuilding;
-                OnChurchBuilt.Invoke(churchBuilding);
             }
             else if (building is FateGeneratorBuilding fateGenerator)
             {

@@ -10,9 +10,6 @@ namespace _Project.Scripts.Gameplay.Data
     {
 
         [field: JsonProperty]
-        public Dictionary<int, int> SomeDic { get; set; } = new();
-
-        [field: JsonProperty]
         public LevelContext LevelContext { get; set; } = new();
         
         [field: JsonProperty]

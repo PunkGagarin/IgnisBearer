@@ -1,3 +1,4 @@
+using System;
 using _Project.Scripts.Gameplay.Ui.Buildings;
 using Zenject;
 
@@ -6,6 +7,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class ChurchBuilding : Building
     {
         [Inject] private ChurchSettings _churchSettings;
+        
 
         protected override void Awake()
         {
@@ -13,6 +15,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             var openBuildingPopup = GetComponent<OpenBuildingPopup>();
             openBuildingPopup.SetButtonEnabled(false);
         }
+        
+       
         
         public float GetLightSendSpeed()
         {
