@@ -33,7 +33,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 
         private void Start()
         {
-            SetButtonInteractable(false);
+            // SetButtonInteractable(false);
         }
 
         private void OnDestroy()
