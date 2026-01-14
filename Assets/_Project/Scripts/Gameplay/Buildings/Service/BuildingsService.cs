@@ -17,12 +17,14 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private readonly AutoLighterFactory _autoLighterFactory;
         [Inject] private readonly FactoryBuildingFactory _factoryBuildingFactory;
         [Inject] private readonly PlayerDataService _playerDataService;
+        [Inject] private readonly BuildingSlotsService _slotsService;
 
         private List<Building> _buildings = new();
         private ChurchBuilding _church;
         private int initGrade = 1; //todo from save
 
         public event Action<FateGeneratorBuilding> OnFateGeneratorBuilt = delegate { };
+
         //todo: madgine а почему не решается через GameplayBootstraper?
         public event Action<ChurchBuilding> OnChurchBuilt = delegate { };
 
@@ -76,5 +78,18 @@ namespace _Project.Scripts.Gameplay.Buildings
             _buildings.Count(x => x.Type == buildingType);
 
         public ChurchBuilding GetChurch() => _church;
+
+        public void InitPrebuildFor(BuildingType buildingType)
+        {
+            switch (buildingType)
+            {
+                case BuildingType.Church:
+                    InitChurch(_slotsService.GetChurchSlot());
+                    break;
+                default:
+                    AddBuildingTo(buildingType, _slotsService.GetFirstSlot());
+                    return;
+            }
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace _Project.Scripts.Gameplay
         [Inject] private MetaCurrencyService _metaCurrencyService;
         [Inject] private BuildingSlotEnabler _slotEnabler;
         [Inject] private TutorialService _tutorial;
+        [Inject] private BuildingSettings _buildingSettings;
 
 
         public void Initialize()
@@ -41,10 +42,9 @@ namespace _Project.Scripts.Gameplay
         {
             _levelService.CreateLevel();
             InitBuildingSlots();
-            InitExistingChurch();
+            InitPrebuildBuildings();
             InitConsumeProgressor();
             InitSlotEnabler();
-            InitExistingHouse();
             InitLanternSlots();
             InitLanterns();
 
@@ -86,9 +86,12 @@ namespace _Project.Scripts.Gameplay
                 _levelService.GetChurchBuildingSpawnPoint());
         }
 
-        private void InitExistingChurch()
+        private void InitPrebuildBuildings()
         {
-            _buildingsService.InitChurch(_buildingSlotsService.GetChurchSlot());
+            foreach (var buildingType in _buildingSettings.PrebuildBuildings)
+            {
+                _buildingsService.InitPrebuildFor(buildingType);
+            }
         }
 
         private void InitLanterns()

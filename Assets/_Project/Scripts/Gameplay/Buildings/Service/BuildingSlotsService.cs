@@ -42,6 +42,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public BuildingSlot GetFirstSlot()
         {
+            //todo: madgine get first FREE slot
             return _buildingSlots.First();
         }
 

@@ -80,6 +80,5 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         {
             InitPopup();
         }
-
     }
 }

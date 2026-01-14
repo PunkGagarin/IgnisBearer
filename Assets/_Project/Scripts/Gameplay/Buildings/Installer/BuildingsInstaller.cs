@@ -75,6 +75,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void BindSlots()
         {
+            Container.BindInterfacesAndSelfTo<BuildingSlotEnabler>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsSettings>().FromInstance(_buildingSlotsSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
