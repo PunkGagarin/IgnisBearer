@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Ui
 {
-    [CreateAssetMenu(fileName = "UiSettings", menuName = "Gameplay/Ui/UiSettings", order = 0)]
+    // [CreateAssetMenu(fileName = "UiSettings", menuName = "Gameplay/Ui/UiSettings", order = 0)]
     public class UiSettings: ScriptableObject
     {
         [field: SerializeField] public float PopupOpenDuration { get; private set; } = 0.3f;

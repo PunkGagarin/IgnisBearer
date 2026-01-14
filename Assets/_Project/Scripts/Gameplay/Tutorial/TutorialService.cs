@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using _Project.Scripts.GD;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Tutorial
 {
@@ -6,6 +7,7 @@ namespace _Project.Scripts.Gameplay.Tutorial
     {
         [Inject] private TutorialUi _ui;
         [Inject] private TutorialStepFactory _factory;
+        [Inject] private GDSettings _gdSettings;
 
         private const TutorStepType FirstStep = TutorStepType.BuyUnit;
 
@@ -13,7 +15,8 @@ namespace _Project.Scripts.Gameplay.Tutorial
 
         public void StartTutor()
         {
-            CreateAndStartStep(FirstStep);
+            if (_gdSettings.IsTutorialOn)
+                CreateAndStartStep(FirstStep);
         }
 
         private void CreateAndStartStep(TutorStepType step)

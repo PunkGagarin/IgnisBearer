@@ -1,5 +1,6 @@
 ﻿using System;
 using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Data;
 using _Project.Scripts.Gameplay.Level;
@@ -15,23 +16,18 @@ namespace _Project.Scripts.Gameplay
     {
         [Inject] private LanternService _lanternService;
         [Inject] private LanternSlotsService _lanternSlotsService;
-
         [Inject] private WorkerService _workerService;
-
         [Inject] private LevelService _levelService;
-
         [Inject] private BuildingsService _buildingsService;
-
         [Inject] private BuildingSlotsService _buildingSlotsService;
-
         [Inject] private FateService _fateService;
-
         [Inject] private GameEndService _gameEndService;
         [Inject] private SkillTreeService _skillTreeService;
-
         [Inject] private PlayerDataService _playerDataService;
         [Inject] private MetaCurrencyService _metaCurrencyService;
+        [Inject] private BuildingSlotEnabler _slotEnabler;
         [Inject] private TutorialService _tutorial;
+        [Inject] private BuildingSettings _buildingSettings;
 
 
         public void Initialize()
@@ -45,24 +41,22 @@ namespace _Project.Scripts.Gameplay
         private void InitLevel()
         {
             _levelService.CreateLevel();
-            //_workerService.CreateStartUnit(_levelService.GetInitalUnitPosition());
-
             InitBuildingSlots();
-            InitExistingChurch();
-
+            InitPrebuildBuildings();
             InitConsumeProgressor();
-
-            InitExistingHouse();
-
+            InitSlotEnabler();
             InitLanternSlots();
             InitLanterns();
 
             _metaCurrencyService.Create();
             _skillTreeService.Create();
-
             _gameEndService.Init();
-
             _tutorial.StartTutor();
+        }
+
+        private void InitSlotEnabler()
+        {
+            _slotEnabler.Init();
         }
 
         private void InitExistingHouse()
@@ -92,9 +86,12 @@ namespace _Project.Scripts.Gameplay
                 _levelService.GetChurchBuildingSpawnPoint());
         }
 
-        private void InitExistingChurch()
+        private void InitPrebuildBuildings()
         {
-            _buildingsService.InitChurch(_buildingSlotsService.GetChurchSlot());
+            foreach (var buildingType in _buildingSettings.PrebuildBuildings)
+            {
+                _buildingsService.InitPrebuildFor(buildingType);
+            }
         }
 
         private void InitLanterns()
@@ -112,7 +109,6 @@ namespace _Project.Scripts.Gameplay
             _playerDataService.Load();
             var context = _playerDataService.PlayerData;
             _skillTreeService.Init(context.SkillTreeData);
-            //foreach 
         }
     }
 }

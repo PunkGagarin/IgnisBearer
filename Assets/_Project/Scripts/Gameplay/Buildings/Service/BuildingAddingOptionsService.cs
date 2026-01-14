@@ -1,51 +1,62 @@
 using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
-using _Project.Scripts.Gameplay.Buildings.FateGenerator;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
     public class BuildingAddingOptionsService
     {
-        [Inject] private FactorySettings _factorySettings;
-        [Inject] private AutoHarvestSettings _autoHarvestSettings;
-        [Inject] private AutoLighterSettings _autoLighterSettings;
-        [Inject] private FateGeneratorSettings _fateGeneratorSettings;
         [Inject] private FateService _fateService;
         [Inject] private BuildingsService _buildingsService;
+        [Inject] private BuildingSettings _buildingSettings;
+        [Inject] private List<IBuildInfo> _buildInfos;
+
         public List<BuildingButtonData> GetAddBuildingPopupData()
         {
             List<BuildingButtonData> list = new List<BuildingButtonData>();
-            //disabled building factory
-            /*AddBuildingButton(BuildingType.Factory, list, GetFactoryInitPrice(), _factorySettings.BuildingNameKey,
-                _factorySettings.MaxCountToBuild);*/
-            
-            AddBuildingButton(BuildingType.FateGenerator, list, GetFateGenInitPrice(),
-                _fateGeneratorSettings.BuildingNameKey, _fateGeneratorSettings.MaxCountToBuild);
+
+            AddBuildingButtonFor(_buildingSettings.FirstToBuyBuilding, list);
 
             var isFateGenBuilt = _buildingsService.GetBuildingCountByType(BuildingType.FateGenerator) > 0;
 
             if (isFateGenBuilt)
-                AddBuildingButton(BuildingType.AutoHarvest, list, GetAutoHarvesterInitPrice(),
-                    _autoHarvestSettings.BuildingNameKey, _autoHarvestSettings.MaxCountToBuild);
-
-            if (isFateGenBuilt)
-                AddBuildingButton(BuildingType.AutoLighter, list, GetAutoLighterInitPrice(),
-                    _autoLighterSettings.BuildingNameKey, _autoLighterSettings.MaxCountToBuild);
-
+            {
+                foreach (var building in _buildingSettings.AvailableToBuildBuildings)
+                    AddBuildingButtonFor(building, list);
+            }
+            
             return list;
         }
 
-        private void AddBuildingButton(BuildingType buildingType, List<BuildingButtonData> list, float initPrice,
-            string buildingNameKey, int maxBuildingCount)
+        private void AddBuildingButtonFor(BuildingType type, List<BuildingButtonData> list)
         {
-            if (CanHaveAnother(buildingType, maxBuildingCount))
+            IBuildInfo buildInfo = GetSettingsFor(type);
+            AddBuildingButton(type, list, buildInfo);
+        }
+
+        private IBuildInfo GetSettingsFor(BuildingType type)
+        {
+           var buildInfo = _buildInfos.FirstOrDefault(el => el.Type == type);
+           if (buildInfo == null)
+           {
+               Debug.LogError($" Нету настроек для типа: {type}");
+               return _buildInfos[0];
+           }
+           
+           return  buildInfo;
+        }
+
+        private void AddBuildingButton(BuildingType buildingType, List<BuildingButtonData> list, IBuildInfo buildInfo)
+        {
+            if (CanHaveAnother(buildingType, buildInfo.MaxCountToBuild))
                 list.Add(
                     new BuildingButtonData(
                         buildingType,
-                        initPrice,
-                        buildingNameKey,
-                        HaveEnoughMoney(initPrice)
+                        buildInfo.BuildPrice,
+                        buildInfo.BuildingNameKey,
+                        HaveEnoughMoney(buildInfo.BuildPrice)
                     )
                 );
         }
@@ -55,14 +66,6 @@ namespace _Project.Scripts.Gameplay.Buildings
             var curCount = _buildingsService.GetBuildingCountByType(buildingType);
             return curCount < maxCount;
         }
-
-        private float GetFateGenInitPrice() => _fateGeneratorSettings.BuildPrice;
-
-        private float GetFactoryInitPrice() => _factorySettings.BuildPrice;
-
-        private float GetAutoHarvesterInitPrice() => _autoHarvestSettings.BuildPrice;
-
-        private float GetAutoLighterInitPrice() => _autoLighterSettings.BuildPrice;
 
         private bool HaveEnoughMoney(float price) => _fateService.HasEnough((int)price);
     }

@@ -22,16 +22,19 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         [field: SerializeField]
         private AutoLighterSettings _autoLighterSettings;
-        
+
         [field: SerializeField]
-        private FateGeneratorSettings FateGeneratorSettings;
+        private FateGeneratorSettings FateGeneratorSettings { get; set; }
 
         [field: SerializeField]
         private BuildingSlotsSettings _buildingSlotsSettings;
 
         [field: SerializeField]
+        private BuildingSettings BuildingSettings { get; set; }
+
+        [field: SerializeField]
         private LanternSettings _lanternSettings;
-        
+
 
         [field: SerializeField]
         private LightConsumeSettings LightConsumeSettings { get; set; }
@@ -47,6 +50,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void BindBuildingSettings()
         {
+            Container.BindInterfacesAndSelfTo<BuildingSettings>().FromInstance(BuildingSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<FactorySettings>().FromInstance(_factorySettings).AsSingle();
             Container.BindInterfacesAndSelfTo<AutoHarvestSettings>().FromInstance(_autoHarvestSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<AutoLighterSettings>().FromInstance(_autoLighterSettings).AsSingle();
@@ -71,6 +75,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void BindSlots()
         {
+            Container.BindInterfacesAndSelfTo<BuildingSlotEnabler>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsSettings>().FromInstance(_buildingSlotsSettings).AsSingle();
             Container.BindInterfacesAndSelfTo<BuildingSlotsService>().AsSingle();
@@ -88,7 +93,5 @@ namespace _Project.Scripts.Gameplay.Buildings
             Container.BindInterfacesAndSelfTo<LanternFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternSlotsService>().AsSingle();
         }
-
     }
-
 }

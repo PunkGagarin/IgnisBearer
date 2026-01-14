@@ -1,13 +1,11 @@
-﻿using _Project.Scripts.Gameplay.Buildings;
+﻿using System;
+using _Project.Scripts.Gameplay.Tutorial;
 using Zenject;
 
-namespace _Project.Scripts.Gameplay.Tutorial
+namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
-    public class SendLightToChurchStep : BaseTutorialStep
+    public class BuildingSlotEnabler
     {
-        public override TutorStepType NextStep => TutorStepType.BuyChapel;
-        protected override string Text { get; set; } = "Отправь в церковь {0} ресурса";
-
         private int _currentRes;
         private int _targetRes;
 
@@ -15,28 +13,30 @@ namespace _Project.Scripts.Gameplay.Tutorial
         [Inject] private BuildingSlotsService _buildingSlotsService;
         [Inject] private TutorialSettings _tutorialSettings;
 
-        protected override void Subscribe()
+        public void Init()
         {
             var church = _buildingsService.GetChurch();
+
+            //todo: change to BarrierService or smth like that which should be indepandable from church maybe??
             var lightResourceStorage = church.GetComponent<IResourceStorage>();
-            lightResourceStorage.OnAmountIncreased += OnStepIterated;
+            lightResourceStorage.OnAmountIncreased += Iterate;
 
             _targetRes = _tutorialSettings.LightCountForChurch;
-            Text = string.Format(Text, _targetRes);
+            church.OnDestroyed += Dispose;
         }
 
-        private void OnStepIterated((int amountIncreased, int newAmount, int maxAmount) valueTuple)
+        private void Iterate((int amountIncreased, int newAmount, int maxAmount) valueTuple)
         {
             _currentRes++;
             if (_currentRes >= _targetRes)
-                FinishStep();
+                _buildingSlotsService.EnableButtonForSlots();
         }
 
-        protected override void Unsubscribe()
+        public void Dispose()
         {
             var church = _buildingsService.GetChurch();
             var lightResourceStorage = church.GetComponent<IResourceStorage>();
-            lightResourceStorage.OnAmountIncreased -= OnStepIterated;
+            lightResourceStorage.OnAmountIncreased -= Iterate;
         }
     }
 }
