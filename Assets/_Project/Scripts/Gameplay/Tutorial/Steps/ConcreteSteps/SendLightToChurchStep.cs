@@ -32,12 +32,6 @@ namespace _Project.Scripts.Gameplay.Tutorial
                 FinishStep();
         }
 
-        public override void FinishStep()
-        {
-            base.FinishStep();
-            _buildingSlotsService.EnableButtonForSlots();
-        }
-
         protected override void Unsubscribe()
         {
             var church = _buildingsService.GetChurch();

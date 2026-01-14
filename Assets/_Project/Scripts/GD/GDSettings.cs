@@ -8,5 +8,8 @@ namespace _Project.Scripts.GD
         
         [field: SerializeField]
         public bool IsConsumeStartedByDefault { get; private set; }
+
+        [field: SerializeField]
+        public bool IsTutorialOn { get; private set; } = true;
     }
 }
