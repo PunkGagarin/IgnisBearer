@@ -42,15 +42,3 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
         }
     }
 }
-
-public class Test : MonoBehaviour
-{
-    [Inject] private FateUi _fateUi;
-
-    private async Task Start()
-    {
-        _fateUi.SetFateCounter(1000);
-        await UniTask.Delay(100);
-        _fateUi.SetFateCounter(5000);
-    }
-}

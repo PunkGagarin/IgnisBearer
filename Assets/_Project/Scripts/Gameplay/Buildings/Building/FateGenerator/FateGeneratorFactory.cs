@@ -22,6 +22,8 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
             var workerProduceAmountIncreaser = building.GetComponent<WorkerProduceAmountIncreaser>();
             workerProduceAmountIncreaser.Init(gradeData.FateAmountPerWorker);
             
+            InitGradeUpdateNotificationComponent(building.gameObject);
+            
             slot.SetEnabled(false);
             return building;
         }

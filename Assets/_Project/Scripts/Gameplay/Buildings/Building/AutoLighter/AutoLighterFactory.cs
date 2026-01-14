@@ -1,5 +1,4 @@
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
-using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
@@ -14,7 +13,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             InitGradeComponent(building, grade, _settings.MaxGrade, nextGradeData.GradePrice);
             InitDurabilityComponent(building, gradeData.MaxDurability);
             InitWorkersComponent(building.gameObject, gradeData.MaxUnitsCount);
-
+            InitGradeUpdateNotificationComponent(building.gameObject);
+            
             slot.SetEnabled(false);
             return building;
         }
