@@ -47,6 +47,7 @@ MonoBehaviour:
   _musicMixer: {fileID: 24300002, guid: 8a83e683443f9e948b4f3fd10a9adf77, type: 2}
   _soundMixer: {fileID: 24300002, guid: ad66ae52c5606a74b9655b985c705279, type: 2}
   _soundRepository: {fileID: 11400000, guid: dc926880fae59fb409cebcaf900dc800, type: 2}
+  _audioService: {fileID: 7576966510555692066}
 --- !u!1 &1964722022923490299
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +81,7 @@ Transform:
   - {fileID: 2872291850772081554}
   - {fileID: 4931348655103127261}
   - {fileID: 7219751482218728120}
+  - {fileID: 6318841530051030648}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2565986588456786615
@@ -289,6 +291,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Localization.LanguageServiceInstaller
   _languageServicePrefab: {fileID: 5548060043867148755, guid: b5bc4e69a2be142ccaacb887b1b8be69, type: 3}
+--- !u!1 &6633737351853992056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6318841530051030648}
+  - component: {fileID: 7576966510555692066}
+  m_Layer: 0
+  m_Name: AudioService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6318841530051030648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633737351853992056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2548839604113478229}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7576966510555692066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633737351853992056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b3f9af7f504402bb0f68ea3d96488e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Audio.Domain.AudioService
 --- !u!1 &6722416124069640735
 GameObject:
   m_ObjectHideFlags: 0
