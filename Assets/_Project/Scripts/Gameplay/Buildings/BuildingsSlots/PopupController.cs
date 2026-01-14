@@ -8,6 +8,9 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 
         public void Register(UiPopupDisplayer uiPopupDisplayer)
         {
+            if (_uiPopupDisplayer == uiPopupDisplayer)
+                return;
+
             _uiPopupDisplayer?.AnimateAndHide();
             _uiPopupDisplayer = uiPopupDisplayer;
         }
