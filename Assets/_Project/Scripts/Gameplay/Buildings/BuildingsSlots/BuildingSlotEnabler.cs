@@ -4,7 +4,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
-    public class BuildingSlotEnabler : IDisposable
+    public class BuildingSlotEnabler
     {
         private int _currentRes;
         private int _targetRes;
@@ -16,12 +16,13 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         public void Init()
         {
             var church = _buildingsService.GetChurch();
-            
+
             //todo: change to BarrierService or smth like that which should be indepandable from church maybe??
             var lightResourceStorage = church.GetComponent<IResourceStorage>();
             lightResourceStorage.OnAmountIncreased += Iterate;
 
             _targetRes = _tutorialSettings.LightCountForChurch;
+            church.OnDestroyed += Dispose;
         }
 
         private void Iterate((int amountIncreased, int newAmount, int maxAmount) valueTuple)
@@ -30,7 +31,6 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             if (_currentRes >= _targetRes)
                 _buildingSlotsService.EnableButtonForSlots();
         }
-
 
         public void Dispose()
         {
