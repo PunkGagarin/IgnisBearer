@@ -7,6 +7,9 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
     {
 
         [field: SerializeField]
+        public Camera UiCamera { get; private set; }
+        
+        [field: SerializeField]
         public GameplayUiRoot GameplayUiRoot { get; private set; }
 
         [field: SerializeField]
@@ -23,6 +26,10 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
 
         public override void InstallBindings()
         {
+            Container.Bind<Camera>()
+                .FromInstance(UiCamera)
+                .AsSingle();
+
             Container.Bind<GameplayUiRoot>()
                 .FromInstance(GameplayUiRoot)
                 .AsSingle();
