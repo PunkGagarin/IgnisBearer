@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-
     public class ResourceStorage : MonoBehaviour, IResourceStorage
     {
-
         public int Amount { get; private set; }
         public int MaxAmount { get; private set; }
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased = delegate { };
@@ -22,7 +20,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             MaxAmount = maxStorage;
         }
-        
+
         public void Init(int startAmount, int maxStorage)
         {
             Amount = startAmount;
@@ -54,10 +52,11 @@ namespace _Project.Scripts.Gameplay.Buildings
         public void IncrementAmount(int amount)
         {
             Amount += amount;
-            OnAmountIncreased.Invoke((amount, Amount, MaxAmount));
 
             if (Amount > MaxAmount)
                 Amount = MaxAmount;
+
+            OnAmountIncreased.Invoke((amount, Amount, MaxAmount));
 
             if (Amount == MaxAmount)
                 OnAmountFull.Invoke(GetComponent<Lantern>());
