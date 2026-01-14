@@ -79,6 +79,5 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
         {
             SetPopupData();
         }
-
     }
 }
