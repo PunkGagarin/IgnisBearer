@@ -15,14 +15,14 @@ MonoBehaviour:
   _prefab: {fileID: 8545274884099581480, guid: 5c51e10469928974d88041e5193a952d, type: 3}
   _gradeData:
   - GradePrice: 0
+    MaxUnitsCount: 1
+    MaxDurability: 100
+  - GradePrice: 50
     MaxUnitsCount: 2
     MaxDurability: 100
-  - GradePrice: 2
-    MaxUnitsCount: 4
-    MaxDurability: 100
-  - GradePrice: 4
-    MaxUnitsCount: 6
+  - GradePrice: 80
+    MaxUnitsCount: 3
     MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
   <BuildingNameKey>k__BackingField: BUILD_AUTO_COLLECTOR_NAME
-  <BuildPrice>k__BackingField: 15
+  <BuildPrice>k__BackingField: 25

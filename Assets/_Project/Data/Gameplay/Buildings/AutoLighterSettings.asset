@@ -15,14 +15,14 @@ MonoBehaviour:
   _prefab: {fileID: 4250012244517143146, guid: b1471e8d7720f4f1581e3c4c660bd9fe, type: 3}
   _gradeData:
   - GradePrice: 0
+    MaxUnitsCount: 1
+    MaxDurability: 100
+  - GradePrice: 50
     MaxUnitsCount: 2
     MaxDurability: 100
-  - GradePrice: 2
-    MaxUnitsCount: 4
-    MaxDurability: 100
-  - GradePrice: 4
-    MaxUnitsCount: 6
+  - GradePrice: 80
+    MaxUnitsCount: 3
     MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
-  <BuildPrice>k__BackingField: 20
+  <BuildPrice>k__BackingField: 25
   <BuildingNameKey>k__BackingField: BUILD_AUTO_LIGHTER_NAME
