@@ -307,7 +307,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 5827439799081328517}
   _content: {fileID: 5097682329865492106}
   _button: {fileID: 8528477521318342905}
-  _popupShower: {fileID: 2699767444147614236}
+  popupDisplayer: {fileID: 2699767444147614236}
 --- !u!114 &1222236930328830872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6468368148676573631, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_fontSize
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6971475225506418875, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_Name
@@ -376,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763994901336213006, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2
+      value: 1.5107
       objectReference: {fileID: 0}
     - target: {fileID: 7763994901336213006, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_LocalPosition.x
