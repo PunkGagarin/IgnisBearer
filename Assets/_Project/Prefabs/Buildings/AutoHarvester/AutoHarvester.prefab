@@ -308,6 +308,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2130189039916214896, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_fontSize
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583753533429243620, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2747658347602881523, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
@@ -420,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8231282556226875513, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.08842
+      value: 3.22589
       objectReference: {fileID: 0}
     - target: {fileID: 8231282556226875513, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
