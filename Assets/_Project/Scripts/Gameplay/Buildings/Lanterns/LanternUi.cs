@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Gameplay.Ui;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings.Lanterns
@@ -16,6 +17,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         [field: SerializeField]
         public TextMeshProUGUI AmountText { get; private set; }
+
+        [field: SerializeField]
+        public Light2D Light { get; private set; }
 
         [field: SerializeField]
         public GameObject Indicator { get; private set; }
@@ -47,7 +51,9 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             // _iResourceStorage.OnStorageCleared += ClearLantern;
             // _iResourceStorage.OnStartHarvest += TurnOffIndicator;
             _lantern.OnFired += TurnOffIndicator;
+            _lantern.OnFired += TurnOnLight;
             _lantern.OnFireOff += TurnOffBar;
+            _lantern.OnFireOff += TurnOffLight;
             _lantern.OnFireOff += TurnOnIndicator;
         }
 
@@ -58,8 +64,20 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             // _iResourceStorage.OnStorageCleared -= ClearLantern;
             // _iResourceStorage.OnStartHarvest -= TurnOffIndicator;
             _lantern.OnFired -= TurnOffIndicator;
+            _lantern.OnFired -= TurnOnLight;
             _lantern.OnFireOff -= TurnOffBar;
+            _lantern.OnFireOff -= TurnOffLight;
             _lantern.OnFireOff -= TurnOnIndicator;
+        }
+
+        private void TurnOnLight()
+        {
+            Light.gameObject.SetActive(true);
+        }
+        
+        private void TurnOffLight()
+        {
+            Light.gameObject.SetActive(false);
         }
 
         private void TurnOffBar()

@@ -11,6 +11,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     public class LanternLightCreator : MonoBehaviour
     {
         [Inject] private LightResourceService _lightResourceService;
+        [Inject] private LanternSettings _settings;
 
         [field: SerializeField]
         private LightResource LightPrefab { get; set; }
@@ -58,7 +59,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private async UniTaskVoid InstantiateLight()
         {
             var lightResource = Instantiate(LightPrefab, SpawnPoint.position, Quaternion.identity, transform);
-
+            lightResource.GetComponent<AutodestroyTimer>().Init(_settings.LightLifetime);
             Vector3 endPosition = FindRandomPositionToDropResource();
             lightResource.SetFinalPosition(endPosition);
 
