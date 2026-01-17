@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 263280d8ee6ce4f3a97b44c877e04f7a
+guid: fea60bf6210b949c6a79e13e1fb8e57e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3022078459957980876
-    second: ProgressBar_Empty_0
+      213: 6728008234012706595
+    second: Church_Grade_1_emission_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
-  spriteBorder: {x: 57, y: 47, z: 61, w: 49}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ProgressBar_Empty_0
+      name: Church_Grade_1_emission_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 52
-        height: 6
+        width: 119
+        height: 147
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43158def6ab6f06d0800000000000000
-      internalID: -3022078459957980876
+      spriteID: 3270b32a7dfae5d50800000000000000
+      internalID: 6728008234012706595
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ProgressBar_Empty_0: -3022078459957980876
+      Church_Grade_1_emission_0: 6728008234012706595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
