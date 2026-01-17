@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Gameplay.Ui;
+using _Project.Scripts.Gameplay.Units;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -11,6 +12,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     public class LanternUi : MonoBehaviour
     {
         [Inject] private LanternSettings _settings;
+        [Inject] private WorkerService _workerService;
 
         [field: SerializeField]
         public BarUi Bar { get; private set; }
@@ -32,7 +34,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public void Init()
         {
             // SetCurrentAmountText();
-            TurnOnIndicator();
+            TurnOffIndicator();
             Bar.TurnOffBar();
         }
 
@@ -42,6 +44,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             _clickDetector = GetComponent<LanternClickDetector>();
             // _iResourceStorage = GetComponent<IResourceStorage>();
             _lantern = GetComponent<Lantern>();
+            _workerService.OnWorkerListUpdated += FirstTurnOn;
         }
 
         private void Start()
@@ -96,6 +99,12 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             SetCurrentAmountText();
         }
 
+        private void FirstTurnOn()
+        {
+            _workerService.OnWorkerListUpdated -= FirstTurnOn;
+            TurnOnIndicator();
+        }
+        
         private void TurnOnIndicator()
         {
             Indicator.SetActive(true);
