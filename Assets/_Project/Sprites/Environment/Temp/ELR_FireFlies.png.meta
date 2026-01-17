@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 14d5a74c4fd3244efac464afd94db1f7
+guid: 9c1ebcf4c70a74bc1af02bef5979bb3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3568696716615382404
-    second: House_Grade_1_0
+      213: 9085161090465165633
+    second: ELR_FireFlies_0
+  - first:
+      213: 4876235422123288786
+    second: ELR_FireFlies_1
+  - first:
+      213: 6321282042485819329
+    second: ELR_FireFlies_2
+  - first:
+      213: 1092647897130929059
+    second: ELR_FireFlies_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,23 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House_Grade_1_0
+      name: ELR_FireFlies_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 74
-        height: 75
+        x: 4
+        y: 4
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7a89077e31797ec0800000000000000
-      internalID: -3568696716615382404
+      spriteID: 141706460e9f41e70800000000000000
+      internalID: 9085161090465165633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ELR_FireFlies_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 4
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d8e5d0f74edba340800000000000000
+      internalID: 4876235422123288786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ELR_FireFlies_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 4
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c74c6ba684b9b750800000000000000
+      internalID: 6321282042485819329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ELR_FireFlies_3
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 4
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab011d297dd92f00800000000000000
+      internalID: 1092647897130929059
       vertices: []
       indices: 
       edges: []
@@ -138,19 +213,20 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 239fe5239b35b44ed9761ead4cea97f3, type: 3}
-      name: _NormalMap
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      House_Grade_1_0: -3568696716615382404
+      ELR_FireFlies_0: 9085161090465165633
+      ELR_FireFlies_1: 4876235422123288786
+      ELR_FireFlies_2: 6321282042485819329
+      ELR_FireFlies_3: 1092647897130929059
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

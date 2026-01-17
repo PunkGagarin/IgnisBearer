@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 14d5a74c4fd3244efac464afd94db1f7
+guid: 46149374689e544f0b7cabfa73f435c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3568696716615382404
-    second: House_Grade_1_0
+      213: -4528525341624483564
+    second: Candle_white_04_TheDarkRitual_BigWander_0
+  - first:
+      213: -77933865766526613
+    second: Candle_white_04_TheDarkRitual_BigWander_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House_Grade_1_0
+      name: Candle_white_04_TheDarkRitual_BigWander_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 1
         y: 0
-        width: 74
-        height: 75
+        width: 7
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7a89077e31797ec0800000000000000
-      internalID: -3568696716615382404
+      spriteID: 4114e18e1327721c0800000000000000
+      internalID: -4528525341624483564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Candle_white_04_TheDarkRitual_BigWander_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61630fdf8f1beef0800000000000000
+      internalID: -77933865766526613
       vertices: []
       indices: 
       edges: []
@@ -139,18 +164,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 239fe5239b35b44ed9761ead4cea97f3, type: 3}
-      name: _NormalMap
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      House_Grade_1_0: -3568696716615382404
+      Candle_white_04_TheDarkRitual_BigWander_0: -4528525341624483564
+      Candle_white_04_TheDarkRitual_BigWander_1: -77933865766526613
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
