@@ -6,7 +6,7 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
     [RequireComponent(typeof(Button))]
     public class UiButtonHover : UiHover
     {
-        private Button _button;
+        protected Button _button;
 
         protected override void Awake()
         {

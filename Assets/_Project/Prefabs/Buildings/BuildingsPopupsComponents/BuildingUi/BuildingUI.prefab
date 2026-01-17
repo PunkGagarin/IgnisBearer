@@ -86,7 +86,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4657864536273005153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +214,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8231282556226875513}
     m_Modifications:
+    - target: {fileID: 4825703778353260394, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.9241
+      objectReference: {fileID: 0}
+    - target: {fileID: 4825703778353260394, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -0.5714
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468368148676573631, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
+      propertyPath: m_fontSize
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6971475225506418875, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_Name
       value: InfoButton
@@ -248,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763994901336213006, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2
+      value: 1.4671
       objectReference: {fileID: 0}
     - target: {fileID: 7763994901336213006, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -284,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763994901336213006, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.6963
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7763994901336213006, guid: ce4388596fd9a4e7f8f601687e27a6a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

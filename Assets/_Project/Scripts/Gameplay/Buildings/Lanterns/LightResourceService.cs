@@ -6,7 +6,6 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 {
     public class LightResourceService
     {
-
         private readonly List<LightResource> _lights = new();
 
         public event Action<LightResource> OnLightCreated = delegate { };
@@ -18,6 +17,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             lightResource.OnClicked += OnLightResourceClickedHandle;
             lightResource.OnHarvested += DestroyResource;
+            lightResource.GetComponent<AutodestroyTimer>().OnTimeUp += DestroyResource;
 
             OnLightCreated.Invoke(lightResource);
         }
@@ -28,6 +28,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             lightResource.OnClicked -= OnLightResourceClickedHandle;
             lightResource.OnHarvested -= DestroyResource;
+            lightResource.GetComponent<AutodestroyTimer>().OnTimeUp -= DestroyResource;
 
             Object.Destroy(lightResource.gameObject);
         }
