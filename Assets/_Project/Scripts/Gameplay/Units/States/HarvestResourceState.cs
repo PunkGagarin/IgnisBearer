@@ -22,6 +22,12 @@ namespace _Project.Scripts.Gameplay.Units
 
         public async void Enter(LightResource resource)
         {
+            if (resource == null)
+            {
+                _unit.StateMachine.Enter<UnitIdleState>();
+                return;
+            }
+            
             resource.Harvest();
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
