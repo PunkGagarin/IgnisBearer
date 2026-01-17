@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
 
         private Vector3 _originalScale;
         private UiShake _shake;
-        private Button _button;
+        protected Button _button;
 
         private void Awake()
         {
@@ -26,15 +26,25 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
         {
             if (!CanClick())
             {
-                _shake.Shake();   
+                _shake.Shake();
                 return;
             }
-            transform.DOScale(_originalScale * _settings.ClickPressedScale, _settings.ClickScaleDuration).SetEase(Ease.OutQuad);
+            ClickDown();
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             if (!CanClick()) return;
+            ClickUp();
+        }
+
+        protected virtual  void ClickDown()
+        {
+            transform.DOScale(_originalScale * _settings.ClickPressedScale, _settings.ClickScaleDuration).SetEase(Ease.OutQuad);
+        }
+
+        protected virtual void ClickUp()
+        {
             transform.DOScale(_originalScale, _settings.ClickScaleDuration).SetEase(Ease.OutQuad);
         }
 

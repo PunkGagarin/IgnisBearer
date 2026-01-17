@@ -21,6 +21,11 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (!CanScale()) return;
+            ScaleUp();
+        }
+
+        protected virtual void ScaleUp()
+        {
             _hoverTween?.Kill();
             _hoverTween = transform.DOScale(_originalScale * _settings.HoverScale, _settings.HoverDuration).SetEase(Ease.OutBack);
         }
@@ -28,6 +33,11 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
         public void OnPointerExit(PointerEventData eventData)
         {
             if (!CanScale()) return;
+            ScaleDown();
+        }
+
+        protected virtual void ScaleDown()
+        {
             _hoverTween?.Kill();
             _hoverTween = transform.DOScale(_originalScale, _settings.HoverDuration).SetEase(Ease.OutBack);
         }
