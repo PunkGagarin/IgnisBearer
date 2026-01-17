@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9112be10784bbebcf58e7e6bc31aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingComponents.Grade.Grade
-  _buyLimitedButton: {fileID: 8231809799540204218}
+  _buyLimitedButton: {fileID: 3048597839062488795}
 --- !u!114 &8266406423554343426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,6 +673,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1592962405684818874}
     m_Modifications:
+    - target: {fileID: 341732866407179134, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 341732866407179134, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 341732866407179134, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 341732866407179134, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 341732866407179134, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 353632641144774976, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
       propertyPath: _key
       value: HOUSE_POPUP_TITLE
@@ -708,6 +728,10 @@ PrefabInstance:
     - target: {fileID: 777414366290242912, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 837746968631319480, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 878739199992782899, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
       propertyPath: m_AnchorMax.y
@@ -747,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1697406188781971388, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2587347153414530953, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
       propertyPath: m_AnchorMax.y
@@ -825,6 +849,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5363859713067304759, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_fontSize
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5761932459200195346, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -881,6 +909,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6040398707002027993, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058134385787045240, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058134385787045240, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058134385787045240, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058134385787045240, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058134385787045240, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560763302966869438, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8759939863732916583, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -898,7 +954,9 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6040398707002027993, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+    - {fileID: 6560763302966869438, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
@@ -913,6 +971,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9f08a06ec04066bd274ed45a9d0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UIPopupScaler
+--- !u!114 &3048597839062488795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 224776953599172865, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
+  m_PrefabInstance: {fileID: 2976979305444079578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8890a854d4941528405944c3cb3e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.BuyLimitedButton
 --- !u!114 &6565324522248710227 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8236218650229825417, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
@@ -929,17 +998,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5761932459200195346, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
   m_PrefabInstance: {fileID: 2976979305444079578}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8231809799540204218 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6587949875051271520, guid: 80f27ce9e392f4275953130ca076c978, type: 3}
-  m_PrefabInstance: {fileID: 2976979305444079578}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8890a854d4941528405944c3cb3e2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Buildings.BuyLimitedButton
 --- !u!1001 &6039475166549027652
 PrefabInstance:
   m_ObjectHideFlags: 0
