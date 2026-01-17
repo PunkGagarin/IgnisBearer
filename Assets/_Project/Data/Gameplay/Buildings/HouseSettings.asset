@@ -23,6 +23,9 @@ MonoBehaviour:
   - GradePrice: 20
     MaxUnitsCount: 7
     MaxDurability: 100
+  - GradePrice: 30
+    MaxUnitsCount: 9
+    MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
   <BuildingNameKey>k__BackingField: HOUSE_NAME_KEY
   <BuildPrice>k__BackingField: 0

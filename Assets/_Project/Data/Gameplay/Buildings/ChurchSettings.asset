@@ -19,16 +19,16 @@ MonoBehaviour:
     LightSendSpeed: 5
     QueueCapacity: 1
     AmountPerLight: 20
-  - MaxLightStorageCapacity: 150
-    GradePrice: 0
-    LightSendSpeed: 0.4
+  - MaxLightStorageCapacity: 100
+    GradePrice: 15
+    LightSendSpeed: 5
     QueueCapacity: 2
-    AmountPerLight: 1
-  - MaxLightStorageCapacity: 200
-    GradePrice: 0
-    LightSendSpeed: 0.4
-    QueueCapacity: 2
-    AmountPerLight: 1
+    AmountPerLight: 25
+  - MaxLightStorageCapacity: 100
+    GradePrice: 15
+    LightSendSpeed: 5
+    QueueCapacity: 3
+    AmountPerLight: 30
   <BuildingNameKey>k__BackingField: 
   <StartLightAmount>k__BackingField: 100
   <PositionOffset>k__BackingField: 1

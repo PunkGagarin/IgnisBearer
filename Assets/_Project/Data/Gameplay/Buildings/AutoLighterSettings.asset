@@ -17,10 +17,10 @@ MonoBehaviour:
   - GradePrice: 0
     MaxUnitsCount: 1
     MaxDurability: 100
-  - GradePrice: 50
+  - GradePrice: 25
     MaxUnitsCount: 2
     MaxDurability: 100
-  - GradePrice: 80
+  - GradePrice: 45
     MaxUnitsCount: 3
     MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
