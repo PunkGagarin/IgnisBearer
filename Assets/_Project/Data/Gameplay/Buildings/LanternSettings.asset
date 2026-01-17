@@ -21,4 +21,4 @@ MonoBehaviour:
   <LightProduceTime>k__BackingField: 4
   <InitMaxStorage>k__BackingField: 1
   <InitMaxResourceGeneratePerFireUp>k__BackingField: 3
-  <LightLifetime>k__BackingField: 20
+  <LightLifetime>k__BackingField: 15
