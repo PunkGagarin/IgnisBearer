@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7465727936484003681}
   - component: {fileID: 6368422883556218000}
   - component: {fileID: -1911161465914016236}
+  - component: {fileID: 5582062970691992077}
   m_Layer: 0
   m_Name: LightResource
   m_TagString: Untagged
@@ -82,6 +83,22 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &5582062970691992077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087929314170699096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2abd683453874d79af30696f76316280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Autodestroy
+  totalDuration: 4
+  startPulseDuration: 0.6
+  endPulseDuration: 0.1
+  minAlpha: 0.25
 --- !u!1 &2464954886124873854
 GameObject:
   m_ObjectHideFlags: 0
