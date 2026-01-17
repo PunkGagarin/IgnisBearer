@@ -13,6 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         protected override void SubscribeToSearch()
         {
             _resourceService.OnLightCreated += SendFirstUnit;
+            _resourceService.OnResourceDestroyed += RemovedResourceFromQueue;
         }
 
         protected override List<LightResource> GetResForQueue()
@@ -23,6 +24,15 @@ namespace _Project.Scripts.Gameplay.Buildings
         protected override void UnsubscribeFromRes()
         {
             _resourceService.OnLightCreated -= SendFirstUnit;
+            _resourceService.OnResourceDestroyed -= RemovedResourceFromQueue;
+        }
+
+        private void RemovedResourceFromQueue(LightResource res)
+        {
+            if (_resToServe.Contains(res))
+            {
+                _resToServe.Remove(res);
+            }
         }
 
         protected override void MoveTo(Unit unit, LightResource res)
