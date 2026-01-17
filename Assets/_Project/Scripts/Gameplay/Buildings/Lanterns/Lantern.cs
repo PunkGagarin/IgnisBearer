@@ -21,7 +21,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public Action<Lantern> OnDestroyed = delegate { };
         public Action<Lantern> OnNeededToFire = delegate { };
-        public Action OnFired = delegate { };
+        public Action<Lantern> OnFired = delegate { };
         public Action OnFireOff = delegate { };
 
 
@@ -66,7 +66,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
             UnFired.gameObject.SetActive(false);
             Fired.gameObject.SetActive(true);
-            OnFired.Invoke();
+            OnFired.Invoke(this);
         }
 
         private void FireOff()

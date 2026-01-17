@@ -1,17 +1,15 @@
 ﻿using System.Collections.Generic;
-using _Project.Scripts.Gameplay.Buildings.Lanterns;
+using System.Linq;
 using _Project.Scripts.Gameplay.Units;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-
     public abstract class BaseSearcher<T> : MonoBehaviour where T : MonoBehaviour
     {
-
-        private Queue<T> _resToServe = new();
+        protected List<T> _resToServe = new();
         private Workers _workers;
-        
+
         private void Awake()
         {
             _workers = GetComponent<Workers>();
@@ -28,11 +26,11 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         protected abstract void SubscribeToSearch();
 
-        private void FindResForQueue()
+        protected void FindResForQueue()
         {
-            var unfiredLanterns = GetResForQueue();
-            Debug.Log($" lanterns found for harvest: {unfiredLanterns.Count}");
-            foreach (var lantern in unfiredLanterns)
+            var unservedRes = GetResForQueue();
+            Debug.Log($" resources found for harvest: {unservedRes.Count}");
+            foreach (var lantern in unservedRes)
                 AddToQueue(lantern);
         }
 
@@ -41,7 +39,8 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void AddToQueue(T res)
         {
             Debug.Log($" res added in harvest queue");
-            _resToServe.Enqueue(res);
+            if (!_resToServe.Contains(res))
+                _resToServe.Add(res);
         }
 
         protected void OnDestroy()
@@ -69,7 +68,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             Debug.Log($" checking res in queue for free unit");
             if (_resToServe.Count > 0)
             {
-                var res = _resToServe.Dequeue();
+                var res = _resToServe.FirstOrDefault();
                 MoveTo(unit, res);
             }
         }
@@ -84,6 +83,7 @@ namespace _Project.Scripts.Gameplay.Buildings
                 AddToQueue(res);
                 return;
             }
+
             MoveTo(unit, res);
         }
     }
