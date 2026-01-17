@@ -50,8 +50,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             // _iResourceStorage.OnAmountIncreased += SetAmount;
             // _iResourceStorage.OnStorageCleared += ClearLantern;
             // _iResourceStorage.OnStartHarvest += TurnOffIndicator;
-            _lantern.OnFired += TurnOffIndicator;
-            _lantern.OnFired += TurnOnLight;
+            _lantern.OnFired += OnLanternFired;
             _lantern.OnFireOff += TurnOffBar;
             _lantern.OnFireOff += TurnOffLight;
             _lantern.OnFireOff += TurnOnIndicator;
@@ -63,8 +62,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
             // _iResourceStorage.OnAmountIncreased -= SetAmount;
             // _iResourceStorage.OnStorageCleared -= ClearLantern;
             // _iResourceStorage.OnStartHarvest -= TurnOffIndicator;
-            _lantern.OnFired -= TurnOffIndicator;
-            _lantern.OnFired -= TurnOnLight;
+            _lantern.OnFired -= OnLanternFired;
             _lantern.OnFireOff -= TurnOffBar;
             _lantern.OnFireOff -= TurnOffLight;
             _lantern.OnFireOff -= TurnOnIndicator;
@@ -102,6 +100,12 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         {
             Indicator.SetActive(true);
             _clickDetector.TurnOnClick();
+        }
+
+        private void OnLanternFired(Lantern _)
+        {
+            TurnOffIndicator();
+            TurnOnLight();
         }
 
         public void TurnOffIndicator()
