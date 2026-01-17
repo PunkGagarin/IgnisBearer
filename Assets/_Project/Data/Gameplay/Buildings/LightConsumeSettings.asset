@@ -16,16 +16,16 @@ MonoBehaviour:
   - <TimeToIncrease>k__BackingField: 0
     <TimeToConsume>k__BackingField: 1
     <Amount>k__BackingField: 2
-  - <TimeToIncrease>k__BackingField: 60
+  - <TimeToIncrease>k__BackingField: 90
     <TimeToConsume>k__BackingField: 1
     <Amount>k__BackingField: 3
-  - <TimeToIncrease>k__BackingField: 120
+  - <TimeToIncrease>k__BackingField: 150
     <TimeToConsume>k__BackingField: 1
     <Amount>k__BackingField: 4
-  - <TimeToIncrease>k__BackingField: 180
+  - <TimeToIncrease>k__BackingField: 210
     <TimeToConsume>k__BackingField: 1
     <Amount>k__BackingField: 5
-  - <TimeToIncrease>k__BackingField: 240
+  - <TimeToIncrease>k__BackingField: 270
     <TimeToConsume>k__BackingField: 1
     <Amount>k__BackingField: 7
   - <TimeToIncrease>k__BackingField: 300
