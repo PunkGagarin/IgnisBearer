@@ -29,18 +29,14 @@ namespace _Project.Scripts.Gameplay.Ui.UiEffects
             transform.localScale = _originalScale * _settings.PopupScaleStart;
             transform.DOScale(_originalScale * _settings.PopupScaleOvershootStart, _settings.PopupOpenDuration)
                 .SetEase(Ease.OutBack)
-                .SetUpdate(true)
                 .OnComplete(() => transform.DOScale(_originalScale, _settings.PopupOpenDuration / 2f));
             OnOpened?.Invoke();
         }
 
         public void AnimateAndHide()
         {
-            _popupController.Close(this);
-
             transform.DOScale(Vector3.one * _settings.PopupCloseScale, _settings.PopupCloseDuration)
                 .SetEase(_settings.PopupCloseEase)
-                .SetUpdate(true)
                 .OnComplete(() => gameObject.SetActive(false));
             OnClosed?.Invoke();
         }

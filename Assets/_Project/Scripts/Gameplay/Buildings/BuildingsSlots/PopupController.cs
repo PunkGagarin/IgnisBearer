@@ -1,5 +1,4 @@
 ﻿using _Project.Scripts.Gameplay.Ui.UiEffects;
-using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
@@ -13,15 +12,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
                 return;
 
             _uiPopupDisplayer?.AnimateAndHide();
-            
-            Time.timeScale = 0.2f;
             _uiPopupDisplayer = uiPopupDisplayer;
-        }
-
-        public void Close(UiPopupDisplayer uiPopupDisplayer)
-        {
-            Time.timeScale = 1f;
-            _uiPopupDisplayer = null;
         }
     }
 }
