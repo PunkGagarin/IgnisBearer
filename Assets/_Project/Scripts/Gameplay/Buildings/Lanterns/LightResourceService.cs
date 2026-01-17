@@ -10,6 +10,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         public event Action<LightResource> OnLightCreated = delegate { };
         public event Action<LightResource> OnLightResourceClicked = delegate { };
+        public event Action<LightResource> OnResourceDestroyed = delegate { };
 
         public void RegisterResource(LightResource lightResource)
         {

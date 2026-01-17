@@ -15,7 +15,7 @@ namespace _Project.Scripts.Gameplay.Tutorial
             _lanternService.OnLanternFired += OnStepIterated;
         }
 
-        private void OnStepIterated()
+        private void OnStepIterated(Lantern lantern)
         {
             FinishStep();
         }

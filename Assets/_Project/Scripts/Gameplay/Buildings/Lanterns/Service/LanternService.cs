@@ -15,7 +15,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private readonly List<Lantern> _lanterns = new();
 
         public event Action<Lantern> OnLanternNeededToFire = delegate { };
-        public event Action OnLanternFired = delegate { };
+        public event Action<Lantern> OnLanternFired = delegate { };
+        public event Action<Lantern> OnLanternCreated = delegate { };
 
         public void InitStartLanterns(List<LanternSlot> slots)
         {
@@ -32,7 +33,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private void SubscribeToLantern(Lantern lantern)
         {
             lantern.OnDestroyed += UnsubscribeFromLantern;
-            lantern.OnNeededToFire += OnLanternNeededToFire;
+            lantern.OnNeededToFire += OnLanternNeededToFireHandle;
             lantern.OnFired += OnLanternFiredHandle;
 
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
@@ -42,22 +43,28 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private void UnsubscribeFromLantern(Lantern lantern)
         {
             lantern.OnDestroyed -= UnsubscribeFromLantern;
-            lantern.OnNeededToFire -= OnLanternNeededToFire;
+            lantern.OnNeededToFire -= OnLanternNeededToFireHandle;
             lantern.OnFired -= OnLanternFiredHandle;
 
             var clickDetector = lantern.GetComponent<LanternClickDetector>();
             clickDetector.OnClicked -= OnLanternClicked;
         }
 
-        private void OnLanternFiredHandle()
+        private void OnLanternNeededToFireHandle(Lantern obj)
         {
-            OnLanternFired.Invoke();
+            OnLanternNeededToFire.Invoke(obj);
+        }
+
+        private void OnLanternFiredHandle(Lantern lantern)
+        {
+            OnLanternFired.Invoke(lantern);
         }
 
         public void CreateAndRegisterLantern(LanternSlot slot)
         {
             var lantern = _factory.CreateLantern(slot);
             RegisterLantern(lantern);
+            OnLanternCreated.Invoke(lantern);
         }
 
         private void OnLanternClicked(Lantern lantern)
