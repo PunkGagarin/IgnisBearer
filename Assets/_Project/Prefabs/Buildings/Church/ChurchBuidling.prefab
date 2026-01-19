@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 748098659035854399}
   - component: {fileID: 8719285551427915964}
   - component: {fileID: 1110182973537468170}
+  - component: {fileID: 7095878441336057126}
   m_Layer: 0
   m_Name: ChurchBuidling
   m_TagString: Untagged
@@ -207,6 +208,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.GradeUpdateNotification
   _notification: {fileID: 650717444811991563}
   _isEnabled: 0
+--- !u!114 &7095878441336057126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763666501242424880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb426b4069b4e6d97455b13b79798ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Vfx.Light.ChurchLightSwitcher
+  _isEnabledByDefault: 0
+  _timeToSwitch: 1
+  _lights:
+  - {fileID: 9211035744801910000}
+  - {fileID: 7787449647850179278}
+  - {fileID: 7560801117857491869}
+  - {fileID: 6920068086515956289}
+  - {fileID: 5283679959255792359}
 --- !u!1 &8442288568501161506
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,19 +324,43 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1004386533394173755}
+    m_TransformParent: {fileID: 6709544839986229633}
     m_Modifications:
     - target: {fileID: 4393486339864607691, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
       propertyPath: m_Name
       value: ChurchLight2D
       objectReference: {fileID: 0}
+    - target: {fileID: 4749669216471158615, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+      propertyPath: m_NormalMapQuality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978164530891943428, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+      propertyPath: m_NormalMapQuality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5616454445216448472, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+      propertyPath: m_NormalMapQuality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921264806162147689, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+      propertyPath: m_NormalMapQuality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7254107270694076286, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+      propertyPath: m_NormalMapQuality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425988219470459606, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+      propertyPath: m_Name
+      value: TopFreeform Light 2D
+      objectReference: {fileID: 0}
     - target: {fileID: 8670473200400201279, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.26
+      value: 4.1800003
       objectReference: {fileID: 0}
     - target: {fileID: 8670473200400201279, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.1
+      value: -4.16
       objectReference: {fileID: 0}
     - target: {fileID: 8670473200400201279, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -327,15 +372,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8670473200400201279, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8670473200400201279, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8670473200400201279, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8670473200400201279, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -354,11 +399,66 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+--- !u!114 &5283679959255792359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7254107270694076286, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+  m_PrefabInstance: {fileID: 3312576528323626393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
 --- !u!4 &6173053815670125478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8670473200400201279, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
   m_PrefabInstance: {fileID: 3312576528323626393}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6920068086515956289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5616454445216448472, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+  m_PrefabInstance: {fileID: 3312576528323626393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+--- !u!114 &7560801117857491869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4978164530891943428, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+  m_PrefabInstance: {fileID: 3312576528323626393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+--- !u!114 &7787449647850179278 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4749669216471158615, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+  m_PrefabInstance: {fileID: 3312576528323626393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+--- !u!114 &9211035744801910000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5921264806162147689, guid: 89cc27693fc334aae9f67914995a98c9, type: 3}
+  m_PrefabInstance: {fileID: 3312576528323626393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
 --- !u!1001 &6433521326097719938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -497,10 +597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6104692741714816441, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6173053815670125478}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7bff38b313fd4d688346a98f1794f70, type: 3}
 --- !u!4 &1004386533394173755 stripped
@@ -668,7 +765,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3180380085650184654, guid: 36840c5b0f6d74082beabe5567324f88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6173053815670125478}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36840c5b0f6d74082beabe5567324f88, type: 3}
 --- !u!114 &136673938825088815 stripped
