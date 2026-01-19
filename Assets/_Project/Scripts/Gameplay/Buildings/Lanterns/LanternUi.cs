@@ -13,6 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
     {
         [Inject] private LanternSettings _settings;
         [Inject] private WorkerService _workerService;
+        [Inject] private LanternService _lanternService;
 
         [field: SerializeField]
         public BarUi Bar { get; private set; }
@@ -34,8 +35,16 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         public void Init()
         {
             // SetCurrentAmountText();
-            TurnOffIndicator();
+            InitIndicator();
             Bar.TurnOffBar();
+        }
+
+        private void InitIndicator()
+        {
+            if (_lanternService.GetLanternsCount() > 0)
+                TurnOnIndicator(); 
+            else 
+                TurnOffIndicator();
         }
 
         private void Awake()
