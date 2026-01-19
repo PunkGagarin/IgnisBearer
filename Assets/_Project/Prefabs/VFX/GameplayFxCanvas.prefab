@@ -61,7 +61,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 120
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &9195812441095735724
 MonoBehaviour:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
@@ -219,8 +219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bf6fbb172e496db403a2f75ced4482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Shaders.FullscreenMaterialController
-  _material: {fileID: 2100000, guid: cf24aee70bab340e79e4c8b910669439, type: 2}
-  _vignettePower: 3
-  _vignetteIntensity: 4
-  _pulseSpeed: 1
-  _fadeSpeed: 2
+  material: {fileID: 2100000, guid: cf24aee70bab340e79e4c8b910669439, type: 2}
+  barrierValue: 0
+  dangerThreshold: 40
+  vignettePower: 3
+  maxIntensity: 10
+  minScale: 0.5
+  maxScale: 1
+  pulseSpeed: 3
+  smoothSpeed: 2.5
