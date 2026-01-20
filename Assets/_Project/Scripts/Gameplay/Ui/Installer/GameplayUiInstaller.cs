@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using _Project.Scripts.Shaders;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Ui.Installer
@@ -23,6 +24,9 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
         
         [field: SerializeField]
         public UiSettings UiSettings { get; private set; }
+        
+        [field: SerializeField]
+        public VignetteShaderController VignetteShaderController { get; private set; }
 
         public override void InstallBindings()
         {
@@ -48,6 +52,10 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
             
             Container.BindInterfacesAndSelfTo<UiSettings>()
                 .FromInstance(UiSettings)
+                .AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<VignetteShaderController>()
+                .FromInstance(VignetteShaderController)
                 .AsSingle();
         }
     }

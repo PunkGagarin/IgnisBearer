@@ -10,22 +10,22 @@ namespace _Project.Scripts.Gameplay.Units
     {
         private Unit _unit;
 
-        private SpriteRenderer _spriteRenderer;
+        private Transform _transform;
 
         public Action<Unit> OnReach = delegate { };
 
         private void Awake()
         {
             _unit = GetComponent<Unit>();
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _transform = GetComponent<Transform>();
         }
 
         private void FlipIfNeeded(Vector3 destination)
         {
             if (destination.x > transform.position.x)
-                _spriteRenderer.flipX = false;
+                _transform.localScale = new Vector2(1, _transform.localScale.y);
             else
-                _spriteRenderer.flipX = true;
+                _transform.localScale = new Vector2(-1, _transform.localScale.y);
         }
 
 
