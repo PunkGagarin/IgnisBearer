@@ -20,7 +20,7 @@ MonoBehaviour:
   - GradePrice: 10
     MaxUnitsCount: 5
     MaxDurability: 100
-  - GradePrice: 20
+  - GradePrice: 30
     MaxUnitsCount: 7
     MaxDurability: 100
   - GradePrice: 30
