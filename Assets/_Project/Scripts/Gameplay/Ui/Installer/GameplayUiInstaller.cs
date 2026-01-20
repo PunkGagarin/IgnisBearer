@@ -1,3 +1,4 @@
+using _Project.Scripts.Gameplay.Buildings;
 using UnityEngine;
 using _Project.Scripts.Shaders;
 using Zenject;
@@ -28,6 +29,9 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
         [field: SerializeField]
         public VignetteShaderController VignetteShaderController { get; private set; }
 
+        [field: SerializeField]
+        public HouseUnitsCounter HouseUnitsCounter { get; private set; }
+
         public override void InstallBindings()
         {
             Container.Bind<Camera>()
@@ -56,6 +60,10 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
             
             Container.BindInterfacesAndSelfTo<VignetteShaderController>()
                 .FromInstance(VignetteShaderController)
+                .AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<HouseUnitsCounter>()
+                .FromInstance(HouseUnitsCounter)
                 .AsSingle();
         }
     }
