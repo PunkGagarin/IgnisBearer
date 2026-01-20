@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Units.PeonUnit
   <Visual>k__BackingField: {fileID: 3400010847895667901}
+  <Light2D>k__BackingField: {fileID: 2041176329706091829}
 --- !u!114 &4810579088607930065
 MonoBehaviour:
   m_ObjectHideFlags: 0
