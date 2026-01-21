@@ -24,6 +24,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         private int initGrade = 1;
 
         public event Action<FateGeneratorBuilding> OnFateGeneratorBuilt = delegate { };
+        public event Action<HouseBuilding> OnHouseBuilt = delegate { };
 
         public void InitChurch(BuildingSlot slot)
         {
@@ -60,6 +61,11 @@ namespace _Project.Scripts.Gameplay.Buildings
             {
                 _buildings.Add(building);
                 OnFateGeneratorBuilt.Invoke(fateGenerator);
+            }
+            else if (building is HouseBuilding houseBuilding)
+            {
+                _buildings.Add(building);
+                OnHouseBuilt.Invoke(houseBuilding);
             }
             else
                 _buildings.Add(building);

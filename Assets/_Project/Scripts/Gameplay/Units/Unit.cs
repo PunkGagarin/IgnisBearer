@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace _Project.Scripts.Gameplay.Units
 {
@@ -7,6 +8,9 @@ namespace _Project.Scripts.Gameplay.Units
     {
         [field: SerializeField]
         public GameObject Visual { get; private set; }
+        
+        [field: SerializeField]
+        public Light2D Light2D { get; private set; }
         
         public UnitStateMachine StateMachine { get; private set; }
         public UnitContext Context { get; private set; }
@@ -28,6 +32,7 @@ namespace _Project.Scripts.Gameplay.Units
         public void SetVisualStatus(bool isActive)
         {
             Visual.SetActive(isActive);
+            Light2D.gameObject.SetActive(isActive);
         }
     }
 }
