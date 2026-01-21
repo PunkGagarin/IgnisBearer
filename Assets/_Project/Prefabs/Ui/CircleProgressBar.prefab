@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 4035183038260842251}
   - component: {fileID: 400424005318318512}
   - component: {fileID: 3252901358701488808}
+  - component: {fileID: 4346189480475321493}
   m_Layer: 5
   m_Name: CircleProgressBar
   m_TagString: Untagged
@@ -224,3 +225,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ChurchLightSendSlot
   <BarUi>k__BackingField: {fileID: 400424005318318512}
+--- !u!114 &4346189480475321493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5794635250403161983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a59a23587348d48f5048ee27aea0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UiEffects.UiPulseShot
+  _pulseScale: 1.2
+  _duration: 0.2
