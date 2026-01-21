@@ -54,9 +54,9 @@ Material:
     - _Fullscreen_SrcAlphaBlend: 1
     - _Fullscreen_SrcColorBlend: 5
     - _PulseSpeed: 3
-    - _Scale: 0.5
+    - _Scale: 0.91104215
     - _VignetteInstensity: 10.67
-    - _VignetteIntensity: 0
+    - _VignetteIntensity: 4.1104226
     - _VignettePower: 3
     m_Colors:
     - _Color: {r: 0.2830189, g: 0, b: 0, a: 1}

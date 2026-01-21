@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using _Project.Scripts.Infrastructure.GameStates;
 using UnityEngine;
 using Zenject;
@@ -33,6 +34,9 @@ namespace _Project.Scripts.Gameplay.Units
             
             //todo: move to church queue and incapsualte???
             slot.SetBusy();
+            
+            var uiPulseShot = slot.GetComponent<UiPulseShot>();
+            uiPulseShot.PlayPulse();
             
             _unit.SetVisualStatus(false);
         }

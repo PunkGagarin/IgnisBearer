@@ -1,24 +1,33 @@
 using _Project.Scripts.Gameplay.Ui.Buildings;
+using _Project.Scripts.Utils;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    [RequireComponent(typeof(HouseBuyUnit))]
-    public class HouseUnitsCounter : MonoBehaviour
+    public class HouseUnitsCounter : ContentUi
     {
+        [Inject] private BuildingsService _buildingsService;
         [SerializeField] private UnitsCountView _unitsCountView;
 
         private HouseBuyUnit _houseBuyUnit;
 
         private void Awake()
         {
-            _houseBuyUnit = GetComponent<HouseBuyUnit>();
-            _houseBuyUnit.OnUnitCountChanged += UpdateUi;
-            _houseBuyUnit.OnMaxCountChanged += UpdateUi;
+            _buildingsService.OnHouseBuilt += Init;
         }
 
         private void Start()
         {
+            Hide();
+        }
+
+        private void Init(HouseBuilding building)
+        {
+            _houseBuyUnit = building.GetComponent<HouseBuyUnit>();
+            _houseBuyUnit.OnUnitCountChanged += UpdateUi;
+            _houseBuyUnit.OnMaxCountChanged += UpdateUi;
+            Show();
             UpdateUi();
         }
 
@@ -28,6 +37,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             _houseBuyUnit.OnUnitCountChanged -= UpdateUi;
             _houseBuyUnit.OnMaxCountChanged -= UpdateUi;
+            _buildingsService.OnHouseBuilt -= Init;
         }
 
         private void UpdateUi()
