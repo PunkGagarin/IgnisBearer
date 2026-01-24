@@ -42,5 +42,10 @@ namespace _Project.Scripts.Utils
             key = _key;
             value = _value;
         }
+
+        public override string ToString()
+        {
+            return Key.ToString() + ": " + Value.ToString();
+        }
     }
 }
