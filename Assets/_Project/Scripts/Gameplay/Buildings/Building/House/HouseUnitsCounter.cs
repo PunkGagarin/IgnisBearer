@@ -35,8 +35,11 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void OnDestroy()
         {
-            _houseBuyUnit.OnUnitCountChanged -= UpdateUi;
-            _houseBuyUnit.OnMaxCountChanged -= UpdateUi;
+            if (_houseBuyUnit != null)
+            {
+                _houseBuyUnit.OnUnitCountChanged -= UpdateUi;
+                _houseBuyUnit.OnMaxCountChanged -= UpdateUi;
+            }
             _buildingsService.OnHouseBuilt -= Init;
         }
 
