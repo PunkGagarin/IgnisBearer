@@ -15,19 +15,19 @@ MonoBehaviour:
   _prefab: {fileID: -6917743041111328387, guid: 4fcb4e480a1ba441fa33f229429cf27b, type: 3}
   _gradeData:
   - GradePrice: 0
-    MaxUnitsCount: 2
+    MaxUnitsCount: 3
     MaxDurability: 100
   - GradePrice: 10
-    MaxUnitsCount: 5
+    MaxUnitsCount: 6
     MaxDurability: 100
   - GradePrice: 30
-    MaxUnitsCount: 7
+    MaxUnitsCount: 12
     MaxDurability: 100
-  - GradePrice: 30
-    MaxUnitsCount: 9
+  - GradePrice: 45
+    MaxUnitsCount: 20
     MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
   <BuildingNameKey>k__BackingField: HOUSE_NAME_KEY
   <BuildPrice>k__BackingField: 0
-  <UnitCostMultiplier>k__BackingField: 2
+  <UnitCostMultiplier>k__BackingField: 3
   <InitUnitCost>k__BackingField: 0
