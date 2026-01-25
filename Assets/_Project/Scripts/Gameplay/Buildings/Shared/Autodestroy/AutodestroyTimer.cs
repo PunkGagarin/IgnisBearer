@@ -10,19 +10,27 @@ namespace _Project.Scripts.Gameplay.Buildings
     public class AutodestroyTimer : MonoBehaviour
     {
         public Action<LightResource> OnTimeUp { get; set; } = delegate { };
-        
-        [SerializeField] private float totalPulseDuration = 4f;
-        [SerializeField] private float startPulseDuration = 0.6f;
-        [SerializeField] private float endPulseDuration = 0.1f;
-        [SerializeField] private float minAlpha = 0.25f;
-        
+
+        [SerializeField]
+        private float totalPulseDuration = 4f;
+
+        [SerializeField]
+        private float startPulseDuration = 0.6f;
+
+        [SerializeField]
+        private float endPulseDuration = 0.1f;
+
+        [SerializeField]
+        private float minAlpha = 0.25f;
+
         private SpriteRenderer _renderer;
         private Sequence _sequence;
 
+        private bool _isTurned = true;
         private float _destroyTime;
         private float _currentTime;
         private bool _isPulsing;
-        
+
         private void Awake()
         {
             _renderer = GetComponentInChildren<SpriteRenderer>(true);
@@ -36,12 +44,14 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private void Update()
         {
+            if (!_isTurned) return;
+            
             _currentTime += Time.deltaTime;
 
             if (_currentTime >= _destroyTime - totalPulseDuration && !_isPulsing)
                 StartPulseAnimation();
-            
-            if(_currentTime >= _destroyTime)
+
+            if (_currentTime >= _destroyTime)
                 OnTimeUp.Invoke(GetComponent<LightResource>());
         }
 
@@ -67,6 +77,12 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             _sequence
                 .SetUpdate(false);
+        }
+
+        public void StopTimer()
+        {
+            _sequence?.Kill();
+            _isTurned = false;
         }
     }
 }
