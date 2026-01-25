@@ -11,7 +11,7 @@ namespace _Project.Scripts.Utils
 
         public event Action<T> OnClicked = delegate { };
 
-        private void Awake()
+        public virtual void Awake()
         {
             _collider2D = GetComponent<Collider2D>();
         }
