@@ -6,6 +6,10 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 
     public class BuildingSlotsSettings : ScriptableObject
     {
-        [field: SerializeField] public BuildingSlot Prefab { get; set; }
+        [field: SerializeField]
+        public BuildingSlot Prefab { get; private set; }
+
+        [field: SerializeField]
+        public int StartSlotsCount { get; private set; } = 4;
     }
 }

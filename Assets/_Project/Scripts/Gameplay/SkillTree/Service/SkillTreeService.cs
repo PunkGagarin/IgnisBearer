@@ -10,7 +10,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
     public class SkillTreeService : IInitializable, IDisposable
     {
         [Inject] private SkillTreeUi _ui;
-        [Inject] private SkillTreeFactory _factory;
         [Inject] private SkillTreeDataFacade _skillTreeData;
         [Inject] private SkillTreeSettings _settings;
         [Inject] private MetaCurrencyService _metaCurrencyService;
@@ -128,14 +127,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
         private NodeBoughtState GetBoughtState(SkillNodeType nodeType)
         {
             return _skillTreeData.GetBoughtStateFor(nodeType);
-        }
-
-
-        public void Create()
-        {
-            var treeData = _factory.Create();
-            _skillTreeData.SetTreeData(treeData);
-            Init(treeData);
         }
 
         public void Init(SkillTreeData data)

@@ -11,11 +11,17 @@ namespace _Project.Scripts.Gameplay
         public float BaseValue { get; private set; }
         private List<StatModifier> _modifiers = new();
 
+        protected Stat(ST type, float baseValue)
+        {
+            Type = type;
+            BaseValue = baseValue;
+        }
 
         public float GetValue()
         {
             float finalSum = 0f;
             float finalMultiply = 1f;
+            
             foreach (var mod in _modifiers)
             {
                 if (mod.Type == ModifierType.Sum)
@@ -56,24 +62,5 @@ namespace _Project.Scripts.Gameplay
                                $"type: {Type}, trying to remove: {source}, real mods: {modsInString}");
             }
         }
-    }
-
-    public interface IUnitStat : IStat<UnitStatType>
-    {
-    }
-
-    public enum UnitStatType
-    {
-        None = 0,
-        MoveSpeed = 1,
-    }
-
-    public interface IStat<ST>
-    {
-        public ST Type { get; }
-        public float GetValue();
-        public int GetRoundedValue();
-        public void AddModifier(StatModifier mod);
-        public void RemoveModifier(string source);
     }
 }

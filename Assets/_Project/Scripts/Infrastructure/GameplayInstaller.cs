@@ -21,6 +21,7 @@ namespace _Project.Scripts.Infrastructure
             Container.BindInterfacesAndSelfTo<LevelService>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameEndService>().AsSingle();
             Container.BindInterfacesAndSelfTo<MetaCurrencyService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<StartDataFactory>().AsSingle();
             
             Container.Bind<LevelData>().FromInstance(LevelData).AsSingle();
 

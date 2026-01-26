@@ -32,10 +32,9 @@ namespace _Project.Scripts.Gameplay.Units
                 unitPosition.transform.position, Quaternion.identity, unitPosition.transform);
 
             var unitContext = new UnitContext(unit,
-                _unitSettings.MoveSpeed,
-                _unitSettings.FireUpMultiplier,
-                _unitSettings.SendLightToChurchMultiplier
+                _unitSettings.MoveSpeed
             );
+            
             var unitStateMachine = new UnitStateMachine();
 
             foreach (var stateType in _initStates)

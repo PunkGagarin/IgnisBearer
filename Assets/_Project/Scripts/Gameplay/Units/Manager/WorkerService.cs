@@ -17,7 +17,7 @@ namespace _Project.Scripts.Gameplay.Units
         [Inject] private UnitFactory _factory;
         [Inject] private LightResourceService _lightResourceService;
 
-        private List<Unit> _units = new();
+        private readonly List<Unit> _units = new();
 
         public void Initialize()
         {
@@ -32,12 +32,6 @@ namespace _Project.Scripts.Gameplay.Units
         private void OnResourceClickHandle(LightResource resource)
         {
             MoveFreeUnitTo(resource);
-        }
-
-        public void CreateStartUnit(UnitSpawnPoint unitPosition)
-        {
-            Debug.Log(" CreateStartUnit");
-            CreateAndRegisterUnit(unitPosition.gameObject.transform);
         }
 
         public void CreateAndRegisterUnit(Transform unitPosition)
@@ -78,6 +72,7 @@ namespace _Project.Scripts.Gameplay.Units
                 Debug.LogWarning("Trying to find free worker when there are no workers");
                 return null;
             }
+
             return _units.RandomOrDefault(unit => unit.Context.Status == UnitStatus.Free);
         }
 
@@ -148,12 +143,16 @@ namespace _Project.Scripts.Gameplay.Units
             return _units.Count;
         }
 
-        public void MoveAllUnitsTo(Vector2 pos)
+        public void AddModToAllUnits(StatModifier modifier)
         {
             foreach (var unit in _units)
-            {
-                unit.StateMachine.Enter<UnitMoveToWithNext, UnitWaitState, Vector3>(pos);
-            }
+                unit.Context.MoveSpeed.AddModifier(modifier);
+        }
+
+        public void RemoveModFromAllUnits(string source)
+        {
+            foreach (var unit in _units)
+                unit.Context.MoveSpeed.RemoveModifier(source);
         }
     }
 }

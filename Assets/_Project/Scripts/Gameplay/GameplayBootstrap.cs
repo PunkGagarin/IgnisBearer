@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
@@ -27,41 +27,32 @@ namespace _Project.Scripts.Gameplay
         [Inject] private MetaCurrencyService _metaCurrencyService;
         [Inject] private BuildingSlotEnabler _slotEnabler;
         [Inject] private TutorialService _tutorial;
-        [Inject] private BuildingSettings _buildingSettings;
+        [Inject] private StartDataFactory _dataFactory;
 
-
-        public void Initialize()
+        public async void Initialize()
         {
             if (HasProgress())
-                LoadProgress();
+                await _playerDataService.Load();
             else
-                InitLevel();
+                _dataFactory.CreateStartData();
+
+            CreateGame();
         }
 
-        private void InitLevel()
+        private void CreateGame()
         {
             _levelService.CreateLevel();
-            InitBuildingSlots();
-            InitPrebuildBuildings();
+            _metaCurrencyService.Init(_playerDataService.PlayerData.CurrencyData.Currencies);
+            CreateBuildingSlots();
+            CreatePrebuildBuildings();
             InitConsumeProgressor();
-            InitSlotEnabler();
+            _slotEnabler.Init();
             InitLanternSlots();
             InitLanterns();
 
-            _metaCurrencyService.Create();
-            _skillTreeService.Create();
+            _skillTreeService.Init(_playerDataService.PlayerData.SkillTreeData);
             _gameEndService.Init();
             _tutorial.StartTutor();
-        }
-
-        private void InitSlotEnabler()
-        {
-            _slotEnabler.Init();
-        }
-
-        private void InitExistingHouse()
-        {
-            _buildingsService.InitHouse(_buildingSlotsService.GetFirstSlot());
         }
 
         private void InitConsumeProgressor()
@@ -72,43 +63,39 @@ namespace _Project.Scripts.Gameplay
                 .Init();
         }
 
+        private void CreateBuildingSlots()
+        {
+            var slotCount = _playerDataService.PlayerData.BuildingData.StartBuildingSlotCount;
+            _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(),
+                _levelService.GetChurchBuildingSpawnPoint(), slotCount);
+        }
+
         private void InitLanternSlots()
         {
+            var slotsCount = _playerDataService.PlayerData.BuildingData.StartLanternSlotCount;
             _lanternSlotsService.InitSlots(
                 _levelService.GetInitialLanternSlotsPositions(),
-                _levelService.GetAdditionalLanternSlotsPositions()
+                _levelService.GetAdditionalLanternSlotsPositions(),
+                slotsCount
             );
         }
 
-        private void InitBuildingSlots()
+        private void CreatePrebuildBuildings()
         {
-            _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(),
-                _levelService.GetChurchBuildingSpawnPoint());
-        }
-
-        private void InitPrebuildBuildings()
-        {
-            foreach (var buildingType in _buildingSettings.PrebuildBuildings)
-            {
+            List<BuildingType> prebuildBuildings = _playerDataService.PlayerData.BuildingData.PrebuildBuildings;
+            foreach (var buildingType in prebuildBuildings)
                 _buildingsService.InitPrebuildFor(buildingType);
-            }
         }
 
         private void InitLanterns()
         {
+            //todo: количетво стартовыъ фонарей может зависить от сохранки? Узнать у Вити идобавить если надо
             _lanternService.InitStartLanterns(_lanternSlotsService.GetInitialSlots());
         }
 
         private bool HasProgress()
         {
-            return false;
-        }
-
-        private void LoadProgress()
-        {
-            _playerDataService.Load();
-            var context = _playerDataService.PlayerData;
-            _skillTreeService.Init(context.SkillTreeData);
+            return _playerDataService.HasProgress();
         }
     }
 }
