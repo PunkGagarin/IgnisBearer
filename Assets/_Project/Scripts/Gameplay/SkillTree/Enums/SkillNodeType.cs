@@ -7,5 +7,7 @@
         WorkerMoveSpeed = 2,
         LanternGenerationSpeed = 3,
         ChurchMaxGrade = 4,
+        AddAutoLighter = 5,
+        AddAutoHarvest = 6,
     }
 }

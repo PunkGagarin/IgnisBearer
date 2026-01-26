@@ -9,7 +9,7 @@ namespace _Project.Scripts.Gameplay.SkillTree.Effectors
     {
         [Inject] private readonly BuildingsService _buildingsService;
         [Inject] private readonly PlayerDataService _playerDataService;
-        
+
         public override SkillNodeType Type { get; protected set; } = SkillNodeType.ChurchMaxGrade;
 
         protected override void AddEffect(ChurchMaxGradeNodeEffectSettings effectSettings)

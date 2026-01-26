@@ -29,8 +29,10 @@ namespace _Project.Scripts.Gameplay.SkillTree
         {
             Container.BindInterfacesAndSelfTo<HouseCapacityEffector>().AsSingle();
             Container.BindInterfacesAndSelfTo<ChurchMaxGradeEffector>().AsSingle();
-            Container.BindInterfacesAndSelfTo<LanternGenerationSpeedEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AddAutoLighterEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AddAutoHarvestEffector>().AsSingle();
             Container.BindInterfacesAndSelfTo<WorkerMoveSpeedEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LanternGenerationSpeedEffector>().AsSingle();
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.SkillTree;
-using _Project.Scripts.Gameplay.Ui;
 using Newtonsoft.Json;
 
 namespace _Project.Scripts.Gameplay.Data
@@ -21,13 +20,6 @@ namespace _Project.Scripts.Gameplay.Data
     }
 
     [Serializable]
-    public class CurrencyData
-    {
-        [field: JsonProperty]
-        public List<MetaCurrencyType> Currencies { get; set; } = new();
-    }
-
-    [Serializable]
     public class BuildingData
     {
         [field: JsonProperty]
@@ -38,15 +30,11 @@ namespace _Project.Scripts.Gameplay.Data
 
         [field: JsonProperty]
         public List<BuildingType> PrebuildBuildings { get; set; } = new();
+        
+        [field: JsonProperty]
+        public Dictionary<BuildingType, int> AvailableBuildings { get; set; } = new();
 
         [field: JsonProperty]
         public ChurchData ChurchData { get; set; } = new();
-    }
-
-    [Serializable]
-    public class ChurchData
-    {
-        [field: JsonProperty]
-        public int MaxGradeLevel { get; set; } = 1;
     }
 }
