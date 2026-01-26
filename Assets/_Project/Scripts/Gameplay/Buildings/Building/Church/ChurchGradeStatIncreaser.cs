@@ -13,7 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             var nextGradeData = _churchSettings.GetNextData(newGrade); 
 
             if (nextGradeData == null)
-                _grade.HideBuyButton();
+                _grade.ShowGradeMaxed();
             else
                 UpdateGrade(gameObject, nextGradeData.GradePrice);
             UpdateResourceStorage(gameObject, curGradeData.MaxLightStorageCapacity);

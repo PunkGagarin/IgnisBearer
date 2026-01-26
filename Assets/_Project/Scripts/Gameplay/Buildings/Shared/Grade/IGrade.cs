@@ -10,7 +10,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         void UpgradeGrade();
         void Init(int initValue, int maxGrade, int gradePrice);
         void SetNextGradePrice(int nextGradePrice);
-        void HideBuyButton();
+        void ShowGradeMaxed();
         bool CanUpdate();
     }
 }
