@@ -17,12 +17,12 @@ MonoBehaviour:
   - GradePrice: 0
     MaxUnitsCount: 1
     MaxDurability: 100
-  - GradePrice: 50
-    MaxUnitsCount: 2
+  - GradePrice: 15
+    MaxUnitsCount: 4
     MaxDurability: 100
-  - GradePrice: 80
-    MaxUnitsCount: 3
+  - GradePrice: 30
+    MaxUnitsCount: 6
     MaxDurability: 100
   <MaxCountToBuild>k__BackingField: 1
-  <BuildPrice>k__BackingField: 20
+  <BuildPrice>k__BackingField: 25
   <BuildingNameKey>k__BackingField: BUILD_AUTO_LIGHTER_NAME
