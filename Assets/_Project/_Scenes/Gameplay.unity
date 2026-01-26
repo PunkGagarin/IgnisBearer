@@ -2126,6 +2126,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1976123982402702923, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2500068355796841363, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
       propertyPath: m_Name
       value: GameplayFxCanvas
