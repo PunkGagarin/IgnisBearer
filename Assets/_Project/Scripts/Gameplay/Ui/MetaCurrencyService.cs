@@ -9,16 +9,12 @@ namespace _Project.Scripts.Gameplay.Ui
     {
         private Dictionary<MetaCurrencyType, int> _bank = new();
 
-        public void Create()
+        public void Init(List<MetaCurrencyType> currencyDataCurrencies)
         {
             MetaCurrencyType[] allCurrencyTypes = (MetaCurrencyType[])Enum.GetValues(typeof(MetaCurrencyType));
 
             foreach (var currencyType in allCurrencyTypes.Where(currencyType => currencyType != MetaCurrencyType.None))
                 _bank.Add(currencyType, 0);
-        }
-
-        public void Init()
-        {
         }
 
         public bool HasEnough(MetaCurrencyType type, int amount)

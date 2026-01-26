@@ -15,6 +15,7 @@ namespace _Project.Scripts.Gameplay.Units
         private static readonly int CurY = Animator.StringToHash("CurY");
         
         [field:SerializeField] private Animator _animator;
+        
         [SerializeField] private Vector2 lightOffsetRight = new(1f, 0.0f);
         [SerializeField] private Vector2 lightOffsetLeft  = new(-1f, 0.0f);
         
@@ -75,8 +76,8 @@ namespace _Project.Scripts.Gameplay.Units
             return moveType switch
             {
                 MoveType.Idle => _unit.Context.IdleMoveSpeed,
-                MoveType.Run => _unit.Context.MoveSpeed,
-                _ => _unit.Context.MoveSpeed
+                MoveType.Run => _unit.Context.MoveSpeed.GetValue(),
+                _ => _unit.Context.MoveSpeed.GetValue()
             };
         }
     }
