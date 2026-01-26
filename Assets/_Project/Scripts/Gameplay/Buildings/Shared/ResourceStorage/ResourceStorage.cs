@@ -8,6 +8,7 @@ namespace _Project.Scripts.Gameplay.Buildings
     {
         public int Amount { get; private set; }
         public int MaxAmount { get; private set; }
+        
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountIncreased = delegate { };
         public event Action<Lantern> OnAmountFull = delegate { };
         public event Action<(int amountIncreased, int newAmount, int maxAmount)> OnAmountDecreased = delegate { };
@@ -75,22 +76,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         public bool IsFull()
         {
             return !NotFull();
-        }
-
-        public void StartCollecting()
-        {
-            OnStartHarvest.Invoke();
-        }
-
-        public int Collect()
-        {
-            int amount = Amount;
-            Debug.Log("Lantern harvested " + Amount);
-
-            Amount = 0;
-
-            OnStorageCleared.Invoke();
-            return amount;
         }
     }
 }
