@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
@@ -12,7 +13,7 @@ using Zenject;
 
 namespace _Project.Scripts.Gameplay
 {
-    public class GameplayBootstrap : IInitializable
+    public class GameplayBootstrap : IInitializable, IDisposable
     {
         [Inject] private LanternService _lanternService;
         [Inject] private LanternSlotsService _lanternSlotsService;
@@ -96,6 +97,11 @@ namespace _Project.Scripts.Gameplay
         private bool HasProgress()
         {
             return _playerDataService.HasProgress();
+        }
+
+        public void Dispose()
+        {
+            _playerDataService.Save();
         }
     }
 }
