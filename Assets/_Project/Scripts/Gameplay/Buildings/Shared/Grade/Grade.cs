@@ -59,7 +59,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             UpdateUi();
         }
 
-        public void HideBuyButton() => _buyLimitedButton.ShowButton(false);
+        public void ShowGradeMaxed() => _buyLimitedButton.ShowButton();
 
         public void Init(int initValue, int maxGrade, int gradePrice)
         {
@@ -67,7 +67,7 @@ namespace _Project.Scripts.Gameplay.Buildings
             NextGradePrice = gradePrice;
             Max = maxGrade;
             UpdateUi();
-            if (CanUpdate()) 
+            if (CanUpdate())
                 ShowUi(true);
         }
 
@@ -75,7 +75,8 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             var countText = $"{Current}/{Max}";
             var isButtonEnabled = CanUpdate();
-            _buyLimitedButton.UpdateUi(GRADE_DESC_KEY, countText, isButtonEnabled, NextGradePrice.ToString());
+            _buyLimitedButton.UpdateUi(GRADE_DESC_KEY, countText, isButtonEnabled, NextGradePrice.ToString(),
+                Current == Max);
         }
 
         public bool CanUpdate() =>

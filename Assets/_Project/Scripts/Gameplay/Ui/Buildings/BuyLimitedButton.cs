@@ -16,6 +16,8 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
         [SerializeField] private TextMeshProUGUI _countText;
         [SerializeField] private TextMeshProUGUI _costText;
         [SerializeField] private ToLocalize _itemTextToLocalize;
+        [SerializeField] private Image _moneyIcon;
+        [SerializeField] private ToLocalize _maxedTextToLocalize;
 
         private void Awake()
         {
@@ -29,15 +31,23 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
 
         private void OnBuyButtonClicked() => OnBuyClicked?.Invoke();
 
-        public void UpdateUi(string itemNameKey, string countText, bool isButtonEnabled, string costText)
+        public void UpdateUi(string itemNameKey, string countText, bool isButtonEnabled, string costText,
+            bool isMaxCount)
         {
+            _buyButton.GetComponent<UiButtonEnableEffect>().SetInteractable(isButtonEnabled);
             _itemTextToLocalize.SetKey(itemNameKey);
             _countText.text = countText;
-            _buyButton.GetComponent<UiButtonEnableEffect>().SetInteractable(isButtonEnabled);
+            ShowIsMaxed(isMaxCount);
             _costText.text = costText;
         }
 
-        public void ShowButton(bool show) => 
-            _buyButton.gameObject.SetActive(show);
+        private void ShowIsMaxed(bool isMaxCount)
+        {
+            _costText.gameObject.SetActive(!isMaxCount);
+            _moneyIcon.gameObject.SetActive(!isMaxCount);
+            _maxedTextToLocalize.gameObject.SetActive(isMaxCount);
+        }
+
+        public void ShowButton() => ShowIsMaxed(true);
     }
 }

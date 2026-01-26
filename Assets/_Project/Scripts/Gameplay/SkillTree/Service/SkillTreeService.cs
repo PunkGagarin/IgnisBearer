@@ -98,7 +98,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
             NodeBoughtState boughtState = NodeBoughtState.Maxed;
             _skillTreeData.SetBoughtState(node.Type, boughtState);
             node.SetState(boughtState);
-            node.HidePrice();
         }
 
         private bool ActivatingFirstTime(SkillNodeType type)
@@ -137,13 +136,17 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void InitNodeUi(SkillTreeNodeData nodeData)
         {
-            _ui.InitNode(nodeData.Type,
-                nodeData.BoughtState,
-                nodeData.CurrentLevel,
-                nodeData.MaxLevel,
-                _settings.GetPriceFor(nodeData.Type, nodeData.CurrentLevel),
-                _settings.GetCurrencyTypeFor(nodeData.Type),
-                _settings.GetIconFor(nodeData.Type));
+            var nodeUi = _ui.FindNodeUi(nodeData.Type);
+            nodeUi.SetState(nodeData.BoughtState);
+            nodeUi.SetNewLevel(nodeData.CurrentLevel);
+            nodeUi.SetMaxLevel(nodeData.MaxLevel);
+            nodeUi.SetIcon(_settings.GetIconFor(nodeData.Type));
+
+            if (nodeData.BoughtState != NodeBoughtState.Maxed)
+            {
+                nodeUi.SetPrice(_settings.GetPriceFor(nodeData.Type, nodeData.CurrentLevel));
+                nodeUi.SetCurrencyType(_settings.GetCurrencyTypeFor(nodeData.Type));
+            }
         }
     }
 }

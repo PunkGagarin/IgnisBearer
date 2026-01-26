@@ -228,6 +228,9 @@ MonoBehaviour:
   _countText: {fileID: 8415783109310265296}
   _costText: {fileID: 8969934618318679658}
   _itemTextToLocalize: {fileID: 1353661966271057320}
+  _costInfo: {fileID: 0}
+  _moneyIcon: {fileID: 734042527936355503}
+  _maxedTextToLocalize: {fileID: 2363126460735141802}
 --- !u!1 &2548051199715086257
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +539,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1cffd64d14141b5b49547f0dbd0481, type: 3}
+--- !u!114 &734042527936355503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5855602268171001642, guid: 1b1cffd64d14141b5b49547f0dbd0481, type: 3}
+  m_PrefabInstance: {fileID: 6587799746203665285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &2363126460735141802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8910110221004796975, guid: 1b1cffd64d14141b5b49547f0dbd0481, type: 3}
+  m_PrefabInstance: {fileID: 6587799746203665285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bad83c90fe747ad82f6472b7fc19acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Localization.ToLocalize
 --- !u!224 &5620666847819633115 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1543624443995771486, guid: 1b1cffd64d14141b5b49547f0dbd0481, type: 3}

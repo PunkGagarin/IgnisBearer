@@ -16,6 +16,7 @@ namespace _Project.Scripts.Gameplay.SkillTree.Effectors
         {
             _playerDataService.PlayerData.BuildingData.ChurchData.MaxGradeLevel = effectSettings.MaxGrade;
             //go to church and update it
+            //church.Grade.SetMaxLevel ()
         }
     }
 }

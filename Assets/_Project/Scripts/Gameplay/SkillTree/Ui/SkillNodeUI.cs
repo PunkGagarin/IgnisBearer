@@ -108,6 +108,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
         private void SetMaxed()
         {
             SetNodeActive();
+            HidePrice();
             Debug.Log(" Включаем состояние ноды - замакшена");
         }
 
@@ -138,16 +139,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
         {
             foreach (var skillNodeUI in NextNodes)
                 skillNodeUI.SetState(NodeBoughtState.NotBought);
-        }
-
-        private void DeactivateNode()
-        {
-        }
-
-        private void SetUnreachable()
-        {
-            Background.color = NodeUnreachableColor;
-            //todo: find out
         }
 
         private void SetNoMoney()
