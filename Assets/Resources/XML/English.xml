@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Language LANG="English" ID="1">
-  <text key="MAIN_MENU_TITLE">Shark in the cup</text>
+  <text key="MAIN_MENU_TITLE">Ignis Bearer</text>
   <text key="MAIN_MENU_START_GAME">Start Game</text>
   <text key="MAIN_MENU_SETTINGS">Settings</text>
   <text key="MAIN_MENU_CREDITS">Credits</text>
@@ -47,4 +47,5 @@
   <text key="END_GAME_FAIL_SKILL_TREE">Skill tree</text>
   <text key="END_GAME_FAIL_CLOSE">Close</text>
   <text key="END_GAME_FAIL_DESC">The forces of evil have broken free.%%The light no longer holds them back.%%The village has fallen.</text>
+  <text key="GRADE_MAX_DESC_KEY">MAX</text>
 </Language>

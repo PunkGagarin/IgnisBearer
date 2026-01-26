@@ -59,7 +59,8 @@ namespace _Project.Scripts.Gameplay.Ui.Buildings
                 HOUSE_BUY_UNIT_ITEM_DESC_KEY,
                 $"{UnitsCount}/{MaxUnitsCount}",
                 CanBuyUnit(_unitPrice, MaxUnitsCount),
-                _unitPrice.ToString(CultureInfo.InvariantCulture)
+                _unitPrice.ToString(CultureInfo.InvariantCulture),
+                UnitsCount == MaxUnitsCount
             );
         }
 
