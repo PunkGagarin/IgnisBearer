@@ -6,5 +6,6 @@
         HouseCapacity = 1,
         WorkerMoveSpeed = 2,
         LanternGenerationSpeed = 3,
+        ChurchMaxGrade = 4,
     }
 }

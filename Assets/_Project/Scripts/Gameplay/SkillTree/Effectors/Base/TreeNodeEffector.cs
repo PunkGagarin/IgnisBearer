@@ -17,8 +17,6 @@ namespace _Project.Scripts.Gameplay.SkillTree.Effectors
                 var effectSettings = settings.Effects[level - 1];
                 AddEffect(effectSettings);
             }
-            // Debug.LogError($"stat will be increased after impl by: " +
-            //                $"{effectSettings?.MaxCapacityIncrease}");
         }
 
         protected abstract void AddEffect(Tes effectSettings);
@@ -31,10 +29,11 @@ namespace _Project.Scripts.Gameplay.SkillTree.Effectors
                 var effectSettings = settings.Effects[level - 1];
                 RemoveEffect(effectSettings);
             }
-            // Debug.LogError($"stat should be removed before applying new effect by: " +
-            //                $"{effectSettings?.MaxCapacityIncrease} ");
         }
 
-        protected abstract void RemoveEffect(Tes effectSettings);
+        protected virtual void RemoveEffect(Tes effectSettings)
+        {
+            Debug.LogError(" was not implemented, shouldn't be called!!");
+        }
     }
 }

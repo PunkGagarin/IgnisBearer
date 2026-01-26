@@ -32,11 +32,21 @@ namespace _Project.Scripts.Gameplay.Data
     {
         [field: JsonProperty]
         public int StartBuildingSlotCount { get; set; }
-        
+
         [field: JsonProperty]
         public int StartLanternSlotCount { get; set; }
 
         [field: JsonProperty]
         public List<BuildingType> PrebuildBuildings { get; set; } = new();
+
+        [field: JsonProperty]
+        public ChurchData ChurchData { get; set; }
+    }
+
+    [Serializable]
+    public class ChurchData
+    {
+        [field: JsonProperty]
+        public int MaxGradeLevel { get; set; } = 1;
     }
 }
