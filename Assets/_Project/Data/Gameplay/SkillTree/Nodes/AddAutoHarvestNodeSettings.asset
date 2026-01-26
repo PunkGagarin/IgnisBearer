@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12688930e1914233a00ef4b0f9b887ae, type: 3}
   m_Name: AddAutoHarvestNodeSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.SkillTree.AddAutoHarvestNodeSettings
-  <NodeType>k__BackingField: 5
+  <NodeType>k__BackingField: 6
   <MaxLevel>k__BackingField: 1
   <CurrencyType>k__BackingField: 1
   <Prices>k__BackingField: 00000000
