@@ -11,5 +11,8 @@ namespace _Project.Scripts.GD
 
         [field: SerializeField]
         public bool IsTutorialOn { get; private set; } = true;
+        
+        [field: SerializeField]
+        public bool ClearPrefsOnStart { get; private set; } = true;
     }
 }
