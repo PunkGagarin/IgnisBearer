@@ -15,7 +15,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [field: SerializeField]
         public float PositionOffset { get; private set; } = 0.3f;
 
-        public int MaxGrade => GradeData.Count;
+        public int MaxGrade => 1;
         public BuildingType Type { get; } = BuildingType.AutoLighter;
     }
 }
