@@ -10,8 +10,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
 {
     public class SkillTreeUi : ContentUi
     {
-        
-        //todo: remove from here
         [field: SerializeField]
         public Button OpenButton { get; private set; }
 
@@ -51,15 +49,9 @@ namespace _Project.Scripts.Gameplay.SkillTree
         public void InitNode(SkillNodeType nodeDataType, NodeBoughtState nodeDataBoughtState, int nodeDataCurrentLevel, int nodeDataMaxLevel, int price, MetaCurrencyType currencyType, Sprite Icon)
         {
             var nodeUi = FindNodeUi(nodeDataType);
-            nodeUi.SetState(nodeDataBoughtState);
-            nodeUi.SetNewLevel(nodeDataCurrentLevel);
-            nodeUi.SetMaxLevel(nodeDataMaxLevel);
-            nodeUi.SetPrice(price);
-            nodeUi.SetCurrencyType(currencyType);
-            nodeUi.SetIcon(Icon);
         }
 
-        private SkillNodeUI FindNodeUi(SkillNodeType nodeDataType)
+        public SkillNodeUI FindNodeUi(SkillNodeType nodeDataType)
         {
             var nodeUi = SkillNodeUIs.FirstOrDefault(el => el.Type == nodeDataType);
             if (nodeUi == null)

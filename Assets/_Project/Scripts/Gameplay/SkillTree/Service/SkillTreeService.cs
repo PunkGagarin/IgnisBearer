@@ -10,7 +10,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
     public class SkillTreeService : IInitializable, IDisposable
     {
         [Inject] private SkillTreeUi _ui;
-        [Inject] private SkillTreeFactory _factory;
         [Inject] private SkillTreeDataFacade _skillTreeData;
         [Inject] private SkillTreeSettings _settings;
         [Inject] private MetaCurrencyService _metaCurrencyService;
@@ -99,7 +98,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
             NodeBoughtState boughtState = NodeBoughtState.Maxed;
             _skillTreeData.SetBoughtState(node.Type, boughtState);
             node.SetState(boughtState);
-            node.HidePrice();
         }
 
         private bool ActivatingFirstTime(SkillNodeType type)
@@ -130,14 +128,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
             return _skillTreeData.GetBoughtStateFor(nodeType);
         }
 
-
-        public void Create()
-        {
-            var treeData = _factory.Create();
-            _skillTreeData.SetTreeData(treeData);
-            Init(treeData);
-        }
-
         public void Init(SkillTreeData data)
         {
             foreach (var nodeData in data.Nodes)
@@ -146,13 +136,17 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void InitNodeUi(SkillTreeNodeData nodeData)
         {
-            _ui.InitNode(nodeData.Type,
-                nodeData.BoughtState,
-                nodeData.CurrentLevel,
-                nodeData.MaxLevel,
-                _settings.GetPriceFor(nodeData.Type, nodeData.CurrentLevel),
-                _settings.GetCurrencyTypeFor(nodeData.Type),
-                _settings.GetIconFor(nodeData.Type));
+            var nodeUi = _ui.FindNodeUi(nodeData.Type);
+            nodeUi.SetState(nodeData.BoughtState);
+            nodeUi.SetNewLevel(nodeData.CurrentLevel);
+            nodeUi.SetMaxLevel(nodeData.MaxLevel);
+            nodeUi.SetIcon(_settings.GetIconFor(nodeData.Type));
+
+            if (nodeData.BoughtState != NodeBoughtState.Maxed)
+            {
+                nodeUi.SetPrice(_settings.GetPriceFor(nodeData.Type, nodeData.CurrentLevel));
+                nodeUi.SetCurrencyType(_settings.GetCurrencyTypeFor(nodeData.Type));
+            }
         }
     }
 }

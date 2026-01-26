@@ -8,11 +8,12 @@ namespace _Project.Scripts.Gameplay.SkillTree
     {
         
     }
-    
+
     [Serializable]
     public class WorkerMoveSpeedNodeEffectSettings
     {
         [field: SerializeField]
         public float MoveSpeedMultiplier { get; private set; }
     }
+
 }

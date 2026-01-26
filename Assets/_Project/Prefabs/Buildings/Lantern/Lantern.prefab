@@ -1626,6 +1626,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 574966770004892191}
     m_Modifications:
+    - target: {fileID: 5615175268806121456, guid: 9ceb9e84cc3e7b74b9fee5cbabb4075e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5794635250403161983, guid: 9ceb9e84cc3e7b74b9fee5cbabb4075e, type: 3}
       propertyPath: m_Name
       value: ProgressBar
@@ -1708,6 +1712,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8403673261527599281, guid: 9ceb9e84cc3e7b74b9fee5cbabb4075e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942328543596380471, guid: 9ceb9e84cc3e7b74b9fee5cbabb4075e, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

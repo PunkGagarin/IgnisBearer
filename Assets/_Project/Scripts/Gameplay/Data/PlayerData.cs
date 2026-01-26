@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.SkillTree;
+using _Project.Scripts.Gameplay.Ui;
 using Newtonsoft.Json;
 
 namespace _Project.Scripts.Gameplay.Data
@@ -8,18 +10,43 @@ namespace _Project.Scripts.Gameplay.Data
     [Serializable]
     public class PlayerData
     {
+        [field: JsonProperty]
+        public BuildingData BuildingData { get; set; } = new();
 
         [field: JsonProperty]
-        public LevelContext LevelContext { get; set; } = new();
-        
-        [field: JsonProperty]
         public SkillTreeData SkillTreeData { get; set; } = new();
+
+        [field: JsonProperty]
+        public CurrencyData CurrencyData { get; set; } = new();
     }
 
     [Serializable]
-    public class LevelContext
+    public class CurrencyData
     {
         [field: JsonProperty]
-        public int CurrentLevel { get; set; }
+        public List<MetaCurrencyType> Currencies { get; set; } = new();
+    }
+
+    [Serializable]
+    public class BuildingData
+    {
+        [field: JsonProperty]
+        public int StartBuildingSlotCount { get; set; }
+
+        [field: JsonProperty]
+        public int StartLanternSlotCount { get; set; }
+
+        [field: JsonProperty]
+        public List<BuildingType> PrebuildBuildings { get; set; } = new();
+
+        [field: JsonProperty]
+        public ChurchData ChurchData { get; set; } = new();
+    }
+
+    [Serializable]
+    public class ChurchData
+    {
+        [field: JsonProperty]
+        public int MaxGradeLevel { get; set; } = 1;
     }
 }

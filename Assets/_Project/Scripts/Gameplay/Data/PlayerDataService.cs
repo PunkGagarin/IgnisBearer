@@ -1,23 +1,19 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
-using Zenject;
 
 namespace _Project.Scripts.Gameplay.Data
 {
-
-    public class PlayerDataService : IInitializable, IDisposable, ISaveLoadData
+    public class PlayerDataService : IDisposable, ISaveLoadData
     {
         private const string SaveKey = "PlayerData_one";
 
-        public PlayerData PlayerData { get; set; }
+        public PlayerData PlayerData { get; set; } = new();
 
-        public void Initialize()
+        public bool HasProgress()
         {
-            if (PlayerPrefs.HasKey(SaveKey))
-                Load();
-            else
-                PlayerData = new PlayerData();
+            return PlayerPrefs.HasKey(SaveKey);
         }
 
         public void Dispose()
@@ -25,10 +21,12 @@ namespace _Project.Scripts.Gameplay.Data
             Save();
         }
 
-        public void Load()
+        public async UniTask Load()
         {
             string json = PlayerPrefs.GetString(SaveKey);
-            PlayerData = JsonConvert.DeserializeObject<PlayerData>(json);
+            PlayerData = await UniTask.RunOnThreadPool(() =>
+                JsonConvert.DeserializeObject<PlayerData>(json)
+            );
         }
 
         public void Save()
@@ -37,5 +35,4 @@ namespace _Project.Scripts.Gameplay.Data
             PlayerPrefs.SetString(SaveKey, json);
         }
     }
-
 }
