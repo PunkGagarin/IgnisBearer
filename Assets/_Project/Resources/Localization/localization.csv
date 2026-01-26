@@ -1,5 +1,5 @@
 Ключ,Russian,English
-MAIN_MENU_TITLE,Shark in the cup,Shark in the cup
+MAIN_MENU_TITLE,Ignis Bearer,Ignis Bearer
 MAIN_MENU_START_GAME,Начать игру,Start Game
 MAIN_MENU_SETTINGS,Настройки,Settings
 MAIN_MENU_CREDITS,Разработчики,Credits
@@ -46,3 +46,4 @@ END_GAME_FAIL_RESTART,Начать заново,Restart
 END_GAME_FAIL_SKILL_TREE,Древо навыков,Skill tree
 END_GAME_FAIL_CLOSE,Закрыть,Close
 END_GAME_FAIL_DESC,Силы зла вырвались на свободу.%%Свет больше не сдерживает их.%%Деревня пала.,The forces of evil have broken free.%%The light no longer holds them back.%%The village has fallen.
+GRADE_MAX_DESC_KEY,MAX,МАКС.

@@ -16,7 +16,7 @@ namespace _Project.Scripts.Gameplay.Buildings.FateGenerator
             var nextGradeData = _fateGeneratorSettings.GetNextData(newGrade); 
             
             if (nextGradeData == null)
-                _grade.HideBuyButton();
+                _grade.ShowGradeMaxed();
             else
                 UpdateGrade(gameObject, nextGradeData.GradePrice);
 
