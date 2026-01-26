@@ -1,9 +1,13 @@
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Data;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
     public class ChurchFactory : BuildingFactory<ChurchBuilding, ChurchSettings, ChurchGradeData>
     {
+        [Inject] private readonly PlayerDataService _dataService;
+        
         public override ChurchBuilding Create(BuildingSlot slot, int grade)
         {
             var building = InstantiateBuildingOnSlot(slot, _settings.Prefab);
@@ -11,7 +15,8 @@ namespace _Project.Scripts.Gameplay.Buildings
             var nextGradeData = _settings.GetNextData(grade);
 
             var nextGradePrice = nextGradeData?.GradePrice ?? 0;
-            InitGradeComponent(building, grade, _settings.MaxGrade, nextGradePrice);
+            var maxLevel = _dataService.PlayerData.BuildingData.ChurchData.MaxGradeLevel;
+            InitGradeComponent(building, grade, maxLevel, nextGradePrice);
 
             building.TryGetComponent<IResourceStorage>(out var lightStorage);
             lightStorage.Init(_settings.StartLightAmount, gradeData.MaxLightStorageCapacity);

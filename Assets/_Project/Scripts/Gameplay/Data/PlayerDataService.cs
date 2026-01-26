@@ -2,7 +2,6 @@
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
-using Zenject;
 
 namespace _Project.Scripts.Gameplay.Data
 {

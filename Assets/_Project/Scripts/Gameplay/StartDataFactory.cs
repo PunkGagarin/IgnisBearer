@@ -11,6 +11,7 @@ namespace _Project.Scripts.Gameplay
         [Inject] private readonly BuildingSlotsSettings _settings;
         [Inject] private readonly SkillTreeFactory _factory;
         [Inject] private readonly BuildingSettings _buildingSettings;
+        [Inject] private readonly ChurchSettings _churchSettings;
 
         [Inject] private readonly PlayerDataService _playerDataService;
 
@@ -18,7 +19,13 @@ namespace _Project.Scripts.Gameplay
         {
             CreatePrebuildBuildings();
             SetStartSlotsCount();
+            SetChurchMaxLevel();
             CreateSkillTreeData();
+        }
+
+        private void SetChurchMaxLevel()
+        {
+            _playerDataService.PlayerData.BuildingData.ChurchData.MaxGradeLevel = _churchSettings.MaxGrade;
         }
 
         private void CreatePrebuildBuildings()
