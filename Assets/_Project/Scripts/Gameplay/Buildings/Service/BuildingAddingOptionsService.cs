@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Data;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private BuildingsService _buildingsService;
         [Inject] private BuildingSettings _buildingSettings;
         [Inject] private List<IBuildInfo> _buildInfos;
+        [Inject] private PlayerDataService _playerDataService;
 
         public List<BuildingButtonData> GetAddBuildingPopupData()
         {
@@ -22,15 +24,19 @@ namespace _Project.Scripts.Gameplay.Buildings
             if (!isHouseBuilt)
                 return list;
 
-
             AddBuildingButtonFor(_buildingSettings.FirstToBuyBuilding, list);
 
             var isFateGenBuilt = _buildingsService.GetBuildingCountByType(BuildingType.FateGenerator) > 0;
 
             if (isFateGenBuilt)
             {
-                foreach (var building in _buildingSettings.AvailableToBuildBuildings)
-                    AddBuildingButtonFor(building, list);
+                foreach (var (type, maxCount) in _playerDataService.PlayerData.BuildingData.AvailableBuildings)
+                {
+                    if (_buildingsService.GetBuildingCountByType(type) < maxCount)
+                    {
+                        AddBuildingButtonFor(type, list);        
+                    }
+                }
             }
 
             return list;
