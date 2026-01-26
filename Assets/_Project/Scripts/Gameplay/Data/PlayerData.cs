@@ -40,7 +40,7 @@ namespace _Project.Scripts.Gameplay.Data
         public List<BuildingType> PrebuildBuildings { get; set; } = new();
 
         [field: JsonProperty]
-        public ChurchData ChurchData { get; set; }
+        public ChurchData ChurchData { get; set; } = new();
     }
 
     [Serializable]
