@@ -12,6 +12,7 @@ namespace _Project.Scripts.GD
         public override void InstallBindings()
         {
             Container.Bind<GDSettings>().FromInstance(GdSettings).AsSingle();
+            Container.BindInterfacesAndSelfTo<GdService>().AsSingle();
         }
     }
 }

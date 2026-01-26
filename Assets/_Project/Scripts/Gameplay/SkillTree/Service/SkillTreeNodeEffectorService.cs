@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.SkillTree.Effectors;
-using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.SkillTree
@@ -31,7 +30,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
             _effectors[nodeType].RemoveEffect(level);
         }
 
-        private void AddEffectFor(SkillNodeType nodeType, int newLevel)
+        public void AddEffectFor(SkillNodeType nodeType, int newLevel)
         {
             _effectors[nodeType].ApplyEffect(newLevel);
         }

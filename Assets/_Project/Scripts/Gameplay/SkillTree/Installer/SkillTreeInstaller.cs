@@ -15,8 +15,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         public override void InstallBindings()
         {
-            Container.Bind<SkillTreeUi>().FromInstance(SkillTreeUi).AsSingle();
-            Container.Bind<SkillTreeSettings>().FromInstance(Settings).AsSingle();
+            Container.BindInterfacesAndSelfTo<SkillTreeUi>().FromInstance(SkillTreeUi).AsSingle();
+            Container.BindInterfacesAndSelfTo<SkillTreeSettings>().FromInstance(Settings).AsSingle();
             Container.BindInterfacesAndSelfTo<SkillTreeService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SkillTreeNodeEffectorService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SkillTreeFactory>().AsSingle();
@@ -25,16 +25,12 @@ namespace _Project.Scripts.Gameplay.SkillTree
             BindEffectors();
         }
 
-        public void BindEffectors()
+        private void BindEffectors()
         {
             Container.BindInterfacesAndSelfTo<HouseCapacityEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ChurchMaxGradeEffector>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternGenerationSpeedEffector>().AsSingle();
             Container.BindInterfacesAndSelfTo<WorkerMoveSpeedEffector>().AsSingle();
-        }
-
-        public void BindSettings()
-        {
-            
         }
     }
 }
