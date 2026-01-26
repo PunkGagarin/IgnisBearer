@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.Lanterns.LanternSettings
   <SlotPrefab>k__BackingField: {fileID: 2940161318198963529, guid: ce70b17716945431fa4ed2cadaef82c9, type: 3}
   <Prefab>k__BackingField: {fileID: 7545248127224923463, guid: acfaa3f9683ec494b8d007764036ce98, type: 3}
-  <FireUpTime>k__BackingField: 3
+  <FireUpTime>k__BackingField: 4
   <InitLanternCost>k__BackingField: 15
   <LanternCostMultiplier>k__BackingField: 2
-  <HarvestTime>k__BackingField: 0.4
+  <HarvestTime>k__BackingField: 0.5
   <LightProduceTime>k__BackingField: 4
   <InitMaxStorage>k__BackingField: 1
   <InitMaxResourceGeneratePerFireUp>k__BackingField: 3
