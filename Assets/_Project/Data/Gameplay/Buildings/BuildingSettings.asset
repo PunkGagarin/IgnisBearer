@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BuildingSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.BuildingSettings
   <FirstToBuyBuilding>k__BackingField: 6
-  <AvailableToBuildBuildings>k__BackingField: 0400000005000000
+  <AvailableToBuildBuildings>k__BackingField: 050000000200000006000000
   <PrebuildBuildings>k__BackingField: 01000000

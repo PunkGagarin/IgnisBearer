@@ -19,8 +19,15 @@ namespace _Project.Scripts.Gameplay
         {
             CreatePrebuildBuildings();
             SetStartSlotsCount();
+            SetStartAvailableBuildings();
             SetChurchMaxLevel();
             CreateSkillTreeData();
+        }
+
+        private void SetStartAvailableBuildings()
+        {
+            foreach (var building in _buildingSettings.AvailableToBuildBuildings)
+                _playerDataService.PlayerData.BuildingData.AvailableBuildings[building] = 1;
         }
 
         private void SetChurchMaxLevel()
