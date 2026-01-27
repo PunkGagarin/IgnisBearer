@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
@@ -24,6 +25,11 @@ namespace _Project.Scripts.Gameplay.Buildings
         {
             _startPos = _rectTransform.anchoredPosition;
             Hide();
+        }
+
+        private void OnDestroy()
+        {
+            _sequence.Kill();
         }
 
         public void Play(string message)
