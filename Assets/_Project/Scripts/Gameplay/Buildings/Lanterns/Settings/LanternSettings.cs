@@ -34,5 +34,8 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
 
         [field: SerializeField]
         public float LightLifetime { get; private set; } = 15f;
+        
+        [field: SerializeField]
+        public int StartSlotsCount { get; private set; }
     }
 }

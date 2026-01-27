@@ -14,16 +14,17 @@ namespace _Project.Scripts.Gameplay.Buildings
         private List<BuildingSlot> _buildingSlots = new();
         private BuildingSlot _churchSlot;
 
-        public void InitSlots(List<BuildingSlotsSpawnPoint> buildingsSpawnPoints,
-            BuildingSlotsSpawnPoint churchBuildingSpawnPoint, int startSlotsCount)
+        public void InitSlots(
+            List<BuildingSlotsSpawnPoint> buildingsSpawnPoints,
+            BuildingSlotsSpawnPoint churchBuildingSpawnPoint,
+            int startSlotsCount
+        )
         {
             InitChurchSlot(churchBuildingSpawnPoint);
-            int currentSlot = 0;
+            int currentSlot = 1;
             foreach (var buildingSlotsSpawnPoint in buildingsSpawnPoints)
             {
-                //todo: madgine проверь что условие правильное (мб надо > а не >=)
-                //и может быть что спавпоинтов меньше чем startSlotsCount
-                if (currentSlot >= startSlotsCount)
+                if (currentSlot > startSlotsCount)
                     return;
 
                 var slot = _buildingSlotsFactory.CreateSlotAtPosition(buildingSlotsSpawnPoint);
@@ -45,8 +46,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         public BuildingSlot GetFirstSlot()
         {
-            //todo: madgine get first FREE slot
-            return _buildingSlots.First();
+            return _buildingSlots.First(slot => !slot.IsTaken);
         }
 
         public void EnableButtonForSlots()
