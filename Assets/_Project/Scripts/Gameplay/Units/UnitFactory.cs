@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using _Project.Scripts.Gameplay.SkillTree.Effectors;
 using UnityEngine;
 using Zenject;
 
@@ -9,20 +11,19 @@ namespace _Project.Scripts.Gameplay.Units
     {
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly UnitSettings _unitSettings;
+        [Inject] private readonly List<IUnitMoveInfluencer> _moveSpeedInfluencers;
 
         private readonly List<Type> _initStates = new()
         {
             typeof(UnitMoveToWithIdleAfterState),
             typeof(UnitMoveToWithNext),
             typeof(UnitMoveToWithNextAndPayload),
-
             typeof(DisableState),
             typeof(UnitIdleState),
             typeof(UnitWaitState),
             typeof(UnitMoveToState),
             typeof(FireUpLanternState),
             typeof(HarvestResourceState),
-            // typeof(UnitAddToChurchQueueState),
             typeof(UnitSendLightToChurchState),
         };
 
@@ -31,10 +32,16 @@ namespace _Project.Scripts.Gameplay.Units
             var unit = _container.InstantiatePrefabForComponent<Unit>(_unitSettings.UnitPrefab,
                 unitPosition.transform.position, Quaternion.identity, unitPosition.transform);
 
+            var moveModifiers = _moveSpeedInfluencers
+                .Where(el => el.IsPersist())
+                .Select(el => el.GetSpeedModifier())
+                .ToList();
+
             var unitContext = new UnitContext(unit,
-                _unitSettings.MoveSpeed
+                _unitSettings.MoveSpeed,
+                moveModifiers
             );
-            
+
             var unitStateMachine = new UnitStateMachine();
 
             foreach (var stateType in _initStates)

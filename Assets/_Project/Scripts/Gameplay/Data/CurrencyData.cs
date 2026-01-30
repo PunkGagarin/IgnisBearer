@@ -9,6 +9,6 @@ namespace _Project.Scripts.Gameplay.Data
     public class CurrencyData
     {
         [field: JsonProperty]
-        public List<MetaCurrencyType> Currencies { get; set; } = new();
+        public Dictionary<MetaCurrencyType, int> Currencies { get; set; } = new();
     }
 }
