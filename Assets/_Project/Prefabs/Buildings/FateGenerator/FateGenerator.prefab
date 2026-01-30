@@ -132,7 +132,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2eaef172b77ca4b8995d357818fc6ca2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,8 +154,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 471834263, guid: 326cf83e0b29345acb716971bc834077, type: 3}
-  m_Color: {r: 1, g: 0.9680265, b: 0.5896226, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8ba74792d6fd64d0495a78e2a3060d8d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -459,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 5298658727275291987}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 3.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -501,7 +501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.85}
+  m_AnchoredPosition: {x: 0, y: 5.2200003}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &940796096421826936
@@ -714,11 +714,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067147719620930147, guid: 32442ba677c7846e8b60b530a89daef7, type: 3}
       propertyPath: m_MaxParticleSize
-      value: 0.05
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8067147719620930147, guid: 32442ba677c7846e8b60b530a89daef7, type: 3}
       propertyPath: m_MinParticleSize
-      value: 0.05
+      value: 0.31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -748,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2470610648674884578, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.43
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 2583753533429243620, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -756,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2747658347602881523, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.46
+      value: 3.8300004
       objectReference: {fileID: 0}
     - target: {fileID: 3048710288287639253, guid: e08cd8a785cd142d4b968d7c537f2325, type: 3}
       propertyPath: m_AnchorMax.y
