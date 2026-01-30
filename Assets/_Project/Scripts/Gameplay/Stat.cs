@@ -17,6 +17,13 @@ namespace _Project.Scripts.Gameplay
             BaseValue = baseValue;
         }
 
+        protected Stat(ST type, float baseValue, List<StatModifier> modifiers)
+        {
+            Type = type;
+            BaseValue = baseValue;
+            _modifiers.AddRange(modifiers);
+        }
+
         public float GetValue()
         {
             float finalSum = 0f;

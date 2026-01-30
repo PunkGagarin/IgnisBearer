@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.SkillTree.WorkerMoveSpeedNodeSettings
   <NodeType>k__BackingField: 2
   <MaxLevel>k__BackingField: 1
-  <CurrencyType>k__BackingField: 2
-  <Prices>k__BackingField: 0a000000
+  <CurrencyType>k__BackingField: 1
+  <Prices>k__BackingField: 00000000
   <Icon>k__BackingField: {fileID: 21300000, guid: 40cc30e0527a8ed499251b53aca4a2a4, type: 3}
   <Effects>k__BackingField:
-  - <MoveSpeedMultiplier>k__BackingField: 0.1
+  - <MoveSpeedMultiplier>k__BackingField: 2
