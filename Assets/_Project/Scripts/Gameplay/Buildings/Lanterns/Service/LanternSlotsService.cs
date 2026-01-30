@@ -13,18 +13,19 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private readonly List<LanternSlot> _initialLanternSlots = new();
 
         public void InitSlots(List<LanternSlotSpawnPoint> initBuildingsSpawnPoints,
-            List<LanternSlotSpawnPoint> buildingsSpawnPoints, int slotsCount)
+            List<LanternSlotSpawnPoint> buildingsSpawnPoints, int startSlotsCount)
         {
-            //todo: madgine реализовать slotCount по аналогии со зданиями
-            
             foreach (var spawnPoint in initBuildingsSpawnPoints)
             {
                 var slot = _factory.CreateSlotAtPosition(spawnPoint);
                 _initialLanternSlots.Add(slot);
             }
 
+            int currentSlot = 1;
             foreach (var spawnPoint in buildingsSpawnPoints)
             {
+                if (currentSlot > startSlotsCount)
+                    return;
                 var slot = _factory.CreateSlotAtPosition(spawnPoint);
                 RegisterFreeSlot(slot);
             }

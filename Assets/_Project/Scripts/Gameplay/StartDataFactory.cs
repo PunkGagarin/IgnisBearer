@@ -1,5 +1,6 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
+using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Data;
 using _Project.Scripts.Gameplay.SkillTree;
 using Zenject;
@@ -8,7 +9,8 @@ namespace _Project.Scripts.Gameplay
 {
     public class StartDataFactory
     {
-        [Inject] private readonly BuildingSlotsSettings _settings;
+        [Inject] private readonly BuildingSlotsSettings _buildingSlotsSettings;
+        [Inject] private readonly LanternSettings _lanternSettings;
         [Inject] private readonly SkillTreeFactory _factory;
         [Inject] private readonly BuildingSettings _buildingSettings;
         [Inject] private readonly ChurchSettings _churchSettings;
@@ -42,7 +44,8 @@ namespace _Project.Scripts.Gameplay
 
         private void SetStartSlotsCount()
         {
-            _playerDataService.PlayerData.BuildingData.StartBuildingSlotCount = _settings.StartSlotsCount;
+            _playerDataService.PlayerData.BuildingData.StartBuildingSlotCount = _buildingSlotsSettings.StartSlotsCount;
+            _playerDataService.PlayerData.BuildingData.StartLanternSlotCount = _lanternSettings.StartSlotsCount;
         }
 
         private void CreateSkillTreeData()

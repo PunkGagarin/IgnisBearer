@@ -22,3 +22,4 @@ MonoBehaviour:
   <InitMaxStorage>k__BackingField: 1
   <InitMaxResourceGeneratePerFireUp>k__BackingField: 3
   <LightLifetime>k__BackingField: 20
+  <StartSlotsCount>k__BackingField: 1

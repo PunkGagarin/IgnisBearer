@@ -22,7 +22,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
         {
             if (Prices.Count != MaxLevel)
             {
-                // Debug.LogError($"Не совпадает количество цен и максимальный уровень!");
+                Debug.LogWarning($"Не совпадает количество цен и максимальный уровень!");
                 for (int i = 0; i < MaxLevel - Prices.Count; i++)
                 {
                     Prices.Add(0);

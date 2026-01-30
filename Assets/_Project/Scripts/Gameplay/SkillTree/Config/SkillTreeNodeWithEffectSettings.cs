@@ -12,7 +12,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
             base.OnValidate();
             if (Effects.Count != MaxLevel)
             {
-                // Debug.LogError($"Не совпадает количество эффектов и максимальный уровень!");
+                Debug.LogWarning($"Не совпадает количество эффектов и максимальный уровень!");
                 for (int i = 0; i < MaxLevel - Effects.Count; i++)
                 {
                     Effects.Add(default);

@@ -1,5 +1,3 @@
-using System;
-using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Gameplay.Ui.UiEffects;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,7 +8,7 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
 {
     public class BuildingSlot : MonoBehaviour
     {
-        public string Id { get; private set; }
+        public bool IsTaken { get; private set; }
 
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Transform _content;
@@ -31,11 +29,6 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _addBuildingPopup.OnAddBuilding += OnAddBuildingClicked;
         }
 
-        private void Start()
-        {
-            // SetButtonInteractable(false);
-        }
-
         private void OnDestroy()
         {
             _button.onClick.RemoveListener(OnClick);
@@ -43,13 +36,9 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _fateService.OnAmountChanged -= OnBalanceChanged;
         }
 
-        public void Init(string id)
-        {
-            Id = id;
-        }
-
         private void OnAddBuildingClicked(BuildingType buildingType)
         {
+            IsTaken = true;
             _buildingsService.AddBuildingTo(buildingType, this);
         }
 
