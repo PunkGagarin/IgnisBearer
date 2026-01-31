@@ -666,6 +666,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9a1fd0610449a19cc027d749ca5c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.GameEndUI
+--- !u!114 &772167651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5140773944420778474, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
+  m_PrefabInstance: {fileID: 3163035639409553165}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bf6fbb172e496db403a2f75ced4482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Shaders.FullscreenMaterialController
 --- !u!1 &791715491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,17 +1677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1668015afa85da74c834334ef3d933ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &1622879923 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6172159023288142664, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
-  m_PrefabInstance: {fileID: 3163035639409553165}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bf6fbb172e496db403a2f75ced4482, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Shaders.FullscreenMaterialController
 --- !u!1 &1684194743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,7 +1727,7 @@ MonoBehaviour:
   <FateUi>k__BackingField: {fileID: 176969690}
   <GameEndUI>k__BackingField: {fileID: 670492306}
   <UiSettings>k__BackingField: {fileID: 11400000, guid: 726a58169434043a6b6072846a71f566, type: 2}
-  <VignetteShaderController>k__BackingField: {fileID: 1622879923}
+  <VignetteShaderController>k__BackingField: {fileID: 772167651}
   <HouseUnitsCounter>k__BackingField: {fileID: 8793070977288327458}
 --- !u!1 &1705130821
 GameObject:
@@ -2126,21 +2126,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1976123982402702923, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2500068355796841363, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
       propertyPath: m_Name
       value: GameplayFxCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172159023288142664, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
-      propertyPath: barrierValue
-      value: 24.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6172159023288142664, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
-      propertyPath: maxVignetteIntensity
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6180763732459725150, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
       propertyPath: m_Camera

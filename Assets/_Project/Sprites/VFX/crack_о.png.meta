@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1ece4f25728684e8bb3e808147a4d8b8
+guid: 463adbf37005c4fcbb1af28c327c95ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8795366620419746748
-    second: crack_0
+      213: -7120659593627723597
+    second: "crack_\u043E_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crack_0
+      name: "crack_\u043E_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cbb6277675b6f0a70800000000000000
-      internalID: 8795366620419746748
+      spriteID: 3b8975393d55e2d90800000000000000
+      internalID: -7120659593627723597
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      crack_0: 8795366620419746748
+      "crack_\u043E_0": -7120659593627723597
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
