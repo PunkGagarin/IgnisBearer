@@ -37,22 +37,34 @@ namespace _Project.Scripts.Shaders
         private float _barrierValue;
         private float _currentRadius;
         private float _targetRadius;
+        private bool _isEnabled;
 
         private void Awake()
         {
+            InitParams();
+        }
+
+        private void InitParams()
+        {
             _currentRadius = 0f;
             _targetRadius = 0f;
-            ApplyRuntimeParams();
+            material.SetFloat(Radius, _currentRadius);
         }
 
         private void Update()
         {
-            if (IsBarrierDestroyed() || IsInDangerThreshold())
+            if (!_isEnabled)
+                return;
+            
+            if (IsNotInDangerThreshold())
             {
-                _targetRadius = 0f;
+                if (_targetRadius != 0)
+                {
+                    _targetRadius = 0f;
+                    ApplyRuntimeParams();
+                }
                 return;
             }
-
             UpdateTargetRadius();
             SmoothRadius();
             ApplyRuntimeParams();
@@ -60,6 +72,7 @@ namespace _Project.Scripts.Shaders
 
         public void SetBarrierValue(float value)
         {
+            _isEnabled = true;
             _barrierValue = Mathf.Clamp(value, 0f, 100f);
         }
 
@@ -68,27 +81,35 @@ namespace _Project.Scripts.Shaders
             return _barrierValue <= 0f;
         }
 
-        private bool IsInDangerThreshold()
+        private bool IsNotInDangerThreshold()
         {
-            return _barrierValue > _dangerThreshold;
+            return _barrierValue >= _dangerThreshold;
         }
 
         private void UpdateTargetRadius()
         {
-            if (IsBarrierDestroyed() || IsInDangerThreshold())
+            if (!_isEnabled)
+                return;
+            
+            if (IsBarrierDestroyed())
             {
+                _targetRadius = _maxRadius;
                 return;
             }
 
             float t = 1f - _barrierValue / _dangerThreshold;
             float eased = EaseOutQuad(t);
             float rawRadius = eased * _maxRadius;
+
             _targetRadius = Mathf.Round(rawRadius / _step) * _step;
             _targetRadius = Mathf.Clamp(_targetRadius, 0f, _maxRadius);
         }
 
+
         private void SmoothRadius()
         {
+            if (!_isEnabled)
+                return;
             _currentRadius = Mathf.MoveTowards(
                 _currentRadius,
                 _targetRadius,
@@ -98,7 +119,8 @@ namespace _Project.Scripts.Shaders
 
         private void ApplyRuntimeParams()
         {
-            if (!material) return;
+            if (!_isEnabled || !material)
+                return;
 
             float radius = _currentRadius;
 

@@ -70,6 +70,7 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
                 await lightResource.transform
                     .DOMove(endPosition, DropAnimationTime)
                     .SetEase(AnimaCurve)
+                    .SetLink(lightResource.gameObject)
                     .ToUniTask(cancellationToken: lightResource.destroyCancellationToken);
 
                 // OnLightCreated.Invoke(lightResource);

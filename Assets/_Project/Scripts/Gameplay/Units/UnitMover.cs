@@ -54,13 +54,16 @@ namespace _Project.Scripts.Gameplay.Units
             var task = transform.DOMove(destination, speed)
                 .SetSpeedBased()
                 .SetEase(Ease.Linear)
+                .SetLink(gameObject)
                 .OnUpdate(() =>
                 {
+                    if (_animator == null) return;
                     _animator.SetFloat(CurX, x);
                     _animator.SetFloat(CurY, y);
                 })
                 .OnComplete(() =>
                 {
+                    if (_animator == null) return;
                     _animator.SetFloat(LastX, x);
                     _animator.SetFloat(LastY, y);
                     _animator.SetBool(IsMoving, false);

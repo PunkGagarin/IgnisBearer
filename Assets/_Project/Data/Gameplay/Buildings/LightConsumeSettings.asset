@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.LightConsumeSettings
   <ConsumeProgress>k__BackingField:
   - <TimeToIncrease>k__BackingField: 0
-    <TimeToConsume>k__BackingField: 1
+    <TimeToConsume>k__BackingField: 5
     <Amount>k__BackingField: 1
   - <TimeToIncrease>k__BackingField: 30
     <TimeToConsume>k__BackingField: 2

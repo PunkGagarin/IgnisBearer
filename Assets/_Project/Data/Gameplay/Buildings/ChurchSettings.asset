@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Church.ChurchSettings
   _prefab: {fileID: 4756976558124453703, guid: 1f692f9e4b18b498ea91173011d2cde0, type: 3}
   _gradeData:
-  - MaxLightStorageCapacity: 15
+  - MaxLightStorageCapacity: 100
     GradePrice: 0
     LightSendSpeed: 5
     QueueCapacity: 1
@@ -30,5 +30,5 @@ MonoBehaviour:
     QueueCapacity: 3
     AmountPerLight: 20
   <BuildingNameKey>k__BackingField: 
-  <StartLightAmount>k__BackingField: 15
+  <StartLightAmount>k__BackingField: 100
   <PositionOffset>k__BackingField: 1
