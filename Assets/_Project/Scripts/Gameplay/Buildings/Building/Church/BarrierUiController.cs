@@ -11,9 +11,11 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] VignetteShaderController _vignetteShaderController;
 
         private IResourceStorage _resourceStorage;
+        private ChurchCrackController _churchCrackController;
 
         private void Awake()
         {
+            _churchCrackController = GetComponent<ChurchCrackController>();
             _resourceStorage = GetComponent<IResourceStorage>();
         }
 
@@ -36,7 +38,11 @@ namespace _Project.Scripts.Gameplay.Buildings
 
             _barrierUi.Bar.ChangeBarProgress(valueTuple.newAmount / (float)valueTuple.maxAmount);
             _barrierUi.SetBarrierCounter(valueTuple.newAmount, valueTuple.maxAmount);
-            _vignetteShaderController.SetBarrierValue(valueTuple.newAmount);
+            if (_barrierUi.IsShown())
+            {
+                _vignetteShaderController.SetBarrierValue(valueTuple.newAmount);
+                _churchCrackController.SetBarrierValue( valueTuple.newAmount);
+            }
         }
     }
 }
