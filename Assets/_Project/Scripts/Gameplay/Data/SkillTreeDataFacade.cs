@@ -17,6 +17,12 @@ namespace _Project.Scripts.Gameplay.Data
             var node = GetNode(nodeType);
             return node.BoughtState;
         }
+        
+        public int GetLevelFor(SkillNodeType nodeType)
+        {
+            var node = GetNode(nodeType);
+            return node.CurrentLevel;
+        }
 
         public SkillTreeNodeData GetNode(SkillNodeType nodeType)
         {
@@ -67,6 +73,11 @@ namespace _Project.Scripts.Gameplay.Data
         public List<SkillTreeNodeData> GetNonMaxedNodes()
         {
             return TreeData.Nodes.Where(el => el.BoughtState != NodeBoughtState.Maxed).ToList();
+        }
+
+        public bool IsBought(SkillNodeType type)
+        {
+            return (GetNode(type).BoughtState & (NodeBoughtState.Bought | NodeBoughtState.Maxed)) != 0;
         }
     }
 }

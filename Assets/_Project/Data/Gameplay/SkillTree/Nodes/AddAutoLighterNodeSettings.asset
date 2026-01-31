@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AddAutoLighterNodeSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.SkillTree.AddAutoLighterNodeSettings
   <NodeType>k__BackingField: 5
-  <MaxLevel>k__BackingField: 1
+  <MaxLevel>k__BackingField: 5
   <CurrencyType>k__BackingField: 1
-  <Prices>k__BackingField: 01000000
+  <Prices>k__BackingField: 0000000000000000000000000000000000000000
   <Icon>k__BackingField: {fileID: -3596192330014253535, guid: 2e2cf682ece3f45f2ad4fba2d352e339, type: 3}
   <Effects>k__BackingField: []

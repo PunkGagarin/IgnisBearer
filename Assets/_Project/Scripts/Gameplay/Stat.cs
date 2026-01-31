@@ -17,11 +17,18 @@ namespace _Project.Scripts.Gameplay
             BaseValue = baseValue;
         }
 
+        protected Stat(ST type, float baseValue, List<StatModifier> modifiers)
+        {
+            Type = type;
+            BaseValue = baseValue;
+            _modifiers.AddRange(modifiers);
+        }
+
         public float GetValue()
         {
             float finalSum = 0f;
-            float finalMultiply = 1f;
-            
+            float finalMultipy = 1f;
+
             foreach (var mod in _modifiers)
             {
                 if (mod.Type == ModifierType.Sum)
@@ -30,11 +37,11 @@ namespace _Project.Scripts.Gameplay
                 }
                 else if (mod.Type == ModifierType.Multiply)
                 {
-                    finalMultiply += mod.Value;
+                    finalMultipy *= mod.Value;
                 }
             }
 
-            return (BaseValue + finalSum) * finalMultiply;
+            return (BaseValue + finalSum) * finalMultipy;
         }
 
         public int GetRoundedValue()
@@ -55,7 +62,7 @@ namespace _Project.Scripts.Gameplay
                 _modifiers.Remove(mod);
             else
             {
-                var strList = 
+                var strList =
                     _modifiers.Select(el => new CustomKeyValue<string, string>(el.Source, el.Value.ToString()));
                 string modsInString = string.Join(", ", strList);
                 Debug.LogError($"Trying to remove mod which is not exists! " +

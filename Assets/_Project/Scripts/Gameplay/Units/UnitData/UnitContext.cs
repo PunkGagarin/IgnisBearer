@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _Project.Scripts.Gameplay.Units
 {
@@ -17,10 +18,10 @@ namespace _Project.Scripts.Gameplay.Units
 
         public int LightAmount { get; set; }
 
-        public UnitContext(Unit unit, float moveSpeed)
+        public UnitContext(Unit unit, float baseSpeed, List<StatModifier> moveModifiers)
         {
             Unit = unit;
-            MoveSpeed = new UnitStat(UnitStatType.MoveSpeed, moveSpeed);
+            MoveSpeed = new UnitStat(UnitStatType.MoveSpeed, baseSpeed, moveModifiers);
             Spec = UnitSpec.Worker;
             Status = UnitStatus.Free;
         }

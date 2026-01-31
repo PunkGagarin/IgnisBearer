@@ -9,7 +9,7 @@ namespace _Project.Scripts.Gameplay.Ui
     {
         private Dictionary<MetaCurrencyType, int> _bank = new();
 
-        public void Init(List<MetaCurrencyType> currencyDataCurrencies)
+        public void Init(Dictionary<MetaCurrencyType, int> currencyDataCurrencies)
         {
             MetaCurrencyType[] allCurrencyTypes = (MetaCurrencyType[])Enum.GetValues(typeof(MetaCurrencyType));
 
