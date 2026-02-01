@@ -37,10 +37,8 @@ namespace _Project.Scripts.Gameplay.Units
                 .Select(el => el.GetSpeedModifier())
                 .ToList();
 
-            var unitContext = new UnitContext(unit,
-                _unitSettings.MoveSpeed,
-                moveModifiers
-            );
+            var moveSpeed = new UnitStat(UnitStatType.MoveSpeed, _unitSettings.MoveSpeed, moveModifiers);
+            var unitContext = new UnitContext(unit, moveSpeed);
 
             var unitStateMachine = new UnitStateMachine();
 

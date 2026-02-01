@@ -18,10 +18,10 @@ namespace _Project.Scripts.Gameplay.Units
 
         public int LightAmount { get; set; }
 
-        public UnitContext(Unit unit, float baseSpeed, List<StatModifier> moveModifiers)
+        public UnitContext(Unit unit, UnitStat moveSpeed)
         {
             Unit = unit;
-            MoveSpeed = new UnitStat(UnitStatType.MoveSpeed, baseSpeed, moveModifiers);
+            MoveSpeed = moveSpeed;
             Spec = UnitSpec.Worker;
             Status = UnitStatus.Free;
         }
