@@ -33,10 +33,12 @@ namespace _Project.Scripts.Shaders
 
         [SerializeField] private float _finalShakeAmplitude = 0.015f;
         [SerializeField] private float _finalShakeSpeed = 40f;
+        [SerializeField] private CrackCameraShake _cameraShake;
 
         private float _barrierValue;
         private float _currentRadius;
         private float _targetRadius;
+        private float _lastStepRadius;
         private bool _isEnabled;
 
         private void Awake()
@@ -48,6 +50,7 @@ namespace _Project.Scripts.Shaders
         {
             _currentRadius = 0f;
             _targetRadius = 0f;
+            _lastStepRadius = 0f;
             material.SetFloat(Radius, _currentRadius);
         }
 
@@ -55,16 +58,19 @@ namespace _Project.Scripts.Shaders
         {
             if (!_isEnabled)
                 return;
-            
+
             if (IsNotInDangerThreshold())
             {
-                if (_targetRadius != 0)
+                if (_targetRadius != 0f)
                 {
                     _targetRadius = 0f;
+                    _lastStepRadius = 0f;
                     ApplyRuntimeParams();
                 }
+
                 return;
             }
+
             UpdateTargetRadius();
             SmoothRadius();
             ApplyRuntimeParams();
@@ -103,8 +109,13 @@ namespace _Project.Scripts.Shaders
 
             _targetRadius = Mathf.Round(rawRadius / _step) * _step;
             _targetRadius = Mathf.Clamp(_targetRadius, 0f, _maxRadius);
-        }
 
+            if (_targetRadius > _lastStepRadius)
+            {
+                _cameraShake?.Shake();
+                _lastStepRadius = _targetRadius;
+            }
+        }
 
         private void SmoothRadius()
         {
@@ -126,8 +137,11 @@ namespace _Project.Scripts.Shaders
 
             float noise = (Mathf.PerlinNoise(Time.time * _noiseSpeed, 0f) - 0.5f) * _noiseStrength;
             radius += noise;
-            if (_barrierValue <= _finalShakeThreshold && !IsBarrierDestroyed()) 
+
+            if (_barrierValue <= _finalShakeThreshold && !IsBarrierDestroyed())
+            {
                 radius += Mathf.Sin(Time.time * _finalShakeSpeed) * _finalShakeAmplitude;
+            }
 
             material.SetFloat(Radius, radius);
         }
@@ -137,5 +151,4 @@ namespace _Project.Scripts.Shaders
             return 1f - (1f - t) * (1f - t);
         }
     }
-
 }
