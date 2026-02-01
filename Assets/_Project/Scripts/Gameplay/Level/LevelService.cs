@@ -10,6 +10,9 @@ namespace _Project.Scripts.Gameplay.Level
 {
     public class LevelService : IBuildContainer
     {
+        private const float EdgeOffset = 5;
+        private const float TopEdgeOffset = 10;
+
         [Inject]
         private LevelFactory _levelFactory;
 
@@ -24,7 +27,7 @@ namespace _Project.Scripts.Gameplay.Level
         {
             return _level.InitalLanternSlotPositions;
         }
-        
+
         public List<LanternSlotSpawnPoint> GetAdditionalLanternSlotsPositions()
         {
             return _level.LanternSlotsPositions;
@@ -52,8 +55,8 @@ namespace _Project.Scripts.Gameplay.Level
 
             //check if inside of building bounds
             return new Vector3(
-                Random.Range(bounds.min.x, bounds.max.x),
-                Random.Range(bounds.min.y, bounds.max.y),
+                Random.Range(bounds.min.x + EdgeOffset, bounds.max.x - EdgeOffset),
+                Random.Range(bounds.min.y + EdgeOffset, bounds.max.y - TopEdgeOffset),
                 0);
         }
 
@@ -66,6 +69,7 @@ namespace _Project.Scripts.Gameplay.Level
         {
             return _level.SlotsContainer;
         }
+
         public Transform GetBuildingContainer()
         {
             return _level.BuildingsContainer;
