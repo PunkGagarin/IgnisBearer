@@ -12,22 +12,23 @@ namespace _Project.Scripts.Gameplay.Buildings.Lanterns
         private readonly List<LanternSlot> _lanternSlots = new();
         private readonly List<LanternSlot> _initialLanternSlots = new();
 
-        public void InitSlots(List<LanternSlotSpawnPoint> initBuildingsSpawnPoints,
-            List<LanternSlotSpawnPoint> buildingsSpawnPoints, int startSlotsCount)
+        public void InitSlots(List<LanternSlotSpawnPoint> initSpawnPoints,
+            List<LanternSlotSpawnPoint> additionalSpawnPoints, int startSlotsCount)
         {
-            foreach (var spawnPoint in initBuildingsSpawnPoints)
+            foreach (var spawnPoint in initSpawnPoints)
             {
                 var slot = _factory.CreateSlotAtPosition(spawnPoint);
                 _initialLanternSlots.Add(slot);
             }
 
             int currentSlot = 1;
-            foreach (var spawnPoint in buildingsSpawnPoints)
+            foreach (var spawnPoint in additionalSpawnPoints)
             {
                 if (currentSlot > startSlotsCount)
                     return;
                 var slot = _factory.CreateSlotAtPosition(spawnPoint);
                 RegisterFreeSlot(slot);
+                currentSlot++;
             }
         }
 
