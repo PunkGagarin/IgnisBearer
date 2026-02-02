@@ -1904,7 +1904,6 @@ MonoBehaviour:
   <UiSettings>k__BackingField: {fileID: 11400000, guid: 726a58169434043a6b6072846a71f566, type: 2}
   <VignetteShaderController>k__BackingField: {fileID: 772167651}
   <HouseUnitsCounter>k__BackingField: {fileID: 8793070977288327458}
-  <CrackCameraShake>k__BackingField: {fileID: 0}
 --- !u!1 &1705130821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,6 +2304,14 @@ PrefabInstance:
     - target: {fileID: 2500068355796841363, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
       propertyPath: m_Name
       value: GameplayFxCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5140773944420778474, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
+      propertyPath: _material
+      value: 
+      objectReference: {fileID: 2100000, guid: cf24aee70bab340e79e4c8b910669439, type: 2}
+    - target: {fileID: 5140773944420778474, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
+      propertyPath: _appearThreshold
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6180763732459725150, guid: 1c6b8e4cb13fb41e9b93194c8d391d3a, type: 3}
       propertyPath: m_Camera

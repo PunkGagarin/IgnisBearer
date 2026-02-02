@@ -2,18 +2,10 @@ using UnityEngine;
 
 namespace _Project.Scripts.Shaders
 {
-    public class ChurchCrackController : MonoBehaviour
+    public class ChurchCrackController : BarrierVfxController
     {
         private static readonly int Radius = Shader.PropertyToID("_Radius");
-
-        [Header("Material")] 
-        [SerializeField] private Material material;
-
-        [Header("Barrier")] 
-        [Range(0, 100)]
-        [SerializeField]
-        private float _dangerThreshold = 5f;
-
+        
         [Range(0f, 0.2f)] 
         [SerializeField] private float _maxRadius = 0.2f;
 
@@ -30,33 +22,25 @@ namespace _Project.Scripts.Shaders
         [Header("Final Tension")] 
         [SerializeField]
         private float _finalShakeThreshold = 1f;
-
         [SerializeField] private float _finalShakeAmplitude = 0.015f;
         [SerializeField] private float _finalShakeSpeed = 40f;
         [SerializeField] private CrackCameraShake _cameraShake;
 
-        private float _barrierValue;
         private float _currentRadius;
         private float _targetRadius;
         private float _lastStepRadius;
-        private bool _isEnabled;
 
-        private void Awake()
-        {
-            InitParams();
-        }
-
-        private void InitParams()
+        protected override void InitParams()
         {
             _currentRadius = 0f;
             _targetRadius = 0f;
             _lastStepRadius = 0f;
-            material.SetFloat(Radius, _currentRadius);
+            _material.SetFloat(Radius, _currentRadius);
         }
 
         private void Update()
         {
-            if (!_isEnabled)
+            if (!IsEnabled())
                 return;
 
             if (IsNotInDangerThreshold())
@@ -76,34 +60,19 @@ namespace _Project.Scripts.Shaders
             ApplyRuntimeParams();
         }
 
-        public void SetBarrierValue(float value)
-        {
-            _isEnabled = true;
-            _barrierValue = Mathf.Clamp(value, 0f, 100f);
-        }
-
-        private bool IsBarrierDestroyed()
-        {
-            return _barrierValue <= 0f;
-        }
-
-        private bool IsNotInDangerThreshold()
-        {
-            return _barrierValue >= _dangerThreshold;
-        }
-
         private void UpdateTargetRadius()
         {
-            if (!_isEnabled)
+            if (!IsEnabled())
                 return;
             
             if (IsBarrierDestroyed())
             {
                 _targetRadius = _maxRadius;
+                SetDisabled();
                 return;
             }
 
-            float t = 1f - _barrierValue / _dangerThreshold;
+            float t = 1f - _barrierValue / _appearThreshold;
             float eased = EaseOutQuad(t);
             float rawRadius = eased * _maxRadius;
 
@@ -119,7 +88,7 @@ namespace _Project.Scripts.Shaders
 
         private void SmoothRadius()
         {
-            if (!_isEnabled)
+            if (!IsEnabled())
                 return;
             _currentRadius = Mathf.MoveTowards(
                 _currentRadius,
@@ -128,9 +97,9 @@ namespace _Project.Scripts.Shaders
             );
         }
 
-        private void ApplyRuntimeParams()
+        protected override void ApplyRuntimeParams()
         {
-            if (!_isEnabled || !material)
+            if (!IsEnabled() || !_material)
                 return;
 
             float radius = _currentRadius;
@@ -143,7 +112,7 @@ namespace _Project.Scripts.Shaders
                 radius += Mathf.Sin(Time.time * _finalShakeSpeed) * _finalShakeAmplitude;
             }
 
-            material.SetFloat(Radius, radius);
+            _material.SetFloat(Radius, radius);
         }
 
         private float EaseOutQuad(float t)

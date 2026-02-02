@@ -57,7 +57,7 @@ Material:
     - _Power: 1.53
     - _QueueControl: 1
     - _QueueOffset: 0
-    - _Radius: 0.19628955
+    - _Radius: 0
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
