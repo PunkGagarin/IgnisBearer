@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Gameplay
+﻿namespace _Project.Scripts.Gameplay.Units
 {
     public enum UnitStatType
     {

@@ -330,8 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76ddb0681a741c29641b9a0bcf6852c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Shaders.ChurchCrackController
-  material: {fileID: 2100000, guid: cd9065d1d4c7a4e6a93aca62dceecf86, type: 2}
-  _dangerThreshold: 10.5
+  _material: {fileID: 2100000, guid: cd9065d1d4c7a4e6a93aca62dceecf86, type: 2}
+  _appearThreshold: 10
   _maxRadius: 0.2
   _step: 0.05
   _smoothSpeed: 0.4

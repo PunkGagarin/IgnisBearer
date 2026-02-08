@@ -31,6 +31,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
             Container.BindInterfacesAndSelfTo<ChurchMaxGradeEffector>().AsSingle();
             Container.BindInterfacesAndSelfTo<AddAutoLighterEffector>().AsSingle();
             Container.BindInterfacesAndSelfTo<AddAutoHarvestEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AddBuildingSlotEffector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AddLanternSlotEffector>().AsSingle();
             Container.BindInterfacesAndSelfTo<WorkerMoveSpeedEffector>().AsSingle();
             Container.BindInterfacesAndSelfTo<LanternGenerationSpeedEffector>().AsSingle();
         }

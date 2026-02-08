@@ -22,7 +22,7 @@ namespace _Project.Scripts.Gameplay.Level
         public List<LanternSlotSpawnPoint> LanternSlotsPositions { get; private set; }
         
         [field: SerializeField]
-        public List<BuildingSlotsSpawnPoint> InitalBuildingSlotsPositions { get; private set; }
+        public List<BuildingSlotsSpawnPoint> BuildingSlotsPositions { get; private set; }
         
         [field: SerializeField]
         public BuildingSlotsSpawnPoint ChurchBuildingSlotPosition { get; private set; }
