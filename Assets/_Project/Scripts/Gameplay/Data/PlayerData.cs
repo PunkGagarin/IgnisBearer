@@ -23,12 +23,6 @@ namespace _Project.Scripts.Gameplay.Data
     public class BuildingData
     {
         [field: JsonProperty]
-        public int StartBuildingSlotCount { get; set; }
-
-        [field: JsonProperty]
-        public int StartLanternSlotCount { get; set; }
-
-        [field: JsonProperty]
         public List<BuildingType> PrebuildBuildings { get; set; } = new();
         
         [field: JsonProperty]

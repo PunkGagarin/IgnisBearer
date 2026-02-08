@@ -46,6 +46,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
                 if (ActivatingFirstTime(node.Type))
                     ActivateNode(node);
+                
+                SetBought(node); // todo ask romanio
 
                 if (newLevel == GetMaxNodeLevel(node.Type))
                     SetMaxLevel(node);
@@ -96,6 +98,13 @@ namespace _Project.Scripts.Gameplay.SkillTree
         private void SetMaxLevel(SkillNodeUI node)
         {
             NodeBoughtState boughtState = NodeBoughtState.Maxed;
+            _skillTreeData.SetBoughtState(node.Type, boughtState);
+            node.SetState(boughtState);
+        }
+        
+        private void SetBought(SkillNodeUI node)
+        {
+            NodeBoughtState boughtState = NodeBoughtState.Bought;
             _skillTreeData.SetBoughtState(node.Type, boughtState);
             node.SetState(boughtState);
         }
