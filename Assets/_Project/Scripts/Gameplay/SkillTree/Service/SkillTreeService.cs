@@ -47,12 +47,13 @@ namespace _Project.Scripts.Gameplay.SkillTree
                 if (ActivatingFirstTime(node.Type))
                     ActivateNode(node);
                 
-                SetBought(node); // todo ask romanio
-
                 if (newLevel == GetMaxNodeLevel(node.Type))
-                    SetMaxLevel(node);
+                    SetBoughtState(node, NodeBoughtState.Maxed);
                 else
+                {
+                    SetBoughtState(node, NodeBoughtState.Bought);
                     node.SetPrice(_settings.GetPriceFor(node.Type, newLevel));
+                }
 
                 node.SetNewLevel(newLevel);
                 ActivateNodeEffect(node.Type, newLevel);
@@ -95,18 +96,10 @@ namespace _Project.Scripts.Gameplay.SkillTree
             }
         }
 
-        private void SetMaxLevel(SkillNodeUI node)
+        private void SetBoughtState(SkillNodeUI node, NodeBoughtState nodeBoughtState)
         {
-            NodeBoughtState boughtState = NodeBoughtState.Maxed;
-            _skillTreeData.SetBoughtState(node.Type, boughtState);
-            node.SetState(boughtState);
-        }
-        
-        private void SetBought(SkillNodeUI node)
-        {
-            NodeBoughtState boughtState = NodeBoughtState.Bought;
-            _skillTreeData.SetBoughtState(node.Type, boughtState);
-            node.SetState(boughtState);
+            _skillTreeData.SetBoughtState(node.Type, nodeBoughtState);
+            node.SetState(nodeBoughtState);
         }
 
         private bool ActivatingFirstTime(SkillNodeType type)

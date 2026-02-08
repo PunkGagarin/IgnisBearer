@@ -1095,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5968510773146503780, guid: 721ff886d208f9b4fa5e2d5017275bd3, type: 3}
       propertyPath: <Type>k__BackingField
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6136625533412494833, guid: 721ff886d208f9b4fa5e2d5017275bd3, type: 3}
       propertyPath: m_Name

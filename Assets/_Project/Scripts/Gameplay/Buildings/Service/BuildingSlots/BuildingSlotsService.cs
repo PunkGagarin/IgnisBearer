@@ -38,7 +38,6 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingSlots
 
         private int GetSlotsCountToDisplay()
         {
-            // todo: madgine
             var baseValue = _buildingSlotsSettings.StartSlotsCount;
             var mods = _influencers
                 .Where(el => el.IsPersist())
