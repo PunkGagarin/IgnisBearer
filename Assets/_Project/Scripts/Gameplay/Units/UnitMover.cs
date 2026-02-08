@@ -49,7 +49,7 @@ namespace _Project.Scripts.Gameplay.Units
             var dir = (destination - transform.position).normalized;
             var x = dir.x;
             var y = dir.y;
-            UpdateLightDirection(dir);
+            // UpdateLightDirection(dir);
 
             var task = transform.DOMove(destination, speed)
                 .SetSpeedBased()

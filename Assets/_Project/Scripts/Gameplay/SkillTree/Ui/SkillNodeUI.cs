@@ -44,7 +44,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
         private SkillNodeUI ParentNode { get; set; }
 
         //todo: move to settinsg and get from there
-        private Color ActiveNodeColor { get; set; } = Color.yellow;
+        private Color MaxedNodeColor { get; set; } = Color.yellow;
 
         private Color NodeUnreachableColor { get; set; } = Color.gray;
 
@@ -85,6 +85,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
                 case NodeBoughtState.NotBought:
                     ActivateSelf();
                     break;
+                case NodeBoughtState.None:
+                    break;
             }
         }
         
@@ -107,7 +109,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void SetMaxed()
         {
-            SetNodeActive();
+            Background.color = MaxedNodeColor;
+            ActivateNode();
             HidePrice();
             Debug.Log(" Включаем состояние ноды - замакшена");
         }
@@ -119,7 +122,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         public void SetNodeActive()
         {
-            Background.color = ActiveNodeColor;
+            Background.color = CanBuyNodeColor;
             ActivateNode();
         }
 
