@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Ui;
+using _Project.Scripts.Gameplay.Ui.Tooltips;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,6 +43,9 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         [field: SerializeField]
         private SkillNodeUI ParentNode { get; set; }
+        
+        [field: SerializeField]
+        public TooltipUiData TooltipUiData { get; private set; }
 
         //todo: move to settinsg and get from there
         private Color MaxedNodeColor { get; set; } = Color.yellow;
@@ -51,14 +55,16 @@ namespace _Project.Scripts.Gameplay.SkillTree
         private Color CanBuyNodeColor { get; set; } = Color.white;
 
         private Color NoMoneyNodeColor { get; set; } = Color.red;
-
-
+        
         private SkillNodeState State { get; set; }
-
+        
+        public RectTransform RectTransform { get; private set; }
+        
         public event Action<SkillNodeUI> OnClick = delegate { };
 
         private void Awake()
         {
+            RectTransform = GetComponent<RectTransform>();
             MainButton.onClick.AddListener(OnClickHandle);
         }
 
