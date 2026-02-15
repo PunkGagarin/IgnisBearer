@@ -48,7 +48,10 @@ namespace _Project.Scripts.Gameplay.SkillTree
                     ActivateNode(node);
                 
                 if (newLevel == GetMaxNodeLevel(node.Type))
+                {
                     SetBoughtState(node, NodeBoughtState.Maxed);
+                    node.SetIcon(_settings.GetMaxedIconFor(node.Type));
+                }
                 else
                 {
                     SetBoughtState(node, NodeBoughtState.Bought);
@@ -104,7 +107,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private bool ActivatingFirstTime(SkillNodeType type)
         {
-            return GetBoughtState(type) == NodeBoughtState.NotBought;
+            return GetBoughtState(type) == NodeBoughtState.None;
         }
 
         private int GetMaxNodeLevel(SkillNodeType nodeType)
@@ -142,7 +145,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
             nodeUi.SetState(nodeData.BoughtState);
             nodeUi.SetNewLevel(nodeData.CurrentLevel);
             nodeUi.SetMaxLevel(nodeData.MaxLevel);
-            nodeUi.SetIcon(_settings.GetIconFor(nodeData.Type));
+            nodeUi.SetIcon(_settings.GetDefaultIconFor(nodeData.Type));
+            nodeUi.SetTooltipUiData(_settings.GetTooltipUiDataFor(nodeData.Type));
 
             if (nodeData.BoughtState != NodeBoughtState.Maxed)
             {

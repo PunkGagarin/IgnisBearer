@@ -44,8 +44,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
         [field: SerializeField]
         private SkillNodeUI ParentNode { get; set; }
         
-        [field: SerializeField]
-        public TooltipUiData TooltipUiData { get; private set; }
 
         //todo: move to settinsg and get from there
         private Color MaxedNodeColor { get; set; } = Color.yellow;
@@ -59,6 +57,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
         private SkillNodeState State { get; set; }
         
         public RectTransform RectTransform { get; private set; }
+        public TooltipUiData TooltipUiData { get; private set; }
         
         public event Action<SkillNodeUI> OnClick = delegate { };
 
@@ -189,6 +188,11 @@ namespace _Project.Scripts.Gameplay.SkillTree
         public void SetIcon(Sprite icon)
         {
             Icon.sprite = icon;
+        }
+        
+        public void SetTooltipUiData(TooltipUiData tooltipUiData)
+        {
+            TooltipUiData = tooltipUiData;
         }
 
         public void HidePrice()
