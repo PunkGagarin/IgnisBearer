@@ -17,5 +17,7 @@ MonoBehaviour:
   <CurrencyType>k__BackingField: 1
   <Prices>k__BackingField: 00000000
   <Icon>k__BackingField: {fileID: 21300000, guid: 5c11a44d3b552454ba4970e8e9aea8da, type: 3}
+  <MaxedIcon>k__BackingField: {fileID: 1874980056, guid: 2e2cf682ece3f45f2ad4fba2d352e339, type: 3}
+  <TooltipUiData>k__BackingField: {fileID: 11400000, guid: 68a10a929e1a849e7b4d20d6ca9f41b2, type: 2}
   <Effects>k__BackingField:
   - <MaxGrade>k__BackingField: 3

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Ui;
+using _Project.Scripts.Gameplay.Ui.Tooltips;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.SkillTree
@@ -51,9 +52,19 @@ namespace _Project.Scripts.Gameplay.SkillTree
             return skillNodeSettings;
         }
 
-        public Sprite GetIconFor(SkillNodeType nodeType)
+        public Sprite GetDefaultIconFor(SkillNodeType nodeType)
         {
             return GetSettingsFor(nodeType).Icon;
+        }
+        
+        public Sprite GetMaxedIconFor(SkillNodeType nodeType)
+        {
+            return GetSettingsFor(nodeType).MaxedIcon;
+        }
+
+        public TooltipUiData GetTooltipUiDataFor(SkillNodeType nodeType)
+        {
+            return GetSettingsFor(nodeType).TooltipUiData;
         }
     }
 }

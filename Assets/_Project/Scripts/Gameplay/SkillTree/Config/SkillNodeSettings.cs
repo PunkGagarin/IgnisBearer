@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Ui;
+using _Project.Scripts.Gameplay.Ui.Tooltips;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.SkillTree
@@ -17,6 +18,10 @@ namespace _Project.Scripts.Gameplay.SkillTree
         [field: SerializeField] public List<int> Prices { get; private set; }
 
         [field: SerializeField] public Sprite Icon { get; private set; }
+        
+        [field: SerializeField] public Sprite MaxedIcon { get; private set; }
+        
+        [field: SerializeField] public TooltipUiData TooltipUiData { get; private set; }
 
         protected virtual void OnValidate()
         {

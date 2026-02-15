@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849975a1d7af4563b68bc98164bf2ba7, type: 3}
   m_Name: AddLanternSlotNodeTooltipUiData
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.Tooltips.TooltipUiData
-  <TitleKey>k__BackingField: 23
-  <Level>k__BackingField: 23
-  <LevelDescKey>k__BackingField: 234
-  <DescriptionKey>k__BackingField: 23
-  <Price>k__BackingField: 3423
+  <TitleKey>k__BackingField: 
+  <Level>k__BackingField: 0
+  <LevelDescKey>k__BackingField: 
+  <DescriptionKey>k__BackingField: 
+  <Price>k__BackingField: 0
