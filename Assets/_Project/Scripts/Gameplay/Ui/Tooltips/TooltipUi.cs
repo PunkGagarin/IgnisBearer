@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using _Project.Scripts.Localization;
 using _Project.Scripts.Utils;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -10,7 +11,8 @@ namespace _Project.Scripts.Gameplay.Ui.Tooltips
 {
     public class TooltipUi : ContentUi
     {
-        [Inject] private TooltipController _tooltipController;
+        [Inject] private readonly TooltipController _tooltipController;
+        [Inject] private readonly UiSettings _settings;
         
         [field: SerializeField] private TooltipUiData _uiData;
         [Header("Fields")]
@@ -21,8 +23,21 @@ namespace _Project.Scripts.Gameplay.Ui.Tooltips
         [field: SerializeField] private TextMeshProUGUI _priceCount;
 
         public RectTransform Target { get; private set; }
-        
+        private Vector3 _originalScale;
+        private Tween _tween;
+
         public event Action OnOpened = delegate { };
+
+        private void Awake()
+        {
+            _originalScale = transform.localScale;
+            transform.localScale = Vector3.zero;
+        }
+
+        private void OnDestroy()
+        {
+            _tween?.Kill();
+        }
 
         public void SetData(TooltipUiData uiData, RectTransform target)
         {
@@ -38,12 +53,21 @@ namespace _Project.Scripts.Gameplay.Ui.Tooltips
         {
             _tooltipController.Register(this);
             Show();
+            transform.localScale = _originalScale * _settings.PopupScaleStart;
+
+            _tween?.Kill();
+            _tween = transform.DOScale(_originalScale * _settings.PopupScaleOvershootStart, _settings.PopupOpenDuration)
+                .SetEase(Ease.OutBack)
+                .OnComplete(() => transform.DOScale(_originalScale, _settings.PopupOpenDuration / 2f));
             OnOpened?.Invoke();
         }
 
         public void AnimateAndHide()
         {
-            Hide();
+            _tween?.Kill();
+            _tween = transform.DOScale(Vector3.one * _settings.PopupCloseScale, _settings.PopupCloseDuration)
+                .SetEase(_settings.PopupCloseEase)
+                .OnComplete(Hide);
         }
     }
 }

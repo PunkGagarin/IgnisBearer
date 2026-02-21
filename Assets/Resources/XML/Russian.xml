@@ -48,4 +48,21 @@
   <text key="END_GAME_FAIL_CLOSE">Закрыть</text>
   <text key="END_GAME_FAIL_DESC">Силы зла вырвались на свободу.%%Свет больше не сдерживает их.%%Деревня пала.</text>
   <text key="GRADE_MAX_DESC_KEY">МАКС.</text>
+  <text key="AH_TOOLTIP_TITLE">Автособиратель</text>
+  <text key="AH_TOOLTIP_DESC">Открывает возможность строить Автособиратель</text>
+  <text key="AL_TOOLTIP_TITLE">Автоподжигатель</text>
+  <text key="AL_TOOLTIP_DESC">Открывает возможность строить Автоподжигатель</text>
+  <text key="BS_TOOLTIP_TITLE">Новый слот под здание</text>
+  <text key="BS_TOOLTIP_DESC">Добавляет новый слот для строительства зданий</text>
+  <text key="LS_TOOLTIP_TITLE">Новый слот под фонарь</text>
+  <text key="LS_TOOLTIP_DESC">Добавляет новый слот для строительства фонарей</text>
+  <text key="CG_TOOLTIP_TITLE">Вместимость Дома</text>
+  <text key="CG_TOOLTIP_DESC">Увеличивает вместимость Дома</text>
+  <text key="HC_TOOLTIP_TITLE">Уровень Церкви</text>
+  <text key="HC_TOOLTIP_DESC">Повышает уровень Церкви</text>
+  <text key="LLG_TOOLTIP_TITLE">Скорость генерации единицы Света</text>
+  <text key="LLG_TOOLTIP_DESC">Увеличивает скорость генерации единицы Света</text>
+  <text key="WMS_TOOLTIP_TITLE">Скорость передвижения юнитов</text>
+  <text key="WMS_TOOLTIP_DESC">Увеличивает скорость передвижения юнитов</text>
+  <text key="TOOLTIP_LEVEL_KEY">Уровень</text>
 </Language>

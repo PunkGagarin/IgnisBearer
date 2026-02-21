@@ -16,7 +16,11 @@ namespace _Project.Scripts.Gameplay.SkillTree
         [field: SerializeField]
         public SkillNodeType InitNode { get; set; } = SkillNodeType.HouseCapacity;
 
-
+        [field: SerializeField] public Color MaxedNodeColor { get; set; }
+        [field: SerializeField] public Color NodeUnreachableColor { get; set; }
+        [field: SerializeField] public Color CanBuyNodeColor { get; set; }
+        [field: SerializeField] public Color NoMoneyNodeColor { get; set; } 
+        
         public MetaCurrencyType GetCurrencyTypeFor(SkillNodeType nodeType)
         {
             return GetSettingsFor(nodeType).CurrencyType;
