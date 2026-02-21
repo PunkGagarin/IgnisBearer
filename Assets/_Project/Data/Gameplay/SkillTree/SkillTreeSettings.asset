@@ -22,3 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f5b02e55a9a34af2a53c947c6cbcb02, type: 2}
   - {fileID: 11400000, guid: 873ac813132e94a4bb13b4e610f7f20c, type: 2}
   <InitNode>k__BackingField: 8
+  <MaxedNodeColor>k__BackingField: {r: 1, g: 0.5458693, b: 0, a: 0.105882354}
+  <NodeUnreachableColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <CanBuyNodeColor>k__BackingField: {r: 1, g: 1, b: 1, a: 0}
+  <NoMoneyNodeColor>k__BackingField: {r: 0.8, g: 0, b: 0, a: 0.21176471}

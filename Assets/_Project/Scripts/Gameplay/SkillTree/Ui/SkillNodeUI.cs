@@ -5,12 +5,15 @@ using _Project.Scripts.Gameplay.Ui.Tooltips;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.SkillTree
 {
     public class SkillNodeUI : MonoBehaviour
     {
-
+        [Inject] 
+        private readonly SkillTreeSettings _skillTreeSettings;
+        
         [field: SerializeField]
         private Button MainButton { get; set; }
 
@@ -43,17 +46,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         [field: SerializeField]
         private SkillNodeUI ParentNode { get; set; }
-        
 
-        //todo: move to settinsg and get from there
-        private Color MaxedNodeColor { get; set; } = Color.yellow;
-
-        private Color NodeUnreachableColor { get; set; } = Color.gray;
-
-        private Color CanBuyNodeColor { get; set; } = Color.white;
-
-        private Color NoMoneyNodeColor { get; set; } = Color.red;
-        
         private SkillNodeState State { get; set; }
         
         public RectTransform RectTransform { get; private set; }
@@ -114,7 +107,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void SetMaxed()
         {
-            Background.color = MaxedNodeColor;
+            Background.color = _skillTreeSettings.MaxedNodeColor;
             ActivateNode();
             HidePrice();
             Debug.Log(" Включаем состояние ноды - замакшена");
@@ -127,7 +120,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         public void SetNodeActive()
         {
-            Background.color = CanBuyNodeColor;
+            Background.color = _skillTreeSettings.CanBuyNodeColor;
             ActivateNode();
         }
 
@@ -151,12 +144,12 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void SetNoMoney()
         {
-            Background.color = NoMoneyNodeColor;
+            Background.color = _skillTreeSettings.NoMoneyNodeColor;
         }
 
         private void SetCanBuy()
         {
-            Background.color = CanBuyNodeColor;
+            Background.color = _skillTreeSettings.CanBuyNodeColor;
         }
 
         public void SetNewLevel(int currentLevel)
