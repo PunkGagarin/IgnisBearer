@@ -40,7 +40,7 @@ namespace _Project.Scripts.Gameplay.Level
 
         public List<BuildingSlotsSpawnPoint> GetInitialBuildingsSpawnPoints()
         {
-            return _level.InitalBuildingSlotsPositions;
+            return _level.BuildingSlotsPositions;
         }
 
         public BuildingSlotsSpawnPoint GetChurchBuildingSpawnPoint()

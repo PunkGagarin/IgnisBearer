@@ -46,4 +46,21 @@ END_GAME_FAIL_RESTART,Начать заново,Restart
 END_GAME_FAIL_SKILL_TREE,Древо навыков,Skill tree
 END_GAME_FAIL_CLOSE,Закрыть,Close
 END_GAME_FAIL_DESC,Силы зла вырвались на свободу.%%Свет больше не сдерживает их.%%Деревня пала.,The forces of evil have broken free.%%The light no longer holds them back.%%The village has fallen.
-GRADE_MAX_DESC_KEY,MAX,МАКС.
+GRADE_MAX_DESC_KEY,МАКС.,MAX
+AH_TOOLTIP_TITLE,Автособиратель,Auto collector
+AH_TOOLTIP_DESC,Открывает возможность строить Автособиратель,Unlocks the ability to build an Auto-Assembler
+AL_TOOLTIP_TITLE,Автоподжигатель,Auto-igniter
+AL_TOOLTIP_DESC,Открывает возможность строить Автоподжигатель,Unlocks the ability to build the Auto-Igniter
+BS_TOOLTIP_TITLE,Новый слот под здание,New building slot
+BS_TOOLTIP_DESC,Добавляет новый слот для строительства зданий,Adds a new slot for constructing buildings
+LS_TOOLTIP_TITLE,Новый слот под фонарь,New slot for flashlight
+LS_TOOLTIP_DESC,Добавляет новый слот для строительства фонарей,Adds a new slot for building lanterns
+CG_TOOLTIP_TITLE,Вместимость Дома,House Capacity
+CG_TOOLTIP_DESC,Увеличивает вместимость Дома,Increases the capacity of the House
+HC_TOOLTIP_TITLE,Уровень Церкви,Church Level
+HC_TOOLTIP_DESC,Повышает уровень Церкви,Increases the level of the Church
+LLG_TOOLTIP_TITLE,Скорость генерации единицы Света,The rate of generation of a unit of Light
+LLG_TOOLTIP_DESC,Увеличивает скорость генерации единицы Света,Increases the speed of generating a unit of Light
+WMS_TOOLTIP_TITLE,Скорость передвижения юнитов,Unit movement speed
+WMS_TOOLTIP_DESC,Увеличивает скорость передвижения юнитов,Increases the movement speed of units
+TOOLTIP_LEVEL_KEY,Уровень,Level

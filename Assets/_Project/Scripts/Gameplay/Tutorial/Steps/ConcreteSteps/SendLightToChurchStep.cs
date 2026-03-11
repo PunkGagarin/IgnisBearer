@@ -1,4 +1,5 @@
 ﻿using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.BuildingSlots;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Tutorial

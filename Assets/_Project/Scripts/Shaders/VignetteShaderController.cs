@@ -2,95 +2,71 @@ using UnityEngine;
 
 namespace _Project.Scripts.Shaders
 {
-    public class VignetteShaderController : MonoBehaviour
+    public class VignetteShaderController : BarrierVfxController
     {
         private static readonly int PulseSpeedID = Shader.PropertyToID("_PulseSpeed");
         private static readonly int VignetteIntensityID = Shader.PropertyToID("_VignetteIntensity");
         private static readonly int VignettePowerID = Shader.PropertyToID("_VignettePower");
         private static readonly int ScaleID = Shader.PropertyToID("_Scale");
 
-        [Header("Material")]
-        [SerializeField] private Material material;
+        [Header("Vignette Settings")] [SerializeField]
+        private float vignettePower = 3f;
 
-        [Tooltip("At this value vignette starts appearing")]
-        [Range(0, 100)]
-        [SerializeField] private float dangerThreshold = 30f;
-
-        [Header("Vignette Settings")]
-        [SerializeField] private float vignettePower = 3f;
         [SerializeField] private float maxVignetteIntensity = 1f;
 
-        [Header("Scale")]
-        [SerializeField] private float minScale = 0.5f;
+        [Header("Scale")] [SerializeField] private float minScale = 0.5f;
         [SerializeField] private float maxScale = 1f;
 
-        [Header("Pulse")]
-        [SerializeField] private float pulseSpeed = 1f;
+        [Header("Pulse")] [SerializeField] private float pulseSpeed = 1f;
 
-        [Header("Smooth Settings")]
-        [SerializeField] private float smoothSpeed = 3f;
+        [Header("Smooth Settings")] [SerializeField]
+        private float smoothSpeed = 3f;
 
         private float _currentIntensity;
         private float _targetIntensity;
         private float _currentScale;
         private float _targetScale;
-        private float _barrierValue;
-
-        private void Awake()
-        {
-            InitParams();
-            ApplyStaticParams();
-            ApplyRuntimeParams();
-        }
-
+        
         private void Update()
         {
+            if (!IsEnabled())
+                return;
             UpdateTargetsValues();
             SmoothIntensity();
             SmoothScale();
             ApplyRuntimeParams();
         }
 
-        private void InitParams()
+        protected override void InitParams()
         {
             _currentIntensity = 0f;
             _targetIntensity = 0f;
             _currentScale = minScale;
             _targetScale = minScale;
-        }
-
-        public void SetBarrierValue(float value)
-        {
-            _barrierValue = value;
+            _material.SetFloat(VignetteIntensityID, _currentIntensity);
+            _material.SetFloat(ScaleID, _currentScale);
         }
 
         private void UpdateTargetsValues()
         {
-            if (IsBarrierDestroyed() || IsInDangerThreshold())
+            if (IsBarrierDestroyed() || IsNotInDangerThreshold())
             {
+                SetDisabled();
                 _targetIntensity = 0f;
                 _targetScale = minScale;
+                _material.SetFloat(VignetteIntensityID, _targetIntensity);
+                _material.SetFloat(ScaleID, _targetScale);
                 return;
             }
 
-            var t = 1f - _barrierValue / dangerThreshold;
+            var t = 1f - _barrierValue / _appearThreshold;
             _targetIntensity = Mathf.Clamp01(t) * maxVignetteIntensity;
             _targetScale = Mathf.Lerp(minScale, maxScale, t);
         }
 
-        private bool IsInDangerThreshold()
-        {
-            return _barrierValue > dangerThreshold;
-        }
-
-        private bool IsBarrierDestroyed()
-        {
-            return _barrierValue <= 0f;
-        }
-
         private void SmoothIntensity()
         {
-            if (IsNearTargetIntensity())
+            if (IsNearTargetValue(_currentIntensity, _targetIntensity))
                 return;
             _currentIntensity = Mathf.Lerp(
                 _currentIntensity,
@@ -101,35 +77,25 @@ namespace _Project.Scripts.Shaders
 
         private void SmoothScale()
         {
-            if (IsNearTargetScale())
+            if (IsNearTargetValue(_currentScale, _targetScale))
                 return;
             _currentScale = Mathf.Lerp(_currentScale, _targetScale, Time.deltaTime * smoothSpeed);
         }
 
-        private bool IsNearTargetScale()
+        protected override void ApplyRuntimeParams()
         {
-            return Mathf.Approximately(_currentScale, _targetScale);
+            if (!_material || !IsEnabled()) return;
+
+            _material.SetFloat(VignetteIntensityID, _currentIntensity);
+            _material.SetFloat(ScaleID, _currentScale);
         }
 
-        private bool IsNearTargetIntensity()
+        protected override void ApplyStaticParams()
         {
-            return Mathf.Approximately(_currentIntensity, _targetIntensity);
-        }
+            if (!_material) return;
 
-        private void ApplyRuntimeParams()
-        {
-            if (!material) return;
-
-            material.SetFloat(VignetteIntensityID, _currentIntensity);
-            material.SetFloat(ScaleID, _currentScale);
-        }
-
-        private void ApplyStaticParams()
-        {
-            if (!material) return;
-
-            material.SetFloat(VignettePowerID, vignettePower);
-            material.SetFloat(PulseSpeedID, pulseSpeed);
+            _material.SetFloat(VignettePowerID, vignettePower);
+            _material.SetFloat(PulseSpeedID, pulseSpeed);
         }
 
         private void OnValidate()

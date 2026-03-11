@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Ui;
+using _Project.Scripts.Gameplay.Ui.Tooltips;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace _Project.Scripts.Gameplay.SkillTree
 {
     public class SkillNodeUI : MonoBehaviour
     {
-
+        [Inject] 
+        private readonly SkillTreeSettings _skillTreeSettings;
+        
         [field: SerializeField]
         private Button MainButton { get; set; }
 
@@ -43,23 +48,20 @@ namespace _Project.Scripts.Gameplay.SkillTree
         [field: SerializeField]
         private SkillNodeUI ParentNode { get; set; }
 
-        //todo: move to settinsg and get from there
-        private Color ActiveNodeColor { get; set; } = Color.yellow;
-
-        private Color NodeUnreachableColor { get; set; } = Color.gray;
-
-        private Color CanBuyNodeColor { get; set; } = Color.white;
-
-        private Color NoMoneyNodeColor { get; set; } = Color.red;
-
-
         private SkillNodeState State { get; set; }
+        
+        public RectTransform RectTransform { get; private set; }
+        public TooltipUiData TooltipUiData { get; private set; }
 
+        public UiShake _shake;
+        
         public event Action<SkillNodeUI> OnClick = delegate { };
 
         private void Awake()
         {
+            RectTransform = GetComponent<RectTransform>();
             MainButton.onClick.AddListener(OnClickHandle);
+            _shake = GetComponent<UiShake>();
         }
 
         private void OnDestroy()
@@ -71,7 +73,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
         {
             OnClick.Invoke(this);
         }
-
+        
         public void SetState(NodeBoughtState boughtState)
         {
             switch (boughtState)
@@ -84,6 +86,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
                     break;
                 case NodeBoughtState.NotBought:
                     ActivateSelf();
+                    break;
+                case NodeBoughtState.None:
                     break;
             }
         }
@@ -107,7 +111,9 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void SetMaxed()
         {
-            SetNodeActive();
+            MainButton.interactable = false;
+            Background.color = _skillTreeSettings.MaxedNodeColor;
+            ActivateNode();
             HidePrice();
             Debug.Log(" Включаем состояние ноды - замакшена");
         }
@@ -119,7 +125,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         public void SetNodeActive()
         {
-            Background.color = ActiveNodeColor;
+            Background.color = _skillTreeSettings.CanBuyNodeColor;
             ActivateNode();
         }
 
@@ -143,12 +149,12 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void SetNoMoney()
         {
-            Background.color = NoMoneyNodeColor;
+            Background.color = _skillTreeSettings.NoMoneyNodeColor;
         }
 
         private void SetCanBuy()
         {
-            Background.color = CanBuyNodeColor;
+            Background.color = _skillTreeSettings.CanBuyNodeColor;
         }
 
         public void SetNewLevel(int currentLevel)
@@ -158,7 +164,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         public void StartCantBuyAnimation()
         {
-            Debug.Log(" Здесь должна быть анимация тряски");
+            _shake.ShakeError();
         }
 
         public void SetMaxLevel(int maxLevel)
@@ -180,6 +186,11 @@ namespace _Project.Scripts.Gameplay.SkillTree
         public void SetIcon(Sprite icon)
         {
             Icon.sprite = icon;
+        }
+        
+        public void SetTooltipUiData(TooltipUiData tooltipUiData)
+        {
+            TooltipUiData = tooltipUiData;
         }
 
         public void HidePrice()

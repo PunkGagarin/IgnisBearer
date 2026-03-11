@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.Ui.Utils
 {
@@ -10,6 +11,8 @@ namespace _Project.Scripts.Gameplay.Ui.Utils
         public float minZoom = 0.5f;
         public float maxZoom = 2f;
 
+        public Action<float> OnZoomChanged;
+        
         void Update()
         {
             float scroll = Input.mouseScrollDelta.y;
@@ -20,6 +23,7 @@ namespace _Project.Scripts.Gameplay.Ui.Utils
             scale = Mathf.Clamp(scale, minZoom, maxZoom);
 
             treeContainer.localScale = Vector3.one * scale;
+            OnZoomChanged.Invoke(scale);
         }
     }
 }

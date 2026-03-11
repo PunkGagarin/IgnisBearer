@@ -1,3 +1,4 @@
+using _Project.Scripts.Gameplay.Buildings.BuildingSlots;
 using _Project.Scripts.Gameplay.Ui.UiEffects;
 using UnityEngine;
 using UnityEngine.Serialization;

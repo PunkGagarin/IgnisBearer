@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Buildings;
+using _Project.Scripts.Gameplay.Buildings.BuildingSlots;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.Lanterns;
 using _Project.Scripts.Gameplay.Data;
@@ -66,18 +67,17 @@ namespace _Project.Scripts.Gameplay
 
         private void CreateBuildingSlots()
         {
-            var slotCount = _playerDataService.PlayerData.BuildingData.StartBuildingSlotCount;
-            _buildingSlotsService.InitSlots(_levelService.GetInitialBuildingsSpawnPoints(),
-                _levelService.GetChurchBuildingSpawnPoint(), slotCount);
+            _buildingSlotsService.InitSlots(
+                _levelService.GetInitialBuildingsSpawnPoints(),
+                _levelService.GetChurchBuildingSpawnPoint()
+            );
         }
 
         private void InitLanternSlots()
         {
-            var slotsCount = _playerDataService.PlayerData.BuildingData.StartLanternSlotCount;
             _lanternSlotsService.InitSlots(
                 _levelService.GetInitialLanternSlotsPositions(),
-                _levelService.GetAdditionalLanternSlotsPositions(),
-                slotsCount
+                _levelService.GetAdditionalLanternSlotsPositions()
             );
         }
 

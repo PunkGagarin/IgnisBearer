@@ -1,29 +1,20 @@
-using _Project.Scripts.Gameplay.Ui.UiEffects;
 using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
 {
-    [RequireComponent(typeof(UiPopupDisplayer))]
-    public class PopupClampToScreen : MonoBehaviour
+    public class WorldScreenClamper : MonoBehaviour
     {
         [Inject] private readonly Camera _uiCamera;
 
-        [field: SerializeField] private RectTransform _rectTransform;
-        private UiPopupDisplayer _uiPopupDisplayer;
+        private RectTransform _rectTransform;
 
         private void Awake()
         {
-            _uiPopupDisplayer = GetComponent<UiPopupDisplayer>();
-            _uiPopupDisplayer.OnOpened += ClampToScreen;
+            _rectTransform = GetComponent<RectTransform>();
         }
 
-        private void OnDestroy()
-        {
-            _uiPopupDisplayer.OnOpened -= ClampToScreen;
-        }
-
-        private void ClampToScreen()
+        public void ClampToScreen()
         {
             Vector3[] corners = new Vector3[4];
             _rectTransform.GetWorldCorners(corners);

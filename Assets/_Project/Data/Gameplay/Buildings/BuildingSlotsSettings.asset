@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BuildingSlotsSettings
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.BuildingsSlots.BuildingSlotsSettings
   <Prefab>k__BackingField: {fileID: 7686321052750216919, guid: d7c8e0d9c57db4c39ad43dc2acef5f94, type: 3}
+  <StartSlotsCount>k__BackingField: 3

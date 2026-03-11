@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Gameplay.Ui;
+using _Project.Scripts.Gameplay.Ui.Tooltips;
 using UnityEngine;
 
 namespace _Project.Scripts.Gameplay.SkillTree
@@ -15,7 +16,11 @@ namespace _Project.Scripts.Gameplay.SkillTree
         [field: SerializeField]
         public SkillNodeType InitNode { get; set; } = SkillNodeType.HouseCapacity;
 
-
+        [field: SerializeField] public Color MaxedNodeColor { get; set; }
+        [field: SerializeField] public Color NodeUnreachableColor { get; set; }
+        [field: SerializeField] public Color CanBuyNodeColor { get; set; }
+        [field: SerializeField] public Color NoMoneyNodeColor { get; set; } 
+        
         public MetaCurrencyType GetCurrencyTypeFor(SkillNodeType nodeType)
         {
             return GetSettingsFor(nodeType).CurrencyType;
@@ -27,7 +32,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
             if (currentLevel >= skillNodeSettings.Prices.Count)
             {
-                Debug.LogError(
+                Debug.LogWarning(
                     $" Запрашиваемый левел {currentLevel} больше чем максимальный {skillNodeSettings.Prices.Count}");
                 return skillNodeSettings.Prices[^1];
             }
@@ -51,9 +56,19 @@ namespace _Project.Scripts.Gameplay.SkillTree
             return skillNodeSettings;
         }
 
-        public Sprite GetIconFor(SkillNodeType nodeType)
+        public Sprite GetDefaultIconFor(SkillNodeType nodeType)
         {
             return GetSettingsFor(nodeType).Icon;
+        }
+        
+        public Sprite GetMaxedIconFor(SkillNodeType nodeType)
+        {
+            return GetSettingsFor(nodeType).MaxedIcon;
+        }
+
+        public TooltipUiData GetTooltipUiDataFor(SkillNodeType nodeType)
+        {
+            return GetSettingsFor(nodeType).TooltipUiData;
         }
     }
 }

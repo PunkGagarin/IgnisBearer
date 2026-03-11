@@ -48,4 +48,21 @@
   <text key="END_GAME_FAIL_CLOSE">Close</text>
   <text key="END_GAME_FAIL_DESC">The forces of evil have broken free.%%The light no longer holds them back.%%The village has fallen.</text>
   <text key="GRADE_MAX_DESC_KEY">MAX</text>
+  <text key="AH_TOOLTIP_TITLE">Auto collector</text>
+  <text key="AH_TOOLTIP_DESC">Unlocks the ability to build an Auto-Assembler</text>
+  <text key="AL_TOOLTIP_TITLE">Auto-igniter</text>
+  <text key="AL_TOOLTIP_DESC">Unlocks the ability to build the Auto-Igniter</text>
+  <text key="BS_TOOLTIP_TITLE">New building slot</text>
+  <text key="BS_TOOLTIP_DESC">Adds a new slot for constructing buildings</text>
+  <text key="LS_TOOLTIP_TITLE">New slot for flashlight</text>
+  <text key="LS_TOOLTIP_DESC">Adds a new slot for building lanterns</text>
+  <text key="CG_TOOLTIP_TITLE">House Capacity</text>
+  <text key="CG_TOOLTIP_DESC">Increases the capacity of the House</text>
+  <text key="HC_TOOLTIP_TITLE">Church Level</text>
+  <text key="HC_TOOLTIP_DESC">Increases the level of the Church</text>
+  <text key="LLG_TOOLTIP_TITLE">The rate of generation of a unit of Light</text>
+  <text key="LLG_TOOLTIP_DESC">Increases the speed of generating a unit of Light</text>
+  <text key="WMS_TOOLTIP_TITLE">Unit movement speed</text>
+  <text key="WMS_TOOLTIP_DESC">Increases the movement speed of units</text>
+  <text key="TOOLTIP_LEVEL_KEY">Level</text>
 </Language>

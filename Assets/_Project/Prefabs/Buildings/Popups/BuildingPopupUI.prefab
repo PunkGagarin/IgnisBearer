@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4918422843073781813}
   - component: {fileID: 4721251039645994026}
   - component: {fileID: 3782141531899601805}
-  - component: {fileID: 8223328794633343586}
+  - component: {fileID: 3047031685723992265}
   m_Layer: 5
   m_Name: BuildingPopup
   m_TagString: Untagged
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9f08a06ec04066bd274ed45a9d0f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Ui.UIPopupScaler
---- !u!114 &8223328794633343586
+--- !u!114 &3047031685723992265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,10 +115,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 918773150745665815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce69b8681df844528761edc06f4adf96, type: 3}
+  m_Script: {fileID: 11500000, guid: 74ed03220913498c8aff915c0991d5b1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.PopupClampToScreen
-  _rectTransform: {fileID: 3576652876029172554}
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Gameplay.Buildings.ScreenClamper
 --- !u!1 &2045494832480502851
 GameObject:
   m_ObjectHideFlags: 0

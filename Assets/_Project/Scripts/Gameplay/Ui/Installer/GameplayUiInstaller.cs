@@ -7,27 +7,21 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
 {
     public class GameplayUiInstaller : MonoInstaller
     {
+        [field: SerializeField] public Camera UiCamera { get; private set; }
 
-        [field: SerializeField]
-        public Camera UiCamera { get; private set; }
-        
-        [field: SerializeField]
-        public GameplayUiRoot GameplayUiRoot { get; private set; }
+        [field: SerializeField] public GameplayUiRoot GameplayUiRoot { get; private set; }
 
-        [field: SerializeField]
-        public BarrierUi BarrierUi { get; private set; }
+        [field: SerializeField] public BarrierUi BarrierUi { get; private set; }
 
-        [field: SerializeField]
-        public FateUi FateUi { get; private set; }
+        [field: SerializeField] public FateUi FateUi { get; private set; }
 
-        [field: SerializeField]
-        public GameEndUI GameEndUI { get; private set; }
-        
-        [field: SerializeField]
-        public UiSettings UiSettings { get; private set; }
-        
-        [field: SerializeField]
-        public VignetteShaderController VignetteShaderController { get; private set; }
+        [field: SerializeField] public GameEndUI GameEndUI { get; private set; }
+
+        [field: SerializeField] public UiSettings UiSettings { get; private set; }
+
+        [field: SerializeField] public VignetteShaderController VignetteShaderController { get; private set; }
+
+        [field: SerializeField] public PausePopup PausePopup { get; private set; }
 
         [field: SerializeField]
         public HouseUnitsCounter HouseUnitsCounter { get; private set; }
@@ -53,17 +47,21 @@ namespace _Project.Scripts.Gameplay.Ui.Installer
             Container.BindInterfacesAndSelfTo<GameEndUI>()
                 .FromInstance(GameEndUI)
                 .AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<UiSettings>()
                 .FromInstance(UiSettings)
                 .AsSingle();
-            
+
             Container.BindInterfacesAndSelfTo<VignetteShaderController>()
                 .FromInstance(VignetteShaderController)
                 .AsSingle();
             
             Container.BindInterfacesAndSelfTo<HouseUnitsCounter>()
                 .FromInstance(HouseUnitsCounter)
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<PausePopup>()
+                .FromInstance(PausePopup)
                 .AsSingle();
         }
     }

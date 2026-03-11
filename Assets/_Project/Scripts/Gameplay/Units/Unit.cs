@@ -32,7 +32,7 @@ namespace _Project.Scripts.Gameplay.Units
         public void SetVisualStatus(bool isActive)
         {
             Visual.SetActive(isActive);
-            Light2D.gameObject.SetActive(isActive);
+            // Light2D.gameObject.SetActive(isActive);
         }
     }
 }

@@ -9,5 +9,7 @@
         ChurchMaxGrade = 4,
         AddAutoLighter = 5,
         AddAutoHarvest = 6,
+        AddBuildingSlot = 7,
+        AddLanternSlot = 8,
     }
 }

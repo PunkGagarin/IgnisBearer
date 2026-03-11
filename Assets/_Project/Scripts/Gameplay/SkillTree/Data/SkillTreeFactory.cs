@@ -41,7 +41,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
             SkillTreeNodeData nodeData = new SkillTreeNodeData();
             nodeData.Type = initNodeType;
-            nodeData.BoughtState = NodeBoughtState.NotBought;
+            nodeData.BoughtState = NodeBoughtState.None;
             nodeData.NextNodes = nodeUi.NextNodes.Select(el => el.Type).ToList();
             nodeData.MaxLevel = _settings.GetMaxLevelFor(initNodeType);
             return nodeData;
