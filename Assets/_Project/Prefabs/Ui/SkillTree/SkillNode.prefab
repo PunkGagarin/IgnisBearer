@@ -789,6 +789,7 @@ MonoBehaviour:
   <ArrowsFromHere>k__BackingField: []
   <NextNodes>k__BackingField: []
   <ParentNode>k__BackingField: {fileID: 0}
+  _shake: {fileID: 0}
 --- !u!114 &5154805028683969829
 MonoBehaviour:
   m_ObjectHideFlags: 0

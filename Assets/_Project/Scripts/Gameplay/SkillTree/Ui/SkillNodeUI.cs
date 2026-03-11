@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Gameplay.Ui.Tooltips;
+using _Project.Scripts.Gameplay.Ui.UiEffects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,6 +52,8 @@ namespace _Project.Scripts.Gameplay.SkillTree
         
         public RectTransform RectTransform { get; private set; }
         public TooltipUiData TooltipUiData { get; private set; }
+
+        public UiShake _shake;
         
         public event Action<SkillNodeUI> OnClick = delegate { };
 
@@ -58,6 +61,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
         {
             RectTransform = GetComponent<RectTransform>();
             MainButton.onClick.AddListener(OnClickHandle);
+            _shake = GetComponent<UiShake>();
         }
 
         private void OnDestroy()
@@ -69,7 +73,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
         {
             OnClick.Invoke(this);
         }
-
+        
         public void SetState(NodeBoughtState boughtState)
         {
             switch (boughtState)
@@ -107,6 +111,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         private void SetMaxed()
         {
+            MainButton.interactable = false;
             Background.color = _skillTreeSettings.MaxedNodeColor;
             ActivateNode();
             HidePrice();
@@ -159,7 +164,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
         public void StartCantBuyAnimation()
         {
-            Debug.Log(" Здесь должна быть анимация тряски");
+            _shake.ShakeError();
         }
 
         public void SetMaxLevel(int maxLevel)

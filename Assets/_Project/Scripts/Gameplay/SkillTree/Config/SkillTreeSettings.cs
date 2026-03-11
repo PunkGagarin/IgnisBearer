@@ -32,7 +32,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
             if (currentLevel >= skillNodeSettings.Prices.Count)
             {
-                Debug.LogError(
+                Debug.LogWarning(
                     $" Запрашиваемый левел {currentLevel} больше чем максимальный {skillNodeSettings.Prices.Count}");
                 return skillNodeSettings.Prices[^1];
             }
