@@ -25,6 +25,12 @@ namespace _Project.Scripts.Gameplay.SkillTree
             _ui.OnNodeClicked -= HandleNodeClicked;
         }
 
+        public void Init(SkillTreeData data)
+        {
+            foreach (var nodeData in data.Nodes)
+                InitNodeUi(nodeData);
+        }
+
         private void HandleNodeClicked(SkillNodeUI node)
         {
             var boughtState = GetBoughtState(node.Type);
@@ -85,7 +91,7 @@ namespace _Project.Scripts.Gameplay.SkillTree
 
             foreach (var nextNode in node.NextNodes)
             {
-                var data = _skillTreeData.CreateNewNode(nextNode.Type);
+                var data = _skillTreeData.GetNode(nextNode.Type);
                 InitNodeUi(data);
             }
         }
@@ -135,12 +141,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
         private NodeBoughtState GetBoughtState(SkillNodeType nodeType)
         {
             return _skillTreeData.GetBoughtStateFor(nodeType);
-        }
-
-        public void Init(SkillTreeData data)
-        {
-            foreach (var nodeData in data.Nodes)
-                InitNodeUi(nodeData);
         }
 
         private void InitNodeUi(SkillTreeNodeData nodeData)

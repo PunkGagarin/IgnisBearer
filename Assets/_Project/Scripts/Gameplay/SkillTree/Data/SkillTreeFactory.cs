@@ -21,11 +21,6 @@ namespace _Project.Scripts.Gameplay.SkillTree
                                $"не совпадает с количеством в UI {_ui.SkillNodeUIs.Count}");
             }
 
-            var initNodeType = _settings.InitNode;
-            
-            var node = CreateNode(initNodeType);
-            treeData.Nodes.Add(node);
-
             return treeData;
         }
 

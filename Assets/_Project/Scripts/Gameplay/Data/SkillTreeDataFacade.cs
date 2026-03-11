@@ -34,7 +34,7 @@ namespace _Project.Scripts.Gameplay.Data
             return TreeData.Nodes.FirstOrDefault(el => el.Type == nodeType);
         }
 
-        public SkillTreeNodeData CreateNewNode(SkillNodeType nodeType)
+        private SkillTreeNodeData CreateNewNode(SkillNodeType nodeType)
         {
             var skillTreeNodeData = _factory.CreateNode(nodeType);
             _dataService.PlayerData.SkillTreeData.Nodes.Add(skillTreeNodeData);
