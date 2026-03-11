@@ -1,22 +1,23 @@
 ﻿using _Project.Scripts.Gameplay;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Level;
+using _Project.Scripts.Gameplay.Paragon;
 using _Project.Scripts.Gameplay.Ui;
 using _Project.Scripts.Gameplay.Ui.Tooltips;
 using _Project.Scripts.Infrastructure.GameStates.States;
 using UnityEngine;
 using Zenject;
 
-namespace _Project.Scripts.Infrastructure
-{
-    public class GameplayInstaller : MonoInstaller
-    {
+namespace _Project.Scripts.Infrastructure {
+    public class GameplayInstaller : MonoInstaller {
 
         [field: SerializeField]
         public LevelData LevelData { get; private set; }
 
-        public override void InstallBindings()
-        {
+        [field: SerializeField]
+        public ParagonSettings ParagonSettings { get; private set; }
+
+        public override void InstallBindings() {
             Container.BindInterfacesAndSelfTo<PopupController>().AsSingle();
             Container.BindInterfacesAndSelfTo<TooltipController>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelFactory>().AsSingle();
@@ -24,7 +25,9 @@ namespace _Project.Scripts.Infrastructure
             Container.BindInterfacesAndSelfTo<GameEndService>().AsSingle();
             Container.BindInterfacesAndSelfTo<MetaCurrencyService>().AsSingle();
             Container.BindInterfacesAndSelfTo<StartDataFactory>().AsSingle();
-            
+            Container.BindInterfacesAndSelfTo<ProgressService>().AsSingle();
+
+            Container.Bind<ParagonSettings>().FromInstance(ParagonSettings).AsSingle();
             Container.Bind<LevelData>().FromInstance(LevelData).AsSingle();
 
             Container.BindInterfacesAndSelfTo<GameplayBootstrap>().AsSingle().NonLazy();

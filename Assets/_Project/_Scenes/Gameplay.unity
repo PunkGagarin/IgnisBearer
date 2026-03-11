@@ -1177,6 +1177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Scripts.Infrastructure.GameplayInstaller
   <LevelData>k__BackingField: {fileID: 11400000, guid: 1592e36411e4e2940a302eeef9cfc3c0, type: 2}
+  <ParagonSettings>k__BackingField: {fileID: 11400000, guid: 1de94f919cc2f234a80225766fa34494, type: 2}
 --- !u!4 &1330901761
 Transform:
   m_ObjectHideFlags: 0

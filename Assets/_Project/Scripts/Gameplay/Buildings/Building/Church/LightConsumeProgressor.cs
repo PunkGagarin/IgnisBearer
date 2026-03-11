@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.GD;
+﻿using _Project.Scripts.Gameplay.Paragon;
+using _Project.Scripts.GD;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +13,7 @@ namespace _Project.Scripts.Gameplay.Buildings
         [Inject] private readonly BuildingsService _buildingsService;
         [Inject] private readonly GDSettings _gdSettings;
         [Inject] private readonly FateService _fateService;
+        [Inject] private readonly ProgressService _progressService;
 
         private IResourceStorage _lightStorage;
         private LightConsumer _lightConsumer;
@@ -30,19 +32,13 @@ namespace _Project.Scripts.Gameplay.Buildings
         public void Init()
         {
             _nextProgress = _lightConsumeSettings.GetProgressByIndex(_nextProgressIndex);
-            if (_gdSettings.IsConsumeStartedByDefault)
-            {
-                StartConsumeLight();
-            }
-            else
-            {
-                _lightStorage.OnAmountIncreased += StartConsumeLightHandle;
-                _fateService.OnAmountChanged += StartConsumeLightHandle;
-            }
+            _lightStorage.OnAmountIncreased += StartConsumeLightHandle;
+            _fateService.OnAmountChanged += StartConsumeLightHandle;
         }
 
         private void StartConsumeLightHandle((int amountIncreased, int newAmount, int maxAmount) obj)
         {
+            _progressService.TurnOnProgressing();
             StartConsumeLight();
         }
 
