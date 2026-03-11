@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Zenject;
 
 namespace _Project.Scripts.Gameplay.SkillTree.Effectors
 {
@@ -9,14 +8,16 @@ namespace _Project.Scripts.Gameplay.SkillTree.Effectors
 
         protected override void AddEffect(HouseCapacityEffectSettings effectSettings)
         {
-            Debug.LogError($"House capacity will be increased after impl by: " +
-                           $"{effectSettings?.MaxCapacityIncrease}");
+            //todo
+            Debug.LogWarning($"House capacity will be increased after impl by: " +
+                             $"{effectSettings?.MaxCapacityIncrease}");
         }
 
         protected override void RemoveEffect(HouseCapacityEffectSettings effectSettings)
         {
-            Debug.LogError($"House capacity should be removed before applying new effect by: " +
-                           $"{effectSettings?.MaxCapacityIncrease} ");
+            //todo
+            Debug.LogWarning($"House capacity should be removed before applying new effect by: " +
+                             $"{effectSettings?.MaxCapacityIncrease} ");
         }
     }
 }

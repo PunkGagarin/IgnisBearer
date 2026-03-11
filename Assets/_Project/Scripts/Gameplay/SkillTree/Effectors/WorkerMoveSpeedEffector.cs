@@ -26,7 +26,8 @@ namespace _Project.Scripts.Gameplay.SkillTree.Effectors
         protected override void RemoveEffect(WorkerMoveSpeedNodeEffectSettings effectSettings)
         {
             _workerService.RemoveModFromAllUnits(Source);
-            Debug.LogError($"House capacity should be removed before applying new effect by: " +
+            //todo
+            Debug.LogWarning($"House capacity should be removed before applying new effect by: " +
                            $"{effectSettings?.MoveSpeedMultiplier} ");
         }
 

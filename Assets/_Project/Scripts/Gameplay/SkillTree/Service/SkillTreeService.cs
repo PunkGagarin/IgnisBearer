@@ -29,10 +29,14 @@ namespace _Project.Scripts.Gameplay.SkillTree
         {
             var boughtState = GetBoughtState(node.Type);
             if (boughtState == NodeBoughtState.Maxed)
-                Debug.LogError(
+            {
+                Debug.Log(
                     "Купленная на максимум кнпока не должна быть доступна к покупке! (не должна быть кликабельна)");
+            }
             else
+            {
                 TryBuyNode(node);
+            }
         }
 
         private void TryBuyNode(SkillNodeUI node)

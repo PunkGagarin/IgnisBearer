@@ -10,14 +10,16 @@ namespace _Project.Scripts.Gameplay.SkillTree.Effectors
 
         protected override void AddEffect(LanternGenerationSpeedNodeEffectSettings effectSettings)
         {
-            Debug.LogError($"Lantern gen speed will be increased after impl by: " +
-                           $"{effectSettings?.SpeedMultiplier}");
+            //todo
+            Debug.LogWarning($"Lantern gen speed will be increased after impl by: " +
+                             $"{effectSettings?.SpeedMultiplier}");
         }
 
         protected override void RemoveEffect(LanternGenerationSpeedNodeEffectSettings effectSettings)
         {
-            Debug.LogError($"Lantern gen speed should be removed before applying new effect by: " +
-                           $"{effectSettings?.SpeedMultiplier} ");
+            //todo
+            Debug.LogWarning($"Lantern gen speed should be removed before applying new effect by: " +
+                             $"{effectSettings?.SpeedMultiplier} ");
         }
     }
 }
