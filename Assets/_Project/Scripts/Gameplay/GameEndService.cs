@@ -1,4 +1,5 @@
-﻿using _Project.Scripts.Gameplay.Buildings;
+﻿using System;
+using _Project.Scripts.Gameplay.Buildings;
 using Zenject;
 
 namespace _Project.Scripts
@@ -10,6 +11,7 @@ namespace _Project.Scripts
         [Inject] private readonly BuildingsService _buildingsService;
 
         private IResourceStorage _churchLightStorage;
+        public event Action OnGameEnded = delegate { };
 
 
         public void Init()
@@ -27,6 +29,7 @@ namespace _Project.Scripts
 
         private void EndGame()
         {
+            OnGameEnded.Invoke();
             _gameEndUI.Show();
         }
     }
