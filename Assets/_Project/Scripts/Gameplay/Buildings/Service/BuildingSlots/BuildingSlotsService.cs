@@ -58,9 +58,10 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingSlots
             return _churchSlot;
         }
 
-        public BuildingSlot GetFirstSlot()
+        public bool TryGetFirstSlot(out BuildingSlot slot)
         {
-            return _buildingSlots.First(slot => !slot.IsTaken);
+            slot = _buildingSlots.FirstOrDefault(currentSlot => !currentSlot.IsTaken);
+            return slot != null;
         }
 
         public void EnableButtonForSlots()

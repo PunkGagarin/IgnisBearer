@@ -28,6 +28,11 @@ namespace _Project.Scripts.Gameplay.Buildings
             UpdateUi();
         }
 
+        private void OnDestroy()
+        {
+            _fateService.OnAmountChanged -= OnFateBalanceChanged;
+        }
+
         private void UpdateUi()
         {
             _notification.gameObject.SetActive(_isEnabled && _grade.CanUpdate());

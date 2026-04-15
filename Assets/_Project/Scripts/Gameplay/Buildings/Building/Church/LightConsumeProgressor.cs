@@ -36,6 +36,12 @@ namespace _Project.Scripts.Gameplay.Buildings
             _fateService.OnAmountChanged += StartConsumeLightHandle;
         }
 
+        private void OnDestroy()
+        {
+            _lightStorage.OnAmountIncreased -= StartConsumeLightHandle;
+            _fateService.OnAmountChanged -= StartConsumeLightHandle;
+        }
+
         private void StartConsumeLightHandle((int amountIncreased, int newAmount, int maxAmount) obj)
         {
             _progressService.TurnOnProgressing();

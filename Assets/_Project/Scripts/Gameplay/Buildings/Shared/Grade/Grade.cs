@@ -36,7 +36,11 @@ namespace _Project.Scripts.Gameplay.Buildings
             UpdateUi();
         }
 
-        private void OnDestroy() => _buyLimitedButton.OnBuyClicked -= UpgradeGrade;
+        private void OnDestroy()
+        {
+            _fateService.OnAmountChanged -= OnFateAmountChanged;
+            _buyLimitedButton.OnBuyClicked -= UpgradeGrade;
+        }
 
         public void UpgradeGrade()
         {
