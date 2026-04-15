@@ -37,8 +37,11 @@ namespace _Project.Scripts.Gameplay.Buildings.BuildingsSlots
             _fateService.OnAmountChanged -= OnBalanceChanged;
         }
 
-        private void OnAddBuildingClicked(BuildingType buildingType)
+        private void OnAddBuildingClicked(BuildingType buildingType, double price)
         {
+            if (!_fateService.Spend((int)price))
+                return;
+
             IsTaken = true;
             _buildingsService.AddBuildingTo(buildingType, this);
         }

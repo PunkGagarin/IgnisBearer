@@ -17,5 +17,6 @@ namespace _Project.Scripts.Gameplay.Buildings
         void RemoveWorker(out Unit worker);
         bool CanAddWorker();
         bool HasAnyWorker();
+        bool HasAnyFreeWorker(out Unit unit);
     }
 }

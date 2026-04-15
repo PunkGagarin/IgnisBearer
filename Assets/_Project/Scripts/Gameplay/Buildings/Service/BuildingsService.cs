@@ -5,6 +5,7 @@ using _Project.Scripts.Gameplay.Buildings.BuildingSlots;
 using _Project.Scripts.Gameplay.Buildings.BuildingsSlots;
 using _Project.Scripts.Gameplay.Buildings.FateGenerator;
 using _Project.Scripts.Gameplay.Data;
+using UnityEngine;
 using Zenject;
 
 namespace _Project.Scripts.Gameplay.Buildings
@@ -90,7 +91,13 @@ namespace _Project.Scripts.Gameplay.Buildings
                     InitChurch(_slotsService.GetChurchSlot());
                     break;
                 default:
-                    AddBuildingTo(buildingType, _slotsService.GetFirstSlot());
+                    if (!_slotsService.TryGetFirstSlot(out var slot))
+                    {
+                        Debug.LogError($"No free building slot available for prebuilt {buildingType}");
+                        return;
+                    }
+
+                    AddBuildingTo(buildingType, slot);
                     return;
             }
         }

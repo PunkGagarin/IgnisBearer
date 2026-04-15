@@ -54,14 +54,11 @@ namespace _Project.Scripts.Gameplay.Buildings
         public void RemoveWorker(out Unit worker)
         {
             worker = null;
-            if (HasAnyWorker())
-            {
-                //todo: worker вот тут потенциальная бага: не проверяет
-                //свободен ли юнит а просто снимает его,юнит может не закончить текущее дейтвие
-                worker = CurWorkers.First();
-                CurWorkers.Remove(worker);
-                OnUnitRemoved?.Invoke(worker);
-            }
+            if (!HasAnyFreeWorker(out worker))
+                return;
+
+            CurWorkers.Remove(worker);
+            OnUnitRemoved?.Invoke(worker);
         }
     }
 }

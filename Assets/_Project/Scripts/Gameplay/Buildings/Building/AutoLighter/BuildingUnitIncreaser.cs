@@ -55,6 +55,12 @@ namespace _Project.Scripts.Gameplay.Buildings
         private void OnRemoveClicked()
         {
             _workers.RemoveWorker(out var worker);
+            if (worker == null)
+            {
+                UpdateUi();
+                return;
+            }
+
             _workerService.RegisterUnit(worker);
             UpdateUi();
             OnUnitRemoved(worker);
@@ -85,7 +91,7 @@ namespace _Project.Scripts.Gameplay.Buildings
 
         private bool CanRemoveUnit()
         {
-            return _workers.HasAnyWorker();
+            return _workers.HasAnyFreeWorker(out _);
         }
 
         private bool CanAddUnit()
